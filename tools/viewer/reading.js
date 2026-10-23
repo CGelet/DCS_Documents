@@ -213,6 +213,8 @@
     return false;
   });
   V.on("tab", t => { if (t !== "guide") endWalk(); });
+  V.startWalk = startWalk;
+  V.stepsIn = (a, b) => seq.some(s => s.p >= a && s.p <= b);
 
   /* =====================================================================
      4a. Highlights & notes

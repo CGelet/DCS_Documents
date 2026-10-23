@@ -11,3 +11,6 @@ Thumbs.db
 desktop.ini
 .vscode/
 .idea/
+
+# Local test scripts and screenshots
+.scratch/

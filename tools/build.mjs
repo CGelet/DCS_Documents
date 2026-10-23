@@ -15,6 +15,9 @@ if (!outDir) {
 
 const data = JSON.parse(fs.readFileSync(path.join(outDir, "data.json"), "utf8"));
 const extra = aircraftPath ? JSON.parse(fs.readFileSync(aircraftPath, "utf8")) : {};
+// Optional Weapons Explorer content next to the aircraft file: aircraft/<AC>.weapons.json
+const weaponsPath = aircraftPath && aircraftPath.replace(/\.json$/, ".weapons.json");
+const weapons = weaponsPath && fs.existsSync(weaponsPath) ? JSON.parse(fs.readFileSync(weaponsPath, "utf8")) : { targets: [], weapons: [] };
 
 // Sanity checks: every page must have its SVG, and checklist page refs must exist
 const missing = [];
@@ -25,6 +28,7 @@ if (missing.length) throw new Error(`Missing SVG pages (run svg.mjs first): ${mi
 const refs = [
   ...(extra.checklists || []).flatMap(c => c.groups.flatMap(g => g.items.map(i => i[1]))),
   ...(extra.quickref || []).flatMap(c => c.rows.map(r => r[2])),
+  ...weapons.weapons.flatMap(w => [...w.facts.map(f => f[2]), ...w.steps.map(s => s[1]), ...w.modes.flatMap(m => [m[1], m[2]])]),
 ].filter(p => p != null);
 const badRefs = refs.filter(p => p < 1 || p > data.pageCount);
 if (badRefs.length) throw new Error(`Page references out of range: ${badRefs.join(", ")}`);
@@ -49,12 +53,14 @@ const guide = {
   svgFailed: fs.existsSync(failedFile) ? JSON.parse(fs.readFileSync(failedFile, "utf8")) : [],
   checklists: extra.checklists || [],
   quickref: extra.quickref || [],
+  weapons: weapons.weapons,
+  weaponTargets: weapons.targets,
 };
 
 // Viewer assets: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
 const assets = path.join(outDir, "assets");
 fs.mkdirSync(assets, { recursive: true });
-for (const f of ["viewer.css", "viewer.js", "reading.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
+for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
 fs.cpSync(path.join(here, "viewer", "fonts"), path.join(assets, "fonts"), { recursive: true });
 
 const html = fs.readFileSync(path.join(here, "viewer", "template.html"), "utf8")
@@ -67,4 +73,4 @@ const items = guide.checklists.reduce((n, c) => n + c.groups.reduce((m, g) => m 
 const stepPages = guide.pages.filter(p => p.st).length, linkedPages = guide.pages.filter(p => p.co).length;
 console.log(`built ${outDir}/index.html: ${guide.pageCount} pages, ${guide.outline.length} TOC entries, ` +
   `${stepPages} pages with steps (${linkedPages} with linked callouts), ${guide.glossary.length} acronyms, ${guide.links.length} links, ` +
-  `${guide.checklists.length} checklists (${items} items), ${guide.quickref.length} quick-ref cards`);
+  `${guide.checklists.length} checklists (${items} items), ${guide.quickref.length} quick-ref cards, ${guide.weapons.length} weapons`);

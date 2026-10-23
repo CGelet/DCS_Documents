@@ -336,8 +336,9 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
 @media (max-width: 640px) {
   header { padding: 6px 8px; gap: 6px; }
   .brand { display: none; }
-  .tabs { flex: 1 1 calc(100% - 44px); }
-  .tabs button { flex: 1; padding: 6px 4px; font-size: 14px; }
+  .tabs { flex: 1 1 calc(100% - 44px); overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs button { flex: 0 0 auto; padding: 6px 10px; font-size: 14px; }
   #settings { order: 3; }
   #search { order: 4; flex: 1 1 0; min-width: 80px; }
   #pagebox { order: 5; }
@@ -348,4 +349,54 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
   .settings-pop { right: auto; left: 0; }
   .cards { grid-template-columns: 1fr; }
   .part .bar { width: 60px; }
+}
+
+/* ---------- Weapons Explorer ---------- */
+.grow { flex: 1; }
+.wtabs { margin-left: auto; }
+.wfilters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 14px; }
+.wselect { height: 34px; border-radius: 999px; border: 1px solid var(--border); background: var(--panel); padding: 0 12px; font-size: 14px; max-width: 100%; }
+.wgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+.wcard {
+  text-align: left; background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 14px;
+  display: flex; flex-direction: column; gap: 6px; transition: border-color .15s, transform .15s;
+}
+.wcard:hover { border-color: var(--accent); transform: translateY(-1px); }
+.wcard p { margin: 0; font-size: 14px; color: var(--muted); }
+.wtop { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.wtop b { font-size: 17px; }
+.wfam { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+.wtype { font-size: 13px; color: var(--accent); font-weight: 600; }
+.wbadges { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 4px; }
+.wbadge { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--border); white-space: nowrap; }
+.wbadge.g { border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); }
+.wbadge.ok { color: var(--check); border-color: color-mix(in srgb, var(--check) 50%, var(--border)); }
+.wbadge.warn { color: #e0a030; border-color: color-mix(in srgb, #e0a030 50%, var(--border)); }
+.whead h2 { margin: 6px 0 4px; font-size: 24px; }
+.wsummary { font-size: 16px; line-height: 1.55; margin: 12px 0; }
+.wcallouts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+.wcall { border-radius: 12px; padding: 12px 14px; border: 1px solid var(--border); background: var(--panel); }
+.wcall p { margin: 4px 0 0; }
+.wcall.good { box-shadow: inset 4px 0 var(--check); }
+.wcall.warn { box-shadow: inset 4px 0 #e0a030; }
+.wcols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.wcols .card, .wrap > .card { margin-bottom: 14px; }
+.wsteps { margin: 0; padding: 10px 14px 10px 36px; font-size: 14px; }
+.wsteps li { padding: 5px 0; }
+.wsteps li span { margin-right: 8px; }
+.wmodes .wmode { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.wmodes .wmode:first-child { border-top: 0; }
+.wvideos { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
+.wscroll { overflow-x: auto; }
+.wcompare { min-width: 760px; }
+.wcompare th { text-align: left; padding: 9px 14px; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); background: var(--panel-2); }
+.wcompare td:first-child { width: auto; white-space: nowrap; }
+.wcompare td.yes { color: var(--check); font-weight: 700; text-align: center; }
+.wcompare td.no { color: #e0a030; font-weight: 700; text-align: center; }
+.wcompare td:last-child { width: auto; text-align: left; padding-left: 14px; color: var(--muted); }
+.linkbtn { border: 0; background: none; padding: 0; color: var(--accent); font-weight: 600; text-align: left; }
+.linkbtn:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .wcallouts, .wcols { grid-template-columns: 1fr; }
+  .wtabs { margin-left: 0; }
 }

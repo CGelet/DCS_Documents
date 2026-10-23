@@ -19,7 +19,7 @@
     set(k, v) { try { localStorage.setItem(KEY + k, JSON.stringify(v)); } catch {} },
   };
 
-  const hooks = { decorate: null, textLayer: [], current: [], tab: [], key: [], quickref: [] };
+  const hooks = { decorate: null, textLayer: [], current: [], tab: [], key: [], quickref: [], route: [] };
   // The page tracker runs before startup; keep the URL untouched until the initial route is applied
   const initialHash = location.hash;
   let started = false;
@@ -370,7 +370,7 @@
   $("#scrim").onclick = closeNav;
 
   /* ---------- Tabs ---------- */
-  const TABS = ["guide", "checklists", "quickref", "notes"];
+  const TABS = ["guide", "checklists", "quickref", "weapons", "notes"];
   let activeTab = "guide";
   function showTab(t) {
     activeTab = t;
@@ -473,7 +473,7 @@
     if (hooks.key.some(f => f(e))) return;
     if (e.key === "/") { e.preventDefault(); searchEl.focus(); searchEl.select(); }
     else if (e.key === "Escape") { closeNav(); }
-    else if (e.key >= "1" && e.key <= "4") showTab(TABS[+e.key - 1]);
+    else if (e.key >= "1" && e.key <= String(TABS.length)) showTab(TABS[+e.key - 1]);
     else if (activeTab !== "guide") return;
     else if (e.key === "m" || e.key === "M") toggleMode();
     else if (e.key === "t" || e.key === "T") matchMedia("(max-width: 900px)").matches ? body.classList.toggle("nav-open") : body.classList.toggle("nav-hidden");
@@ -507,7 +507,7 @@
       else if ((m = h.match(/^#cl=(.+)$/)) && cls.some(c => c.id === m[1])) { activeCl = m[1]; renderChecklists(); showTab("checklists"); }
       else if (h === "#quickref" || h === "#qr") showTab("quickref");
       else if (h === "#notes") showTab("notes");
-      else return false;
+      else if (!hooks.route.some(f => f(h))) return false;
       return true;
     }
     addEventListener("hashchange", () => route());

@@ -1,0 +1,713 @@
+{
+  "targets": [
+    ["soft", "Soft vehicles & troops"],
+    ["armor", "Tanks & armor"],
+    ["moving", "Moving vehicles"],
+    ["point", "Buildings, bunkers & fixed targets"],
+    ["sam", "SAM sites & radars"],
+    ["defended", "Heavily defended (stand-off)"],
+    ["ship", "Ships"],
+    ["bvr", "Aircraft beyond visual range"],
+    ["wvr", "Aircraft in a dogfight"]
+  ],
+  "weapons": [
+    {
+      "id": "mk82",
+      "name": "Mk-82",
+      "full": "Mk-82 general-purpose bomb (also Mk-83 / Mk-84)",
+      "family": "ag",
+      "type": "Unguided bomb",
+      "guidance": "Unguided",
+      "needs": [],
+      "ff": true,
+      "targets": ["soft", "point"],
+      "summary": "500 lb low-drag unguided bomb. Simple and cheap; the Mk-83 (1000 lb) and Mk-84 (2000 lb) work the same way. It is also the body used by the GBU-12 laser kit and the GBU-38 JDAM GPS kit.",
+      "bestFor": "Soft or lightly-protected targets when air defences let you get close.",
+      "watchOut": "CCIP means diving at the target (30–45°), which is risky near air defences. CCRP/AUTO lets you stay level but is less precise.",
+      "facts": [
+        ["Weight", "500 lb (Mk-83: 1000 lb, Mk-84: 2000 lb)", 366],
+        ["Delivery modes", "CCIP (dive, impact point shown) or AUTO/CCRP (level, release cue)", 372],
+        ["Fuzing", "MFUZ NOSE · EFUZ INST (or DLY1 for delay)", 374],
+        ["Drag", "FF (low-drag) or RET for the retarded Mk-82SE Snake Eye", 374],
+        ["Example program", "QTY 2 · MULT 1 · INT 500 ft spacing", 375],
+        ["Release", "Hold RALT+SPACE until all programmed bombs are gone", 377]
+      ],
+      "modes": [
+        ["CCIP (dive bombing)", 373, 377],
+        ["CCRP / AUTO (level release)", 378, 383]
+      ],
+      "steps": [
+        ["Master Arm – ARM, Master Mode – A/G", 373],
+        ["SMS page: select 82B, PROG 1", 373],
+        ["MODE – CCIP", 374],
+        ["MFUZ NOSE · EFUZ INST (or DLY1) · DRAG FF or RET", 374],
+        ["UFC: QTY 2 · MULT 1 · INT 500 ft", 375],
+        ["Dive 30–45° and line the target up on the DIL (bomb fall line)", 376],
+        ["Keep the DIL vertical and the CCIP cross on the target", 377],
+        ["Hold weapon release (RALT+SPACE) until all bombs are off", 377],
+        ["Pull up before the velocity vector reaches the PULL UP cue", 377]
+      ],
+      "videos": [
+        ["Mk-82 CCIP & CCRP", "https://youtu.be/JrMDXwaSHzE"]
+      ]
+    },
+    {
+      "id": "rockeye",
+      "name": "Mk-20 Rockeye",
+      "full": "Mk-20 Rockeye cluster bomb",
+      "family": "ag",
+      "type": "Cluster bomb",
+      "guidance": "Unguided",
+      "needs": [],
+      "ff": true,
+      "targets": ["armor", "soft"],
+      "summary": "Unguided 500 lb anti-armour cluster bomb. It bursts at a set height and scatters bomblets over an area, so it forgives aiming errors against groups of vehicles.",
+      "bestFor": "Groups of vehicles or armour spread over an area.",
+      "watchOut": "Still a CCIP dive delivery. The mechanical fuze must be VT (proximity), or the Height-of-Burst option won't appear.",
+      "facts": [
+        ["Type", "Unguided anti-tank cluster bomb (Mk-20 / CBU-99)", 366],
+        ["Fuzing", "MFUZ VT (proximity) unlocks the HT option", 385],
+        ["Height of Burst", "Toggle with HT; Chuck recommends 1500 ft", 385],
+        ["Delivery", "CCIP dive, 30–45°", 387]
+      ],
+      "modes": [
+        ["CCIP release", 384, 389]
+      ],
+      "steps": [
+        ["Master Arm – ARM, Master Mode – A/G", 384],
+        ["SMS page: select RE, PROG 1", 384],
+        ["MODE – CCIP", 385],
+        ["MFUZ – VT, then HT – 1500 ft", 385],
+        ["UFC: QTY 2 · MULT 1 · INT 500 ft", 386],
+        ["Dive 30–45°, target on the DIL", 387],
+        ["CCIP cross on target: hold RALT+SPACE", 388],
+        ["Pull up before the PULL UP cue", 388]
+      ],
+      "videos": []
+    },
+    {
+      "id": "rockets",
+      "name": "Rockets",
+      "full": "2.75 in rockets (LAU-68) and 5 in Zuni",
+      "family": "ag",
+      "type": "Unguided rockets",
+      "guidance": "Unguided",
+      "needs": [],
+      "ff": true,
+      "targets": ["soft"],
+      "summary": "Unguided rockets fired from pods (LAU-68 shows as 68R). Aim with the CCIP reticle, wait for IN RNG and fire.",
+      "bestFor": "Soft targets and light vehicles at short range.",
+      "watchOut": "Short range means getting close. Break off as soon as the Breakaway X appears.",
+      "facts": [
+        ["Types", "2.75 in general-purpose rockets; Zuni Mk-71 5 in rockets", 367],
+        ["Firing mode", "SGL (single) or SAL (salvo)", 390],
+        ["Motor", "Set MTR type (M4 or M66)", 390],
+        ["Cues", "IN RNG to fire, Breakaway X to stop", 391]
+      ],
+      "modes": [
+        ["CCIP rocket run", 390, 391]
+      ],
+      "steps": [
+        ["Master Arm – ARM, Master Mode – A/G", 390],
+        ["SMS page: select 68R (boxed)", 390],
+        ["SGL or SAL, motor type, MODE – CCIP", 390],
+        ["Reticle on the target, wait for IN RNG", 391],
+        ["Fire with RALT+SPACE", 391],
+        ["Break away when the Breakaway X appears", 391]
+      ],
+      "videos": [
+        ["Rockets & gun (A/G)", "https://youtu.be/R1BTgGYij5o"]
+      ]
+    },
+    {
+      "id": "gun",
+      "name": "M61A2 Gun",
+      "full": "M61A2 Vulcan 20 mm rotary cannon",
+      "family": "both",
+      "type": "Gun",
+      "guidance": "Unguided",
+      "needs": [],
+      "ff": true,
+      "targets": ["soft", "wvr"],
+      "summary": "Six-barrel 20 mm Gatling-type cannon with 578 rounds. Air-to-ground it uses a CCIP reticle. Air-to-air you use the funnel, or the radar's gun auto-acquisition mode for a lead-computing SHOOT cue.",
+      "bestFor": "Strafing soft targets, and close-in dogfights when missiles won't work.",
+      "watchOut": "A/A without radar: you judge range by fitting the target's wingspan inside the funnel. A/G: break off at the Breakaway X.",
+      "facts": [
+        ["Ammo", "578 rounds (shows XXX when empty)", 371],
+        ["Rate of fire", "HI 6000 / LO 4000 rounds per minute", 392],
+        ["Rounds", "MK-50 or PGU-28", 392],
+        ["A/A select", "Weapon Select AFT or LSHIFT+X", 576],
+        ["A/A radar mode", "GACQ auto-locks targets inside the dashed circle at 5 nm or less", 578],
+        ["Trigger", "Spacebar", 577]
+      ],
+      "modes": [
+        ["Air-to-ground (CCIP)", 392, 393],
+        ["Air-to-air, funnel (no radar)", 576, 577],
+        ["Air-to-air, radar tracking", 578, 579]
+      ],
+      "steps": [
+        ["Master Arm – ARM; Weapon Select AFT (LSHIFT+X) for A/A", 576],
+        ["SMS: rounds type and HI/LO rate", 576],
+        ["No radar: put the 1000/2000 ft range dot on the target, wingspan filling the funnel", 577],
+        ["With radar: fly the target into the dashed GACQ circle for an auto-lock", 579],
+        ["Pipper on target and SHOOT cue: squeeze the trigger (Spacebar)", 579]
+      ],
+      "videos": [
+        ["Gun (A/A)", "https://youtu.be/jPe4k_Zo0MM"],
+        ["Rockets & gun (A/G)", "https://youtu.be/R1BTgGYij5o"]
+      ]
+    },
+    {
+      "id": "jdam",
+      "name": "GBU-38 JDAM",
+      "full": "GBU-38 JDAM (Joint Direct Attack Munition)",
+      "family": "ag",
+      "type": "GPS-guided bomb",
+      "guidance": "GPS/INS",
+      "needs": ["Target coordinates"],
+      "ff": true,
+      "targets": ["point", "soft"],
+      "summary": "A Mk-82 with a GPS/INS guidance kit (shows as J-82). It flies itself to a set of coordinates, so it never needs to see the target. Each bomb can be programmed separately to hit several targets in one pass.",
+      "bestFor": "Fixed targets with known coordinates, including several targets at once.",
+      "watchOut": "Allow about 3 minutes of alignment first. Coordinates need the target elevation too. TOO mode only stores coordinates for one bomb at a time.",
+      "facts": [
+        ["Accuracy", "About 16 ft (5 m) with good alignment", 395],
+        ["Alignment", "About 3 min: 10 UNSTABLE → 06 MARGINAL → 01 GOOD", 397],
+        ["Pre-Planned (PP)", "Type coordinates in by hand; 5 points per station (PP1–PP5)", 396],
+        ["Target of Opportunity (TOO)", "Uses the current A/G designation (TGP, waypoint, radar)", 409],
+        ["Launch cues", "TMR → IN RNG → IN ZONE (inside the IZLAR)", 406],
+        ["Coordinates", "F10 map in Deg Min Sec.Dec — LALT+Y toggles the format", 395]
+      ],
+      "modes": [
+        ["Pre-Planned (manual coordinates)", 396, 408],
+        ["TOO + targeting pod", 409, 419]
+      ],
+      "steps": [
+        ["SMS: select J-82 (ideally on the ground), wait about 3 min for 01 GOOD", 410],
+        ["Release mode TOO, EFUZ INST, JDAM DSPLY → MAN, QTY and station", 410],
+        ["MSN page → TOO1", 410],
+        ["Targeting pod: FLIR STBY, wait about 2 min, then ON", 411],
+        ["Undesignate ×2 for VVSLV, ×2 again for Snowplow", 411],
+        ["Slew onto the target, TDC Depress: the coordinates go to the JDAM", 412],
+        ["Master Arm – ARM, A/G; fly the steering cue to the target diamond", 414],
+        ["Wait for IN RNG, then IN ZONE", 417],
+        ["Hold weapon release (RALT+SPACE)", 418]
+      ],
+      "videos": [
+        ["JDAM pre-planned", "https://youtu.be/UZ4uoT0sPK4"],
+        ["JDAM TOO + targeting pod", "https://youtu.be/HWdnLlyeEBs"]
+      ]
+    },
+    {
+      "id": "jsow",
+      "name": "AGM-154 JSOW",
+      "full": "AGM-154A/C JSOW (Joint Standoff Weapon)",
+      "family": "ag",
+      "type": "GPS-guided glide bomb",
+      "guidance": "GPS/INS",
+      "needs": ["Target coordinates"],
+      "ff": true,
+      "targets": ["soft", "defended"],
+      "summary": "Same GPS/INS guidance as the JDAM, but with wings: it glides much farther, so you can release well outside the defences. The AGM-154A (JSA) is a cluster weapon with an adjustable burst height; the AGM-154C (JSC) has no burst height setting.",
+      "bestFor": "Stand-off attacks on area targets without flying over the defences.",
+      "watchOut": "After a JSOW leaves, the next one is still aimed at the same designation. Designate the next waypoint before releasing again.",
+      "facts": [
+        ["Range", "Significantly longer than a JDAM (it glides)", 420],
+        ["Alignment", "About 3 min, like the JDAM", 422],
+        ["Burst height (A only)", "TOO UFC → HT; higher HT = bigger radius (e.g. 100 ft)", 424],
+        ["Targeting", "Waypoint Designate (WPDSG) on the HSI is the simplest method", 426],
+        ["Check first", "HSI DATA: verify waypoint coordinates and elevation; PRECISE adds digits", 421]
+      ],
+      "modes": [
+        ["TOO + waypoint designate", 421, 431]
+      ],
+      "steps": [
+        ["HSI → DATA: check the target waypoint's coordinates and elevation", 421],
+        ["SMS: select JSA, wait about 3 min for alignment", 422],
+        ["TOO, EFUZ INST, JSOW DSPLY → MAN, QTY and stations", 423],
+        ["MSN → TOO1 → TOO UFC → HT (e.g. 100 ft)", 424],
+        ["Master Arm – ARM, A/G; HSI on one DDI, JSOW page on the other", 426],
+        ["HSI: select the target waypoint, press WPDSG", 426],
+        ["Steer to the diamond until IN RNG", 429],
+        ["Hold weapon release (RALT+SPACE)", 429],
+        ["Designate the next waypoint before the next release", 430]
+      ],
+      "videos": [
+        ["JSOW TOO", "https://youtu.be/YAhISGnrjtk"]
+      ]
+    },
+    {
+      "id": "gbu12",
+      "name": "GBU-12 Paveway II",
+      "full": "GBU-12 Paveway II laser-guided bomb",
+      "family": "ag",
+      "type": "Laser-guided bomb",
+      "guidance": "Laser",
+      "needs": ["Targeting pod (or a buddy/JTAC laser)"],
+      "ff": false,
+      "targets": ["point"],
+      "summary": "A laser-guided Mk-82. It follows reflected laser energy with a specific code, so the bomb, the targeting pod and the SMS all have to agree on the same code.",
+      "bestFor": "Precise hits on fixed or slow targets you can see with the targeting pod.",
+      "watchOut": "The laser must stay on the target until impact. The bomb's code is set by the ground crew (default 1688). After the target dies the laser goes back to SAFE and must be re-armed.",
+      "facts": [
+        ["Default laser code", "1688", 433],
+        ["Setting the code", "Ground crew menu, engines off", 433],
+        ["Codes that must match", "Bomb code = TGP LTDC code = SMS CODE", 436],
+        ["Release", "CCIP or AUTO (the guide uses AUTO)", 434],
+        ["Fuzing", "MFUZ OFF · EFUZ INST or DLY1", 434],
+        ["Auto-lasing", "TRIG unboxed: the laser fires automatically before impact", 438]
+      ],
+      "modes": [
+        ["Laser-guided AUTO release", 432, 439]
+      ],
+      "steps": [
+        ["Ground crew: confirm the GBU-12 laser code (default 1688)", 433],
+        ["Master Arm – ARM, A/G; SMS → 82LG, PROG 1, MODE AUTO", 434],
+        ["MFUZ OFF · EFUZ INST (or DLY1)", 434],
+        ["Targeting pod on; designate the target", 435],
+        ["TGP UFC → LTDC: set the same code (1688)", 436],
+        ["SMS → CODE: set the bomb's code (1688)", 436],
+        ["Fly level along the ASL, release at the cue (hold RALT+SPACE)", 437],
+        ["Keep the laser on target until impact (auto-lase with TRIG off)", 438]
+      ],
+      "videos": [
+        ["GBU-12", "https://youtu.be/urGAhuxmaEk"]
+      ]
+    },
+    {
+      "id": "mavf",
+      "name": "AGM-65F/G Maverick (IR)",
+      "full": "AGM-65F/G Maverick, imaging infrared (MAVF)",
+      "family": "ag",
+      "type": "IR-guided missile",
+      "guidance": "Imaging IR",
+      "needs": [],
+      "ff": true,
+      "targets": ["armor", "moving", "soft"],
+      "summary": "Missile with an imaging infrared seeker, usable at night and in bad weather. Lock a contrasting target with the seeker, fire, and it guides itself.",
+      "bestFor": "Vehicles and armour, including moving ones; works at night.",
+      "watchOut": "The seeker must be cooled for about 3 minutes, and cooling only starts once you're airborne. At the gimbal limits the seeker cages itself.",
+      "facts": [
+        ["Cooling", "About 3 min; starts when MAVF is selected in the air", 440],
+        ["Typical lock range", "About 7.5 miles", 442],
+        ["Fuzing", "INST, DLY1 or DLY2", 441],
+        ["Easiest lock", "Slave it to the targeting pod or the GMT radar track", 447],
+        ["Gimbal limit", "The seeker cages itself at its limits", 443]
+      ],
+      "modes": [
+        ["Seeker only", 440, 443],
+        ["Slaved to the targeting pod", 444, 448],
+        ["Slaved to radar GMT (moving targets)", 449, 454]
+      ],
+      "steps": [
+        ["Airborne: SMS → select MAVF, wait about 3 min for cooling", 440],
+        ["Show the MAVF feed, Sensor Control toward it", 441],
+        ["Fuze INST / DLY1 / DLY2", 441],
+        ["Uncage (Cage/Uncage button)", 442],
+        ["Hold TDC Depress, slew onto the target, release to lock", 442],
+        ["Locked (MAVF no longer crossed out): fire with RALT+SPACE", 442]
+      ],
+      "videos": [
+        ["IR Maverick", "https://youtu.be/cqIHsxfXsVM"]
+      ]
+    },
+    {
+      "id": "mave",
+      "name": "AGM-65E Maverick (Laser)",
+      "full": "AGM-65E Maverick, laser-guided (MAV)",
+      "family": "ag",
+      "type": "Laser-guided missile",
+      "guidance": "Laser",
+      "needs": ["Targeting pod (or a buddy/JTAC laser)"],
+      "ff": false,
+      "targets": ["point", "armor"],
+      "summary": "Laser-homing Maverick with a heavier penetrating blast-fragmentation warhead, optimised for fortified installations. Unlike the GBU-12, its laser code can be set from the cockpit.",
+      "bestFor": "Hardened or fortified targets, and targets lased by a JTAC or wingman.",
+      "watchOut": "Its code must match the laser that is guiding it, and the laser must stay on until impact.",
+      "facts": [
+        ["Warhead", "Heavier penetrating blast-fragmentation", 368],
+        ["Self-test", "About 30 seconds", 455],
+        ["Laser code", "Set in the cockpit: MAV DSPLY → UFC → CODE (example 1456)", 456],
+        ["Range cue", "TTMR counts down to in range, then IN RNG", 459],
+        ["Other people's lasers", "Uncage to search; MAV LKD = locked on a laser", 463]
+      ],
+      "modes": [
+        ["Laser Maverick + own targeting pod", 455, 463]
+      ],
+      "steps": [
+        ["Airborne, Master Arm – ARM, A/G; SMS → MAV (wait about 30 s)", 455],
+        ["MAV DSPLY → UFC → CODE (e.g. 1456)", 456],
+        ["Targeting pod on; designate the target", 457],
+        ["TGP UFC → LTDC: the same code (1456); TRIG unboxed for auto-lase", 458],
+        ["Sensor Control to the MAV page, uncage", 460],
+        ["At IN RNG, hold RALT+SPACE; the laser fires automatically", 461]
+      ],
+      "videos": [
+        ["Laser Maverick", "https://youtu.be/uW7EO1VlGdw"]
+      ]
+    },
+    {
+      "id": "harm",
+      "name": "AGM-88C HARM",
+      "full": "AGM-88C HARM (High-speed Anti-Radiation Missile)",
+      "family": "ag",
+      "type": "Anti-radiation missile",
+      "guidance": "Anti-radiation",
+      "needs": ["An emitting radar"],
+      "ff": true,
+      "targets": ["sam", "defended"],
+      "summary": "Homes on the radio emissions of radars, which makes it the main weapon for SEAD (suppression of enemy air defences). Pick an emitter on the HARM display or RWR and fire; no range information is given.",
+      "bestFor": "SAM and other radar sites.",
+      "watchOut": "Altitude extends the range a lot, but it also makes you easier to see. Keep countermeasures ready and break away after firing.",
+      "facts": [
+        ["Range", "Up to 80 nm; much better from high altitude (30,000 ft+)", 468],
+        ["TOO mode", "Select an emitter (RAID/FLIR FOV, I), uncage to hand off", 468],
+        ["SP mode", "Self-protect: quick shots, 360° but costs energy", 471],
+        ["Pullback", "Unbox HRM OVRD: a HARM is readied automatically against a critical threat", 473],
+        ["PB mode", "Pre-briefed: designate the expected location + threat code (e.g. 117 = SA-8)", 478],
+        ["No ranging", "The HARM gives no range to target in TOO/SP", 474]
+      ],
+      "modes": [
+        ["TOO (target of opportunity)", 466, 469],
+        ["SP (self-protect) + Pullback", 470, 475],
+        ["PB (pre-briefed, lofted)", 476, 485]
+      ],
+      "steps": [
+        ["Master Arm – ARM, A/G; EW page right DDI, SMS left", 466],
+        ["SMS → HARM, mode TOO", 466],
+        ["Sensor Control to the HARM page", 466],
+        ["Pick the emitter with RAID/FLIR FOV (I)", 468],
+        ["Turn to centre it, uncage → H-OFF (handoff)", 468],
+        ["Fire (RALT+SPACE), then break away", 469]
+      ],
+      "videos": [
+        ["HARM TOO", "https://youtu.be/2yS4eKuVjVw"],
+        ["HARM SP", "https://youtu.be/bf6EH9gRxlw"]
+      ]
+    },
+    {
+      "id": "harpoon",
+      "name": "AGM-84D Harpoon",
+      "full": "AGM-84D Harpoon anti-ship missile",
+      "family": "ag",
+      "type": "Anti-ship missile",
+      "guidance": "Programmed + own seeker",
+      "needs": [],
+      "ff": true,
+      "targets": ["ship", "defended"],
+      "summary": "All-weather, over-the-horizon anti-ship missile. Fly it out on a bearing (BOL), or at a designated point (R/BL), and it searches for a ship when it gets there.",
+      "bestFor": "Ships, from far away.",
+      "watchOut": "Launch above 2500 ft and level; negative G can bring the missile into the aircraft. A brief radar altimeter warning after launch is normal.",
+      "facts": [
+        ["Alignment", "About 25 seconds", 487],
+        ["BOL", "Bearing-only: search distance (0–105 nm), self-destruct distance, bearing", 486],
+        ["R/BL", "Range & bearing to a designated point (WPDSG, TGP or SEA radar)", 493],
+        ["Fly-out", "FLT LOW / MED / HIGH", 488],
+        ["Terminal", "SKIM (sea-skimming) or POP (pop-up, hits from above)", 488],
+        ["Launch limits", "Above 2500 ft, level, no negative G", 490]
+      ],
+      "modes": [
+        ["BOL (bearing-only)", 486, 492],
+        ["R/BL – waypoint designate", 493, 500],
+        ["R/BL – SEA radar", 501, 506]
+      ],
+      "steps": [
+        ["Master Arm – ARM, A/G; SMS → HPD (about 25 s alignment)", 487],
+        ["UFC: SRCH (search distance), destruct distance, bearing", 487],
+        ["FLT LOW/MED/HIGH, TERM SKIM or POP", 488],
+        ["Optional: HPTP turnpoint or FXP fixpoint", 489],
+        ["Check IN ZONE, above 2500 ft, level", 490],
+        ["Hold RALT+SPACE to launch", 490]
+      ],
+      "videos": [
+        ["Harpoon BOL", "https://youtu.be/xoJLCxEzexk"],
+        ["Harpoon R/BL", "https://youtu.be/oDBPUkm2NYY"]
+      ]
+    },
+    {
+      "id": "slam",
+      "name": "AGM-84E SLAM",
+      "full": "AGM-84E SLAM (Standoff Land Attack Missile)",
+      "family": "ag",
+      "type": "Cruise missile (man-in-the-loop)",
+      "guidance": "GPS/INS + TV datalink",
+      "needs": ["AWW-13 datalink pod", "Target designation"],
+      "ff": false,
+      "targets": ["point", "defended", "ship"],
+      "summary": "Subsonic, over-the-horizon cruise missile built from the Harpoon, adding GPS, a Walleye-style TV seeker and a datalink. It flies out on its own; near the target you watch its video and steer it in.",
+      "bestFor": "High-value fixed targets deep in defended areas; ships in TOO mode.",
+      "watchOut": "Needs the AWW-13 datalink pod. Pick a sensible DIST (when the seeker activates), and don't fly in the same direction as the missile.",
+      "facts": [
+        ["Datalink pod", "AWW-13 (DL13) required to control it", 509],
+        ["Alignment", "About 3 min", 510],
+        ["Fly-out altitude", "HIGH 35,000 · MED 15,000 · LOW 5,000 ft", 512],
+        ["DIST", "Distance from target when the seeker goes active (e.g. 15 nm)", 513],
+        ["Targets", "TOO1–TOO2 or PP1–PP5 per station", 514],
+        ["Profile", "Cruise → low-altitude penetration → terminal attack", 508],
+        ["Steering", "Hold TDC Depress and slew the crosshair onto the target", 539]
+      ],
+      "modes": [
+        ["Weapon setup", 510, 513],
+        ["Designate: TOO / waypoint", 514, 516],
+        ["Designate: TOO / targeting pod", 517, 520],
+        ["Designate: TOO / A/G radar", 521, 527],
+        ["Designate: pre-planned", 528, 533],
+        ["Launch & control", 534, 540]
+      ],
+      "steps": [
+        ["Master Arm – ARM, A/G; SMS → SLAM, DL13 on (about 3 min alignment)", 510],
+        ["WEP: pair the datalink pod with the SLAM station", 511],
+        ["FLT MED, EFUZ INST, SLAM DSPLY → REL TYPE MAN", 512],
+        ["UFC → DIST 15 nm", 513],
+        ["MODE TOO → MSN → TOO1; designate the target (e.g. WPDSG)", 514],
+        ["Fly to IN RNG, hold RALT+SPACE", 535],
+        ["When TTS reaches 0 the video goes live; wait for the terminal dive", 538],
+        ["Hold TDC Depress, slew the crosshair onto the target, release", 539]
+      ],
+      "videos": [
+        ["SLAM", "https://youtu.be/3euT1EKqz2c"]
+      ]
+    },
+    {
+      "id": "slamer",
+      "name": "AGM-84H SLAM-ER",
+      "full": "AGM-84H SLAM-ER (Expanded Response)",
+      "family": "ag",
+      "type": "Cruise missile (man-in-the-loop)",
+      "guidance": "GPS/INS + IR datalink",
+      "needs": ["AWW-13 datalink pod", "Target designation"],
+      "ff": false,
+      "targets": ["point", "defended", "ship", "moving"],
+      "summary": "The longer-range SLAM: about 150 nm, and it can fly through intermediate steerpoints. Fire-and-forget at coordinates, or steer its infrared seeker yourself, which also allows moving targets.",
+      "bestFor": "Very long stand-off strikes, routed around defences.",
+      "watchOut": "Long flight times — the guide suggests the autopilot while you wait. Slewing the X freezes the video until you release TDC Depress.",
+      "facts": [
+        ["Range", "About 150 nm", 541],
+        ["Steerpoints", "Up to 5 intermediate steerpoints (STP)", 551],
+        ["Man-in-the-loop", "Lets you attack a moving target", 541],
+        ["Feed", "TAC → DL13 DSPY", 555],
+        ["Steering", "Slew the X with TDC Depress held (video freezes while slewing)", 559]
+      ],
+      "modes": [
+        ["Weapon setup", 544, 547],
+        ["Designate: TOO / waypoint + steerpoints", 548, 552],
+        ["Launch & control", 553, 560]
+      ],
+      "steps": [
+        ["SMS → SLMR, DL13 on (about 3 min alignment); WEP pairing", 544],
+        ["FLT, EFUZ INST, SLMR DSPLY → MAN, DIST 15 nm", 546],
+        ["TOO1 ← WPDSG on the target waypoint", 549],
+        ["STP: assign intermediate steerpoints (waypoints)", 551],
+        ["Fly to IN RNG, launch; consider autopilot", 556],
+        ["TTS = 0: the seeker is live; slew the X onto the target in the terminal dive", 559]
+      ],
+      "videos": [
+        ["SLAM-ER", "https://youtu.be/MPBM8XHFWW8"]
+      ]
+    },
+    {
+      "id": "walleye",
+      "name": "AGM-62 Walleye II",
+      "full": "AGM-62 Walleye II ER/DL TV-guided glide bomb",
+      "family": "ag",
+      "type": "TV-guided glide bomb",
+      "guidance": "TV",
+      "needs": ["AWW-13 datalink pod (only to steer it)"],
+      "ff": true,
+      "targets": ["point", "defended"],
+      "summary": "2000 lb TV-guided glide bomb. Without a pod it's fire-and-forget like an IR Maverick; with the AWW-13 datalink pod you can steer it all the way by its video.",
+      "bestFor": "Large fixed targets from a few miles out, in daylight.",
+      "watchOut": "Only on stations 2 and 8. When steering it, stay high and fast (20,000 ft+) and don't over-control — it's heavy and loses energy fast.",
+      "facts": [
+        ["Weight", "2000 lb (ER/DL = Extended Range / Datalink)", 366],
+        ["Stations", "2 and 8 only", 561],
+        ["Range", "Usable from 20 nm; good lock usually inside 10 miles", 563],
+        ["With datalink pod", "No lock needed to launch (but recommended)", 568],
+        ["Energy", "Launch at 20,000 ft+ with good speed when remote-steering", 568]
+      ],
+      "modes": [
+        ["No datalink pod (fire & forget)", 561, 564],
+        ["With datalink pod (steered)", 565, 571]
+      ],
+      "steps": [
+        ["Master Arm – ARM, A/G; SMS → WEDL, then WEDL again for the feed", 561],
+        ["Fuze INST or DLY; Sensor Control to the feed", 562],
+        ["Uncage, hold TDC Depress and slew onto the target, release to lock", 563],
+        ["Locked (WE no longer crossed out): hold RALT+SPACE", 563]
+      ],
+      "videos": [
+        ["Walleye (RedKite)", "https://youtu.be/NsySaTNvprE"]
+      ]
+    },
+    {
+      "id": "tald",
+      "name": "ADM-141A TALD",
+      "full": "ADM-141A TALD (Tactical Air-Launched Decoy)",
+      "family": "ag",
+      "type": "Decoy",
+      "guidance": "None (glides)",
+      "needs": [],
+      "ff": true,
+      "targets": ["sam", "defended"],
+      "summary": "A gliding decoy that looks like an aircraft to enemy radars. SAM sites fire at it and reveal themselves — the perfect moment for your HARMs.",
+      "bestFor": "Saturating air defences and making SAMs turn on, as part of a SEAD package.",
+      "watchOut": "It does no damage on its own; pair it with HARMs.",
+      "facts": [
+        ["Stations", "2, 3, 7 and 8 on BRU-42 racks, up to 3 per rack", 573],
+        ["SMS name", "82P", 573],
+        ["Tactic", "SAMs fire at the TALDs, revealing their positions for HARMs", 575]
+      ],
+      "modes": [
+        ["Launching TALDs", 572, 575]
+      ],
+      "steps": [
+        ["Master Arm – ARM, A/G", 573],
+        ["SMS → 82P, STEP between stations", 573],
+        ["Press RALT+SPACE to launch; it glides as far as it can", 574],
+        ["Hunt the SAMs that reveal themselves with HARMs", 575]
+      ],
+      "videos": []
+    },
+    {
+      "id": "aim9m",
+      "name": "AIM-9M Sidewinder",
+      "full": "AIM-9M Sidewinder infrared missile",
+      "family": "aa",
+      "type": "Short-range IR missile",
+      "guidance": "Infrared",
+      "needs": [],
+      "ff": true,
+      "targets": ["wvr"],
+      "summary": "Heat-seeking dogfight missile. Uncage it, put the target in the seeker circle and listen: a low growl means searching, a high-pitched tone means locked.",
+      "bestFor": "Close-range fights within visual range.",
+      "watchOut": "Cool the seeker first (IR COOL – NORM). With a radar lock, fire slightly inside RNE (no-escape range) for the best chance.",
+      "facts": [
+        ["Seeker cooling", "IR COOL – NORM; coolant lasts about 3 hours", 580],
+        ["Select", "Weapon Select DOWN or LSHIFT+S", 580],
+        ["Uncage", "Cage/Uncage (C)", 580],
+        ["Tones", "Low growl = searching · high pitch = locked", 581],
+        ["With radar", "ACM modes BST / VACQ / WACQ auto-lock within 5 nm", 583],
+        ["Shot ranges", "RMIN · RNE (no escape) · RMAX · RAERO", 584]
+      ],
+      "modes": [
+        ["No radar (seeker only)", 580, 581],
+        ["With radar (ACM)", 582, 584]
+      ],
+      "steps": [
+        ["IR COOL – NORM", 580],
+        ["Master Arm – ARM; Weapon Select DOWN (LSHIFT+S)", 580],
+        ["Uncage with C; listen for the growl", 580],
+        ["Put the target in the seeker circle until the high-pitched tone", 581],
+        ["Squeeze the trigger (Spacebar)", 581]
+      ],
+      "videos": [
+        ["AIM-9M", "https://youtu.be/em9Kr31nPJE"]
+      ]
+    },
+    {
+      "id": "aim9x",
+      "name": "AIM-9X Sidewinder",
+      "full": "AIM-9X Sidewinder with JHMCS",
+      "family": "aa",
+      "type": "Short-range IR missile (high off-boresight)",
+      "guidance": "Infrared",
+      "needs": ["JHMCS helmet (for off-boresight shots)"],
+      "ff": true,
+      "targets": ["wvr"],
+      "summary": "An upgraded Sidewinder with thrust vectoring: with the JHMCS helmet you can look at a target up to 80° off the nose and shoot it.",
+      "bestFor": "Dogfights where the target is way off your nose.",
+      "watchOut": "Learn the tones: static = searching, steady tone = sees a target, higher pitch = uncaged.",
+      "facts": [
+        ["Off-boresight", "Up to 80° with thrust vector control", 585],
+        ["Power", "HMD switch – BRT", 585],
+        ["Aiming", "Put the DAC (Dynamic Aiming Cue) and seeker circle on the target", 586],
+        ["Tones", "Static: searching · steady: sees a target · steady high: uncaged", 588]
+      ],
+      "modes": [
+        ["JHMCS shot", 585, 588]
+      ],
+      "steps": [
+        ["IR COOL – NORM; HMD – BRT", 585],
+        ["Master Arm – ARM; Weapon Select DOWN (LSHIFT+S)", 585],
+        ["Look at the target: DAC and seeker circle on it", 586],
+        ["Hold Cage/Uncage (C); the circle shrinks and the tone goes high", 586],
+        ["Squeeze the trigger (Spacebar)", 586]
+      ],
+      "videos": [
+        ["AIM-9X", "https://youtu.be/ceUtluGFFLM"]
+      ]
+    },
+    {
+      "id": "aim7",
+      "name": "AIM-7M Sparrow",
+      "full": "AIM-7M Sparrow semi-active radar missile",
+      "family": "aa",
+      "type": "Medium-range radar missile",
+      "guidance": "Semi-active radar",
+      "needs": ["Radar lock (STT)"],
+      "ff": false,
+      "targets": ["bvr"],
+      "summary": "Semi-active radar-guided missile: it homes on your radar's reflection from the target, so you must keep the target locked until impact.",
+      "bestFor": "Beyond-visual-range shots when you can keep the lock.",
+      "watchOut": "Not fire-and-forget: if your lock breaks, the missile is lost. LOFT mode trades a higher path for more energy at the end.",
+      "facts": [
+        ["Guidance", "Semi-active radar homing", 367],
+        ["Select", "Weapon Select FWD or LSHIFT+W", 589],
+        ["Modes", "NORM, LOFT (higher, thinner air, more energy), HELO", 589],
+        ["Lock", "RWS: TDC over the contact, TDC Depress", 590],
+        ["Shoot", "Steering dot in the ASE circle, SHOOT cue, trigger", 590],
+        ["Shot info", "SMS shows RMIN / RMAX / RNE, TOF, closure", 591]
+      ],
+      "modes": [
+        ["Radar shot", 589, 592]
+      ],
+      "steps": [
+        ["Radar – OPR; RDR ATTK on the right DDI, SMS on the left", 589],
+        ["Master Arm – ARM; Weapon Select FWD (LSHIFT+W)", 589],
+        ["SMS: target size, MODE NORM", 589],
+        ["TDC over the contact, TDC Depress to lock (STT)", 590],
+        ["Steering dot in the ASE circle; SHOOT cue → trigger", 590],
+        ["Keep the lock until impact", 591]
+      ],
+      "videos": [
+        ["AIM-7M", "https://youtu.be/3SKP0uFdI2M"]
+      ]
+    },
+    {
+      "id": "aim120",
+      "name": "AIM-120B AMRAAM",
+      "full": "AIM-120B AMRAAM active radar missile",
+      "family": "aa",
+      "type": "Medium-range radar missile",
+      "guidance": "Active radar",
+      "needs": ["Radar lock (recommended)"],
+      "ff": true,
+      "targets": ["bvr"],
+      "summary": "Active radar homing missile: your radar guides it at first, then its own radar takes over (\"Pitbull\") and it's truly fire-and-forget.",
+      "bestFor": "Beyond-visual-range fights, including shots on several targets.",
+      "watchOut": "Without a lock it launches \"Mad Dog\" and attacks the first thing its seeker finds within 10 miles — including friendlies.",
+      "facts": [
+        ["Guidance", "Active radar homing", 367],
+        ["Select", "Weapon Select RIGHT or LSHIFT+D", 593],
+        ["Pitbull", "The missile's own radar goes active: fire-and-forget (brevity: Fox Three on launch)", 598],
+        ["ACT", "Time until the missile goes active", 597],
+        ["Mad Dog", "No lock: seeker takes the first target in the dashed circle out to 10 miles", 594],
+        ["Shot ranges", "RMIN · RNE · RMAX on the HUD", 597]
+      ],
+      "modes": [
+        ["Radar shot", 593, 598]
+      ],
+      "steps": [
+        ["Radar – OPR; RDR ATTK on the right DDI, SMS on the left", 593],
+        ["Master Arm – ARM; Weapon Select RIGHT (LSHIFT+D)", 593],
+        ["SMS: expected target size (RCS)", 593],
+        ["TDC over the contact, TDC Depress to lock", 595],
+        ["Steering dot in the ASE circle; SHOOT cue → hold the trigger", 595],
+        ["Support it until Pitbull (ACT counts down)", 597]
+      ],
+      "videos": [
+        ["AIM-120", "https://youtu.be/MJOQfylt6nE"]
+      ]
+    }
+  ]
+}

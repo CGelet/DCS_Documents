@@ -28,11 +28,19 @@ pages when writing checklists; each item is `[text, sourcePage]`.
   tracks reading progress (a page counts as read after ~3 s on screen) and exports/imports
   everything as JSON to move between browsers or devices.
 
+## Weapons Explorer
+
+If `aircraft/<AC>.weapons.json` exists next to the aircraft file, a **Weapons** tab appears:
+one card per weapon (what it is, best for, watch out, key facts, quick steps, guide modes with
+`▶ Walk through`, Chuck's video), a "Which weapon for…" target filter and a compare table.
+Every fact and step carries its source page; `build.mjs` checks they are in range.
+
 ## Layout
 
 - `viewer/template.html`, `viewer.css`, `viewer.js` – core viewer (pages, TOC, search, tabs).
 - `viewer/reading.js` – the reading features above, plugged in through `window.Viewer`.
+- `viewer/weapons.js` – the Weapons tab.
 - `viewer/fonts/` – Carlito, a Calibri-compatible font for devices without Calibri.
 
-Keys: `/` search · `1`–`4` tabs · `W` walkthrough · `M` single-page mode · `T` toggle contents ·
+Keys: `/` search · `1`–`5` tabs · `W` walkthrough · `M` single-page mode · `T` toggle contents ·
 `G` go to page · arrows flip pages.
