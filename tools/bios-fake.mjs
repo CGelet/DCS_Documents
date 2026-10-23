@@ -1,7 +1,9 @@
 // Usage: node bios-fake.mjs <aircraft.json> --json-dir <DCS-BIOS doc/json folder> [--step-ms 400] [--stop-after N] [--skip-extras]
+//        node bios-fake.mjs <aircraft.json> --json-dir <folder> --replay <log> [--line-ms 2]
 // Pretends to be DCS-BIOS (TCP 127.0.0.1:7778) so the live link can be tested without DCS.
 // Flips the switches of every linked checklist item in order, one step at a time
 // (--skip-extras: only the essential ones, like a minimal start).
+// --replay plays back a bridge --watch or --log file instead, one "NAME = value" line every --line-ms.
 import net from "net";
 import fs from "fs";
 import path from "path";
@@ -11,6 +13,7 @@ const opt = (name, d) => { const i = args.indexOf(name); return i >= 0 ? args[i 
 const [acPath] = args;
 const jsonDir = opt("--json-dir"), stepMs = +opt("--step-ms", 400), stopAfter = +opt("--stop-after", Infinity);
 const skipExtras = args.includes("--skip-extras");
+const replay = opt("--replay"), lineMs = +opt("--line-ms", 2);
 if (!acPath || !jsonDir) {
   console.error("Usage: node bios-fake.mjs <aircraft.json> --json-dir <DCS-BIOS doc/json folder> [--step-ms 400] [--stop-after N]");
   process.exit(1);
@@ -62,7 +65,7 @@ let step = 0, started = false;
 const server = net.createServer(sock => {
   sock.on("error", () => {});
   const t = setInterval(() => sock.destroyed ? clearInterval(t) : sock.write(frameBytes()), 33);
-  if (!started) { started = true; run(); }
+  if (!started) { started = true; replay ? play() : run(); }
 });
 server.listen(7778, "127.0.0.1", () => console.log(`fake DCS-BIOS (${ac.dcsModule}) on 127.0.0.1:7778, ${steps.length} linked steps; starts when the bridge connects`));
 function run() {
@@ -72,4 +75,17 @@ function run() {
     for (const [c, test] of s.conds) write(c, passing(test, read(c)));
     console.log(`step ${step}: [${s.list}] ${s.text}`);
   }, stepMs);
+}
+
+// Replay: apply each "NAME = value" line of a log in order (values of unknown or string controls are skipped)
+function play() {
+  const lines = fs.readFileSync(replay, "utf8").split(/\r?\n/)
+    .map(l => l.match(/^(?:[\d:.]+ )?\s*([A-Z0-9_]+) = (-?\d+)/)).filter(m => m && ref.has(m[1]));
+  console.log(`replaying ${lines.length} changes from ${replay}`);
+  let i = 0;
+  const t = setInterval(() => {
+    if (i >= lines.length) { clearInterval(t); console.log("done"); return; }
+    const [, id, v] = lines[i++];
+    write(id, +v);
+  }, lineMs);
 }

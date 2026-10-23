@@ -85,10 +85,17 @@ A checklist can also define `"states"` (named cockpit conditions, e.g. `"rightEn
 or item can say `"done": ["rightEngine"]`: when that holds, those steps are ticked even if the cockpit
 no longer shows them (the crank switch is back to OFF). This is how connecting mid-start, or pressing
 Reset with the engines running, catches up. Only
-Cold Start is linked so far. Its values follow DCS-BIOS's position names, but they haven't been
-checked in DCS yet: run the bridge with `--watch` to see each switch's value as you flip it.
+Cold Start is linked so far. Its start-up values (battery, seat, APU, crank, throttles, and engine
+running read from hydraulic pressure) are confirmed from a real session. The rest follow
+DCS-BIOS's position names: run the bridge with `--watch` to see each switch's value as you flip it.
+
+**Session logs:** set `"log": true` in `tools/bios-bridge.json` (or run the bridge with `--log`). Each
+run then writes `test_logs/MMDDYYYY_HHMM.txt`: a snapshot of every control when the aircraft loads,
+every change after that, and each item the reader ticks with the reason (`BATTERY_SW = 2`, or
+`cockpit shows rightEngine`). `--log-dir <folder>` writes it elsewhere.
+
 `node tools/bios-fake.mjs aircraft/<AC>.json --json-dir <folder> [--skip-extras]` stands in for DCS
-when testing.
+when testing, and `--replay <log>` plays back a `--watch` or session log instead.
 
 ## Layout
 

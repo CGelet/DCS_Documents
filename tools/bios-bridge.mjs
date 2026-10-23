@@ -1,18 +1,45 @@
-// Usage: node bios-bridge.mjs [--json-dir <DCS-BIOS doc/json folder>] [--watch]
+// Usage: node bios-bridge.mjs [--json-dir <DCS-BIOS doc/json folder>] [--watch] [--log]
 // Runs on the PC that runs DCS. Reads cockpit state from DCS-BIOS (TCP 127.0.0.1:7778) and
 // sends the switch changes the reader asks for to ws://127.0.0.1:5011. No npm packages needed.
 // --watch prints every control change of the current aircraft, to check a checklist mapping.
+// --log, or "log": true in bios-bridge.json next to this script, also writes a session log to
+// test_logs/MMDDYYYY_HHMM.txt: every control change plus each item the reader ticks and why.
+// --log-dir <folder> writes it somewhere else.
 import net from "net";
 import http from "http";
 import crypto from "crypto";
 import fs from "fs";
 import os from "os";
 import path from "path";
+import { fileURLToPath } from "url";
 
 const args = process.argv.slice(2);
 const opt = (name, d) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : d; };
 const WATCH = args.includes("--watch");
 const BIOS_HOST = opt("--host", "127.0.0.1"), BIOS_PORT = +opt("--port", 7778), WS_PORT = +opt("--ws", 5011);
+
+// Settings file: { "log": false, "logDir": "../test_logs" } (logDir is relative to this script)
+const here = path.dirname(fileURLToPath(import.meta.url));
+let config = {};
+try { config = JSON.parse(fs.readFileSync(path.join(here, "bios-bridge.json"), "utf8")); } catch {}
+
+/* ---------- Session log ---------- */
+const LOG_MAX = 50 * 1024 * 1024; // stop writing past 50 MB
+let logStream = null, logFile = null, logBytes = 0;
+if (args.includes("--log") || config.log === true) {
+  const dir = path.resolve(here, opt("--log-dir", config.logDir || "../test_logs")), d = new Date(), p2 = n => String(n).padStart(2, "0");
+  fs.mkdirSync(dir, { recursive: true });
+  logFile = path.join(dir, `${p2(d.getMonth() + 1)}${p2(d.getDate())}${d.getFullYear()}_${p2(d.getHours())}${p2(d.getMinutes())}.txt`);
+  logStream = fs.createWriteStream(logFile, { flags: "a" });
+}
+function logLine(s) {
+  if (!logStream || logBytes > LOG_MAX) return;
+  const line = `${new Date().toTimeString().slice(0, 8)}.${String(Date.now() % 1000).padStart(3, "0")} ${s}\n`;
+  logBytes += line.length;
+  logStream.write(line);
+}
+// Print to this window and the log
+const say = s => { console.log(s); logLine(s); };
 
 // DCS-BIOS writes one control reference per aircraft into Saved Games\DCS*\Scripts\DCS-BIOS\doc\json
 function findJsonDir() {
@@ -87,8 +114,8 @@ function onFrame() {
   if (ac !== aircraft) {
     aircraft = ac;
     watchLast.clear();
-    console.log(aircraft ? `DCS: flying ${aircraft}` : "DCS: no aircraft");
-    if (aircraft && !reference(aircraft)) console.log(`  (no ${aircraft}.json in ${jsonDir})`);
+    say(aircraft ? `DCS: flying ${aircraft}` : "DCS: no aircraft");
+    if (aircraft && !reference(aircraft)) say(`  (no ${aircraft}.json in ${jsonDir})`);
     for (const cl of clients) { cl.last = {}; send(cl, { aircraft }); }
   }
   const ref = aircraft && reference(aircraft);
@@ -103,21 +130,27 @@ function onFrame() {
       if (cl.last[id] !== v) { cl.last[id] = v; cl.queue.push([id, v]); }
     }
   }
-  if (WATCH) for (const [id, r] of ref) {
-    const v = read(r);
-    if (watchLast.has(id) && watchLast.get(id) !== v) console.log(`  ${id} = ${v}${r.labels?.[v] ? ` (${r.labels[v]})` : ""}`);
-    watchLast.set(id, v);
+  if (WATCH || logStream) {
+    const first = !watchLast.size;
+    if (first) logLine(`initial values for ${aircraft}:`);
+    for (const [id, r] of ref) {
+      const v = read(r);
+      const text = `  ${id} = ${v}${r.labels?.[v] ? ` (${r.labels[v]})` : ""}`;
+      if (first) logLine(text);
+      else if (watchLast.get(id) !== v) { if (WATCH) console.log(text); logLine(text); }
+      watchLast.set(id, v);
+    }
   }
 }
 
 function connectBios() {
   const sock = net.connect(BIOS_PORT, BIOS_HOST);
   sock.setNoDelay(true);
-  sock.on("connect", () => { frames = 0; console.log(`connected to DCS-BIOS on ${BIOS_HOST}:${BIOS_PORT}`); });
+  sock.on("connect", () => { frames = 0; say(`connected to DCS-BIOS on ${BIOS_HOST}:${BIOS_PORT}`); });
   sock.on("data", buf => { for (const c of buf) onByte(c); });
   sock.on("error", () => {});
   sock.on("close", () => {
-    if (aircraft) { aircraft = null; for (const cl of clients) send(cl, { aircraft: null }); console.log("DCS-BIOS disconnected"); }
+    if (aircraft) { aircraft = null; for (const cl of clients) send(cl, { aircraft: null }); say("DCS-BIOS disconnected"); }
     setTimeout(connectBios, 3000);
   });
 }
@@ -139,6 +172,12 @@ function send(cl, msg) { if (!cl.sock.destroyed) cl.sock.write(frame(JSON.string
 function onMessage(cl, text) {
   let m;
   try { m = JSON.parse(text); } catch { return; }
+  // The reader reports what it ticked and why, for the session log only
+  if (m?.tick) {
+    const clean = x => String(x ?? "").replace(/[\x00-\x1f]/g, " ").slice(0, 200);
+    logLine(`reader ticked [${clean(m.tick.list)}] ${clean(m.tick.key)} "${clean(m.tick.text)}" (${clean(m.tick.why)})`);
+    return;
+  }
   if (!validModule(m?.module) || !Array.isArray(m.controls)) return send(cl, { error: "bad subscribe message" });
   cl.module = m.module;
   cl.controls = new Set(m.controls.filter(c => typeof c === "string").slice(0, 2000));
@@ -146,17 +185,17 @@ function onMessage(cl, text) {
   const ref = reference(m.module);
   const unknown = ref ? [...cl.controls].filter(c => !ref.has(c)) : [];
   // Replies never include file paths; the full detail is only printed in this window
-  if (!ref) { send(cl, { error: `no DCS-BIOS reference for ${m.module}` }); console.log(`no ${m.module}.json in ${jsonDir}`); }
+  if (!ref) { send(cl, { error: `no DCS-BIOS reference for ${m.module}` }); say(`no ${m.module}.json in ${jsonDir}`); }
   else if (unknown.length) send(cl, { error: `unknown controls: ${unknown.join(", ")}` });
-  console.log(`reader subscribed: ${m.module}, ${cl.controls.size} controls${unknown.length ? `, unknown: ${unknown.join(", ")}` : ""}`);
-  send(cl, { aircraft });
+  say(`reader subscribed: ${m.module}, ${cl.controls.size} controls${unknown.length ? `, unknown: ${unknown.join(", ")}` : ""}`);
+  send(cl, { aircraft, logging: !!logStream });
 }
 
 const server = http.createServer((_, res) => { res.writeHead(426); res.end("WebSocket only\n"); });
 server.on("upgrade", (req, sock) => {
   const key = req.headers["sec-websocket-key"];
   if (!key || !allowedOrigin(req.headers.origin)) {
-    console.log(`refused a connection from ${req.headers.origin || "unknown origin"}`);
+    say(`refused a connection from ${req.headers.origin || "unknown origin"}`);
     sock.end("HTTP/1.1 403 Forbidden\r\n\r\n");
     return;
   }
@@ -180,12 +219,12 @@ server.on("upgrade", (req, sock) => {
       const body = Buffer.from(buf.subarray(off, off + len));
       if (mask) for (let i = 0; i < body.length; i++) body[i] ^= mask[i & 3];
       buf = buf.subarray(off + len);
-      if (op === 1) { try { onMessage(cl, body.toString()); } catch (e) { console.log("ignored a bad message:", e.message); } }
+      if (op === 1) { try { onMessage(cl, body.toString()); } catch (e) { say("ignored a bad message: " + e.message); } }
       else if (op === 8) { sock.end(Buffer.from([0x88, 0])); return; }
       else if (op === 9) sock.write(Buffer.concat([Buffer.from([0x8a, body.length]), body]));
     }
   });
-  const drop = () => { clients.delete(cl); };
+  const drop = () => { if (clients.delete(cl)) logLine("reader disconnected"); };
   sock.on("close", drop);
   sock.on("error", drop);
 });
@@ -198,5 +237,6 @@ setInterval(() => {
 server.listen(WS_PORT, "127.0.0.1", () => {
   console.log(`reader link on ws://127.0.0.1:${WS_PORT} (turn on Settings → Live cockpit in the reader)`);
   console.log(`control references: ${jsonDir}`);
+  if (logFile) say(`logging to ${logFile}`);
   connectBios();
 });

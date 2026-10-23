@@ -18,11 +18,13 @@
     const resolve = names => names ? names.flatMap(n => states[n] || []) : null;
     return {
       id: c.id,
-      groups: c.groups.map((g, gi) => g.items.map(([, , bios, opt = {}], ii) => {
+      groups: c.groups.map((g, gi) => g.items.map(([text, , bios, opt = {}], ii) => {
         const conds = !bios ? null : Array.isArray(bios[0]) ? bios : [bios];
         return {
           key: gi + "-" + ii,
+          text,
           conds,
+          doneNames: opt.done || g.done,
           done: resolve(opt.done || g.done),
           extra: (c.extras || []).includes(gi + "-" + ii),
           // "~n" tests always wait their turn, so they start measuring at the right moment
@@ -58,14 +60,19 @@
   function evaluate() {
     for (const l of lists) {
       const done = new Set(V.store.get("cl:" + l.id, []));
-      const tick = it => { V.tickItem(l.id, it.key); done.add(it.key); };
+      const tick = (it, why) => {
+        V.tickItem(l.id, it.key);
+        done.add(it.key);
+        // The bridge writes these to its session log when logging is on
+        if (logging && ws?.readyState === 1) ws.send(JSON.stringify({ tick: { list: l.id, key: it.key, text: it.text, why } }));
+      };
       for (const items of l.groups) {
         let waiting = false;
         for (const it of items) {
           if (done.has(it.key)) continue;
-          if (it.done && it.done.every(([c, t]) => pass(values[c], t))) { tick(it); continue; }
+          if (it.done && it.done.every(([c, t]) => pass(values[c], t))) { tick(it, "cockpit shows " + it.doneNames.join(" + ")); continue; }
           if (!it.conds) continue;
-          if ((!it.after || !waiting) && it.conds.every(([c, t]) => pass(values[c], t, l.id + ":" + it.key + ":" + c))) tick(it);
+          if ((!it.after || !waiting) && it.conds.every(([c, t]) => pass(values[c], t, l.id + ":" + it.key + ":" + c))) tick(it, it.conds.map(([c]) => `${c} = ${values[c]}`).join(", "));
           else if (!it.extra) waiting = true;
         }
       }
@@ -76,7 +83,7 @@
   const onManual = e => { if (e.target.matches(".item input")) evaluate(); };
   const box = $("#checklists");
 
-  let ws = null, retry = 2000, timer = null;
+  let ws = null, retry = 2000, timer = null, logging = false;
   function status(s, title) {
     dot.hidden = s === "off";
     dot.dataset.s = s;
@@ -94,6 +101,7 @@
     ws.onmessage = e => {
       const m = JSON.parse(e.data);
       if (m.error) console.warn("DCS-BIOS bridge:", m.error);
+      if ("logging" in m) logging = m.logging;
       if ("aircraft" in m) {
         if (m.aircraft !== G.dcsModule) clear();
         status(m.aircraft === G.dcsModule ? "live" : "bridge",
