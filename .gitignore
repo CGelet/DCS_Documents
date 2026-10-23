@@ -1,0 +1,13 @@
+# Source PDFs: too large for GitHub (>100 MB) and they're Chuck's files; download them from his site
+CHUCKS_GUIDES/
+*.pdf
+
+# Reinstalled with `npm install` in tools/
+node_modules/
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

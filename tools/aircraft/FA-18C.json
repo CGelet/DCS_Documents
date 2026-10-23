@@ -1,0 +1,282 @@
+{
+  "aircraft": "F/A-18C Hornet",
+  "short": "F/A-18C",
+  "checklists": [
+    {
+      "id": "startup",
+      "title": "Cold Start",
+      "groups": [
+        { "title": "Pre-Start", "items": [
+          ["Ejection seat – ARMED (lever down), harness lever – FWD", 82],
+          ["Parking brake – ENGAGED", 82],
+          ["MASTER ARM – SAFE", 82],
+          ["Battery switch – ON (right click)", 82],
+          ["Hydraulic brake pressure – 3000 psi minimum", 82],
+          ["(Optional) Fire & Bleed Air test – Channel A (fwd), hold until audio ends", 82],
+          ["(Optional) Cycle battery OFF/ON to rewind tape, or wait 10 s", 82],
+          ["(Optional) Fire & Bleed Air test – Channel B (aft), hold until audio ends", 82]
+        ]},
+        { "title": "APU & Right Engine", "items": [
+          ["No APU ACC caution on standby caution panel", 83],
+          ["APU switch – ON", 83],
+          ["APU ACC caution visible, APU spooling", 83],
+          ["APU green READY light", 83],
+          ["Engine crank switch – R (right click)", 83],
+          ["At 25 % RPM: right throttle OFF → IDLE (RSHIFT+HOME)", 83],
+          ["EGT stays below 750 °C", 83],
+          ["RPM stabilises 60–65 %, R GEN caution out", 83],
+          ["MASTER CAUTION – reset", 83]
+        ]},
+        { "title": "Displays & Systems", "items": [
+          ["Left & right DDI knobs – DAY", 84],
+          ["AMPCD brightness – ON (right)", 84],
+          ["HUD brightness – ON", 84],
+          ["HUD BLK LVL – right", 84],
+          ["ALT switch – RDR", 84],
+          ["ATT switch – AUTO", 84],
+          ["Bleed air knob – rotate 360° back to NORM (reopens bleed valves)", 84],
+          ["Canopy – CLOSE (hold)", 84]
+        ]},
+        { "title": "INS Alignment", "items": [
+          ["INS selector – GND (shore) or CV (carrier)", 85],
+          ["(Optional) HSI: STD HDG for a ~90 s alignment (normal ≈ 8 min)", 85],
+          ["Monitor GRND QUAL timer on AMPCD", 85],
+          ["Wait for OK next to GRND QUAL (continue the start meanwhile, switch INS when done)", 85],
+          ["INS selector – IFA (GPS, 1986+) or NAV (no GPS)", 85]
+        ]},
+        { "title": "FCS Reset & Left Engine", "items": [
+          ["No engine 2 cautions (HYD 2A/2B, R GEN)", 87],
+          ["Left DDI: MENU → SUPT → FCS", 87],
+          ["MASTER CAUTION ×2 to re-stack cautions", 87],
+          ["FCS RESET button – press, X's clear", 87],
+          ["Right DDI BIT page – STOP", 87],
+          ["LIGHTS TEST – hold, check cautions illuminate", 88],
+          ["Engine crank switch – L (left click)", 88],
+          ["At 25 % RPM: left throttle OFF → IDLE (RALT+HOME)", 88],
+          ["EGT stays below 750 °C", 88],
+          ["RPM stabilises 60–65 %, L GEN caution out", 88],
+          ["No engine 1 cautions (HYD 1A/1B, L GEN)", 89],
+          ["APU shuts down automatically ~1 min after both engines idle", 89]
+        ]},
+        { "title": "Configure", "items": [
+          ["OBOGS – ON", 89],
+          ["HOOK BYPASS – FIELD or CARRIER", 89],
+          ["FLAPS – HALF", 89],
+          ["ANTI-SKID – ON (field) / OFF (carrier)", 89],
+          ["RADAR – OPR", 89],
+          ["FCS BIT: BIT page → FCS-MC, hold FCS BIT switch (Y) + press FCS OSB", 90],
+          ["Wait for FCSA & FCSB – GO", 90],
+          ["AMPCD gain/contrast as required (NGT at night)", 91],
+          ["AMPCD: TIME → UFC: ZTOD (zulu time on HUD)", 91],
+          ["T/O TRIM – press", 91],
+          ["PITOT HEAT – AUTO", 91],
+          ["Left DDI – HUD repeater (TAC → HUD)", 92],
+          ["Right DDI – FCS page", 92],
+          ["Wings – SPREAD & locked if on shore (keep folded on carrier)", 92],
+          ["Radar altimeter index – 200 ft (shore) / 80 ft (carrier)", 93],
+          ["Standby attitude indicator – uncage", 93],
+          ["BINGO fuel – set on IFEI (e.g. 8000 lbs)", 93],
+          ["ALR-67 PWR – ON (RWR)", 93],
+          ["ECM – STBY", 93],
+          ["DISPENSER – ON", 93]
+        ]},
+        { "title": "Datalink, Helmet & Lights", "items": [
+          ["IFF – UFC IFF, hold ON until XP; verify mode 4A", 94],
+          ["Link-16 – UFC D/L twice, hold ON", 94],
+          ["Link-16 frequency – default 127, ENT", 94],
+          ["Audio panel volumes – incl. MIDS A & B up", 94],
+          ["MIDS SUPT page – verify datalink info", 94],
+          ["Helmet: \\ → F8 Ground Crew → F8 → F1 JHMCS / F2 NVG", 95],
+          ["Seat height – as desired", 95],
+          ["[JHMCS] HMD knob – BRT", 95],
+          ["[JHMCS] SUPT → BIT → DISPLAYS → HMD; wait until done, STOP → HMD GO", 96],
+          ["[JHMCS] SUPT → HMD → ALIGN; align crosses, hold C > 2.5 s until ALIGN OK", 97],
+          ["[JHMCS] (Optional) fine alignment with TDC, then unbox ALIGN to save", 98],
+          ["DTC: SUPT → MUMI, load each data type", 99],
+          ["STROBE – ON", 100],
+          ["POSITION lights – BRT", 100],
+          ["FORMATION lights – BRT", 100],
+          ["Exterior lights master (L) – as required", 100],
+          ["LDG/TAXI light – ON", 100],
+          ["Parking brake – release (push in)", 100],
+          ["Chocks – remove: canopy open, \\ → F8 → F4 → F2", 101]
+        ]}
+      ]
+    },
+    {
+      "id": "shore-takeoff",
+      "title": "Shore Takeoff",
+      "groups": [
+        { "title": "Takeoff", "items": [
+          ["Anti-skid ON, flaps HALF, chocks removed, launch bar RETRACT, parking brake off", 103],
+          ["Taxi – NWS with pedals; hold S for NWS HI (±75°)", 103],
+          ["Lined up: hold brakes, throttle 80 % RPM", 104],
+          ["Release brakes, full afterburner", 104],
+          ["~150 kts: rotate to 7° pitch", 105],
+          ["Positive climb: gear UP before 240 kts", 105],
+          ["Flaps – AUTO", 105],
+          ["Above 3000 ft: ALT switch – BARO", 105]
+        ]}
+      ]
+    },
+    {
+      "id": "carrier-takeoff",
+      "title": "Carrier Takeoff",
+      "groups": [
+        { "title": "Taxi to Catapult", "items": [
+          ["INS aligned in CV, then IFA (GPS) or NAV", 108],
+          ["Chocks removed (canopy open, \\ → F8 → F4 → F2)", 109],
+          ["Taxi with wings folded", 109],
+          ["Anti-skid – OFF", 110],
+          ["Launch bar – RETRACT", 110],
+          ["Hook bypass – CARRIER", 110],
+          ["Parking brake – release", 110],
+          ["Check the catapult is clear; wait behind JBD if occupied", 112],
+          ["No taxi director? \\ → F8 → F8 Request Launch", 112],
+          ["Follow taxi director onto catapult; stop when fists close", 113]
+        ]},
+        { "title": "Hook Up", "items": [
+          ["Wings – SPREAD, then push lever in to lock (WING UNLK clears)", 114],
+          ["Flaps – HALF", 115],
+          ["Launch bar – EXTEND", 116],
+          ["Throttle up to hook into shuttle (U if no Supercarrier), then idle", 117],
+          ["Launch bar – RETRACT when signalled (stays seated in shuttle)", 119],
+          ["Set catapult trim per weight (see Quick Ref), check SUPT FCS page", 121],
+          ["Speed brake – IN", 122],
+          ["Control wipeout – stick & rudder full travel", 122]
+        ]},
+        { "title": "Launch", "items": [
+          ["On run-up signal: MAX afterburner (raise finger lifts 0 & 9)", 123],
+          ["Hands off the stick", 123],
+          ["Check engine instruments & cautions", 124],
+          ["Salute the shooter (LCTRL+LSHIFT+S or \\ → F8 → F9)", 124],
+          ["After the cat stroke: take the stick on positive climb", 125],
+          ["Gear UP before 240 kts", 126],
+          ["Flaps – AUTO", 126],
+          ["Clearing turn 20° left; 500 ft / 300 kts until 7 nm", 126],
+          ["Above 3000 ft: ALT switch – BARO", 126]
+        ]}
+      ]
+    },
+    {
+      "id": "shore-landing",
+      "title": "Shore Landing (VFR)",
+      "groups": [
+        { "title": "Overhead Break", "items": [
+          ["Anti-skid ON, landing light ON", 129],
+          ["ALT switch – RDR", 129],
+          ["Upwind leg: ~350 kts, 1000 ft", 129],
+          ["Break turn: pull G ≈ 1 % of airspeed, VV on horizon", 131],
+          ["Slow to 250 kts, descend to 600 ft", 131],
+          ["Gear – DOWN", 131],
+          ["Flaps – FULL", 131],
+          ["Downwind: trim to on-speed (VV in E bracket, ~8.1° AoA, 140–150 kts)", 131],
+          ["Base turn: 30° bank, hold 600 ft with throttle", 132],
+          ["Final: VV on runway, pitch for speed, power for altitude", 132],
+          ["Touch down on-speed, no flare", 132],
+          ["Nose gear down, toe brakes to stop", 132]
+        ]}
+      ]
+    },
+    {
+      "id": "case1",
+      "title": "Carrier Landing (Case I)",
+      "groups": [
+        { "title": "Setup", "items": [
+          ["Weight below 33,000 lbs (SUPT → CHKLST)", 134],
+          ["COMM1: Manual, FM, 127.500, ENT; RALT+\\ → F5 ATC → CVN → F1 Inbound", 135],
+          ["Anti-skid OFF, hook DOWN, hook bypass CARRIER, landing light ON", 136],
+          ["ALT switch RDR, radalt index 370 or 320 ft", 136],
+          ["Upwind: ~350 kts, 800 ft", 136]
+        ]},
+        { "title": "Pattern", "items": [
+          ["Break: pull G ≈ 1 % of airspeed, VV on horizon", 138],
+          ["Slow to 250 kts, 600 ft", 138],
+          ["Gear – DOWN", 138],
+          ["Flaps – FULL", 138],
+          ["Trim on-speed: VV in E bracket, ~8.1° AoA (critical)", 138],
+          ["Start turn when wing meets the ship's rounddown", 139],
+          ["Approach turn: 30° bank, hold altitude, ignore airspeed", 140],
+          ["Wings level in the groove: call the ball", 140]
+        ]},
+        { "title": "Groove & Trap", "items": [
+          ["Fly the meatball, E bracket & AoA indexer (not the deck)", 141],
+          ["Ball high → slightly less power; low → more power; small corrections", 142],
+          ["Touch down on-speed: NO FLARE, no brakes", 141],
+          ["Aim for the 3rd wire", 144],
+          ["On touchdown: throttle to MIL (bolter protection)", 144],
+          ["Stopped: idle, hook UP, flaps UP, fold wings, taxi clear", 144]
+        ]}
+      ]
+    }
+  ],
+  "quickref": [
+    {
+      "title": "Key Bindings Used in Procedures",
+      "mono": true,
+      "rows": [
+        ["RSHIFT+HOME", "Right throttle OFF → IDLE", 83],
+        ["RALT+HOME", "Left throttle OFF → IDLE", 88],
+        ["Y (hold)", "FCS BIT switch", 90],
+        ["C", "Cage/Uncage (JHMCS align)", 97],
+        ["S (hold)", "NWS HI (±75°)", 103],
+        ["L", "Exterior lights master", 100],
+        ["U", "Catapult hook-up (no Supercarrier)", 117],
+        ["0 & 9", "Finger lifts (AB with launch bar/hook down)", 123],
+        ["LCTRL+LSHIFT+S", "Salute the shooter", 124],
+        ["\\ → F8", "Ground crew menu", 95],
+        ["RALT+\\", "COMM1 transmit", 135]
+      ]
+    },
+    {
+      "title": "Takeoff Numbers",
+      "rows": [
+        ["Run-up", "80 % RPM on brakes (shore)", 104],
+        ["Rotate", "~150 kts to 7° pitch", 105],
+        ["Gear up", "Before 240 kts", 105],
+        ["ALT BARO", "Above 3000 ft", 105],
+        ["Radalt index", "200 ft shore / 80 ft carrier", 93],
+        ["Max T/O weight", "51,900 lbs", 121],
+        ["Carrier departure", "20° left, 500 ft / 300 kts to 7 nm", 126]
+      ]
+    },
+    {
+      "title": "Catapult Trim (Nose Up)",
+      "rows": [
+        ["≤ 44,000 lbs", "16°", 121],
+        ["45,000 – 48,000 lbs", "17°", 121],
+        ["≥ 49,000 lbs", "19°", 121],
+        ["≥ 43,000 lbs, ≤ 10 kts excess endspeed", "+3° nose up", 121]
+      ]
+    },
+    {
+      "title": "Landing Numbers",
+      "rows": [
+        ["Break entry", "350 kts · 1000 ft shore / 800 ft carrier", 136],
+        ["Downwind", "250 kts → on-speed, 600 ft, ~1.2 nm abeam", 138],
+        ["On-speed AoA", "~8.1° (≈ 140–150 kts)", 138],
+        ["Base turn", "30° bank", 140],
+        ["Radalt index (CV)", "370 ft (ball call) or 320 ft", 136],
+        ["Max trap weight", "33,000 lbs", 134],
+        ["Target wire", "3rd wire, MIL on touchdown", 144],
+        ["CVN-74 freq", "127.500 FM", 135]
+      ]
+    },
+    {
+      "title": "Engine Start Limits",
+      "rows": [
+        ["Fuel in", "25 % RPM", 83],
+        ["EGT max during start", "750 °C", 83],
+        ["Stabilised idle", "60–65 % RPM", 83],
+        ["INS alignment", "Normal ≈ 8 min · Stored heading ≈ 90 s", 85]
+      ]
+    },
+    {
+      "title": "Axis Setup",
+      "rows": [
+        ["Pitch / Roll", "Deadzone 4, curvature 15 (deadzone needed for autopilot)", 9],
+        ["Rudder", "Deadzone 0, curvature 10", 9]
+      ]
+    }
+  ]
+}
