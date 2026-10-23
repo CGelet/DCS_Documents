@@ -129,6 +129,8 @@ mark { background: var(--hit-strong); color: inherit; border-radius: 2px; }
   position: relative; width: 100%; max-width: var(--pw, 1200px); background: #fff;
   box-shadow: var(--shadow); container-type: inline-size; border-radius: 2px; overflow: hidden;
   scroll-margin-top: 12px;
+  /* Skip rendering pages that are off screen; their size is known from aspect-ratio */
+  content-visibility: auto;
 }
 .page .svg { position: absolute; inset: 0; }
 .page .svg svg { width: 100%; height: 100%; display: block; }

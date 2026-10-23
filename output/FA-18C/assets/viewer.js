@@ -187,7 +187,7 @@
   const far = new IntersectionObserver(es => es.forEach(e => {
     const box = e.target.querySelector(".svg");
     if (!e.isIntersecting && box.dataset.state === "done") { box.replaceChildren(); delete box.dataset.state; }
-  }), { root: main, rootMargin: "8000px 0px" });
+  }), { root: main, rootMargin: "3000px 0px" });
   pageEls.slice(1).forEach(d => { near.observe(d); far.observe(d); });
 
   // Track the page that fills most of the viewport

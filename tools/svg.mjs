@@ -30,6 +30,21 @@ const fontAttr = name => {
   return `font-family="${FONTS[base] || `'${base}', Calibri, Carlito, sans-serif`}"`;
 };
 
+// mupdf wraps almost every element in a clip to the whole page (~97% of all clips), which the SVG
+// viewport already does. Each clip is a separate layer when rendering, so drop them. They are only
+// ever referenced from untransformed elements, so the page-space rectangle is the true clip.
+function dropPageClips(svg) {
+  const [, , W, H] = svg.match(/viewBox="([^"]+)"/)[1].split(/\s+/).map(Number);
+  const ids = new Set();
+  svg = svg.replace(/<clipPath id="([^"]+)">\n<path transform="matrix\(1,0,0,-1,0,([\d.]+)\)" d="M(\S+) (\S+)H(\S+)V(\S+)H(\S+)Z"[^>]*\/>\n<\/clipPath>\n/g,
+    (all, id, ty, x0, y0, x1, y1, x2) => {
+      const ok = +ty === H && Math.max(+x0, +x2) <= 0.01 && +y0 <= 0.01 && +x1 >= W - 0.01 && +y1 >= H - 0.01;
+      if (ok) ids.add(id);
+      return ok ? "" : all;
+    });
+  return svg.replace(/ clip-path="url\(#([^)]+)\)"/g, (all, id) => ids.has(id) ? "" : all);
+}
+
 const doc = mupdf.Document.openDocument(fs.readFileSync(pdfPath), "application/pdf");
 const count = doc.countPages();
 const seenImages = new Set(), unknownFonts = new Set(), failed = [];
@@ -38,7 +53,13 @@ let imgBytes = 0;
 for (let i = 0; i < count; i++) {
   const p = i + 1, id = `p${p}_`;
   const out = path.join(svgDir, `p${String(p).padStart(3, "0")}.js`);
-  if (fs.existsSync(out)) continue;
+  if (fs.existsSync(out)) {
+    // Older outputs predate dropPageClips(); clean them in place
+    const old = fs.readFileSync(out, "utf8"), m = old.match(/^GUIDE_SVG\(\d+,(.*)\);\n$/s);
+    const svg = m && JSON.parse(m[1]), slim = svg && dropPageClips(svg);
+    if (slim && slim !== svg) fs.writeFileSync(out, `GUIDE_SVG(${p},${JSON.stringify(slim)});\n`);
+    continue;
+  }
   let svg;
   try {
     const page = doc.loadPage(i);
@@ -76,6 +97,7 @@ for (let i = 0; i < count; i++) {
     .replace(/href="#([^"]+)"/g, `href="#${id}$1"`)
     .replace(/font-family="([^"]+)"/g, (_, name) => fontAttr(name))
     .replace(/<svg /, `<svg preserveAspectRatio="xMidYMid meet" `);
+  svg = dropPageClips(svg);
 
   fs.writeFileSync(out, `GUIDE_SVG(${p},${JSON.stringify(svg)});\n`);
   if (p % 50 === 0) console.log(`${p}/${count}`);
