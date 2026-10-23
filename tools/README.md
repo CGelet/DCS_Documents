@@ -44,15 +44,19 @@ Kneeboard (paper) and Kneeboard (dark), with card-style section headers.
 
 ```sh
 npm install && npx playwright install chromium     # once
-node kneeboard.mjs ../output/<AC> [--minimal] [--theme kb-light|kb-dark|light|dark|night|red]
+node kneeboard.mjs ../output/<AC> [--theme kb-light|kb-dark|light|dark|night|red]
 ```
 
-This renders the checklists, quick-ref cards and weapon steps as portrait PNGs in
-`output/<AC>/kneeboard/<dcsModule>/` (`dcsModule` comes from the aircraft JSON, e.g. `FA-18C_hornet`).
-Copy that folder, or link it with `mklink /D`, into `Saved Games\DCS\Kneeboard\`. DCS shows them in
-filename order. `--minimal` leaves out each checklist's `extras`: the checks, tests and realism-only
-steps listed by `"group-item"` key in the aircraft JSON. Edit that list to change what counts as
-essential.
+This renders the checklists, quick-ref cards and weapon steps as portrait PNGs, in two sets
+(`dcsModule` comes from the aircraft JSON, e.g. `FA-18C_hornet`):
+
+- `output/<AC>/kneeboard/full/<dcsModule>/`: everything.
+- `output/<AC>/kneeboard/essentials/<dcsModule>/`: leaves out each checklist's `extras`, the checks,
+  tests and realism-only steps listed by `"group-item"` key in the aircraft JSON. Edit that list to
+  change what counts as essential.
+
+Copy one set's `<dcsModule>` folder into `Saved Games\DCS\Kneeboard\`, or link it with `mklink /D`.
+DCS shows every image in that folder in filename order, so use one set at a time.
 
 ## Live cockpit link (DCS-BIOS, optional)
 

@@ -27,7 +27,7 @@
 
   /* ---------- Settings ---------- */
   const settings = Object.assign(
-    { theme: "dark", filter: "none", width: "1200px", single: false, steps: true, gloss: true, live: false },
+    { theme: "dark", filter: "none", width: "1200px", single: false, steps: true, gloss: true, live: false, navHidden: false },
     store.get("settings", {}),
   );
   if (settings.theme === "night" && !settings.v2) settings.theme = "red"; // "night" used to be the red theme
@@ -44,6 +44,8 @@
     body.classList.toggle("no-steps", !settings.steps);
     body.classList.toggle("no-gloss", !settings.gloss);
     main.classList.toggle("single", settings.single);
+    body.classList.toggle("nav-hidden", settings.navHidden);
+    $("#navBtn").title = settings.navHidden ? "Show contents (T)" : "Hide contents (T)";
     $("#modeBtn").textContent = settings.single ? "☰" : "▭";
     $("#modeBtn").title = settings.single ? "Switch to continuous scroll (M)" : "Switch to single-page kneeboard mode (M)";
     store.set("settings", settings);
@@ -336,6 +338,7 @@
     if (scored.length > 200) resultsEl.append(el("div", { className: "count", textContent: "Showing the top 200 — refine your search." }));
     aside.classList.add("searching");
     if (matchMedia("(max-width: 900px)").matches) body.classList.add("nav-open");
+    else if (settings.navHidden) toggleNav(); // results live in the sidebar
     new Set([...old, ...hitPages]).forEach(applyHits);
   }
   function openResult(p) {
@@ -368,7 +371,16 @@
 
   /* ---------- Nav drawer ---------- */
   const closeNav = () => body.classList.remove("nav-open");
-  $("#navBtn").onclick = () => body.classList.toggle("nav-open");
+  // Phones: slide-over drawer. Desktop: hide or show the sidebar, remembered in settings.
+  function toggleNav() {
+    if (matchMedia("(max-width: 900px)").matches) return body.classList.toggle("nav-open");
+    const p = current;
+    settings.navHidden = !settings.navHidden;
+    applySettings();
+    refitAll();
+    if (activeTab === "guide") goPage(p);
+  }
+  $("#navBtn").onclick = toggleNav;
   $("#scrim").onclick = closeNav;
 
   /* ---------- Tabs ---------- */
@@ -376,7 +388,7 @@
   let activeTab = "guide";
   function showTab(t) {
     activeTab = t;
-    document.querySelectorAll(".tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === t));
+    document.querySelectorAll("header .tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.tab === t));
     document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === "view-" + t));
     body.classList.toggle("guide-tab", t === "guide");
     if (t === "guide") { history.replaceState(null, "", "#p" + current); requestAnimationFrame(() => goPage(current)); }
@@ -384,7 +396,7 @@
     store.set("tab", t);
     hooks.tab.forEach(f => f(t));
   }
-  document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => showTab(b.dataset.tab));
+  document.querySelectorAll("header .tabs button").forEach(b => b.onclick = () => showTab(b.dataset.tab));
 
   const pageLink = (p, label) => {
     const a = el("a", { className: "pg", href: "#p" + p, textContent: label || "p." + p, title: "Open page " + p + " in the guide" });
@@ -398,19 +410,26 @@
   if (!cls.some(c => c.id === activeCl)) activeCl = cls[0]?.id;
   const hideDone = { v: store.get("hideDone", false) };
   let clView = null; // the checklist currently rendered: { id, state, rows, update, chips }
+  // Essentials view hides each checklist's realism-only "extras" (the same items the essentials kneeboard leaves out)
+  const essentials = { v: store.get("clEssentials", false) };
+  const hasExtras = cls.some(c => (c.extras || []).length);
+  const shownKeys = c => {
+    const skip = new Set(essentials.v ? c.extras || [] : []);
+    return c.groups.flatMap((g, gi) => g.items.map((_, ii) => gi + "-" + ii)).filter(k => !skip.has(k));
+  };
+  const tally = (c, done) => { const keys = shownKeys(c); return `${keys.filter(k => done.has(k)).length}/${keys.length}`; };
 
   function renderChecklists() {
     const box = $("#checklists");
     if (!cls.length) { box.replaceChildren(el("p", { className: "note", textContent: "No checklists defined for this aircraft yet." })); return; }
     const cl = cls.find(c => c.id === activeCl);
     const state = new Set(store.get("cl:" + cl.id, []));
-    const total = cl.groups.reduce((n, g) => n + g.items.length, 0);
+    const shown = new Set(shownKeys(cl));
 
     const tabs = el("div", { className: "cl-tabs", role: "tablist" });
     const chips = {};
     for (const c of cls) {
-      const done = store.get("cl:" + c.id, []).length, n = c.groups.reduce((s, g) => s + g.items.length, 0);
-      const b = el("button", { className: "chip", role: "tab" }, c.title, el("span", { className: "n", textContent: `${done}/${n}` }));
+      const b = el("button", { className: "chip", role: "tab" }, c.title, el("span", { className: "n", textContent: tally(c, new Set(store.get("cl:" + c.id, []))) }));
       b.setAttribute("aria-selected", c.id === cl.id);
       chips[c.id] = b.querySelector(".n");
       b.onclick = () => { activeCl = c.id; store.set("cl", c.id); history.replaceState(null, "", "#cl=" + c.id); renderChecklists(); main.scrollTop = 0; };
@@ -420,7 +439,14 @@
     const bar = el("div"); const count = el("span", { className: "n" });
     const hideBtn = el("button", { className: "iconbtn", textContent: hideDone.v ? "Show done" : "Hide done" });
     const resetBtn = el("button", { className: "iconbtn", textContent: "Reset" });
-    const head = el("div", { className: "cl-head" }, el("h2", { textContent: cl.title }), count, hideBtn, resetBtn, el("div", { className: "progress" }, bar));
+    const mode = el("div", { className: "tabs clmode", title: "Essentials hides checks, tests and realism-only steps" });
+    for (const [v, label] of [[true, "Essentials"], [false, "Full"]]) {
+      const b = el("button", { textContent: label });
+      b.setAttribute("aria-selected", essentials.v === v);
+      b.onclick = () => { essentials.v = v; store.set("clEssentials", v); renderChecklists(); };
+      mode.append(b);
+    }
+    const head = el("div", { className: "cl-head" }, el("h2", { textContent: cl.title }), hasExtras ? mode : null, count, hideBtn, resetBtn, el("div", { className: "progress" }, bar));
 
     const list = el("div", { className: hideDone.v ? "hide-done" : "" });
     const rows = [];
@@ -429,13 +455,14 @@
       const grp = el("div", { className: "group" }, el("h3", {}, el("span", { textContent: g.title }), gc));
       g.items.forEach(([text, page], ii) => {
         const key = gi + "-" + ii;
+        if (!shown.has(key)) return;
         const cb = el("input", { type: "checkbox", checked: state.has(key) });
         const row = el("label", { className: "item" }, cb, el("span", { className: "txt", textContent: text }), page ? pageLink(page) : null);
         cb.onchange = () => { cb.checked ? state.add(key) : state.delete(key); store.set("cl:" + cl.id, [...state]); update(); };
         rows.push({ row, key, gi, gc, cb });
         grp.append(row);
       });
-      list.append(grp);
+      if (grp.children.length > 1) list.append(grp);
     });
     function update() {
       let firstOpen = true;
@@ -449,13 +476,15 @@
         perGroup[r.gi][1]++; if (done) perGroup[r.gi][0]++;
       }
       for (const [d, n, gc] of Object.values(perGroup)) gc.textContent = `${d}/${n}`;
-      count.textContent = `${state.size}/${total}`;
-      bar.style.width = (state.size / total * 100) + "%";
-      chips[cl.id].textContent = `${state.size}/${total}`;
+      const d = rows.filter(r => state.has(r.key)).length;
+      count.textContent = chips[cl.id].textContent = `${d}/${rows.length}`;
+      bar.style.width = (d / rows.length * 100) + "%";
     }
     hideBtn.onclick = () => { hideDone.v = !hideDone.v; store.set("hideDone", hideDone.v); list.className = hideDone.v ? "hide-done" : ""; hideBtn.textContent = hideDone.v ? "Show done" : "Hide done"; };
     resetBtn.onclick = () => { if (!state.size || confirm(`Reset "${cl.title}"?`)) { state.clear(); store.set("cl:" + cl.id, []); list.querySelectorAll("input").forEach(i => i.checked = false); update(); main.scrollTop = 0; } };
-    box.replaceChildren(tabs, head, list, el("p", { className: "note", textContent: "Condensed from the guide. Tap a page number to see the full step with pictures. Progress is saved in this browser." }));
+    const hidden = cl.groups.reduce((n, g) => n + g.items.length, 0) - rows.length;
+    box.replaceChildren(tabs, head, list, el("p", { className: "note", textContent: "Condensed from the guide. Tap a page number to see the full step with pictures. Progress is saved in this browser." +
+      (hidden ? ` Essentials hides ${hidden} checks, tests and realism-only steps; switch to Full to see them.` : "") }));
     update();
     clView = { id: cl.id, state, rows, update, chips };
   }
@@ -468,11 +497,11 @@
     if (!clView) return true;
     if (clView.id === id) {
       clView.state.add(key);
-      clView.rows.find(r => r.key === key).cb.checked = true;
+      const r = clView.rows.find(r => r.key === key);
+      if (r) r.cb.checked = true;
       clView.update();
     } else {
-      const c = cls.find(c => c.id === id), n = c.groups.reduce((s, g) => s + g.items.length, 0);
-      clView.chips[id].textContent = `${done.size}/${n}`;
+      clView.chips[id].textContent = tally(cls.find(c => c.id === id), done);
     }
     return true;
   }
@@ -499,7 +528,7 @@
     else if (e.key >= "1" && e.key <= String(TABS.length)) showTab(TABS[+e.key - 1]);
     else if (activeTab !== "guide") return;
     else if (e.key === "m" || e.key === "M") toggleMode();
-    else if (e.key === "t" || e.key === "T") matchMedia("(max-width: 900px)").matches ? body.classList.toggle("nav-open") : body.classList.toggle("nav-hidden");
+    else if (e.key === "t" || e.key === "T") toggleNav();
     else if (e.key === "g") { e.preventDefault(); $("#pageInput").focus(); }
     else if (settings.single && ["ArrowRight", "PageDown", " ", "ArrowDown"].includes(e.key)) { e.preventDefault(); goPage(current + 1); }
     else if (settings.single && ["ArrowLeft", "PageUp", "ArrowUp"].includes(e.key)) { e.preventDefault(); goPage(current - 1); }

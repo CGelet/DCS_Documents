@@ -20,7 +20,7 @@
         <tr><td><kbd>G</kbd></td><td>Go to a page number</td></tr>
         <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Previous / next page</td></tr>
         <tr><td><kbd>M</kbd></td><td>Single-page (kneeboard) mode, for a tablet or VR</td></tr>
-        <tr><td><kbd>T</kbd></td><td>Show or hide the contents</td></tr>
+        <tr><td><kbd>T</kbd> or ☰</td><td>Show or hide the contents sidebar (remembered)</td></tr>
         <tr><td><kbd>W</kbd></td><td>Walk through the procedure on the current page</td></tr>
         <tr><td><kbd>Esc</kbd></td><td>Close search, menus and the walkthrough</td></tr>
       </table>`],
@@ -38,6 +38,7 @@
     ["checklists", "Checklists, quick ref and weapons", `
       <ul>
         <li>Tick items as you go; the next open item is marked on the left. <b>Hide done</b> keeps the list short, and <b>Reset</b> starts over.</li>
+        ${extras.length ? `<li><b>Essentials / Full</b> above the list: Essentials hides checks, tests and realism-only steps, matching the essentials kneeboard. Your ticks are kept either way.</li>` : ""}
         <li>Every item, quick-ref value and weapon step has a <span class="pg">p.82</span> link to the guide page it comes from.</li>
         <li>The Weapons tab has a card per weapon, a “Which weapon for…” filter and a compare table.</li>
       </ul>`],
@@ -51,19 +52,22 @@
       </ul>`],
     ["kneeboard", "In-game kneeboard (DCS)", mod ? `
       <p>The checklists, quick-ref cards and weapon steps also exist as portrait images for DCS's own kneeboard,
-      in <code>kneeboard/${esc(mod)}/</code> next to this page.</p>
+      next to this page:</p>
+      <ul>
+        <li><code>kneeboard/full/${esc(mod)}/</code>: everything.</li>
+        ${extras.length ? `<li><code>kneeboard/essentials/${esc(mod)}/</code>: only what's needed to get the systems working, without checks, tests and realism-only steps
+          (${extras.map(c => { const n = c.groups.reduce((n, g) => n + g.items.length, 0); return `${esc(c.title)}: ${n - c.extras.length} of ${n} items`; }).join("; ")}).
+          What counts as essential is the <code>extras</code> list in the aircraft JSON.</li>` : ""}
+      </ul>
       <ol>
-        <li>Copy that <code>${esc(mod)}</code> folder into <code>Saved Games\\DCS\\Kneeboard\\</code>
-          (create <code>Kneeboard</code> if it doesn't exist). To keep it in sync with the repo, link it instead:
-          <pre>mklink /D "%USERPROFILE%\\Saved Games\\DCS\\Kneeboard\\${esc(mod)}" "&lt;repo&gt;\\output\\…\\kneeboard\\${esc(mod)}"</pre></li>
+        <li>Pick one set and copy its <code>${esc(mod)}</code> folder into <code>Saved Games\\DCS\\Kneeboard\\</code>
+          (create <code>Kneeboard</code> if it doesn't exist). DCS shows every image in that folder, so use one set at a time.
+          To keep it in sync with the repo, link it instead:
+          <pre>mklink /D "%USERPROFILE%\\Saved Games\\DCS\\Kneeboard\\${esc(mod)}" "&lt;repo&gt;\\output\\…\\kneeboard\\essentials\\${esc(mod)}"</pre></li>
         <li>In the cockpit, open the kneeboard with <kbd>RShift</kbd>+<kbd>K</kbd> (or your binding) and flip pages with <kbd>[</kbd> <kbd>]</kbd>.</li>
       </ol>
-      <p>To make a different set, run this in the repo's <code>tools</code> folder (the first time, also run <code>npm install</code> and <code>npx playwright install chromium</code>):</p>
-      <pre>node kneeboard.mjs ../output/&lt;aircraft&gt; [--minimal] [--theme kb-light|kb-dark|light|dark|night|red]</pre>
-      ${extras.length ? `<p><b>--minimal</b> leaves out checks, tests and realism-only steps
-      (${extras.map(c => `${esc(c.title)}: ${c.groups.reduce((n, g) => n + g.items.length, 0) - c.extras.length} of ${c.groups.reduce((n, g) => n + g.items.length, 0)} items kept`).join("; ")}).
-      What counts as essential is the <code>extras</code> list in the aircraft JSON.</p>` : ""}
-      <p>DCS shows every image in the folder, so keep only one set there.</p>` :
+      <p>To re-render both sets in another theme, run this in the repo's <code>tools</code> folder (the first time, also run <code>npm install</code> and <code>npx playwright install chromium</code>):</p>
+      <pre>node kneeboard.mjs ../output/&lt;aircraft&gt; [--theme kb-light|kb-dark|light|dark|night|red]</pre>` :
       `<p>No DCS module is set for this aircraft yet: add <code>"dcsModule"</code> to its aircraft JSON and rebuild.</p>`],
     ["live", "Live cockpit link (DCS-BIOS)", mod && linked.length ? `
       <p>Checklist items tick themselves as you flip switches in DCS. It is <b>optional and off by default</b>;
@@ -99,7 +103,7 @@
           “wait for…” or checks of a display page, stay manual.</li>
         <li>Within a group, an item only ticks once the linked items before it are ticked, so “caution out” can't tick before the engine is running.
           Ticking a step by hand lets the ones after it continue.</li>
-        <li>Skipped realism-only steps (the ones <code>--minimal</code> leaves out) never hold anything up.</li>
+        <li>Skipped realism-only steps (the ones the essentials kneeboard leaves out) never hold anything up.</li>
       </ul>
       <h3>Troubleshooting</h3>
       <ul>

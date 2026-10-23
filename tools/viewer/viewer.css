@@ -295,6 +295,7 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
 .cl-head h2 { margin: 0; font-size: 20px; flex: 1; min-width: 160px; }
+.clmode button { height: 28px; padding: 4px 12px; font-size: 14px; }
 .progress { height: 6px; border-radius: 3px; background: var(--panel-2); overflow: hidden; flex-basis: 100%; }
 .progress div { height: 100%; background: var(--check); transition: width .2s; }
 .group { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; margin: 12px 0; overflow: hidden; }
@@ -369,7 +370,7 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
   #pages { padding: 8px; gap: 8px; }
   .wrap { padding: 12px; }
 }
-@media (min-width: 901px) { #navBtn { display: none; } body.nav-hidden aside { display: none; } }
+@media (min-width: 901px) { body.nav-hidden aside { display: none; } }
 @media (max-width: 640px) {
   header { padding: 6px 8px; gap: 6px; }
   .brand { display: none; }
