@@ -19,7 +19,7 @@
     }))),
   }));
   const controls = [...new Set(lists.flatMap(l => l.groups.flat().flatMap(i => (i.conds || []).map(c => c[0]))))];
-  if (!G.dcsModule || !controls.length) { chk.closest("label").hidden = true; return; }
+  if (!G.dcsModule || !controls.length) { chk.closest("label").hidden = true; $("#liveHelp").hidden = true; return; }
 
   const pass = (v, t) => v != null && (Array.isArray(t) ? t.includes(v)
     : typeof t === "string" ? (t[0] === ">" ? v > +t.slice(1) : v < +t.slice(1)) : v === t);

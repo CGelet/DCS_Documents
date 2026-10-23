@@ -16,6 +16,7 @@
     <button role="tab" data-tab="quickref" aria-selected="false">Quick Ref</button>
     <button role="tab" data-tab="weapons" aria-selected="false">Weapons</button>
     <button role="tab" data-tab="notes" aria-selected="false">Notes</button>
+    <button role="tab" data-tab="help" aria-selected="false" title="How to use this reader (?)">Help</button>
   </div>
   <input id="search" type="search" placeholder="Search guide…  ( / )" autocomplete="off" spellcheck="false">
   <div class="pagebox" id="pagebox">
@@ -32,6 +33,7 @@
       <label>Step ↔ callout links <input type="checkbox" id="stepsChk"></label>
       <label>Acronym tooltips <input type="checkbox" id="glossChk"></label>
       <label title="Tick checklist items from your cockpit switches. Needs tools/bios-bridge.mjs running.">Live cockpit (DCS-BIOS) <input type="checkbox" id="liveChk"></label>
+      <a href="#help=live" id="liveHelp" class="hint">DCS-BIOS setup guide →</a>
     </div>
   </div>
 </header>
@@ -51,6 +53,7 @@
     <section class="view" id="view-quickref"><div class="wrap wide" id="quickref"></div></section>
     <section class="view" id="view-weapons"><div class="wrap wide" id="weapons"></div></section>
     <section class="view" id="view-notes"><div class="wrap" id="notes"></div></section>
+    <section class="view" id="view-help"><div class="wrap help" id="help"></div></section>
   </main>
 </div>
 
@@ -65,5 +68,6 @@
 <script src="assets/reading.js"></script>
 <script src="assets/weapons.js"></script>
 <script src="assets/live.js"></script>
+<script src="assets/help.js"></script>
 </body>
 </html>

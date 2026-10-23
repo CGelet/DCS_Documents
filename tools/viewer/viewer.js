@@ -372,7 +372,7 @@
   $("#scrim").onclick = closeNav;
 
   /* ---------- Tabs ---------- */
-  const TABS = ["guide", "checklists", "quickref", "weapons", "notes"];
+  const TABS = ["guide", "checklists", "quickref", "weapons", "notes", "help"];
   let activeTab = "guide";
   function showTab(t) {
     activeTab = t;

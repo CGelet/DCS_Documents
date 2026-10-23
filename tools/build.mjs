@@ -66,7 +66,7 @@ const guide = {
 // Viewer assets: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
 const assets = path.join(outDir, "assets");
 fs.mkdirSync(assets, { recursive: true });
-for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "live.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
+for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "live.js", "help.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
 fs.cpSync(path.join(here, "viewer", "fonts"), path.join(assets, "fonts"), { recursive: true });
 
 const html = fs.readFileSync(path.join(here, "viewer", "template.html"), "utf8")

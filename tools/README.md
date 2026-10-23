@@ -84,5 +84,5 @@ when testing.
 - `kneeboard/` – the kneeboard page template used by `kneeboard.mjs`.
 - `viewer/fonts/` – Carlito, a Calibri-compatible font for devices without Calibri.
 
-Keys: `/` search · `1`–`5` tabs · `W` walkthrough · `M` single-page mode · `T` toggle contents ·
+Keys: `/` search · `1`–`6` tabs · `?` help · `W` walkthrough · `M` single-page mode · `T` toggle contents ·
 `G` go to page · arrows flip pages.

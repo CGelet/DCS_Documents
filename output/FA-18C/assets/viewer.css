@@ -96,6 +96,8 @@ header {
 .livedot[data-s="live"] i { background: var(--check); }
 .livedot[data-s="live"] { color: var(--check); }
 .settings { position: relative; }
+.settings-pop .hint { font-size: 13px; text-align: right; margin-top: -4px; }
+.settings-pop .hint[hidden] { display: none; }
 .settings-pop {
   position: absolute; right: 0; top: 42px; z-index: 50; width: 240px; padding: 12px;
   background: var(--panel); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--pop-shadow);
@@ -448,3 +450,28 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
 }
 [data-theme^="kb-"] :is(.group, .card) { border-radius: 4px; border-color: var(--kb-bar); }
 [data-theme^="kb-"] .item { border-top-style: dashed; }
+
+/* ---------- Help tab ---------- */
+.help-toc { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.help-toc a { border: 1px solid var(--border); background: var(--panel); border-radius: 999px; padding: 5px 12px; font-size: 14px; color: var(--text); text-decoration: none; }
+.help-toc a:hover { border-color: var(--accent); color: var(--accent); }
+.help-sec { margin-bottom: 14px; scroll-margin-top: 12px; }
+.help-body { padding: 4px 16px 12px; font-size: 15px; }
+.help-sec .help-body h3 {
+  font-size: 14px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 16px 0 4px;
+  padding: 0; background: none; border: 0; display: block;
+}
+.help-body li { margin: 4px 0; }
+.help-body code, .help-body kbd, .help-body pre { font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+.help-body code { background: var(--panel-2); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+.help-body kbd { border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px; padding: 0 6px; background: var(--panel-2); }
+.help-body pre { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; overflow-x: auto; white-space: pre; }
+.help-body table.keys { border-collapse: collapse; margin: 8px 0; }
+.help-body table.keys td { padding: 5px 12px 5px 0; border-top: 1px solid var(--border); vertical-align: top; }
+.help-body table.keys tr:first-child td { border-top: 0; }
+.help-sec .help-body table.keys { width: auto; font-size: 15px; }
+.help-sec .help-body table.keys td { padding: 5px 14px 5px 0; }
+.help-sec .help-body table.keys td:first-child { white-space: nowrap; width: auto; font-weight: 400; }
+.help-sec .help-body table.keys td:last-child { width: auto; text-align: left; }
+.help-body .livedot { display: inline-flex; padding: 0; }
+.livebox { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--panel-2); border-radius: 10px; padding: 10px 14px; }
