@@ -31,6 +31,11 @@ const refs = [
   ...weapons.weapons.flatMap(w => [...w.facts.map(f => f[2]), ...w.steps.map(s => s[1]), ...w.modes.flatMap(m => [m[1], m[2]])]),
 ].filter(p => p != null);
 const badRefs = refs.filter(p => p < 1 || p > data.pageCount);
+// "extras" lists realism-only items ("group-item" keys) that kneeboard.mjs --minimal leaves out
+for (const c of extra.checklists || []) for (const k of c.extras || []) {
+  const [gi, ii] = k.split("-").map(Number);
+  if (!c.groups[gi]?.items[ii]) throw new Error(`Checklist ${c.id}: extras key ${k} has no item`);
+}
 if (badRefs.length) throw new Error(`Page references out of range: ${badRefs.join(", ")}`);
 
 const ann = annotate(data.pages);
@@ -40,6 +45,7 @@ const guide = {
   title: data.title,
   aircraft: extra.aircraft || data.title,
   short: extra.short || data.title,
+  dcsModule: extra.dcsModule || null,
   pageCount: data.pageCount,
   outline: data.outline,
   pages: data.pages.map((pg, i) => {
@@ -60,7 +66,7 @@ const guide = {
 // Viewer assets: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
 const assets = path.join(outDir, "assets");
 fs.mkdirSync(assets, { recursive: true });
-for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
+for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "live.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
 fs.cpSync(path.join(here, "viewer", "fonts"), path.join(assets, "fonts"), { recursive: true });
 
 const html = fs.readFileSync(path.join(here, "viewer", "template.html"), "utf8")

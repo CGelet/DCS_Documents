@@ -35,11 +35,53 @@ one card per weapon (what it is, best for, watch out, key facts, quick steps, gu
 `▶ Walk through`, Chuck's video), a "Which weapon for…" target filter and a compare table.
 Every fact and step carries its source page; `build.mjs` checks they are in range.
 
+## Themes
+
+Settings → Theme: Light, Dark, Night (dim grey), Red (keeps night vision), and two kneeboard looks:
+Kneeboard (paper) and Kneeboard (dark), with card-style section headers.
+
+## DCS kneeboard pages
+
+```sh
+npm install && npx playwright install chromium     # once
+node kneeboard.mjs ../output/<AC> [--minimal] [--theme kb-light|kb-dark|light|dark|night|red]
+```
+
+This renders the checklists, quick-ref cards and weapon steps as portrait PNGs in
+`output/<AC>/kneeboard/<dcsModule>/` (`dcsModule` comes from the aircraft JSON, e.g. `FA-18C_hornet`).
+Copy that folder, or link it with `mklink /D`, into `Saved Games\DCS\Kneeboard\`. DCS shows them in
+filename order. `--minimal` leaves out each checklist's `extras`: the checks, tests and realism-only
+steps listed by `"group-item"` key in the aircraft JSON. Edit that list to change what counts as
+essential.
+
+## Live cockpit link (DCS-BIOS, optional)
+
+Checklist items tick themselves as you flip switches in DCS. The link is off by default and nothing
+runs until you turn it on.
+
+1. Install [DCS-BIOS](https://github.com/DCS-Skunkworks/dcs-bios) and fly once so it writes its
+   control references.
+2. On the DCS PC, run `node tools/bios-bridge.mjs`. It needs Node but no npm packages. It finds
+   `Saved Games\DCS*\Scripts\DCS-BIOS\doc\json` by itself, or pass `--json-dir`.
+3. In the reader, turn on Settings → Live cockpit. The LIVE dot is green while DCS is sending data;
+   click it to turn the link off.
+
+An item links to switches with a third field, `["Battery switch – ON", 82, ["BATTERY_SW", 0]]`.
+The test can be a value, a list of values, or `">n"`/`"<n"`, and a list of several
+`[control, test]` pairs must all hold. Within a group, an item only ticks after the linked items
+before it, so "caution out" can't tick before the engine is running. Extras never block. Only
+Cold Start is linked so far. Its values follow DCS-BIOS's position names, but they haven't been
+checked in DCS yet: run the bridge with `--watch` to see each switch's value as you flip it.
+`node tools/bios-fake.mjs aircraft/<AC>.json --json-dir <folder> [--skip-extras]` stands in for DCS
+when testing.
+
 ## Layout
 
 - `viewer/template.html`, `viewer.css`, `viewer.js` – core viewer (pages, TOC, search, tabs).
 - `viewer/reading.js` – the reading features above, plugged in through `window.Viewer`.
 - `viewer/weapons.js` – the Weapons tab.
+- `viewer/live.js` – the optional DCS-BIOS live link (`bios-bridge.mjs` is its PC-side bridge).
+- `kneeboard/` – the kneeboard page template used by `kneeboard.mjs`.
 - `viewer/fonts/` – Carlito, a Calibri-compatible font for devices without Calibri.
 
 Keys: `/` search · `1`–`5` tabs · `W` walkthrough · `M` single-page mode · `T` toggle contents ·

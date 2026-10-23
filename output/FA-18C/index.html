@@ -21,15 +21,17 @@
   <div class="pagebox" id="pagebox">
     <input id="pageInput" inputmode="numeric" aria-label="Page number"> <span id="pageTotal"></span>
   </div>
+  <button class="iconbtn livedot" id="liveDot" hidden><i></i><span>LIVE</span></button>
   <button class="iconbtn" id="modeBtn" title="Toggle single-page kneeboard mode (M)">▭</button>
   <div class="settings" id="settings">
     <button class="iconbtn" id="settingsBtn" aria-label="Settings" title="Settings">⚙</button>
     <div class="settings-pop">
-      <label>Theme <select id="themeSel"><option value="light">Light</option><option value="dark">Dark</option><option value="night">Night (red)</option></select></label>
+      <label>Theme <select id="themeSel"><option value="light">Light</option><option value="dark">Dark</option><option value="night">Night</option><option value="red">Red</option><option value="kb-light">Kneeboard (paper)</option><option value="kb-dark">Kneeboard (dark)</option></select></label>
       <label>Pages <select id="filterSel"><option value="none">Original</option><option value="dim">Dimmed</option><option value="invert">Inverted</option></select></label>
       <label>Page width <select id="widthSel"><option value="800px">Small</option><option value="1200px">Medium</option><option value="1600px">Large</option><option value="100%">Fit width</option></select></label>
       <label>Step ↔ callout links <input type="checkbox" id="stepsChk"></label>
       <label>Acronym tooltips <input type="checkbox" id="glossChk"></label>
+      <label title="Tick checklist items from your cockpit switches. Needs tools/bios-bridge.mjs running.">Live cockpit (DCS-BIOS) <input type="checkbox" id="liveChk"></label>
     </div>
   </div>
 </header>
@@ -62,5 +64,6 @@
 <script src="assets/viewer.js"></script>
 <script src="assets/reading.js"></script>
 <script src="assets/weapons.js"></script>
+<script src="assets/live.js"></script>
 </body>
 </html>

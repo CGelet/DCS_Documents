@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="kb-light">
+<head>
+<meta charset="utf-8">
+<title>Kneeboard</title>
+<link rel="stylesheet" href="../viewer/viewer.css">
+<link rel="stylesheet" href="kneeboard.css">
+</head>
+<body>
+<div id="sheets"></div>
+<script>
+// Lays out checklists, quick-ref cards and weapon steps as portrait kneeboard sheets.
+// kneeboard.mjs opens this page with ?data=<data.js URL>&theme=<theme> and screenshots each .sheet.
+(() => {
+  const q = new URLSearchParams(location.search);
+  document.documentElement.dataset.theme = q.get("theme") || "kb-light";
+  const s = document.createElement("script");
+  s.src = q.get("data");
+  s.onload = () => { build(window.GUIDE); window.KNEEBOARD_READY = true; };
+  s.onerror = () => { window.KNEEBOARD_READY = "could not load " + q.get("data"); };
+  document.head.append(s);
+
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const sheetsEl = document.getElementById("sheets");
+
+  // "Item – STATE" becomes a leader-dot row; other text fills the line
+  function row(text, page, box) {
+    const r = el("div", "row" + (box ? " box" : ""));
+    const i = text.indexOf(" – ");
+    if (i > 0) r.append(el("span", "k", text.slice(0, i)), el("span", "dots"), el("span", "v", text.slice(i + 3)));
+    else r.append(el("span", "k grow", text));
+    if (page) r.append(el("span", "p", "p." + page));
+    return r;
+  }
+
+  function build(G) {
+    const sections = [];
+    // ?minimal=1 drops each checklist's realism-only "extras"
+    const minimal = q.has("minimal");
+    for (const c of G.checklists || []) {
+      const skip = new Set(minimal ? c.extras || [] : []);
+      sections.push({
+        slug: c.id, title: c.title + (skip.size ? " · Essentials" : ""),
+        groups: c.groups.map((g, gi) => ({
+          title: g.title,
+          rows: g.items.filter((_, ii) => !skip.has(gi + "-" + ii)).map(([t, p]) => row(t, p, true)),
+        })).filter(g => g.rows.length),
+      });
+    }
+    if ((G.quickref || []).length) sections.push({
+      slug: "quickref", title: "Quick Reference",
+      groups: G.quickref.map(c => ({ title: c.title, rows: c.rows.map(([k, v, p]) => {
+        const r = el("div", "row qr" + (c.mono ? " mono" : ""));
+        r.append(el("span", "k", k), el("span", "dots"), el("span", "v", v));
+        if (p) r.append(el("span", "p", "p." + p));
+        return r;
+      }) })),
+    });
+    if ((G.weapons || []).length) sections.push({
+      slug: "weapons", title: "Weapons",
+      groups: G.weapons.map(w => ({ title: `${w.name} · ${w.type}`, rows: w.steps.map(([t, p], i) => {
+        const r = row(t, p, false);
+        r.prepend(el("span", "n", i + 1 + "."));
+        return r;
+      }) })),
+    });
+
+    for (const sec of sections) {
+      const sheets = [];
+      let body;
+      const newSheet = () => {
+        const sh = el("div", "sheet");
+        sh.dataset.slug = sec.slug;
+        const head = el("div", "head");
+        head.append(el("span", "ac", G.short), el("span", "title", sec.title), el("span", "num"));
+        body = el("div", "body");
+        sh.append(head, body, el("div", "foot", "Chuck's Guide · page numbers refer to the guide"));
+        sheetsEl.append(sh);
+        sheets.push(sh);
+      };
+      const over = () => body.scrollHeight > body.clientHeight + 1;
+      newSheet();
+      for (const g of sec.groups) {
+        let bar = el("div", "bar", g.title), grp = el("div", "grp");
+        // Split a group where it lands, unless fewer than 3 of its rows fit here: then start a new sheet
+        body.append(bar, grp);
+        grp.append(...g.rows.slice(0, 3));
+        if (over() && body.children.length > 2) {
+          bar.remove(); grp.remove();
+          newSheet();
+          body.append(bar, grp);
+        }
+        grp.replaceChildren();
+        for (const r of g.rows) {
+          grp.append(r);
+          if (!over()) continue;
+          r.remove();
+          if (!grp.children.length) { bar.remove(); grp.remove(); }
+          newSheet();
+          bar = el("div", "bar", grp.children.length ? g.title + " (cont.)" : g.title);
+          grp = el("div", "grp");
+          body.append(bar, grp);
+          grp.append(r);
+        }
+      }
+      sheets.forEach((sh, i) => { sh.querySelector(".num").textContent = sheets.length > 1 ? `${i + 1}/${sheets.length}` : ""; });
+    }
+  }
+})();
+</script>
+</body>
+</html>

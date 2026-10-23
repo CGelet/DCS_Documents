@@ -1,16 +1,18 @@
 {
   "aircraft": "F/A-18C Hornet",
   "short": "F/A-18C",
+  "dcsModule": "FA-18C_hornet",
   "checklists": [
     {
       "id": "startup",
       "title": "Cold Start",
+      "extras": ["0-1", "0-2", "0-4", "0-5", "0-6", "0-7", "1-0", "1-2", "1-6", "1-8", "2-3", "2-4", "2-5", "2-6", "3-1", "3-2", "4-0", "4-1", "4-2", "4-4", "4-5", "4-8", "4-10", "4-11", "5-1", "5-5", "5-6", "5-7", "5-8", "5-10", "5-11", "5-12", "5-15", "5-16", "6-3", "6-4", "6-6", "6-10", "6-12", "6-13", "6-14", "6-15", "6-16"],
       "groups": [
         { "title": "Pre-Start", "items": [
-          ["Ejection seat – ARMED (lever down), harness lever – FWD", 82],
-          ["Parking brake – ENGAGED", 82],
-          ["MASTER ARM – SAFE", 82],
-          ["Battery switch – ON (right click)", 82],
+          ["Ejection seat – ARMED (lever down), harness lever – FWD", 82, ["EJECTION_SEAT_ARMED", 0]],
+          ["Parking brake – ENGAGED", 82, ["EMERGENCY_PARKING_BRAKE_ROTATE", 1]],
+          ["MASTER ARM – SAFE", 82, ["MASTER_ARM_SW", 0]],
+          ["Battery switch – ON (right click)", 82, ["BATTERY_SW", 0]],
           ["Hydraulic brake pressure – 3000 psi minimum", 82],
           ["(Optional) Fire & Bleed Air test – Channel A (fwd), hold until audio ends", 82],
           ["(Optional) Cycle battery OFF/ON to rewind tape, or wait 10 s", 82],
@@ -18,67 +20,67 @@
         ]},
         { "title": "APU & Right Engine", "items": [
           ["No APU ACC caution on standby caution panel", 83],
-          ["APU switch – ON", 83],
-          ["APU ACC caution visible, APU spooling", 83],
-          ["APU green READY light", 83],
-          ["Engine crank switch – R (right click)", 83],
+          ["APU switch – ON", 83, ["APU_CONTROL_SW", 1]],
+          ["APU ACC caution visible, APU spooling", 83, ["CLIP_APU_ACC_LT", 1]],
+          ["APU green READY light", 83, ["APU_READY_LT", 1]],
+          ["Engine crank switch – R (right click)", 83, ["ENGINE_CRANK_SW", 2]],
           ["At 25 % RPM: right throttle OFF → IDLE (RSHIFT+HOME)", 83],
           ["EGT stays below 750 °C", 83],
-          ["RPM stabilises 60–65 %, R GEN caution out", 83],
-          ["MASTER CAUTION – reset", 83]
+          ["RPM stabilises 60–65 %, R GEN caution out", 83, ["CLIP_R_GEN_LT", 0]],
+          ["MASTER CAUTION – reset", 83, ["MASTER_CAUTION_RESET_SW", 1]]
         ]},
         { "title": "Displays & Systems", "items": [
-          ["Left & right DDI knobs – DAY", 84],
-          ["AMPCD brightness – ON (right)", 84],
-          ["HUD brightness – ON", 84],
-          ["HUD BLK LVL – right", 84],
-          ["ALT switch – RDR", 84],
-          ["ATT switch – AUTO", 84],
+          ["Left & right DDI knobs – DAY", 84, [["LEFT_DDI_BRT_SELECT", 2], ["RIGHT_DDI_BRT_SELECT", 2]]],
+          ["AMPCD brightness – ON (right)", 84, ["AMPCD_BRT_CTL", ">0"]],
+          ["HUD brightness – ON", 84, ["HUD_SYM_BRT", ">0"]],
+          ["HUD BLK LVL – right", 84, ["HUD_BLACK_LVL", ">0"]],
+          ["ALT switch – RDR", 84, ["HUD_ALT_SW", 0]],
+          ["ATT switch – AUTO", 84, ["HUD_ATT_SW", 1]],
           ["Bleed air knob – rotate 360° back to NORM (reopens bleed valves)", 84],
-          ["Canopy – CLOSE (hold)", 84]
+          ["Canopy – CLOSE (hold)", 84, ["CANOPY_SW", 2]]
         ]},
         { "title": "INS Alignment", "items": [
-          ["INS selector – GND (shore) or CV (carrier)", 85],
+          ["INS selector – GND (shore) or CV (carrier)", 85, ["INS_SW", [1, 2]]],
           ["(Optional) HSI: STD HDG for a ~90 s alignment (normal ≈ 8 min)", 85],
           ["Monitor GRND QUAL timer on AMPCD", 85],
           ["Wait for OK next to GRND QUAL (continue the start meanwhile, switch INS when done)", 85],
-          ["INS selector – IFA (GPS, 1986+) or NAV (no GPS)", 85]
+          ["INS selector – IFA (GPS, 1986+) or NAV (no GPS)", 85, ["INS_SW", [3, 4]]]
         ]},
         { "title": "FCS Reset & Left Engine", "items": [
           ["No engine 2 cautions (HYD 2A/2B, R GEN)", 87],
           ["Left DDI: MENU → SUPT → FCS", 87],
           ["MASTER CAUTION ×2 to re-stack cautions", 87],
-          ["FCS RESET button – press, X's clear", 87],
+          ["FCS RESET button – press, X's clear", 87, ["FCS_RESET_BTN", 1]],
           ["Right DDI BIT page – STOP", 87],
-          ["LIGHTS TEST – hold, check cautions illuminate", 88],
-          ["Engine crank switch – L (left click)", 88],
+          ["LIGHTS TEST – hold, check cautions illuminate", 88, ["LIGHTS_TEST_SW", 1]],
+          ["Engine crank switch – L (left click)", 88, ["ENGINE_CRANK_SW", 0]],
           ["At 25 % RPM: left throttle OFF → IDLE (RALT+HOME)", 88],
           ["EGT stays below 750 °C", 88],
-          ["RPM stabilises 60–65 %, L GEN caution out", 88],
+          ["RPM stabilises 60–65 %, L GEN caution out", 88, ["CLIP_L_GEN_LT", 0]],
           ["No engine 1 cautions (HYD 1A/1B, L GEN)", 89],
-          ["APU shuts down automatically ~1 min after both engines idle", 89]
+          ["APU shuts down automatically ~1 min after both engines idle", 89, ["APU_CONTROL_SW", 0]]
         ]},
         { "title": "Configure", "items": [
-          ["OBOGS – ON", 89],
+          ["OBOGS – ON", 89, ["OBOGS_SW", 1]],
           ["HOOK BYPASS – FIELD or CARRIER", 89],
-          ["FLAPS – HALF", 89],
+          ["FLAPS – HALF", 89, ["FLAP_SW", 1]],
           ["ANTI-SKID – ON (field) / OFF (carrier)", 89],
-          ["RADAR – OPR", 89],
+          ["RADAR – OPR", 89, ["RADAR_SW", 2]],
           ["FCS BIT: BIT page → FCS-MC, hold FCS BIT switch (Y) + press FCS OSB", 90],
           ["Wait for FCSA & FCSB – GO", 90],
           ["AMPCD gain/contrast as required (NGT at night)", 91],
           ["AMPCD: TIME → UFC: ZTOD (zulu time on HUD)", 91],
-          ["T/O TRIM – press", 91],
-          ["PITOT HEAT – AUTO", 91],
+          ["T/O TRIM – press", 91, ["TO_TRIM_BTN", 1]],
+          ["PITOT HEAT – AUTO", 91, ["PITOT_HEAT_SW", 0]],
           ["Left DDI – HUD repeater (TAC → HUD)", 92],
           ["Right DDI – FCS page", 92],
           ["Wings – SPREAD & locked if on shore (keep folded on carrier)", 92],
           ["Radar altimeter index – 200 ft (shore) / 80 ft (carrier)", 93],
-          ["Standby attitude indicator – uncage", 93],
+          ["Standby attitude indicator – uncage", 93, ["SAI_CAGE", 1]],
           ["BINGO fuel – set on IFEI (e.g. 8000 lbs)", 93],
-          ["ALR-67 PWR – ON (RWR)", 93],
-          ["ECM – STBY", 93],
-          ["DISPENSER – ON", 93]
+          ["ALR-67 PWR – ON (RWR)", 93, ["RWR_LOWER_LT", 1]],
+          ["ECM – STBY", 93, ["ECM_MODE_SW", 3]],
+          ["DISPENSER – ON", 93, ["CMSD_DISPENSE_SW", 1]]
         ]},
         { "title": "Datalink, Helmet & Lights", "items": [
           ["IFF – UFC IFF, hold ON until XP; verify mode 4A", 94],
@@ -94,11 +96,11 @@
           ["[JHMCS] (Optional) fine alignment with TDC, then unbox ALIGN to save", 98],
           ["DTC: SUPT → MUMI, load each data type", 99],
           ["STROBE – ON", 100],
-          ["POSITION lights – BRT", 100],
-          ["FORMATION lights – BRT", 100],
+          ["POSITION lights – BRT", 100, ["POSITION_DIMMER", ">0"]],
+          ["FORMATION lights – BRT", 100, ["FORMATION_DIMMER", ">0"]],
           ["Exterior lights master (L) – as required", 100],
-          ["LDG/TAXI light – ON", 100],
-          ["Parking brake – release (push in)", 100],
+          ["LDG/TAXI light – ON", 100, ["LDG_TAXI_SW", 1]],
+          ["Parking brake – release (push in)", 100, ["EMERGENCY_PARKING_BRAKE_ROTATE", 2]],
           ["Chocks – remove: canopy open, \\ → F8 → F4 → F2", 101]
         ]}
       ]

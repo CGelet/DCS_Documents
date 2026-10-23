@@ -27,9 +27,11 @@
 
   /* ---------- Settings ---------- */
   const settings = Object.assign(
-    { theme: "dark", filter: "none", width: "1200px", single: false, steps: true, gloss: true },
+    { theme: "dark", filter: "none", width: "1200px", single: false, steps: true, gloss: true, live: false },
     store.get("settings", {}),
   );
+  if (settings.theme === "night" && !settings.v2) settings.theme = "red"; // "night" used to be the red theme
+  settings.v2 = true;
   function applySettings() {
     root.dataset.theme = settings.theme;
     root.dataset.filter = settings.filter;
@@ -395,6 +397,7 @@
   let activeCl = store.get("cl", cls[0]?.id);
   if (!cls.some(c => c.id === activeCl)) activeCl = cls[0]?.id;
   const hideDone = { v: store.get("hideDone", false) };
+  let clView = null; // the checklist currently rendered: { id, state, rows, update, chips }
 
   function renderChecklists() {
     const box = $("#checklists");
@@ -404,10 +407,12 @@
     const total = cl.groups.reduce((n, g) => n + g.items.length, 0);
 
     const tabs = el("div", { className: "cl-tabs", role: "tablist" });
+    const chips = {};
     for (const c of cls) {
       const done = store.get("cl:" + c.id, []).length, n = c.groups.reduce((s, g) => s + g.items.length, 0);
       const b = el("button", { className: "chip", role: "tab" }, c.title, el("span", { className: "n", textContent: `${done}/${n}` }));
       b.setAttribute("aria-selected", c.id === cl.id);
+      chips[c.id] = b.querySelector(".n");
       b.onclick = () => { activeCl = c.id; store.set("cl", c.id); history.replaceState(null, "", "#cl=" + c.id); renderChecklists(); main.scrollTop = 0; };
       tabs.append(b);
     }
@@ -427,7 +432,7 @@
         const cb = el("input", { type: "checkbox", checked: state.has(key) });
         const row = el("label", { className: "item" }, cb, el("span", { className: "txt", textContent: text }), page ? pageLink(page) : null);
         cb.onchange = () => { cb.checked ? state.add(key) : state.delete(key); store.set("cl:" + cl.id, [...state]); update(); };
-        rows.push({ row, key, gi, gc });
+        rows.push({ row, key, gi, gc, cb });
         grp.append(row);
       });
       list.append(grp);
@@ -446,12 +451,30 @@
       for (const [d, n, gc] of Object.values(perGroup)) gc.textContent = `${d}/${n}`;
       count.textContent = `${state.size}/${total}`;
       bar.style.width = (state.size / total * 100) + "%";
-      tabs.querySelector('[aria-selected="true"] .n').textContent = `${state.size}/${total}`;
+      chips[cl.id].textContent = `${state.size}/${total}`;
     }
     hideBtn.onclick = () => { hideDone.v = !hideDone.v; store.set("hideDone", hideDone.v); list.className = hideDone.v ? "hide-done" : ""; hideBtn.textContent = hideDone.v ? "Show done" : "Hide done"; };
     resetBtn.onclick = () => { if (!state.size || confirm(`Reset "${cl.title}"?`)) { state.clear(); store.set("cl:" + cl.id, []); list.querySelectorAll("input").forEach(i => i.checked = false); update(); main.scrollTop = 0; } };
     box.replaceChildren(tabs, head, list, el("p", { className: "note", textContent: "Condensed from the guide. Tap a page number to see the full step with pictures. Progress is saved in this browser." }));
     update();
+    clView = { id: cl.id, state, rows, update, chips };
+  }
+  // Tick an item from outside (live cockpit link). Returns true if it was not ticked before.
+  function tickItem(id, key) {
+    const done = new Set(store.get("cl:" + id, []));
+    if (done.has(key)) return false;
+    done.add(key);
+    store.set("cl:" + id, [...done]);
+    if (!clView) return true;
+    if (clView.id === id) {
+      clView.state.add(key);
+      clView.rows.find(r => r.key === key).cb.checked = true;
+      clView.update();
+    } else {
+      const c = cls.find(c => c.id === id), n = c.groups.reduce((s, g) => s + g.items.length, 0);
+      clView.chips[id].textContent = `${done.size}/${n}`;
+    }
+    return true;
   }
 
   /* ---------- Quick reference ---------- */
@@ -487,7 +510,8 @@
   /* ---------- API for reading.js ---------- */
   window.Viewer = {
     G, N, $, el, esc, store, settings, main, pageEls, outline, parentOf, secOf, rangeOf, tocLis,
-    sectionPath, buildTextLayer, fitLayer, loadSvg, goPage, showTab, pageLink, closeNav,
+    sectionPath, buildTextLayer, fitLayer, loadSvg, goPage, showTab, pageLink, closeNav, tickItem,
+    saveSettings: () => store.set("settings", settings),
     get current() { return current; },
     get activeTab() { return activeTab; },
     on(evt, fn) { if (evt === "decorate") hooks.decorate = fn; else hooks[evt].push(fn); },

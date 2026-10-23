@@ -5,21 +5,47 @@
 @font-face { font-family: Carlito; src: url(fonts/Carlito-BoldItalic.ttf); font-weight: 700; font-style: italic; }
 
 :root, [data-theme="light"] {
+  color-scheme: light;
   --bg: #f4f5f7; --panel: #ffffff; --panel-2: #eef0f3; --text: #1b1f24; --muted: #5d6673;
   --border: #d7dbe0; --accent: #c8102e; --accent-ink: #ffffff; --hit: rgba(255, 200, 0, .45);
   --hit-strong: rgba(255, 140, 0, .6); --check: #1d8a4e; --shadow: 0 1px 3px rgba(0,0,0,.12);
   --pop-shadow: 0 6px 24px rgba(0,0,0,.18);
 }
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg: #121417; --panel: #1b1e23; --panel-2: #23272e; --text: #e4e7eb; --muted: #959eaa;
   --border: #30353d; --accent: #ff4d5e; --accent-ink: #0d0f12; --hit: rgba(255, 200, 0, .4);
   --hit-strong: rgba(255, 140, 0, .6); --check: #3ecf7d; --shadow: 0 1px 3px rgba(0,0,0,.5);
   --pop-shadow: 0 6px 24px rgba(0,0,0,.6);
 }
+/* Night: dim, low-contrast neutral for flying in a dark room */
 [data-theme="night"] {
+  color-scheme: dark;
+  --bg: #08090a; --panel: #0f1112; --panel-2: #16191b; --text: #9aa1a8; --muted: #5f666d;
+  --border: #22262a; --accent: #b8925a; --accent-ink: #08090a; --hit: rgba(184, 146, 90, .3);
+  --hit-strong: rgba(184, 146, 90, .55); --check: #7fa58a; --shadow: none; --pop-shadow: 0 6px 24px rgba(0,0,0,.7);
+}
+/* Red: red-on-black to keep night vision */
+[data-theme="red"] {
+  color-scheme: dark;
   --bg: #050505; --panel: #0b0b0b; --panel-2: #141010; --text: #ff8a7a; --muted: #a85a50;
   --border: #2a1714; --accent: #ff5a46; --accent-ink: #050505; --hit: rgba(255, 90, 70, .35);
   --hit-strong: rgba(255, 90, 70, .6); --check: #ff8a7a; --shadow: none; --pop-shadow: none;
+}
+/* Kneeboard themes: printed checklist cards. --kb-bar/--kb-bar-ink colour the section header bars. */
+[data-theme="kb-light"] {
+  color-scheme: light;
+  --bg: #d9d2bf; --panel: #f1ead6; --panel-2: #e6dec6; --text: #1d1a14; --muted: #5e574a;
+  --border: #b9b09a; --accent: #9e1b1b; --accent-ink: #f6f0de; --hit: rgba(230, 180, 0, .45);
+  --hit-strong: rgba(220, 120, 0, .6); --check: #2f6b2f; --shadow: 0 1px 2px rgba(60,45,20,.25);
+  --pop-shadow: 0 6px 24px rgba(60,45,20,.3); --kb-bar: #1d1a14; --kb-bar-ink: #f1ead6;
+}
+[data-theme="kb-dark"] {
+  color-scheme: dark;
+  --bg: #15170f; --panel: #23261b; --panel-2: #2c3023; --text: #e8e2c8; --muted: #9c9a82;
+  --border: #3d4232; --accent: #f0b54a; --accent-ink: #15170f; --hit: rgba(240, 181, 74, .35);
+  --hit-strong: rgba(240, 181, 74, .6); --check: #9fcb6e; --shadow: none;
+  --pop-shadow: 0 6px 24px rgba(0,0,0,.6); --kb-bar: #f0b54a; --kb-bar-ink: #15170f;
 }
 /* Highlight colours stay readable on the white guide pages in every theme */
 :root { --hl-y: rgba(255, 214, 0, .42); --hl-g: rgba(60, 200, 110, .36); --hl-b: rgba(70, 150, 255, .34); --hl-p: rgba(235, 90, 200, .32); }
@@ -62,6 +88,13 @@ header {
   width: 56px; height: 36px; text-align: center; border-radius: 8px;
   border: 1px solid var(--border); background: var(--panel-2);
 }
+.livedot { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--muted); }
+.livedot[hidden] { display: none; }
+.livedot i { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); }
+.livedot[data-s="wait"] i { background: transparent; box-shadow: inset 0 0 0 2px var(--muted); }
+.livedot[data-s="bridge"] i { background: #e0a030; }
+.livedot[data-s="live"] i { background: var(--check); }
+.livedot[data-s="live"] { color: var(--check); }
 .settings { position: relative; }
 .settings-pop {
   position: absolute; right: 0; top: 42px; z-index: 50; width: 240px; padding: 12px;
@@ -402,3 +435,16 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
   .wcallouts, .wcols { grid-template-columns: 1fr; }
   .wtabs { margin-left: 0; }
 }
+
+/* ---------- Kneeboard themes: card-style section headers ---------- */
+[data-theme^="kb-"] :is(.group h3, .card h3, .wcompare th) {
+  background: var(--kb-bar); color: var(--kb-bar-ink); border-color: var(--kb-bar);
+  font-family: Bahnschrift, "Arial Narrow", "Roboto Condensed", sans-serif; font-stretch: condensed;
+  text-transform: uppercase; letter-spacing: .07em;
+}
+[data-theme^="kb-"] :is(.cl-head h2, .section-title h2, .whead h2) {
+  font-family: Bahnschrift, "Arial Narrow", "Roboto Condensed", sans-serif; font-stretch: condensed;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+[data-theme^="kb-"] :is(.group, .card) { border-radius: 4px; border-color: var(--kb-bar); }
+[data-theme^="kb-"] .item { border-top-style: dashed; }
