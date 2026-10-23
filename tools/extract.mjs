@@ -1,19 +1,16 @@
-// Usage: node extract.mjs <guide.pdf> <outDir> [scale=1.5] [jpegQuality=78]
-// Renders every page to <outDir>/pages/pNNN.jpg and writes <outDir>/data.json
-// containing the outline and the positioned text lines of each page.
+// Usage: node extract.mjs <guide.pdf> <outDir>
+// Writes <outDir>/data.json: the outline (bookmarks) and the positioned text lines of every page.
+// Page graphics come from svg.mjs.
 import * as mupdf from "mupdf";
 import fs from "fs";
 import path from "path";
 
-const [pdfPath, outDir, scaleArg, qualityArg] = process.argv.slice(2);
+const [pdfPath, outDir] = process.argv.slice(2);
 if (!pdfPath || !outDir) {
-  console.error("Usage: node extract.mjs <guide.pdf> <outDir> [scale] [quality]");
+  console.error("Usage: node extract.mjs <guide.pdf> <outDir>");
   process.exit(1);
 }
-const scale = Number(scaleArg || 1.5);
-const quality = Number(qualityArg || 78);
-const pagesDir = path.join(outDir, "pages");
-fs.mkdirSync(pagesDir, { recursive: true });
+fs.mkdirSync(outDir, { recursive: true });
 
 const doc = mupdf.Document.openDocument(fs.readFileSync(pdfPath), "application/pdf");
 const count = doc.countPages();
@@ -42,19 +39,12 @@ for (let i = 0; i < count; i++) {
     }
   }
   st.destroy?.();
-
-  const img = path.join(pagesDir, `p${String(i + 1).padStart(3, "0")}.jpg`);
-  if (!fs.existsSync(img)) {
-    const pix = page.toPixmap(mupdf.Matrix.scale(scale, scale), mupdf.ColorSpace.DeviceRGB, false, true);
-    fs.writeFileSync(img, pix.asJPEG(quality));
-    pix.destroy?.();
-  }
   page.destroy?.();
-
   pages.push({ w: x1 - x0, h: y1 - y0, lines });
-  if ((i + 1) % 50 === 0) console.log(`${i + 1}/${count}`);
 }
 
 const title = (doc.getMetaData?.("info:Title") || path.basename(pdfPath, ".pdf")).trim();
 fs.writeFileSync(path.join(outDir, "data.json"), JSON.stringify({ title, pageCount: count, outline, pages }));
 console.log(`done: ${count} pages, ${outline.length} outline entries`);
+// Exit explicitly: mupdf-wasm finalizers can crash during normal shutdown after all work is done
+process.exit(0);
