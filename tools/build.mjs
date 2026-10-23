@@ -32,6 +32,9 @@ const refs = [
 ].filter(p => p != null);
 const badRefs = refs.filter(p => p < 1 || p > data.pageCount);
 // "extras" lists realism-only items ("group-item" keys) that kneeboard.mjs --minimal leaves out
+// Live-link "done" evidence must name states defined on the checklist
+for (const c of extra.checklists || []) for (const g of c.groups) for (const n of [...(g.done || []), ...g.items.flatMap(i => i[3]?.done || [])])
+  if (!c.states?.[n]) throw new Error(`Checklist ${c.id}: unknown state "${n}"`);
 for (const c of extra.checklists || []) for (const k of c.extras || []) {
   const [gi, ii] = k.split("-").map(Number);
   if (!c.groups[gi]?.items[ii]) throw new Error(`Checklist ${c.id}: extras key ${k} has no item`);

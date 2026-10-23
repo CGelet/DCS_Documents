@@ -6,30 +6,36 @@
     {
       "id": "startup",
       "title": "Cold Start",
-      "extras": ["0-1", "0-2", "0-4", "0-5", "0-6", "0-7", "1-0", "1-2", "1-6", "1-8", "2-3", "2-4", "2-5", "2-6", "3-1", "3-2", "4-0", "4-1", "4-2", "4-4", "4-5", "4-8", "4-10", "4-11", "5-1", "5-5", "5-6", "5-7", "5-8", "5-10", "5-11", "5-12", "5-15", "5-16", "6-3", "6-4", "6-6", "6-10", "6-12", "6-13", "6-14", "6-15", "6-16"],
+      "states": {
+        "rightEngine": [["BATTERY_SW", [0, 2]], ["CLIP_R_GEN_LT", 0]],
+        "leftEngine": [["BATTERY_SW", [0, 2]], ["CLIP_L_GEN_LT", 0]],
+        "insAligned": [["INS_SW", [3, 4]]],
+        "apuOff": [["APU_CONTROL_SW", 0]]
+      },
+      "extras": ["0-1", "0-2", "0-4", "0-5", "0-6", "0-7", "1-0", "1-2", "1-6", "1-8", "2-3", "2-4", "2-5", "2-6", "3-2", "4-0", "4-1", "4-2", "4-4", "4-5", "4-8", "4-10", "4-11", "5-1", "5-5", "5-6", "5-7", "5-8", "5-10", "5-11", "5-12", "5-15", "5-16", "6-3", "6-4", "6-6", "6-10", "6-12", "6-13", "6-14", "6-15", "6-16"],
       "groups": [
-        { "title": "Pre-Start", "items": [
-          ["Ejection seat – ARMED (lever down), harness lever – FWD", 82, ["EJECTION_SEAT_ARMED", 0]],
+        { "title": "Pre-Start", "done": ["rightEngine"], "items": [
+          ["Ejection seat – ARMED (lever down), harness lever – FWD", 82],
           ["Parking brake – ENGAGED", 82, ["EMERGENCY_PARKING_BRAKE_ROTATE", 1]],
           ["MASTER ARM – SAFE", 82, ["MASTER_ARM_SW", 0]],
-          ["Battery switch – ON (right click)", 82, ["BATTERY_SW", 0]],
+          ["Battery switch – ON (right click)", 82, ["BATTERY_SW", [0, 2]]],
           ["Hydraulic brake pressure – 3000 psi minimum", 82],
           ["(Optional) Fire & Bleed Air test – Channel A (fwd), hold until audio ends", 82],
           ["(Optional) Cycle battery OFF/ON to rewind tape, or wait 10 s", 82],
           ["(Optional) Fire & Bleed Air test – Channel B (aft), hold until audio ends", 82]
         ]},
-        { "title": "APU & Right Engine", "items": [
+        { "title": "APU & Right Engine", "done": ["rightEngine"], "items": [
           ["No APU ACC caution on standby caution panel", 83],
           ["APU switch – ON", 83, ["APU_CONTROL_SW", 1]],
           ["APU ACC caution visible, APU spooling", 83, ["CLIP_APU_ACC_LT", 1]],
           ["APU green READY light", 83, ["APU_READY_LT", 1]],
-          ["Engine crank switch – R (right click)", 83, ["ENGINE_CRANK_SW", 2]],
-          ["At 25 % RPM: right throttle OFF → IDLE (RSHIFT+HOME)", 83],
+          ["Engine crank switch – R (right click)", 83, ["ENGINE_CRANK_SW", [0, 2]]],
+          ["At 25 % RPM: right throttle OFF → IDLE (RSHIFT+HOME)", 83, ["INT_THROTTLE_RIGHT", "~1300"]],
           ["EGT stays below 750 °C", 83],
-          ["RPM stabilises 60–65 %, R GEN caution out", 83, ["CLIP_R_GEN_LT", 0]],
+          ["RPM stabilises 60–65 %, R GEN caution out", 83, ["CLIP_R_GEN_LT", 0], {"after": true}],
           ["MASTER CAUTION – reset", 83, ["MASTER_CAUTION_RESET_SW", 1]]
         ]},
-        { "title": "Displays & Systems", "items": [
+        { "title": "Displays & Systems", "done": ["leftEngine"], "items": [
           ["Left & right DDI knobs – DAY", 84, [["LEFT_DDI_BRT_SELECT", 2], ["RIGHT_DDI_BRT_SELECT", 2]]],
           ["AMPCD brightness – ON (right)", 84, ["AMPCD_BRT_CTL", ">0"]],
           ["HUD brightness – ON", 84, ["HUD_SYM_BRT", ">0"]],
@@ -37,28 +43,28 @@
           ["ALT switch – RDR", 84, ["HUD_ALT_SW", 0]],
           ["ATT switch – AUTO", 84, ["HUD_ATT_SW", 1]],
           ["Bleed air knob – rotate 360° back to NORM (reopens bleed valves)", 84],
-          ["Canopy – CLOSE (hold)", 84, ["CANOPY_SW", 2]]
+          ["Canopy – CLOSE (hold)", 84, ["CANOPY_SW", [0, 2]]]
         ]},
-        { "title": "INS Alignment", "items": [
+        { "title": "INS Alignment", "done": ["insAligned"], "items": [
           ["INS selector – GND (shore) or CV (carrier)", 85, ["INS_SW", [1, 2]]],
           ["(Optional) HSI: STD HDG for a ~90 s alignment (normal ≈ 8 min)", 85],
           ["Monitor GRND QUAL timer on AMPCD", 85],
           ["Wait for OK next to GRND QUAL (continue the start meanwhile, switch INS when done)", 85],
           ["INS selector – IFA (GPS, 1986+) or NAV (no GPS)", 85, ["INS_SW", [3, 4]]]
         ]},
-        { "title": "FCS Reset & Left Engine", "items": [
+        { "title": "FCS Reset & Left Engine", "done": ["leftEngine"], "items": [
           ["No engine 2 cautions (HYD 2A/2B, R GEN)", 87],
           ["Left DDI: MENU → SUPT → FCS", 87],
           ["MASTER CAUTION ×2 to re-stack cautions", 87],
           ["FCS RESET button – press, X's clear", 87, ["FCS_RESET_BTN", 1]],
           ["Right DDI BIT page – STOP", 87],
           ["LIGHTS TEST – hold, check cautions illuminate", 88, ["LIGHTS_TEST_SW", 1]],
-          ["Engine crank switch – L (left click)", 88, ["ENGINE_CRANK_SW", 0]],
-          ["At 25 % RPM: left throttle OFF → IDLE (RALT+HOME)", 88],
+          ["Engine crank switch – L (left click)", 88, ["ENGINE_CRANK_SW", [0, 2]], {"after": true}],
+          ["At 25 % RPM: left throttle OFF → IDLE (RALT+HOME)", 88, ["INT_THROTTLE_LEFT", "~1300"]],
           ["EGT stays below 750 °C", 88],
-          ["RPM stabilises 60–65 %, L GEN caution out", 88, ["CLIP_L_GEN_LT", 0]],
+          ["RPM stabilises 60–65 %, L GEN caution out", 88, ["CLIP_L_GEN_LT", 0], {"after": true}],
           ["No engine 1 cautions (HYD 1A/1B, L GEN)", 89],
-          ["APU shuts down automatically ~1 min after both engines idle", 89, ["APU_CONTROL_SW", 0]]
+          ["APU shuts down automatically ~1 min after both engines idle", 89, ["APU_CONTROL_SW", 0], {"after": true, "done": ["leftEngine", "apuOff"]}]
         ]},
         { "title": "Configure", "items": [
           ["OBOGS – ON", 89, ["OBOGS_SW", 1]],

@@ -23,9 +23,11 @@ for (const cat of Object.values(JSON.parse(fs.readFileSync(path.join(jsonDir, ac
     if (o) ref.set(id, o);
   }
 
-// A value that passes a test, and one that fails it
-const passing = t => Array.isArray(t) ? t[0] : typeof t === "string" ? +t.slice(1) + (t[0] === ">" ? 20000 : -1) : t;
-const passes = (v, t) => Array.isArray(t) ? t.includes(v) : typeof t === "string" ? (t[0] === ">" ? v > +t.slice(1) : v < +t.slice(1)) : v === t;
+// A value that passes a test ("~n": moved n from the current value), and whether a value passes one
+const passing = (t, cur) => Array.isArray(t) ? t[0] : typeof t !== "string" ? t
+  : t[0] === "~" ? cur + 3 * +t.slice(1) : +t.slice(1) + (t[0] === ">" ? 20000 : -1);
+const passes = (v, t) => Array.isArray(t) ? t.includes(v) : typeof t !== "string" ? v === t
+  : t[0] === ">" ? v > +t.slice(1) : t[0] === "<" ? v < +t.slice(1) : false;
 
 // Steps in checklist order; each control starts at a value that fails its first test (and every later one if possible)
 const steps = [], tests = new Map();
@@ -36,6 +38,7 @@ for (const cl of ac.checklists) cl.groups.forEach((g, gi) => g.items.forEach(([t
   for (const [c, t] of conds) tests.set(c, [...(tests.get(c) || []), t]);
 }));
 const mem = Buffer.alloc(65536);
+const read = id => { const o = ref.get(id); return (mem.readUInt16LE(o.address) & o.mask) >> o.shift_by; };
 const write = (id, v) => {
   const o = ref.get(id);
   if (!o) throw new Error(`unknown control ${id}`);
@@ -66,7 +69,7 @@ function run() {
   const t = setInterval(() => {
     if (step >= steps.length || step >= stopAfter) { clearInterval(t); console.log("done"); return; }
     const s = steps[step++];
-    for (const [c, test] of s.conds) write(c, passing(test));
+    for (const [c, test] of s.conds) write(c, passing(test, read(c)));
     console.log(`step ${step}: [${s.list}] ${s.text}`);
   }, stepMs);
 }

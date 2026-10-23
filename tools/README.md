@@ -74,9 +74,17 @@ The bridge only listens on 127.0.0.1 and only accepts the reader opened from dis
 websites open in your browser can't connect to it. It reads switch positions and never sends commands.
 
 An item links to switches with a third field, `["Battery switch – ON", 82, ["BATTERY_SW", 0]]`.
-The test can be a value, a list of values, or `">n"`/`"<n"`, and a list of several
-`[control, test]` pairs must all hold. Within a group, an item only ticks after the linked items
-before it, so "caution out" can't tick before the engine is running. Extras never block. Only
+The test can be a value, a list of values, `">n"`/`"<n"`, or `"~n"` (moved by at least n since
+the item came up, for levers like the throttles whose direction isn't known). A list of several
+`[control, test]` pairs must all hold. An item ticks as soon as its switches match, so one
+wrong mapping only affects that item. Items with a fourth field `"after"` (and all `"~n"` items)
+also wait for the linked items before them in their group, so "caution out" can't tick before the
+engine is running. Extras never hold anything up.
+
+A checklist can also define `"states"` (named cockpit conditions, e.g. `"rightEngine"`), and a group
+or item can say `"done": ["rightEngine"]`: when that holds, those steps are ticked even if the cockpit
+no longer shows them (the crank switch is back to OFF). This is how connecting mid-start, or pressing
+Reset with the engines running, catches up. Only
 Cold Start is linked so far. Its values follow DCS-BIOS's position names, but they haven't been
 checked in DCS yet: run the bridge with `--watch` to see each switch's value as you flip it.
 `node tools/bios-fake.mjs aircraft/<AC>.json --json-dir <folder> [--skip-extras]` stands in for DCS

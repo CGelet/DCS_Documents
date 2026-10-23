@@ -101,8 +101,14 @@
       <ul>
         <li>Linked so far: ${linked.map(([t, n]) => `<b>${esc(t)}</b> (${n} items)`).join(", ")}. Other items, like
           “wait for…” or checks of a display page, stay manual.</li>
-        <li>Within a group, an item only ticks once the linked items before it are ticked, so “caution out” can't tick before the engine is running.
-          Ticking a step by hand lets the ones after it continue.</li>
+        <li>An item ticks as soon as its switch is in position, so if one item doesn't tick, the rest still do.</li>
+        <li><b>Catching up:</b> when the link connects, or you press <b>Reset</b>, steps you've already done are ticked from the cockpit.
+          With the right engine running, all of Pre-Start and APU &amp; Right Engine are done; with the left engine running, Displays &amp; Systems
+          and FCS Reset &amp; Left Engine too; with the INS in NAV or IFA, the alignment. Switches you can see (flaps, radar, lights…) tick from their position.
+          Momentary steps that leave no trace, like T/O TRIM or the FCS BIT, stay manual.</li>
+        <li>A few items wait their turn: “caution out”, the throttles, the left engine crank and the APU shutdown only tick once the
+          linked items before them in their group are ticked, so they can't tick before the engine is running.
+          If one of those is stuck, ticking the step before it by hand lets it continue.</li>
         <li>Skipped realism-only steps (the ones the essentials kneeboard leaves out) never hold anything up.</li>
       </ul>
       <h3>Troubleshooting</h3>

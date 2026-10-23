@@ -19,7 +19,7 @@
     set(k, v) { try { localStorage.setItem(KEY + k, JSON.stringify(v)); } catch {} },
   };
 
-  const hooks = { decorate: null, textLayer: [], current: [], tab: [], key: [], quickref: [], route: [] };
+  const hooks = { decorate: null, textLayer: [], current: [], tab: [], key: [], quickref: [], route: [], reset: [] };
   // The page tracker runs before startup; keep the URL untouched until the initial route is applied
   const initialHash = location.hash;
   let started = false;
@@ -481,7 +481,7 @@
       bar.style.width = (d / rows.length * 100) + "%";
     }
     hideBtn.onclick = () => { hideDone.v = !hideDone.v; store.set("hideDone", hideDone.v); list.className = hideDone.v ? "hide-done" : ""; hideBtn.textContent = hideDone.v ? "Show done" : "Hide done"; };
-    resetBtn.onclick = () => { if (!state.size || confirm(`Reset "${cl.title}"?`)) { state.clear(); store.set("cl:" + cl.id, []); list.querySelectorAll("input").forEach(i => i.checked = false); update(); main.scrollTop = 0; } };
+    resetBtn.onclick = () => { if (!state.size || confirm(`Reset "${cl.title}"?`)) { state.clear(); store.set("cl:" + cl.id, []); list.querySelectorAll("input").forEach(i => i.checked = false); update(); main.scrollTop = 0; hooks.reset.forEach(f => f(cl.id)); } };
     const hidden = cl.groups.reduce((n, g) => n + g.items.length, 0) - rows.length;
     box.replaceChildren(tabs, head, list, el("p", { className: "note", textContent: "Condensed from the guide. Tap a page number to see the full step with pictures. Progress is saved in this browser." +
       (hidden ? ` Essentials hides ${hidden} checks, tests and realism-only steps; switch to Full to see them.` : "") }));

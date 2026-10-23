@@ -9,34 +9,64 @@
   const chk = $("#liveChk"), dot = $("#liveDot");
 
   // Checklist items carry an optional third field: [control, test] or a list of them (all must hold).
-  // test: a number, a list of allowed numbers, or ">n" / "<n" for knobs and gauges.
-  const lists = (G.checklists || []).map(c => ({
-    id: c.id,
-    groups: c.groups.map((g, gi) => g.items.map(([, , bios], ii) => ({
-      key: gi + "-" + ii,
-      conds: !bios ? null : Array.isArray(bios[0]) ? bios : [bios],
-      extra: (c.extras || []).includes(gi + "-" + ii),
-    }))),
-  }));
-  const controls = [...new Set(lists.flatMap(l => l.groups.flat().flatMap(i => (i.conds || []).map(c => c[0]))))];
+  // test: a number, a list of allowed numbers, ">n" / "<n" for knobs and gauges, or "~n": moved by at
+  // least n from where it was when the item came up (for levers whose direction isn't known).
+  // An optional fourth field { after, done } and a group's "done" are explained in evaluate().
+  // A checklist's "states" name cockpit conditions that "done" refers to (e.g. "rightEngine").
+  const lists = (G.checklists || []).map(c => {
+    const states = c.states || {};
+    const resolve = names => names ? names.flatMap(n => states[n] || []) : null;
+    return {
+      id: c.id,
+      groups: c.groups.map((g, gi) => g.items.map(([, , bios, opt = {}], ii) => {
+        const conds = !bios ? null : Array.isArray(bios[0]) ? bios : [bios];
+        return {
+          key: gi + "-" + ii,
+          conds,
+          done: resolve(opt.done || g.done),
+          extra: (c.extras || []).includes(gi + "-" + ii),
+          // "~n" tests always wait their turn, so they start measuring at the right moment
+          after: !!opt.after || !!conds?.some(([, t]) => typeof t === "string" && t[0] === "~"),
+        };
+      })),
+    };
+  });
+  const allConds = lists.flatMap(l => l.groups.flat().flatMap(i => [...(i.conds || []), ...(i.done || [])]));
+  const controls = [...new Set(allConds.map(c => c[0]))];
   if (!G.dcsModule || !controls.length) { chk.closest("label").hidden = true; $("#liveHelp").hidden = true; return; }
 
-  const pass = (v, t) => v != null && (Array.isArray(t) ? t.includes(v)
-    : typeof t === "string" ? (t[0] === ">" ? v > +t.slice(1) : v < +t.slice(1)) : v === t);
-  const values = {};
+  const values = {}, base = {}; // base: value of a "~n" control when its item came up
+  function pass(v, t, bk) {
+    if (v == null) return false;
+    if (Array.isArray(t)) return t.includes(v);
+    if (typeof t !== "string") return v === t;
+    if (t[0] === ">") return v > +t.slice(1);
+    if (t[0] === "<") return v < +t.slice(1);
+    if (!(bk in base)) { base[bk] = v; return false; }
+    return Math.abs(v - base[bk]) >= +t.slice(1);
+  }
+  const clear = () => { for (const o of [values, base]) for (const k in o) delete o[k]; };
 
-  // Within a group, an item ticks once its switches match and every earlier linked item in the
-  // group is ticked, so "caution light out" can't tick before the engine is even started.
-  // Items without a link, and realism-only extras, never block.
+  // An item ticks when:
+  // - its "done" evidence holds (its own, or its group's), e.g. "rightEngine": with the right engine
+  //   running, every step of starting it must have happened, even ones the cockpit no longer shows
+  //   (the crank switch is back to OFF). This makes Reset, or connecting mid-flight, catch up.
+  // - or its switches match. Items marked "after" also wait until every earlier linked item in their
+  //   group is ticked, so "caution light out" can't tick before the engine is even started.
+  //   Everything else ticks independently, so one wrong mapping only affects its own item.
+  // Extras never hold anything up.
   function evaluate() {
     for (const l of lists) {
       const done = new Set(V.store.get("cl:" + l.id, []));
+      const tick = it => { V.tickItem(l.id, it.key); done.add(it.key); };
       for (const items of l.groups) {
+        let waiting = false;
         for (const it of items) {
-          if (!it.conds || done.has(it.key)) continue;
-          if (!it.conds.every(([c, t]) => pass(values[c], t))) { if (it.extra) continue; break; }
-          V.tickItem(l.id, it.key);
-          done.add(it.key);
+          if (done.has(it.key)) continue;
+          if (it.done && it.done.every(([c, t]) => pass(values[c], t))) { tick(it); continue; }
+          if (!it.conds) continue;
+          if ((!it.after || !waiting) && it.conds.every(([c, t]) => pass(values[c], t, l.id + ":" + it.key + ":" + c))) tick(it);
+          else if (!it.extra) waiting = true;
         }
       }
     }
@@ -65,7 +95,7 @@
       const m = JSON.parse(e.data);
       if (m.error) console.warn("DCS-BIOS bridge:", m.error);
       if ("aircraft" in m) {
-        if (m.aircraft !== G.dcsModule) { for (const k in values) delete values[k]; }
+        if (m.aircraft !== G.dcsModule) clear();
         status(m.aircraft === G.dcsModule ? "live" : "bridge",
           m.aircraft === G.dcsModule ? "Live: reading your cockpit" : m.aircraft ? `DCS is flying ${m.aircraft}, not ${G.dcsModule}` : "Bridge running, waiting for DCS");
       }
@@ -83,7 +113,7 @@
     clearTimeout(timer); timer = null;
     if (ws) { ws.onclose = null; ws.close(); ws = null; }
     box.removeEventListener("change", onManual);
-    for (const k in values) delete values[k];
+    clear();
     status("off", "");
   }
   function setLive(on) {
@@ -92,6 +122,12 @@
     V.saveSettings();
     on ? (ws || timer || connect()) : disconnect();
   }
+
+  V.on("reset", id => {
+    if (!ws) return;
+    for (const k in base) if (k.startsWith(id + ":")) delete base[k];
+    evaluate();
+  });
 
   chk.checked = settings.live;
   chk.onchange = () => setLive(chk.checked);
