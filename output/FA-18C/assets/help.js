@@ -115,7 +115,9 @@
         <li><b>Testing without DCS:</b> <code>node tools/bios-fake.mjs tools/aircraft/&lt;aircraft&gt;.json --json-dir &lt;folder&gt;</code>
           pretends to be DCS and flips every linked switch in order.</li>
         <li><b>Multiplayer:</b> DCS-BIOS only reads your own cockpit and works on most servers.</li>
-        <li><b>Privacy:</b> the bridge only listens on this computer (127.0.0.1) and only reads switch positions; it never sends commands to DCS.</li>
+        <li><b>Privacy and safety:</b> the bridge only listens on this computer (127.0.0.1), only reads switch positions and never sends commands to DCS.
+          It only accepts this reader opened as a file, so websites can't connect to it. If you host the reader on a web server, the bridge will refuse it
+          (its window says <code>refused a connection</code>).</li>
       </ul>` : `<p>This aircraft has no checklist items linked to cockpit switches yet.</p>`],
   ];
 

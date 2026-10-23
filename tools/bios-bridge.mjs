@@ -32,19 +32,26 @@ if (!jsonDir) {
   process.exit(1);
 }
 
-// identifier -> { address, mask, shift, labels } for one aircraft, loaded when that aircraft is flown
+// identifier -> { address, mask, shift, labels } for one aircraft, loaded when that aircraft is flown.
+// Module names come from DCS and from the page, so only plain names are accepted and only files
+// directly inside jsonDir are read.
 const refs = new Map();
+const validModule = m => typeof m === "string" && /^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$/.test(m) && !m.includes("..");
 function reference(module) {
+  if (!validModule(module)) return null;
   if (refs.has(module)) return refs.get(module);
   const f = path.join(jsonDir, module + ".json");
   let map = null;
-  if (fs.existsSync(f)) {
+  try {
+    const ref = JSON.parse(fs.readFileSync(f, "utf8"));
     map = new Map();
-    for (const cat of Object.values(JSON.parse(fs.readFileSync(f, "utf8"))))
+    for (const cat of Object.values(ref))
       for (const [id, c] of Object.entries(cat)) {
         const o = (c.outputs || []).find(o => o.type === "integer");
         if (o) map.set(id, { address: o.address, mask: o.mask, shift: o.shift_by, labels: c.positions });
       }
+  } catch {
+    map = null; // missing or unreadable reference
   }
   refs.set(module, map);
   return map;
@@ -116,6 +123,10 @@ function connectBios() {
 }
 
 /* ---------- Minimal WebSocket server for the reader (localhost only) ---------- */
+// Browsers let any web page connect to 127.0.0.1, so only pages opened from disk (file://, which
+// browsers report as Origin "null") are accepted. Non-browser local tools send no Origin.
+const allowedOrigin = o => o === undefined || o === "null" || o.startsWith("file://");
+const MAX_FRAME = 64 * 1024;
 const clients = new Set();
 function frame(text) {
   const data = Buffer.from(text), n = data.length;
@@ -128,12 +139,14 @@ function send(cl, msg) { if (!cl.sock.destroyed) cl.sock.write(frame(JSON.string
 function onMessage(cl, text) {
   let m;
   try { m = JSON.parse(text); } catch { return; }
+  if (!validModule(m?.module) || !Array.isArray(m.controls)) return send(cl, { error: "bad subscribe message" });
   cl.module = m.module;
-  cl.controls = new Set(m.controls || []);
+  cl.controls = new Set(m.controls.filter(c => typeof c === "string").slice(0, 2000));
   cl.last = {};
   const ref = reference(m.module);
   const unknown = ref ? [...cl.controls].filter(c => !ref.has(c)) : [];
-  if (!ref) send(cl, { error: `no ${m.module}.json in ${jsonDir}` });
+  // Replies never include file paths; the full detail is only printed in this window
+  if (!ref) { send(cl, { error: `no DCS-BIOS reference for ${m.module}` }); console.log(`no ${m.module}.json in ${jsonDir}`); }
   else if (unknown.length) send(cl, { error: `unknown controls: ${unknown.join(", ")}` });
   console.log(`reader subscribed: ${m.module}, ${cl.controls.size} controls${unknown.length ? `, unknown: ${unknown.join(", ")}` : ""}`);
   send(cl, { aircraft });
@@ -142,7 +155,11 @@ function onMessage(cl, text) {
 const server = http.createServer((_, res) => { res.writeHead(426); res.end("WebSocket only\n"); });
 server.on("upgrade", (req, sock) => {
   const key = req.headers["sec-websocket-key"];
-  if (!key) return sock.destroy();
+  if (!key || !allowedOrigin(req.headers.origin)) {
+    console.log(`refused a connection from ${req.headers.origin || "unknown origin"}`);
+    sock.end("HTTP/1.1 403 Forbidden\r\n\r\n");
+    return;
+  }
   const accept = crypto.createHash("sha1").update(key + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11").digest("base64");
   sock.write(`HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: ${accept}\r\n\r\n`);
   const cl = { sock, module: null, controls: new Set(), last: {}, queue: [] };
@@ -156,12 +173,14 @@ server.on("upgrade", (req, sock) => {
       let len = buf[1] & 127, off = 2;
       if (len === 126) { if (buf.length < 4) return; len = buf.readUInt16BE(2); off = 4; }
       else if (len === 127) { if (buf.length < 10) return; len = Number(buf.readBigUInt64BE(2)); off = 10; }
+      // The reader only sends one small subscribe message; anything bigger is dropped
+      if (len > MAX_FRAME || buf.length > MAX_FRAME + 14) { sock.destroy(); return; }
       if (buf.length < off + (masked ? 4 : 0) + len) return;
       const mask = masked ? buf.subarray(off, off + 4) : null; off += masked ? 4 : 0;
       const body = Buffer.from(buf.subarray(off, off + len));
       if (mask) for (let i = 0; i < body.length; i++) body[i] ^= mask[i & 3];
       buf = buf.subarray(off + len);
-      if (op === 1) onMessage(cl, body.toString());
+      if (op === 1) { try { onMessage(cl, body.toString()); } catch (e) { console.log("ignored a bad message:", e.message); } }
       else if (op === 8) { sock.end(Buffer.from([0x88, 0])); return; }
       else if (op === 9) sock.write(Buffer.concat([Buffer.from([0x8a, body.length]), body]));
     }

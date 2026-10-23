@@ -70,6 +70,9 @@ runs until you turn it on.
 3. In the reader, turn on Settings → Live cockpit. The LIVE dot is green while DCS is sending data;
    click it to turn the link off.
 
+The bridge only listens on 127.0.0.1 and only accepts the reader opened from disk (`file://`), so
+websites open in your browser can't connect to it. It reads switch positions and never sends commands.
+
 An item links to switches with a third field, `["Battery switch – ON", 82, ["BATTERY_SW", 0]]`.
 The test can be a value, a list of values, or `">n"`/`"<n"`, and a list of several
 `[control, test]` pairs must all hold. Within a group, an item only ticks after the linked items
