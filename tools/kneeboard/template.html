@@ -24,11 +24,12 @@
   const sheetsEl = document.getElementById("sheets");
 
   // "Item – STATE" becomes a leader-dot row; other text fills the line
-  function row(text, page, box) {
+  function row(text, page, box, note) {
     const r = el("div", "row" + (box ? " box" : ""));
     const i = text.indexOf(" – ");
     if (i > 0) r.append(el("span", "k", text.slice(0, i)), el("span", "dots"), el("span", "v", text.slice(i + 3)));
     else r.append(el("span", "k grow", text));
+    if (note) r.querySelector(".k").append(el("span", "note", note));
     if (page) r.append(el("span", "p", "p." + page));
     return r;
   }
@@ -43,7 +44,7 @@
         slug: c.id, title: c.title + (skip.size ? " · Essentials" : ""),
         groups: c.groups.map((g, gi) => ({
           title: g.title,
-          rows: g.items.filter((_, ii) => !skip.has(gi + "-" + ii)).map(([t, p]) => row(t, p, true)),
+          rows: g.items.filter((_, ii) => !skip.has(gi + "-" + ii)).map(([t, p, , opt]) => row(t, p, true, opt?.note)),
         })).filter(g => g.rows.length),
       });
     }

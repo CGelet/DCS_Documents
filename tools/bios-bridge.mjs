@@ -104,22 +104,28 @@ function onByte(c) {
   if (syncCount === 4) { syncCount = 0; state = "addrLo"; if (frames++) onFrame(); }
 }
 
-let aircraft = null;
+// When a mission loads, the aircraft name arrives in pieces and switches read 0 for a few seconds
+// before their real positions come in. So a name only counts once it has been the same for
+// NAME_FRAMES frames, and nothing is sent to the reader until SETTLE_MS later.
+const NAME_FRAMES = 15, SETTLE_MS = +opt("--settle-ms", 5000);
+let aircraft = null, candidate = null, candidateFrames = 0, settleUntil = 0;
 const watchLast = new Map();
 function onFrame() {
   // MetadataStart: aircraft name, null-terminated, at address 0
   const z = mem.indexOf(0, 0);
   const name = mem.toString("latin1", 0, z < 0 || z > 24 ? 24 : z).trim();
   const ac = name && name !== "NONE" ? name : null;
-  if (ac !== aircraft) {
+  if (ac !== candidate) { candidate = ac; candidateFrames = 0; }
+  if (ac !== aircraft && ++candidateFrames >= NAME_FRAMES) {
     aircraft = ac;
+    settleUntil = Date.now() + SETTLE_MS;
     watchLast.clear();
-    say(aircraft ? `DCS: flying ${aircraft}` : "DCS: no aircraft");
+    say(aircraft ? `DCS: flying ${aircraft} (settling for ${SETTLE_MS / 1000} s)` : "DCS: no aircraft");
     if (aircraft && !reference(aircraft)) say(`  (no ${aircraft}.json in ${jsonDir})`);
-    for (const cl of clients) { cl.last = {}; send(cl, { aircraft }); }
+    for (const cl of clients) { cl.last = {}; cl.queue = []; send(cl, { aircraft }); }
   }
   const ref = aircraft && reference(aircraft);
-  if (!ref) return;
+  if (!ref || Date.now() < settleUntil) return;
   const read = r => (mem.readUInt16LE(r.address) & r.mask) >> r.shift;
   for (const cl of clients) {
     if (cl.module !== aircraft) continue;
@@ -146,11 +152,18 @@ function onFrame() {
 function connectBios() {
   const sock = net.connect(BIOS_PORT, BIOS_HOST);
   sock.setNoDelay(true);
-  sock.on("connect", () => { frames = 0; say(`connected to DCS-BIOS on ${BIOS_HOST}:${BIOS_PORT}`); });
+  sock.on("connect", () => {
+    // DCS-BIOS only sends values that differ from zero/its last export, so start from a clean slate:
+    // otherwise a gauge left over from the previous mission (e.g. hydraulic pressure) would stay
+    frames = 0;
+    mem.fill(0);
+    aircraft = candidate = null;
+    say(`connected to DCS-BIOS on ${BIOS_HOST}:${BIOS_PORT}`);
+  });
   sock.on("data", buf => { for (const c of buf) onByte(c); });
   sock.on("error", () => {});
   sock.on("close", () => {
-    if (aircraft) { aircraft = null; for (const cl of clients) send(cl, { aircraft: null }); say("DCS-BIOS disconnected"); }
+    if (aircraft) { aircraft = candidate = null; for (const cl of clients) send(cl, { aircraft: null }); say("DCS-BIOS disconnected"); }
     setTimeout(connectBios, 3000);
   });
 }

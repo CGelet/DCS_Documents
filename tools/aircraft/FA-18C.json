@@ -7,12 +7,12 @@
       "id": "startup",
       "title": "Cold Start",
       "states": {
-        "rightEngine": [["HYD_IND_RIGHT", ">35000"]],
-        "leftEngine": [["HYD_IND_LEFT", ">35000"]],
+        "rightEngine": [["HYD_IND_RIGHT", ">35000"], ["ENGINE_CRANK_SW", 1]],
+        "leftEngine": [["HYD_IND_LEFT", ">35000"], ["ENGINE_CRANK_SW", 1]],
         "insAligned": [["INS_SW", [3, 4]]],
         "apuOff": [["APU_CONTROL_SW", 0]]
       },
-      "extras": ["0-1", "0-2", "0-4", "0-5", "0-6", "0-7", "1-0", "1-2", "1-6", "1-8", "2-3", "2-4", "2-5", "2-6", "3-2", "4-0", "4-1", "4-2", "4-4", "4-5", "4-8", "4-10", "4-11", "5-1", "5-5", "5-6", "5-7", "5-8", "5-10", "5-11", "5-12", "5-15", "5-16", "6-3", "6-4", "6-6", "6-10", "6-12", "6-13", "6-14", "6-15", "6-16"],
+      "extras": ["0-1", "0-2", "0-4", "0-5", "0-6", "0-7", "1-0", "1-2", "1-6", "1-8", "2-3", "2-4", "2-5", "2-6", "3-1", "4-0", "4-1", "4-2", "4-4", "4-5", "4-8", "4-10", "4-11", "5-1", "5-7", "5-8", "5-10", "5-11", "5-12", "6-3", "6-4", "6-6", "6-10", "6-12", "6-13", "6-14", "6-15", "6-16"],
       "groups": [
         { "title": "Pre-Start", "done": ["rightEngine"], "items": [
           ["Ejection seat – ARMED (lever down), harness lever – FWD", 82, ["EJECTION_SEAT_ARMED", 0]],
@@ -32,10 +32,10 @@
           ["Engine crank switch – R (right click)", 83, ["ENGINE_CRANK_SW", 2]],
           ["At 25 % RPM: right throttle OFF → IDLE (RSHIFT+HOME)", 83, ["INT_THROTTLE_RIGHT", ">5000"], {"after": true}],
           ["EGT stays below 750 °C", 83],
-          ["RPM stabilises 60–65 %, R GEN caution out", 83, ["HYD_IND_RIGHT", ">35000"]],
+          ["RPM stabilises 60–65 %, R GEN caution out", 83, [["HYD_IND_RIGHT", ">35000"], ["ENGINE_CRANK_SW", 1]], {"after": true}],
           ["MASTER CAUTION – reset", 83, ["MASTER_CAUTION_RESET_SW", 1]]
         ]},
-        { "title": "Displays & Systems", "done": ["leftEngine"], "items": [
+        { "title": "Displays & Systems", "items": [
           ["Left & right DDI knobs – DAY", 84, [["LEFT_DDI_BRT_SELECT", 2], ["RIGHT_DDI_BRT_SELECT", 2]]],
           ["AMPCD brightness – ON (right)", 84, ["AMPCD_BRT_CTL", ">0"]],
           ["HUD brightness – ON", 84, ["HUD_SYM_BRT", ">0"]],
@@ -43,13 +43,12 @@
           ["ALT switch – RDR", 84, ["HUD_ALT_SW", 0]],
           ["ATT switch – AUTO", 84, ["HUD_ATT_SW", 1]],
           ["Bleed air knob – rotate 360° back to NORM (reopens bleed valves)", 84],
-          ["Canopy – CLOSE (hold)", 84, ["CANOPY_SW", [0, 2]]]
+          ["Canopy – CLOSE (hold)", 84, ["CANOPY_POS", "<1000"]]
         ]},
         { "title": "INS Alignment", "done": ["insAligned"], "items": [
           ["INS selector – GND (shore) or CV (carrier)", 85, ["INS_SW", [1, 2]]],
-          ["(Optional) HSI: STD HDG for a ~90 s alignment (normal ≈ 8 min)", 85],
           ["Monitor GRND QUAL timer on AMPCD", 85],
-          ["Wait for OK next to GRND QUAL (continue the start meanwhile, switch INS when done)", 85],
+          ["Wait for OK next to GRND QUAL (continue the start meanwhile, switch INS when done)", 85, ["INS_SW", [3, 4]], {"note": "Faster: select STD HDG on the HSI for a ~90 s alignment (normally ≈ 8 min)."}],
           ["INS selector – IFA (GPS, 1986+) or NAV (no GPS)", 85, ["INS_SW", [3, 4]]]
         ]},
         { "title": "FCS Reset & Left Engine", "done": ["leftEngine"], "items": [
@@ -62,7 +61,7 @@
           ["Engine crank switch – L (left click)", 88, ["ENGINE_CRANK_SW", 0]],
           ["At 25 % RPM: left throttle OFF → IDLE (RALT+HOME)", 88, ["INT_THROTTLE_LEFT", ">5000"], {"after": true}],
           ["EGT stays below 750 °C", 88],
-          ["RPM stabilises 60–65 %, L GEN caution out", 88, ["HYD_IND_LEFT", ">35000"]],
+          ["RPM stabilises 60–65 %, L GEN caution out", 88, [["HYD_IND_LEFT", ">35000"], ["ENGINE_CRANK_SW", 1]], {"after": true}],
           ["No engine 1 cautions (HYD 1A/1B, L GEN)", 89],
           ["APU shuts down automatically ~1 min after both engines idle", 89, ["APU_CONTROL_SW", 0], {"after": true, "done": ["leftEngine", "apuOff"]}]
         ]},
@@ -80,12 +79,12 @@
           ["PITOT HEAT – AUTO", 91, ["PITOT_HEAT_SW", 0]],
           ["Left DDI – HUD repeater (TAC → HUD)", 92],
           ["Right DDI – FCS page", 92],
-          ["Wings – SPREAD & locked if on shore (keep folded on carrier)", 92],
+          ["Wings – SPREAD & locked if on shore (keep folded on carrier)", 92, ["WING_FOLD_ROTATE", 2]],
           ["Radar altimeter index – 200 ft (shore) / 80 ft (carrier)", 93],
           ["Standby attitude indicator – uncage", 93],
           ["BINGO fuel – set on IFEI (e.g. 8000 lbs)", 93],
           ["ALR-67 PWR – ON (RWR)", 93, ["RWR_LOWER_LT", 1]],
-          ["ECM – STBY", 93, ["ECM_MODE_SW", 3]],
+          ["ECM – STBY", 93, ["ECM_MODE_SW", 1]],
           ["DISPENSER – ON", 93, ["CMSD_DISPENSE_SW", 1]]
         ]},
         { "title": "Datalink, Helmet & Lights", "items": [

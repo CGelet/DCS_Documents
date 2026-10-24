@@ -453,11 +453,13 @@
     cl.groups.forEach((g, gi) => {
       const gc = el("span");
       const grp = el("div", { className: "group" }, el("h3", {}, el("span", { textContent: g.title }), gc));
-      g.items.forEach(([text, page], ii) => {
+      g.items.forEach(([text, page, , opt], ii) => {
         const key = gi + "-" + ii;
         if (!shown.has(key)) return;
         const cb = el("input", { type: "checkbox", checked: state.has(key) });
-        const row = el("label", { className: "item" }, cb, el("span", { className: "txt", textContent: text }), page ? pageLink(page) : null);
+        // An item's optional note (a tip, not a step) shows under its text
+        const txt = el("span", { className: "txt", textContent: text }, opt?.note ? el("span", { className: "inote", textContent: opt.note }) : null);
+        const row = el("label", { className: "item" }, cb, txt, page ? pageLink(page) : null);
         cb.onchange = () => { cb.checked ? state.add(key) : state.delete(key); store.set("cl:" + cl.id, [...state]); update(); };
         rows.push({ row, key, gi, gc, cb });
         grp.append(row);

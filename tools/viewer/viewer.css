@@ -310,6 +310,7 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
 .item:first-of-type { border-top: 0; }
 .item input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--check); cursor: pointer; }
 .item .txt { flex: 1; }
+.item .inote { display: block; margin-top: 3px; font-size: 13px; color: var(--muted); text-decoration: none; }
 .item.done .txt { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--muted); }
 .item.next { box-shadow: inset 3px 0 var(--accent); }
 .hide-done .item.done { display: none; }

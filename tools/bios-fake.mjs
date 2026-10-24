@@ -1,9 +1,10 @@
 // Usage: node bios-fake.mjs <aircraft.json> --json-dir <DCS-BIOS doc/json folder> [--step-ms 400] [--stop-after N] [--skip-extras]
-//        node bios-fake.mjs <aircraft.json> --json-dir <folder> --replay <log> [--line-ms 2]
+//        node bios-fake.mjs <aircraft.json> --json-dir <folder> --replay <log> [--speed 1] [--line-ms 2]
 // Pretends to be DCS-BIOS (TCP 127.0.0.1:7778) so the live link can be tested without DCS.
 // Flips the switches of every linked checklist item in order, one step at a time
 // (--skip-extras: only the essential ones, like a minimal start).
-// --replay plays back a bridge --watch or --log file instead, one "NAME = value" line every --line-ms.
+// --replay plays back a bridge --watch or --log file instead: session logs at their recorded times
+// (sped up by --speed), --watch output (no times) at one "NAME = value" line every --line-ms.
 import net from "net";
 import fs from "fs";
 import path from "path";
@@ -13,7 +14,7 @@ const opt = (name, d) => { const i = args.indexOf(name); return i >= 0 ? args[i 
 const [acPath] = args;
 const jsonDir = opt("--json-dir"), stepMs = +opt("--step-ms", 400), stopAfter = +opt("--stop-after", Infinity);
 const skipExtras = args.includes("--skip-extras");
-const replay = opt("--replay"), lineMs = +opt("--line-ms", 2);
+const replay = opt("--replay"), lineMs = +opt("--line-ms", 2), speed = +opt("--speed", 1);
 if (!acPath || !jsonDir) {
   console.error("Usage: node bios-fake.mjs <aircraft.json> --json-dir <DCS-BIOS doc/json folder> [--step-ms 400] [--stop-after N]");
   process.exit(1);
@@ -48,7 +49,8 @@ const write = (id, v) => {
   mem.writeUInt16LE((mem.readUInt16LE(o.address) & ~o.mask) | ((v << o.shift_by) & o.mask), o.address);
 };
 for (const [c, ts] of tests) {
-  const max = ref.get(c).max_value, cands = [...Array(Math.min(max, 64) + 1).keys()];
+  const max = ref.get(c).max_value;
+  const cands = [...Array(Math.min(max, 64) + 1).keys(), ...ts.filter(t => typeof t === "string").map(t => Math.min(max, +t.slice(1) + 1))];
   write(c, cands.find(v => ts.every(t => !passes(v, t))) ?? cands.find(v => !passes(v, ts[0])));
 }
 mem.write(ac.dcsModule + "\0", 0, "latin1");
@@ -79,13 +81,21 @@ function run() {
 
 // Replay: apply each "NAME = value" line of a log in order (values of unknown or string controls are skipped)
 function play() {
+  const secs = t => { const [h, m, s] = t.split(":"); return (+h * 3600 + +m * 60 + +s) * 1000; };
   const lines = fs.readFileSync(replay, "utf8").split(/\r?\n/)
-    .map(l => l.match(/^(?:[\d:.]+ )?\s*([A-Z0-9_]+) = (-?\d+)/)).filter(m => m && ref.has(m[1]));
-  console.log(`replaying ${lines.length} changes from ${replay}`);
+    .map(l => l.match(/^(?:(\d\d:\d\d:[\d.]+) )?\s*([A-Z0-9_]+) = (-?\d+)/)).filter(m => m && ref.has(m[2]));
+  const timed = lines.length && lines[0][1];
+  const t0 = timed ? secs(lines[0][1]) : 0;
+  console.log(`replaying ${lines.length} changes from ${replay}${timed ? ` at ${speed}x` : ""}`);
+  const start = Date.now();
   let i = 0;
-  const t = setInterval(() => {
-    if (i >= lines.length) { clearInterval(t); console.log("done"); return; }
-    const [, id, v] = lines[i++];
-    write(id, +v);
-  }, lineMs);
+  (function next() {
+    while (i < lines.length && (!timed || (secs(lines[i][1]) - t0) / speed <= Date.now() - start)) {
+      const [, , id, v] = lines[i++];
+      write(id, +v);
+      if (!timed) break;
+    }
+    if (i >= lines.length) { console.log("done"); return; }
+    setTimeout(next, timed ? 10 : lineMs);
+  })();
 }

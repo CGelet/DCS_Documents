@@ -84,7 +84,10 @@ engine is running. Extras never hold anything up.
 A checklist can also define `"states"` (named cockpit conditions, e.g. `"rightEngine"`), and a group
 or item can say `"done": ["rightEngine"]`: when that holds, those steps are ticked even if the cockpit
 no longer shows them (the crank switch is back to OFF). This is how connecting mid-start, or pressing
-Reset with the engines running, catches up. Only
+Reset with the engines running, catches up. An item's fourth field can also carry a `"note"`: a tip
+shown under the step (in the reader and on the kneeboard) rather than a step of its own. After a
+mission loads, the bridge waits 5 s before sending anything, because DCS-BIOS reports every switch
+as 0 until the cockpit has initialised. Only
 Cold Start is linked so far. Its start-up values (battery, seat, APU, crank, throttles, and engine
 running read from hydraulic pressure) are confirmed from a real session. The rest follow
 DCS-BIOS's position names: run the bridge with `--watch` to see each switch's value as you flip it.
