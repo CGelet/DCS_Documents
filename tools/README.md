@@ -74,7 +74,7 @@ The bridge only listens on 127.0.0.1 and only accepts the reader opened from dis
 websites open in your browser can't connect to it. It reads switch positions and never sends commands.
 
 An item links to switches with a third field, `["Battery switch – ON", 82, ["BATTERY_SW", 0]]`.
-The test can be a value, a list of values, `">n"`/`"<n"`, or `"~n"` (moved by at least n since
+The test can be a value, a list of values (text too, for displays: `["UFC_OPTION_DISPLAY_1", ["AIC"]]`), `">n"`/`"<n"`, or `"~n"` (moved by at least n since
 the item came up, for levers like the throttles whose direction isn't known). A list of several
 `[control, test]` pairs must all hold. An item ticks as soon as its switches match, so one
 wrong mapping only affects that item. Items with a fourth field `"after"` (and all `"~n"` items)

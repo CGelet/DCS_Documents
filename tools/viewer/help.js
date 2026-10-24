@@ -104,9 +104,11 @@
         <li>An item ticks as soon as its switch is in position, so if one item doesn't tick, the rest still do.
           Nothing ticks for the first 5 seconds after a mission loads, while DCS sets up the cockpit.</li>
         <li><b>Catching up:</b> when the link connects, or you press <b>Reset</b>, steps you've already done are ticked from the cockpit.
-          With the right engine running, all of Pre-Start and APU &amp; Right Engine are done; with the left engine running, Displays &amp; Systems
-          and FCS Reset &amp; Left Engine too; with the INS in NAV or IFA, the alignment. Switches you can see (flaps, radar, lights…) tick from their position.
+          With the right engine running, all of Pre-Start and APU &amp; Right Engine are done; with the left engine running,
+          FCS Reset &amp; Left Engine too; with the INS in NAV or IFA, the alignment. Switches you can see (flaps, radar, lights…) tick from their position.
           Momentary steps that leave no trace, like T/O TRIM or the FCS BIT, stay manual.</li>
+        <li><b>IFF and Link-16</b> tick from what the UFC shows: XP with mode 4A cued for IFF, ON on the D/L page for Link-16, and 127 for its
+          frequency. They only tick while that UFC page is up, so if the live link wasn't on at the time, tick them by hand.</li>
         <li>A few items wait their turn: “caution out”, the throttles, the left engine crank and the APU shutdown only tick once the
           linked items before them in their group are ticked, so they can't tick before the engine is running.
           If one of those is stuck, ticking the step before it by hand lets it continue.</li>

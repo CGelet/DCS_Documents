@@ -1,8 +1,9 @@
-// Usage: node bios-fake.mjs <aircraft.json> --json-dir <DCS-BIOS doc/json folder> [--step-ms 400] [--stop-after N] [--skip-extras]
+// Usage: node bios-fake.mjs <aircraft.json> --json-dir <DCS-BIOS doc/json folder> [--step-ms 400] [--stop-after N] [--skip-extras] [--wait-ms 6000]
 //        node bios-fake.mjs <aircraft.json> --json-dir <folder> --replay <log> [--speed 1] [--line-ms 2]
 // Pretends to be DCS-BIOS (TCP 127.0.0.1:7778) so the live link can be tested without DCS.
 // Flips the switches of every linked checklist item in order, one step at a time
-// (--skip-extras: only the essential ones, like a minimal start).
+// (--skip-extras: only the essential ones, like a minimal start). The steps start --wait-ms after the
+// bridge connects, since the bridge ignores the first 5 s after a mission loads.
 // --replay plays back a bridge --watch or --log file instead: session logs at their recorded times
 // (sped up by --speed), --watch output (no times) at one "NAME = value" line every --line-ms.
 import net from "net";
@@ -13,7 +14,7 @@ const args = process.argv.slice(2);
 const opt = (name, d) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : d; };
 const [acPath] = args;
 const jsonDir = opt("--json-dir"), stepMs = +opt("--step-ms", 400), stopAfter = +opt("--stop-after", Infinity);
-const skipExtras = args.includes("--skip-extras");
+const skipExtras = args.includes("--skip-extras"), waitMs = +opt("--wait-ms", 6000);
 const replay = opt("--replay"), lineMs = +opt("--line-ms", 2), speed = +opt("--speed", 1);
 if (!acPath || !jsonDir) {
   console.error("Usage: node bios-fake.mjs <aircraft.json> --json-dir <DCS-BIOS doc/json folder> [--step-ms 400] [--stop-after N]");
@@ -39,7 +40,7 @@ for (const cl of ac.checklists) cl.groups.forEach((g, gi) => g.items.forEach(([t
   if (!bios) return;
   const conds = Array.isArray(bios[0]) ? bios : [bios];
   if (!(skipExtras && (cl.extras || []).includes(gi + "-" + ii))) steps.push({ list: cl.id, text, conds });
-  for (const [c, t] of conds) tests.set(c, [...(tests.get(c) || []), t]);
+  for (const [c, t] of conds) tests.set(c, [...(tests.get(c) || []), { t, alone: conds.length === 1 }]);
 }));
 const mem = Buffer.alloc(65536);
 const read = id => {
@@ -52,10 +53,14 @@ const write = (id, v) => {
   if (o.type === "string") { mem.write(String(v).padStart(o.max_length).slice(-o.max_length), o.address, "latin1"); return; }
   mem.writeUInt16LE((mem.readUInt16LE(o.address) & ~o.mask) | ((v << o.shift_by) & o.mask), o.address);
 };
-for (const [c, ts] of tests) {
-  const max = ref.get(c).max_value ?? 9999;
+// When no value fails them all (the crank is tested at LEFT, RIGHT and OFF), only tests that can pass on
+// their own count: OFF is only ever tested together with hydraulic pressure, so the crank starts at OFF.
+for (const [c, all] of tests) {
+  const max = ref.get(c).max_value ?? 9999, ts = all.map(x => x.t), alone = all.filter(x => x.alone).map(x => x.t);
   const cands = [...Array(Math.min(max, 64) + 1).keys(), ...ts.filter(t => typeof t === "string").map(t => Math.min(max, +t.slice(1) + 1))];
-  write(c, cands.find(v => ts.every(t => !passes(v, t))) ?? cands.find(v => !passes(v, ts[0])));
+  write(c, cands.find(v => ts.every(t => !passes(v, t)))
+    ?? cands.find(v => !passes(v, ts[0]) && alone.every(t => !passes(v, t)))
+    ?? cands.find(v => !passes(v, ts[0])));
 }
 mem.write(ac.dcsModule + "\0", 0, "latin1");
 
@@ -71,7 +76,7 @@ let step = 0, started = false;
 const server = net.createServer(sock => {
   sock.on("error", () => {});
   const t = setInterval(() => sock.destroyed ? clearInterval(t) : sock.write(frameBytes()), 33);
-  if (!started) { started = true; replay ? play() : run(); }
+  if (!started) { started = true; replay ? play() : setTimeout(run, waitMs); }
 });
 server.listen(7778, "127.0.0.1", () => console.log(`fake DCS-BIOS (${ac.dcsModule}) on 127.0.0.1:7778, ${steps.length} linked steps; starts when the bridge connects`));
 function run() {

@@ -88,9 +88,9 @@
           ["DISPENSER – ON", 93, ["CMSD_DISPENSE_SW", 1]]
         ]},
         { "title": "Datalink, Helmet & Lights", "items": [
-          ["IFF – UFC IFF, hold ON until XP; verify mode 4A", 94],
-          ["Link-16 – UFC D/L twice, hold ON", 94],
-          ["Link-16 frequency – default 127, ENT", 94],
+          ["IFF – UFC IFF, hold ON until XP; verify mode 4A", 94, [["UFC_SCRATCHPAD_STRING_1_DISPLAY", ["X"]], ["UFC_SCRATCHPAD_STRING_2_DISPLAY", ["P"]], ["UFC_OPTION_DISPLAY_4", ["4A"]], ["UFC_OPTION_CUEING_4", [":"]]]],
+          ["Link-16 – UFC D/L twice, hold ON", 94, [["UFC_OPTION_DISPLAY_1", ["AIC"]], ["UFC_SCRATCHPAD_STRING_1_DISPLAY", ["O"]], ["UFC_SCRATCHPAD_STRING_2_DISPLAY", ["N"]]]],
+          ["Link-16 frequency – default 127, ENT", 94, [["UFC_OPTION_DISPLAY_1", ["AIC"]], ["UFC_SCRATCHPAD_NUMBER_DISPLAY", 127]]],
           ["Audio panel volumes – incl. MIDS A & B up", 94],
           ["MIDS SUPT page – verify datalink info", 94],
           ["Helmet: \\ → F8 Ground Crew → F8 → F1 JHMCS / F2 NVG", 95],
