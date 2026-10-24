@@ -96,8 +96,8 @@ DCS-BIOS's position names: run the bridge with `--watch` to see each switch's va
 run then writes `test_logs/MMDDYYYY_HHMM.txt` (`_2`, `_3`… if one already exists for that minute): a
 snapshot of every control when the aircraft loads, every change after that, and each item the reader
 ticks with the reason (`BATTERY_SW = 2`, or `cockpit shows rightEngine`). Needles and gauges the
-reader doesn't use (compass, standby attitude, VSI, nozzles…) are left out; add `--all` to include
-them. The log names only its own file, never the folder, so it doesn't contain your user name.
+reader doesn't use (compass, standby attitude, VSI, nozzles…) and display text (UFC, IFEI) are left
+out; add `--all` to include them, e.g. to record what the UFC shows while you set up IFF and Link-16. The log names only its own file, never the folder, so it doesn't contain your user name.
 `--log-dir <folder>` writes it elsewhere.
 
 `node tools/bios-fake.mjs aircraft/<AC>.json --json-dir <folder> [--skip-extras]` stands in for DCS

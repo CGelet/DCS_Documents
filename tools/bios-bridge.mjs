@@ -5,7 +5,8 @@
 // --log, or "log": true in bios-bridge.json next to this script, also writes a session log to
 // test_logs/MMDDYYYY_HHMM.txt: every control change plus each item the reader ticks and why.
 // --log-dir <folder> writes it somewhere else. Gauges and needles the reader doesn't use (compass,
-// standby attitude, VSI, nozzles...) are left out of --watch and the log unless --all is given.
+// standby attitude, VSI, nozzles...) and display text (UFC, IFEI...) are left out of --watch and the
+// log unless --all is given.
 import net from "net";
 import http from "http";
 import crypto from "crypto";
@@ -151,10 +152,10 @@ function onFrame() {
     const first = !watchLast.size;
     if (first) logLine(`initial values for ${aircraft}:`);
     // Text outputs (IFEI fuel and the like) and gauges change constantly, so only the ones a reader
-    // uses are shown, unless --all
+    // uses are shown, unless --all (which also records display text like the UFC scratchpad)
     const used = new Set([...clients].flatMap(cl => [...cl.controls]));
     for (const [id, r] of ref) {
-      if ((r.text || (r.gauge && !ALL)) && !used.has(id)) continue;
+      if ((r.text || r.gauge) && !ALL && !used.has(id)) continue;
       const v = read(r);
       const text = `  ${id} = ${v}${r.labels?.[v] ? ` (${r.labels[v]})` : ""}`;
       if (first) logLine(text);

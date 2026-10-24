@@ -83,11 +83,13 @@ function run() {
   }, stepMs);
 }
 
-// Replay: apply each "NAME = value" line of a log in order (values of unknown or string controls are skipped)
+// Replay: apply each "NAME = value" line of a log in order (unknown controls are skipped; display
+// text like the UFC scratchpad is written as text)
 function play() {
   const secs = t => { const [h, m, s] = t.split(":"); return (+h * 3600 + +m * 60 + +s) * 1000; };
   const lines = fs.readFileSync(replay, "utf8").split(/\r?\n/)
-    .map(l => l.match(/^(?:(\d\d:\d\d:[\d.]+) )?\s*([A-Z0-9_]+) = (-?\d+)/)).filter(m => m && ref.has(m[2]));
+    .map(l => l.match(/^(?:(\d\d:\d\d:[\d.]+) )?\s*([A-Z0-9_]+) = (.*)$/))
+    .filter(m => m && ref.has(m[2]) && (ref.get(m[2]).type === "string" || /^-?\d+/.test(m[3])));
   const timed = lines.length && lines[0][1];
   const t0 = timed ? secs(lines[0][1]) : 0;
   console.log(`replaying ${lines.length} changes from ${replay}${timed ? ` at ${speed}x` : ""}`);
@@ -96,7 +98,7 @@ function play() {
   (function next() {
     while (i < lines.length && (!timed || (secs(lines[i][1]) - t0) / speed <= Date.now() - start)) {
       const [, , id, v] = lines[i++];
-      write(id, +v);
+      write(id, ref.get(id).type === "string" ? v : parseInt(v));
       if (!timed) break;
     }
     if (i >= lines.length) { console.log("done"); return; }
