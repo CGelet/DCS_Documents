@@ -1,11 +1,8 @@
 // The Hangar (index.html in the output folder): one card per aircraft built next to it (aircraft.js,
-// written by build.mjs), with your progress read from that aircraft's saved data, and the tools
-// every aircraft shares.
+// written by build.mjs), and the tools every aircraft shares.
 (() => {
   const { $, el } = window.Viewer;
   const list = window.HANGAR || [];
-  // The aircraft's own saved data (viewer.js keys it by the short name). Empty if the browser keeps it apart.
-  const saved = (a, k, d) => { try { const v = localStorage.getItem(`chuck:${a.short}:${k}`); return v == null ? d : JSON.parse(v); } catch { return d; } };
   const plural = (n, one, many = one + "s") => `${n} ${n === 1 ? one : many}`;
 
   function card(a) {
@@ -23,21 +20,16 @@
     if (linked) feats.push(el("span", { className: "hg-feat" + (linked < total ? " part" : ""), textContent: `Live link: ${linked} of ${total} checklists`,
       title: "Checklists that tick themselves from your cockpit switches (DCS-BIOS)" }));
 
-    const page = saved(a, "page", 1), read = saved(a, "read", []).length, flights = saved(a, "logbook", []).length;
-    const pct = Math.round(read / a.pages * 100);
-    const progress = read ? el("div", { className: "hg-progress" }, el("span", { textContent: `Read ${pct || "<1"}%` }),
-      el("div", { className: "progress" }, el("div", { style: `width:${Math.max(pct, 1)}%` }))) : null;
-    const log = flights ? el("a", { className: "hg-log", href: url + "#notes", textContent: `${plural(flights, "flight")} in the flight log` }) : null;
-
+    // The aircraft opens where you left it (viewer.js remembers the tab and page)
     const actions = el("div", { className: "hg-actions" },
-      el("a", { className: "iconbtn primary", href: `${url}#p${page}`, textContent: page > 1 ? `Continue at p. ${page}` : "Open the guide" }),
+      el("a", { className: "iconbtn primary", href: url, textContent: "Open" }),
       a.firstChecklist ? el("a", { className: "iconbtn", href: `${url}#cl=${a.firstChecklist}`, textContent: "Checklists" }) : null);
 
     return el("article", { className: "hg-card" },
       a.cover ? el("img", { className: "hg-cover", src: encodeURI(`${a.dir}/${a.cover}`), alt: "", loading: "lazy" }) : null,
       el("div", { className: "hg-body" },
-        el("div", {}, el("h2", {}, el("a", { href: url, textContent: a.aircraft })), el("div", { className: "hg-meta", textContent: `Chuck's guide, ${a.pages} pages` })),
-        el("div", { className: "hg-feats" }, ...feats), progress, log, actions));
+        el("h2", {}, el("a", { href: url, textContent: a.aircraft })),
+        el("div", { className: "hg-feats" }, ...feats), actions));
   }
 
   const add = el("div", { className: "hg-add" },
@@ -58,7 +50,7 @@
 
   $("#hangar").replaceChildren(
     el("div", { className: "hg-head" }, el("h1", { textContent: "Hangar" }),
-      el("p", { className: "note", textContent: "Offline readers for Chuck's DCS guides, with checklists, quick reference and an optional live link to your cockpit. Your progress is saved in this browser." })),
+      el("p", { className: "note", textContent: "Offline readers for Chuck's DCS guides, with checklists, quick reference and an optional live link to your cockpit." })),
     ...(list.length ? [] : [el("p", { className: "note", textContent: "No aircraft built yet. aircraft.js is missing or empty: run build.mjs for an aircraft." })]),
     el("div", { className: "hg-grid" }, ...list.map(card), add),
     shared,

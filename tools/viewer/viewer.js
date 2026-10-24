@@ -397,7 +397,7 @@
     };
     const dir = decodeURIComponent(location.pathname.split("/").slice(-2, -1)[0] || "");
     const others = window.HANGAR || [];
-    menu.append(...others.map(a => link(`../${a.dir}/index.html`, a.aircraft, a.pages + " pages", a.dir === dir)),
+    menu.append(...others.map(a => link(`../${a.dir}/index.html`, a.aircraft, null, a.dir === dir)),
       ...(others.length ? [el("hr")] : []),
       link("../index.html", "Hangar", "All aircraft"), link("../airfields.html", "Airfields", "Every map, any aircraft"));
     btn.onclick = e => { e.stopPropagation(); const open = menu.classList.toggle("open"); btn.setAttribute("aria-expanded", open); };
