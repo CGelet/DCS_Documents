@@ -1,0 +1,904 @@
+{
+ "map": "Nevada",
+ "source": [
+  "pydcs",
+  "DCS Liberation"
+ ],
+ "airfields": [
+  {
+   "id": 5,
+   "name": "Beatty",
+   "ll": [
+    36.861,
+    -116.78642
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "16-34",
+     "sides": [
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Boulder City",
+   "ll": [
+    35.94867,
+    -114.86182
+   ],
+   "atc": {
+    "vhf": 118.05,
+    "uhf": 250.1,
+    "hf": 3.925,
+    "fm": 38.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27L-9",
+     "sides": [
+      {
+       "name": "27L",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "9",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1,
+   "name": "Creech",
+   "ll": [
+    36.58382,
+    -115.67644
+   ],
+   "atc": {
+    "vhf": 118.3,
+    "uhf": 360.6,
+    "hf": 3.825,
+    "fm": 38.55
+   },
+   "tacan": "87X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    108.7,
+    108.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": 108.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": 108.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Echo Bay",
+   "ll": [
+    36.31106,
+    -114.4639
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "6-24",
+     "sides": [
+      {
+       "name": "6",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "Groom Lake",
+   "ll": [
+    37.23318,
+    -115.79234
+   ],
+   "atc": {
+    "vhf": 118,
+    "uhf": 250.05,
+    "hf": 3.85,
+    "fm": 38.6
+   },
+   "tacan": "18X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "32-14",
+     "sides": [
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": 109.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Henderson Executive",
+   "ll": [
+    35.97399,
+    -115.13305
+   ],
+   "atc": {
+    "vhf": 125.1,
+    "uhf": 250.15,
+    "hf": 3.95,
+    "fm": 38.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "35L-17R",
+     "sides": [
+      {
+       "name": "35L",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "17R",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "35R-17L",
+     "sides": [
+      {
+       "name": "35R",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "17L",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "name": "Jean",
+   "ll": [
+    35.76919,
+    -115.32957
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "20L-2R",
+     "sides": [
+      {
+       "name": "20L",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "2R",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "20R-2L",
+     "sides": [
+      {
+       "name": "20R",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "2L",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Laughlin",
+   "ll": [
+    35.1561,
+    -114.55945
+   ],
+   "atc": {
+    "vhf": 123.9,
+    "uhf": 250,
+    "hf": 3.75,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "16-34",
+     "sides": [
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Lincoln County",
+   "ll": [
+    37.78736,
+    -114.41991
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "17-35",
+     "sides": [
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "McCarran International",
+   "ll": [
+    36.07641,
+    -115.14463
+   ],
+   "atc": {
+    "vhf": 119.9,
+    "uhf": 257.8,
+    "hf": 3.875,
+    "fm": 38.65
+   },
+   "tacan": "116X",
+   "vor": 116.9,
+   "ndb": [],
+   "ils": [
+    111.75,
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "7R-25L",
+     "sides": [
+      {
+       "name": "7R",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25L",
+       "hdgTrue": 250,
+       "ils": 111.75,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "7L-25R",
+     "sides": [
+      {
+       "name": "7L",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25R",
+       "hdgTrue": 250,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Mesquite",
+   "ll": [
+    36.83312,
+    -114.05591
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "1-19",
+     "sides": [
+      {
+       "name": "1",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Mina",
+   "ll": [
+    38.37979,
+    -118.09668
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Nellis",
+   "ll": [
+    36.23522,
+    -115.033
+   ],
+   "atc": {
+    "vhf": 132.55,
+    "uhf": 327,
+    "hf": 3.9,
+    "fm": 38.7
+   },
+   "tacan": "12X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "03L-21R",
+     "sides": [
+      {
+       "name": "03L",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21R",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "03R-21L",
+     "sides": [
+      {
+       "name": "03R",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21L",
+       "hdgTrue": 210,
+       "ils": 109.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "name": "North Las Vegas",
+   "ll": [
+    36.21347,
+    -115.19477
+   ],
+   "atc": {
+    "vhf": 125.7,
+    "uhf": 360.75,
+    "hf": 3.775,
+    "fm": 38.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30L-12R",
+     "sides": [
+      {
+       "name": "30L",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12R",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "12L-30R",
+     "sides": [
+      {
+       "name": "12L",
+       "hdgTrue": 120,
+       "ils": 110.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30R",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "25-7",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "7",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "name": "Pahute Mesa",
+   "ll": [
+    37.102,
+    -116.31285
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "36-18",
+     "sides": [
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Tonopah",
+   "ll": [
+    38.06243,
+    -117.08329
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "29-11",
+     "sides": [
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "name": "Tonopah Test Range",
+   "ll": [
+    37.79887,
+    -116.78079
+   ],
+   "atc": {
+    "vhf": 124.75,
+    "uhf": 257.95,
+    "hf": 3.8,
+    "fm": 38.5
+   },
+   "tacan": "77X",
+   "vor": 113,
+   "ndb": [],
+   "ils": [
+    108.3,
+    111.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "32-14",
+     "sides": [
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": 108.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1136 @@
+{
+ "map": "Persian Gulf",
+ "source": [
+  "pydcs",
+  "DCS Liberation"
+ ],
+ "airfields": [
+  {
+   "id": 22,
+   "name": "Abu Dhabi Intl",
+   "ll": [
+    24.45371,
+    54.65427
+   ],
+   "atc": {
+    "vhf": 119.2,
+    "uhf": 250.55,
+    "hf": 4.05,
+    "fm": 39
+   },
+   "tacan": null,
+   "vor": 114.25,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 1,
+   "name": "Abu Musa Island",
+   "ll": [
+    25.87599,
+    55.03292
+   ],
+   "atc": {
+    "vhf": 122.9,
+    "uhf": 250.4,
+    "hf": 3.975,
+    "fm": 38.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "name": "Al Ain Intl",
+   "ll": [
+    24.26143,
+    55.60925
+   ],
+   "atc": {
+    "vhf": 119.85,
+    "uhf": 250.7,
+    "hf": 4.125,
+    "fm": 39.15
+   },
+   "tacan": null,
+   "vor": 112.6,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 4,
+   "name": "Al Dhafra AFB",
+   "ll": [
+    24.24829,
+    54.5477
+   ],
+   "atc": {
+    "vhf": 126.5,
+    "uhf": 251.1,
+    "hf": 4.3,
+    "fm": 39.5
+   },
+   "tacan": "96X",
+   "vor": 114.9,
+   "ndb": [],
+   "ils": [
+    109.1,
+    108.7,
+    111.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13R-31L",
+     "sides": [
+      {
+       "name": "13R",
+       "hdgTrue": 130,
+       "ils": 108.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31L",
+       "hdgTrue": 310,
+       "ils": 108.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "13L-31R",
+     "sides": [
+      {
+       "name": "13L",
+       "hdgTrue": 130,
+       "ils": 109.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31R",
+       "hdgTrue": 310,
+       "ils": 111.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Al Maktoum Intl",
+   "ll": [
+    24.89706,
+    55.16024
+   ],
+   "atc": {
+    "vhf": 118.6,
+    "uhf": 251.2,
+    "hf": 4.35,
+    "fm": 39.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    111.75,
+    109.75
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": 109.75,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": 111.75,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Al Minhad AFB",
+   "ll": [
+    25.02688,
+    55.36576
+   ],
+   "atc": {
+    "vhf": 118.55,
+    "uhf": 250.1,
+    "hf": 3.8,
+    "fm": 38.5
+   },
+   "tacan": "99X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.7,
+    110.75
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": 110.75,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": 110.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "name": "Al-Bateen",
+   "ll": [
+    24.42808,
+    54.45858
+   ],
+   "atc": {
+    "vhf": 119.9,
+    "uhf": 250.6,
+    "hf": 4.075,
+    "fm": 39.05
+   },
+   "tacan": null,
+   "vor": 114,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 2,
+   "name": "Bandar Abbas Intl",
+   "ll": [
+    27.21769,
+    56.37896
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 251,
+    "hf": 4.25,
+    "fm": 39.4
+   },
+   "tacan": "78X",
+   "vor": 117.2,
+   "ndb": [
+    250
+   ],
+   "ils": [
+    109.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "03R-21L",
+     "sides": [
+      {
+       "name": "03R",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21L",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Bandar Lengeh",
+   "ll": [
+    26.53226,
+    54.82467
+   ],
+   "atc": {
+    "vhf": 121.7,
+    "uhf": 251.05,
+    "hf": 4.275,
+    "fm": 39.45
+   },
+   "tacan": null,
+   "vor": 114.8,
+   "ndb": [
+    408
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "name": "Bandar-e-Jask",
+   "ll": [
+    25.65467,
+    57.80144
+   ],
+   "atc": {
+    "vhf": 118.15,
+    "uhf": 250.5,
+    "hf": 4.025,
+    "fm": 38.95
+   },
+   "tacan": "110X",
+   "vor": 116.3,
+   "ndb": [
+    349
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 5,
+   "name": "Dubai Intl",
+   "ll": [
+    25.25638,
+    55.36526
+   ],
+   "atc": {
+    "vhf": 118.75,
+    "uhf": 251.15,
+    "hf": 4.325,
+    "fm": 39.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.5,
+    110.1,
+    111.3,
+    110.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30L-12R",
+     "sides": [
+      {
+       "name": "30L",
+       "hdgTrue": 300,
+       "ils": 111.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12R",
+       "hdgTrue": 120,
+       "ils": 109.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "30R-12L",
+     "sides": [
+      {
+       "name": "30R",
+       "hdgTrue": 300,
+       "ils": 110.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12L",
+       "hdgTrue": 120,
+       "ils": 110.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Fujairah Intl",
+   "ll": [
+    25.11094,
+    56.32735
+   ],
+   "atc": {
+    "vhf": 124.6,
+    "uhf": 251.25,
+    "hf": 4.375,
+    "fm": 39.65
+   },
+   "tacan": null,
+   "vor": 113.8,
+   "ndb": [],
+   "ils": [
+    111.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "29-11",
+     "sides": [
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": 111.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "name": "Havadarya",
+   "ll": [
+    27.15822,
+    56.17202
+   ],
+   "atc": {
+    "vhf": 123.15,
+    "uhf": 251.3,
+    "hf": 4.4,
+    "fm": 39.7
+   },
+   "tacan": "47X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    108.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": 108.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "name": "Jiroft",
+   "ll": [
+    28.72352,
+    57.6751
+   ],
+   "atc": {
+    "vhf": 136,
+    "uhf": 250.85,
+    "hf": 4.175,
+    "fm": 39.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [
+    276
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 18,
+   "name": "Kerman",
+   "ll": [
+    30.27311,
+    56.95155
+   ],
+   "atc": {
+    "vhf": 118.25,
+    "uhf": 250.3,
+    "hf": 3.925,
+    "fm": 38.75
+   },
+   "tacan": "97X",
+   "vor": 112,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "34-16",
+     "sides": [
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Khasab",
+   "ll": [
+    26.16983,
+    56.24017
+   ],
+   "atc": {
+    "vhf": 124.35,
+    "uhf": 250,
+    "hf": 3.75,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "19-01",
+     "sides": [
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "name": "Kish Intl",
+   "ll": [
+    26.52815,
+    53.98105
+   ],
+   "atc": {
+    "vhf": 121.65,
+    "uhf": 250.65,
+    "hf": 4.1,
+    "fm": 39.1
+   },
+   "tacan": "112X",
+   "vor": null,
+   "ndb": [
+    201
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 11,
+   "name": "Lar",
+   "ll": [
+    27.67473,
+    54.38314
+   ],
+   "atc": {
+    "vhf": 127.35,
+    "uhf": 250.05,
+    "hf": 3.775,
+    "fm": 38.45
+   },
+   "tacan": null,
+   "vor": 117.9,
+   "ndb": [
+    224
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "name": "Lavan Island",
+   "ll": [
+    26.81111,
+    53.35329
+   ],
+   "atc": {
+    "vhf": 128.55,
+    "uhf": 250.75,
+    "hf": 4.15,
+    "fm": 39.2
+   },
+   "tacan": null,
+   "vor": 116.85,
+   "ndb": [
+    310
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 29,
+   "name": "Liwa AFB",
+   "ll": [
+    23.65078,
+    53.82443
+   ],
+   "atc": {
+    "vhf": 119.3,
+    "uhf": 250.95,
+    "hf": 4.225,
+    "fm": 39.35
+   },
+   "tacan": "121X",
+   "vor": 117.4,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 13,
+   "name": "Qeshm Island",
+   "ll": [
+    26.75467,
+    55.90238
+   ],
+   "atc": {
+    "vhf": 118.05,
+    "uhf": 250.15,
+    "hf": 3.825,
+    "fm": 38.55
+   },
+   "tacan": null,
+   "vor": 117.1,
+   "ndb": [
+    233
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "name": "Ras Al Khaimah Intl",
+   "ll": [
+    25.61349,
+    55.9388
+   ],
+   "atc": {
+    "vhf": 121.6,
+    "uhf": 250.9,
+    "hf": 4.2,
+    "fm": 39.3
+   },
+   "tacan": null,
+   "vor": 113.6,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 20,
+   "name": "Sas Al Nakheel",
+   "ll": [
+    24.44111,
+    54.51702
+   ],
+   "atc": {
+    "vhf": 128.9,
+    "uhf": 250.45,
+    "hf": 4,
+    "fm": 38.9
+   },
+   "tacan": null,
+   "vor": 128.925,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 14,
+   "name": "Sharjah Intl",
+   "ll": [
+    25.33068,
+    55.51826
+   ],
+   "atc": {
+    "vhf": 118.6,
+    "uhf": 250.2,
+    "hf": 3.85,
+    "fm": 38.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    108.55,
+    111.95
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30L-12R",
+     "sides": [
+      {
+       "name": "30L",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12R",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "30R-12L",
+     "sides": [
+      {
+       "name": "30R",
+       "hdgTrue": 300,
+       "ils": 111.95,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12L",
+       "hdgTrue": 120,
+       "ils": 108.55,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "name": "Shiraz Intl",
+   "ll": [
+    29.54091,
+    52.59107
+   ],
+   "atc": {
+    "vhf": 121.9,
+    "uhf": 250.35,
+    "hf": 3.95,
+    "fm": 38.8
+   },
+   "tacan": "94X",
+   "vor": 117.8,
+   "ndb": [
+    205
+   ],
+   "ils": [
+    108.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "29L-11R",
+     "sides": [
+      {
+       "name": "29L",
+       "hdgTrue": 290,
+       "ils": 108.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11R",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "29R-11L",
+     "sides": [
+      {
+       "name": "29R",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11L",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Sir Abu Nuayr",
+   "ll": [
+    25.21687,
+    54.23365
+   ],
+   "atc": {
+    "vhf": 118,
+    "uhf": 250.8,
+    "hf": 3.9,
+    "fm": 38.7
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 15,
+   "name": "Sirri Island",
+   "ll": [
+    25.9096,
+    54.53925
+   ],
+   "atc": {
+    "vhf": 135.05,
+    "uhf": 250.25,
+    "hf": 3.875,
+    "fm": 38.65
+   },
+   "tacan": null,
+   "vor": 113.75,
+   "ndb": [
+    300
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Tunb Island AFB",
+   "ll": [
+    26.25889,
+    55.31578
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "03-21",
+     "sides": [
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "name": "Tunb Kochak",
+   "ll": [
+    26.24332,
+    55.14557
+   ],
+   "atc": null,
+   "tacan": "89X",
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

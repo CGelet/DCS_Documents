@@ -1,0 +1,985 @@
+{
+ "map": "Caucasus",
+ "source": [
+  "pydcs",
+  "DCS Liberation"
+ ],
+ "airfields": [
+  {
+   "id": 12,
+   "name": "Anapa-Vityazevo",
+   "ll": [
+    45.00495,
+    37.34782
+   ],
+   "atc": {
+    "vhf": 121,
+    "uhf": 250,
+    "hf": 3.75,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [
+    443,
+    215
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": 443,
+       "inner": 215
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": 443,
+       "inner": 215
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "name": "Batumi",
+   "ll": [
+    41.6096,
+    41.60024
+   ],
+   "atc": {
+    "vhf": 131,
+    "uhf": 260,
+    "hf": 4.25,
+    "fm": 40.4
+   },
+   "tacan": "16X",
+   "vor": null,
+   "ndb": [
+    430
+   ],
+   "ils": [
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "31-13",
+     "sides": [
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "name": "Beslan",
+   "ll": [
+    43.2057,
+    44.60586
+   ],
+   "atc": {
+    "vhf": 141,
+    "uhf": 270,
+    "hf": 4.75,
+    "fm": 42.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.5
+   ],
+   "markers": [
+    1050,
+    250
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": 110.5,
+       "prmg": null,
+       "outer": 1050,
+       "inner": 250
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Gelendzhik",
+   "ll": [
+    44.5729,
+    38.01161
+   ],
+   "atc": {
+    "vhf": 126,
+    "uhf": 255,
+    "hf": 4,
+    "fm": 39.4
+   },
+   "tacan": null,
+   "vor": 114.3,
+   "ndb": [
+    1000
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "01-19",
+     "sides": [
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "name": "Gudauta",
+   "ll": [
+    43.11433,
+    40.56974
+   ],
+   "atc": {
+    "vhf": 130,
+    "uhf": 259,
+    "hf": 4.2,
+    "fm": 40.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [
+    395
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "15-33",
+     "sides": [
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "name": "Kobuleti",
+   "ll": [
+    41.92992,
+    41.86328
+   ],
+   "atc": {
+    "vhf": 133,
+    "uhf": 262,
+    "hf": 4.35,
+    "fm": 40.8
+   },
+   "tacan": "67X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    111.5
+   ],
+   "markers": [
+    870,
+    490
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "25-07",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": 111.5,
+       "prmg": null,
+       "outer": 870,
+       "inner": 490
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Krasnodar-Center",
+   "ll": [
+    45.08695,
+    38.93999
+   ],
+   "atc": {
+    "vhf": 122,
+    "uhf": 251,
+    "hf": 3.8,
+    "fm": 38.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [
+    303,
+    625
+   ],
+   "rsbn": 40,
+   "runways": [
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": 38,
+       "outer": 625,
+       "inner": 303
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": 625,
+       "inner": 303
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "name": "Krasnodar-Pashkovsky",
+   "ll": [
+    45.03801,
+    39.18814
+   ],
+   "atc": {
+    "vhf": 128,
+    "uhf": 257,
+    "hf": 4.1,
+    "fm": 39.8
+   },
+   "tacan": null,
+   "vor": 115.8,
+   "ndb": [],
+   "ils": [],
+   "markers": [
+    493,
+    240
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23L-05R",
+     "sides": [
+      {
+       "name": "23L",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05R",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "name": "Krymsk",
+   "ll": [
+    44.96794,
+    37.99503
+   ],
+   "atc": {
+    "vhf": 124,
+    "uhf": 253,
+    "hf": 3.9,
+    "fm": 39
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [
+    408,
+    803
+   ],
+   "rsbn": 28,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": 26,
+       "outer": 408,
+       "inner": 803
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": 26,
+       "outer": 408,
+       "inner": 803
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "name": "Kutaisi",
+   "ll": [
+    42.17762,
+    42.4813
+   ],
+   "atc": {
+    "vhf": 134,
+    "uhf": 263,
+    "hf": 4.4,
+    "fm": 41
+   },
+   "tacan": "44X",
+   "vor": 113.6,
+   "ndb": [
+    477
+   ],
+   "ils": [
+    109.75
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "25-07",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": 109.75,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "name": "Maykop-Khanskaya",
+   "ll": [
+    44.68129,
+    40.03526
+   ],
+   "atc": {
+    "vhf": 125,
+    "uhf": 254,
+    "hf": 3.95,
+    "fm": 39.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [
+    591,
+    289
+   ],
+   "rsbn": 34,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": 36,
+       "outer": 289,
+       "inner": 591
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": 289,
+       "inner": 591
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "name": "Mineralnye Vody",
+   "ll": [
+    44.22785,
+    43.08121
+   ],
+   "atc": {
+    "vhf": 135,
+    "uhf": 264,
+    "hf": 4.45,
+    "fm": 41.2
+   },
+   "tacan": null,
+   "vor": 117.1,
+   "ndb": [],
+   "ils": [
+    109.3,
+    111.7
+   ],
+   "markers": [
+    583,
+    283
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": 109.3,
+       "prmg": null,
+       "outer": 583,
+       "inner": 283
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": 111.7,
+       "prmg": null,
+       "outer": 583,
+       "inner": 283
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "name": "Mozdok",
+   "ll": [
+    43.79171,
+    44.6059
+   ],
+   "atc": {
+    "vhf": 137,
+    "uhf": 266,
+    "hf": 4.55,
+    "fm": 41.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [
+    1065,
+    525
+   ],
+   "rsbn": 20,
+   "runways": [
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": 22,
+       "outer": 525,
+       "inner": 1065
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": 22,
+       "outer": 525,
+       "inner": 1065
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "name": "Nalchik",
+   "ll": [
+    43.514,
+    43.63648
+   ],
+   "atc": {
+    "vhf": 136,
+    "uhf": 265,
+    "hf": 4.5,
+    "fm": 41.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.5
+   ],
+   "markers": [
+    718,
+    350
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": 110.5,
+       "prmg": null,
+       "outer": 718,
+       "inner": 350
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Novorossiysk",
+   "ll": [
+    44.6681,
+    37.77826
+   ],
+   "atc": {
+    "vhf": 123,
+    "uhf": 252,
+    "hf": 3.85,
+    "fm": 38.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "name": "Senaki-Kolkhi",
+   "ll": [
+    42.24085,
+    42.04802
+   ],
+   "atc": {
+    "vhf": 132,
+    "uhf": 261,
+    "hf": 4.3,
+    "fm": 40.6
+   },
+   "tacan": "31X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    108.9
+   ],
+   "markers": [
+    335,
+    688
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": 108.9,
+       "prmg": null,
+       "outer": 335,
+       "inner": 688
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "name": "Sochi-Adler",
+   "ll": [
+    43.44435,
+    39.94108
+   ],
+   "atc": {
+    "vhf": 127,
+    "uhf": 256,
+    "hf": 4.05,
+    "fm": 39.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [
+    761
+   ],
+   "ils": [
+    111.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": 111.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "name": "Soganlug",
+   "ll": [
+    41.64954,
+    44.93842
+   ],
+   "atc": {
+    "vhf": 139,
+    "uhf": 268,
+    "hf": 4.65,
+    "fm": 42
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "name": "Sukhumi-Babushara",
+   "ll": [
+    42.86109,
+    41.125
+   ],
+   "atc": {
+    "vhf": 129,
+    "uhf": 258,
+    "hf": 4.15,
+    "fm": 40
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [
+    489,
+    995
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": 489,
+       "inner": 995
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 29,
+   "name": "Tbilisi-Lochini",
+   "ll": [
+    41.66703,
+    44.95635
+   ],
+   "atc": {
+    "vhf": 138,
+    "uhf": 267,
+    "hf": 4.6,
+    "fm": 41.8
+   },
+   "tacan": "25X",
+   "vor": 113.7,
+   "ndb": [],
+   "ils": [
+    110.3,
+    108.9
+   ],
+   "markers": [
+    342,
+    923,
+    211,
+    435
+   ],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13R-31L",
+     "sides": [
+      {
+       "name": "13R",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31L",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "name": "Vaziani",
+   "ll": [
+    41.62902,
+    45.0273
+   ],
+   "atc": {
+    "vhf": 140,
+    "uhf": 269,
+    "hf": 4.7,
+    "fm": 42.2
+   },
+   "tacan": "22X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    108.75
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13R-31L",
+     "sides": [
+      {
+       "name": "13R",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31L",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

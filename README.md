@@ -32,6 +32,9 @@ So far it covers the **F/A-18C Hornet**, from *DCS Guide F/A-18C Hornet* by Chuc
 - **Checklists** (cold start, takeoffs, landings) that you can tick, with an **Essentials / Full**
   switch. Essentials hides checks, tests and realism-only steps.
 - **Quick-reference cards** and a **Weapons** tab with steps, key facts and a comparison table.
+- **Airfields tab:** tower radios, TACAN, VOR, NDB, ILS and runways for DCS airfields, recreated from
+  Minsky's free *Aerodrome Data and Frequencies* and checked against the in-game data. They are also on
+  the kneeboard pages.
 - **DCS kneeboard pages:** the checklists and cards as images for the in-game kneeboard, in a full
   set and an essentials set.
 - **Optional live cockpit link:** checklist items tick themselves as you flip switches in DCS, using
@@ -66,6 +69,8 @@ To build another aircraft, put Chuck's PDF in `CHUCKS_GUIDES/` and follow
 | Who | What it's used for | Link |
 |---|---|---|
 | **Chuck** (Chuck's Guides) | The guide itself: all page content, images and procedures | [chucksguides.com](https://www.chucksguides.com/) · [Patreon](https://www.patreon.com/chucksguides) |
+| **Dima Kozyrev (Minsky)** | *Aerodrome Data and Frequencies*: the airfield tables and their layout are transcribed from his kneeboards | [DCS forum post](https://forum.dcs.world/topic/269908-aerodrome-data-and-frequencies) · [DCS user files](https://www.digitalcombatsimulator.com/en/files/3312200/) |
+| **pydcs** and **DCS Liberation** (LGPL-3.0) | The in-game airfield, radio and navaid data the tables are checked against | [pydcs/dcs](https://github.com/pydcs/dcs) · [dcs-liberation/dcs_liberation](https://github.com/dcs-liberation/dcs_liberation) |
 | **Eagle Dynamics** | DCS World and the F/A-18C module the guide is about | [digitalcombatsimulator.com](https://www.digitalcombatsimulator.com/) |
 | **DCS-BIOS** by the DCS-Skunkworks team, building on the original DCS-BIOS project | Reads cockpit switch positions for the optional live link. Its control names are used in the checklist mappings | [DCS-Skunkworks/dcs-bios](https://github.com/DCS-Skunkworks/dcs-bios) · [original dcs-bios/dcs-bios](https://github.com/dcs-bios/dcs-bios) |
 | **MuPDF** / **mupdf.js** by Artifex Software (AGPL-3.0) | Reads the PDF and converts its pages to SVG and text. Build tools only, not included in the reader | [mupdf.com](https://mupdf.com/) · [ArtifexSoftware/mupdf.js](https://github.com/ArtifexSoftware/mupdf.js) |
@@ -73,7 +78,7 @@ To build another aircraft, put Chuck's PDF in `CHUCKS_GUIDES/` and follow
 | **Carlito** font by The Carlito Project Authors (SIL Open Font License 1.1) | A Calibri-compatible font, so the text lines up on devices without Calibri. License: [`tools/viewer/fonts/OFL.txt`](tools/viewer/fonts/OFL.txt) | [googlefonts/carlito](https://github.com/googlefonts/carlito) |
 | **Node.js** | Runs the build tools and the DCS-BIOS bridge | [nodejs.org](https://nodejs.org/) |
 
-Third-party components keep their own licenses. The guide content remains the property of its author.
+Third-party components keep their own licenses. The guide content remains the property of its author, and the airfield data compilation remains Minsky's.
 
 ## Disclaimer
 

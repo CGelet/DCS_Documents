@@ -1,0 +1,5533 @@
+{
+ "map": "Syria",
+ "source": [
+  "pydcs",
+  "DCS Liberation"
+ ],
+ "airfields": [
+  {
+   "id": 1,
+   "name": "Abu al-Duhur",
+   "ll": [
+    35.73231,
+    37.10413
+   ],
+   "atc": {
+    "vhf": 122.2,
+    "uhf": 250.5,
+    "hf": 4.025,
+    "fm": 38.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 2,
+   "name": "Adana Sakirpasa",
+   "ll": [
+    36.98194,
+    35.2801
+   ],
+   "atc": {
+    "vhf": 121.1,
+    "uhf": 251.25,
+    "hf": 4.4,
+    "fm": 39.7
+   },
+   "tacan": null,
+   "vor": 112.7,
+   "ndb": [
+    395
+   ],
+   "ils": [
+    108.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": 108.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 219,
+   "name": "Adiyaman",
+   "ll": [
+    37.73126,
+    38.46892
+   ],
+   "atc": {
+    "vhf": 121.5,
+    "uhf": 243,
+    "hf": 5,
+    "fm": 41.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    113.6
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": 113.6,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 44,
+   "name": "Akrotiri",
+   "ll": [
+    34.59037,
+    32.98778
+   ],
+   "atc": {
+    "vhf": 128,
+    "uhf": 252,
+    "hf": 4.775,
+    "fm": 40.45
+   },
+   "tacan": "107X",
+   "vor": null,
+   "ndb": [
+    365
+   ],
+   "ils": [
+    109.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": 109.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Al Qusayr",
+   "ll": [
+    34.56928,
+    36.57145
+   ],
+   "atc": {
+    "vhf": 119.2,
+    "uhf": 251.8,
+    "hf": 4.675,
+    "fm": 40.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 9,
+   "name": "Al-Dumayr",
+   "ll": [
+    33.6097,
+    36.74913
+   ],
+   "atc": {
+    "vhf": 120.3,
+    "uhf": 253.35,
+    "hf": 4.85,
+    "fm": 41.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 27,
+   "name": "Aleppo",
+   "ll": [
+    36.18062,
+    37.22437
+   ],
+   "atc": {
+    "vhf": 119.1,
+    "uhf": 251.1,
+    "hf": 4.325,
+    "fm": 39.55
+   },
+   "tacan": null,
+   "vor": 114.5,
+   "ndb": [
+    396,
+    365
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 4,
+   "name": "An Nasiriyah",
+   "ll": [
+    33.91861,
+    36.86584
+   ],
+   "atc": {
+    "vhf": 122.3,
+    "uhf": 252.3,
+    "hf": 4.925,
+    "fm": 40.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 63,
+   "name": "At Tanf",
+   "ll": [
+    33.50645,
+    38.61488
+   ],
+   "atc": {
+    "vhf": 121.1,
+    "uhf": 252.9,
+    "hf": 4.875,
+    "fm": 41.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 21,
+   "name": "Bassel Al-Assad",
+   "ll": [
+    35.40385,
+    35.95024
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 250.6,
+    "hf": 4.075,
+    "fm": 39.05
+   },
+   "tacan": null,
+   "vor": 114.8,
+   "ndb": [
+    414
+   ],
+   "ils": [
+    109.1
+   ],
+   "markers": [],
+   "rsbn": 7,
+   "runways": [
+    {
+     "name": "17R-35L",
+     "sides": [
+      {
+       "name": "17R",
+       "hdgTrue": 170,
+       "ils": 109.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35L",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "17L-35R",
+     "sides": [
+      {
+       "name": "17L",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35R",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": 9,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Beirut-Rafic Hariri",
+   "ll": [
+    33.82514,
+    35.48304
+   ],
+   "atc": {
+    "vhf": 118.9,
+    "uhf": 253.2,
+    "hf": 4.325,
+    "fm": 41.65
+   },
+   "tacan": null,
+   "vor": 112.6,
+   "ndb": [
+    351
+   ],
+   "ils": [
+    110.7,
+    109.5,
+    110.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "17-35",
+     "sides": [
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "34-16",
+     "sides": [
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": 110.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 221,
+   "name": "Ben Gurion",
+   "ll": [
+    32.00608,
+    34.88242
+   ],
+   "atc": {
+    "vhf": 134.6,
+    "uhf": 250.7,
+    "hf": 4.125,
+    "fm": 39.15
+   },
+   "tacan": null,
+   "vor": 113.5,
+   "ndb": [],
+   "ils": [
+    110.3,
+    110.9,
+    109.7,
+    108.7,
+    111.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": 109.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": 110.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": 111.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 90,
+   "name": "Chukurova",
+   "ll": [
+    36.89273,
+    35.06932
+   ],
+   "atc": {
+    "vhf": 120.8,
+    "uhf": 245,
+    "hf": 4.25,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": 113.7,
+   "ndb": [
+    320000
+   ],
+   "ils": [
+    333.95,
+    329.75
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21L-03R",
+     "sides": [
+      {
+       "name": "21L",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03R",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "21R-03L",
+     "sides": [
+      {
+       "name": "21R",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03L",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Damascus",
+   "ll": [
+    33.42551,
+    36.51851
+   ],
+   "atc": {
+    "vhf": 118.5,
+    "uhf": 253.25,
+    "hf": 4.9,
+    "fm": 41.7
+   },
+   "tacan": null,
+   "vor": 116,
+   "ndb": [
+    342,
+    264
+   ],
+   "ils": [
+    109.9,
+    111.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "05R-23L",
+     "sides": [
+      {
+       "name": "05R",
+       "hdgTrue": 50,
+       "ils": 111.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "23L",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "05L-23R",
+     "sides": [
+      {
+       "name": "05L",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "23R",
+       "hdgTrue": 230,
+       "ils": 109.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 42,
+   "name": "Deir ez-Zor",
+   "ll": [
+    35.28543,
+    40.17606
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 251.95,
+    "hf": 4.75,
+    "fm": 40.4
+   },
+   "tacan": null,
+   "vor": 117,
+   "ndb": [
+    295
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 217,
+   "name": "Diyarbakir",
+   "ll": [
+    37.89334,
+    40.19869
+   ],
+   "atc": {
+    "vhf": 132.4,
+    "uhf": 225,
+    "hf": 3.8,
+    "fm": 38.9
+   },
+   "tacan": "37X",
+   "vor": null,
+   "ndb": [
+    330
+   ],
+   "ils": [
+    109.4,
+    109.2
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "34R-16L",
+     "sides": [
+      {
+       "name": "34R",
+       "hdgTrue": 340,
+       "ils": 109.2,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "16L",
+       "hdgTrue": 160,
+       "ils": 109.4,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "34L-16R",
+     "sides": [
+      {
+       "name": "34L",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "16R",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 49,
+   "name": "Ercan",
+   "ll": [
+    35.14964,
+    33.51251
+   ],
+   "atc": {
+    "vhf": 120.2,
+    "uhf": 252.25,
+    "hf": 4.9,
+    "fm": 40.7
+   },
+   "tacan": null,
+   "vor": 117,
+   "ndb": [],
+   "ils": [
+    108.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": 108.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Eyn Shemer",
+   "ll": [
+    32.44093,
+    35.007
+   ],
+   "atc": {
+    "vhf": 123.4,
+    "uhf": 250.05,
+    "hf": 3.775,
+    "fm": 38.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 11,
+   "name": "Gaziantep",
+   "ll": [
+    36.94813,
+    37.47834
+   ],
+   "atc": {
+    "vhf": 120.1,
+    "uhf": 250.1,
+    "hf": 3.8,
+    "fm": 38.5
+   },
+   "tacan": null,
+   "vor": 116.7,
+   "ndb": [
+    432
+   ],
+   "ils": [
+    109.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 41,
+   "name": "Gazipasa",
+   "ll": [
+    36.29892,
+    32.29763
+   ],
+   "atc": {
+    "vhf": 119.25,
+    "uhf": 251.9,
+    "hf": 4.725,
+    "fm": 40.35
+   },
+   "tacan": null,
+   "vor": 114.2,
+   "ndb": [
+    316
+   ],
+   "ils": [
+    108.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": 108.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 50,
+   "name": "Gecitkale",
+   "ll": [
+    35.23601,
+    33.72089
+   ],
+   "atc": {
+    "vhf": 120,
+    "uhf": 252.35,
+    "hf": 4.95,
+    "fm": 40.8
+   },
+   "tacan": null,
+   "vor": 114.3,
+   "ndb": [
+    435
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 216,
+   "name": "Gulechoba",
+   "ll": [
+    38.01202,
+    39.95472
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "01-19",
+     "sides": [
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 138,
+   "name": "H_med_orig_01",
+   "ll": [
+    37.01161,
+    35.35259
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 137,
+   "name": "H_med_orig_02",
+   "ll": [
+    34.78798,
+    32.44528
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 136,
+   "name": "H_med_orig_03",
+   "ll": [
+    34.92145,
+    33.60427
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 135,
+   "name": "H_med_orig_04",
+   "ll": [
+    34.70799,
+    32.98191
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 134,
+   "name": "H_med_orig_05",
+   "ll": [
+    32.78554,
+    34.9806
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 133,
+   "name": "H_med_orig_06",
+   "ll": [
+    35.12802,
+    33.3786
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 132,
+   "name": "H_med_orig_07",
+   "ll": [
+    32.83347,
+    34.98678
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 131,
+   "name": "H_med_orig_08",
+   "ll": [
+    33.893,
+    35.52303
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 182,
+   "name": "H_med_orig_09",
+   "ll": [
+    37.02812,
+    35.3519
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 53,
+   "name": "H3",
+   "ll": [
+    32.9362,
+    39.74581
+   ],
+   "atc": {
+    "vhf": 122,
+    "uhf": 252.5,
+    "hf": 4.725,
+    "fm": 40.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 54,
+   "name": "H3 Northwest",
+   "ll": [
+    33.07596,
+    39.59658
+   ],
+   "atc": {
+    "vhf": 122.1,
+    "uhf": 252.55,
+    "hf": 4.825,
+    "fm": 41
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 55,
+   "name": "H3 Southwest",
+   "ll": [
+    32.74335,
+    39.60241
+   ],
+   "atc": {
+    "vhf": 122.4,
+    "uhf": 252.6,
+    "hf": 4.775,
+    "fm": 41.05
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "name": "H4",
+   "ll": [
+    32.53928,
+    38.19508
+   ],
+   "atc": {
+    "vhf": 122.6,
+    "uhf": 250.15,
+    "hf": 3.825,
+    "fm": 38.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 61,
+   "name": "H4 Emergency",
+   "ll": [
+    32.38626,
+    37.7817
+   ],
+   "atc": {
+    "vhf": 118.5,
+    "uhf": 250,
+    "hf": 4.5,
+    "fm": 40
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Haifa",
+   "ll": [
+    32.81075,
+    35.04354
+   ],
+   "atc": {
+    "vhf": 127.8,
+    "uhf": 250.2,
+    "hf": 3.85,
+    "fm": 38.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "34-16",
+     "sides": [
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Hama",
+   "ll": [
+    35.11804,
+    36.71238
+   ],
+   "atc": {
+    "vhf": 118.05,
+    "uhf": 250.25,
+    "hf": 3.875,
+    "fm": 38.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 15,
+   "name": "Hatay",
+   "ll": [
+    36.36232,
+    36.28742
+   ],
+   "atc": {
+    "vhf": 128.5,
+    "uhf": 250.3,
+    "hf": 3.9,
+    "fm": 38.7
+   },
+   "tacan": null,
+   "vor": 112.05,
+   "ndb": [
+    336
+   ],
+   "ils": [
+    108.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 81,
+   "name": "Hatzerim",
+   "ll": [
+    31.23881,
+    34.65768
+   ],
+   "atc": {
+    "vhf": 128.2,
+    "uhf": 259,
+    "hf": 4.975,
+    "fm": 41.95
+   },
+   "tacan": "96X",
+   "vor": 114.9,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10R-28L",
+     "sides": [
+      {
+       "name": "10R",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28L",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "10L-28R",
+     "sides": [
+      {
+       "name": "10L",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28R",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 222,
+   "name": "Hatzor",
+   "ll": [
+    31.7604,
+    34.72525
+   ],
+   "atc": {
+    "vhf": 125.75,
+    "uhf": 250.75,
+    "hf": 4.15,
+    "fm": 39.2
+   },
+   "tacan": "106X",
+   "vor": 115.9,
+   "ndb": [],
+   "ils": [
+    108.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "29-11",
+     "sides": [
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 69,
+   "name": "HC01",
+   "ll": [
+    34.92422,
+    33.60372
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 70,
+   "name": "HC02",
+   "ll": [
+    34.83085,
+    33.47819
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 71,
+   "name": "HC03",
+   "ll": [
+    35.31195,
+    33.29008
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 72,
+   "name": "HC04",
+   "ll": [
+    35.2672,
+    33.49589
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 73,
+   "name": "HC05",
+   "ll": [
+    35.09387,
+    33.88578
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 74,
+   "name": "HC06",
+   "ll": [
+    35.084,
+    33.89719
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 66,
+   "name": "Herzliya",
+   "ll": [
+    32.17937,
+    34.83794
+   ],
+   "atc": {
+    "vhf": 122.2,
+    "uhf": 253.05,
+    "hf": 4.6,
+    "fm": 41.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 79,
+   "name": "HI01",
+   "ll": [
+    32.88223,
+    35.71899
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 80,
+   "name": "HI02",
+   "ll": [
+    32.93768,
+    35.56873
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 82,
+   "name": "HI03",
+   "ll": [
+    32.80561,
+    35.40159
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 83,
+   "name": "HI05",
+   "ll": [
+    32.80813,
+    35.42528
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 84,
+   "name": "HI06",
+   "ll": [
+    32.60625,
+    34.97302
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 85,
+   "name": "HI07",
+   "ll": [
+    32.82308,
+    35.43618
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 76,
+   "name": "HI08",
+   "ll": [
+    32.96188,
+    35.55007
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 77,
+   "name": "HI09",
+   "ll": [
+    32.9821,
+    35.51471
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 86,
+   "name": "HI11",
+   "ll": [
+    32.99481,
+    35.48407
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 87,
+   "name": "HI12",
+   "ll": [
+    33.0171,
+    35.70451
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 116,
+   "name": "HI13",
+   "ll": [
+    32.98332,
+    35.72711
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 115,
+   "name": "HI14",
+   "ll": [
+    32.76287,
+    35.3027
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 114,
+   "name": "HI15",
+   "ll": [
+    33.01047,
+    35.66296
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 113,
+   "name": "HI16",
+   "ll": [
+    32.94555,
+    35.20464
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 112,
+   "name": "HI17",
+   "ll": [
+    32.62401,
+    35.37909
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 186,
+   "name": "HI18",
+   "ll": [
+    32.46786,
+    35.02321
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 193,
+   "name": "HI20",
+   "ll": [
+    32.99935,
+    35.40754
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 199,
+   "name": "HI21",
+   "ll": [
+    32.76112,
+    35.40059
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 198,
+   "name": "HI22",
+   "ll": [
+    32.0876,
+    34.91976
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 197,
+   "name": "HI23",
+   "ll": [
+    31.7475,
+    34.93572
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 196,
+   "name": "HI24",
+   "ll": [
+    32.14349,
+    34.81528
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 195,
+   "name": "HI25",
+   "ll": [
+    33.18291,
+    35.23425
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 194,
+   "name": "HI26",
+   "ll": [
+    32.08479,
+    34.78125
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 203,
+   "name": "HJ01",
+   "ll": [
+    33.31385,
+    38.70271
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 202,
+   "name": "HJ02",
+   "ll": [
+    32.58673,
+    35.92461
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 201,
+   "name": "HJ03",
+   "ll": [
+    32.48417,
+    36.06589
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 200,
+   "name": "HJ04",
+   "ll": [
+    32.47652,
+    36.06333
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 208,
+   "name": "HL01",
+   "ll": [
+    33.26552,
+    35.21625
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 207,
+   "name": "HL02",
+   "ll": [
+    33.16939,
+    35.18701
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 206,
+   "name": "HL03",
+   "ll": [
+    33.18284,
+    35.49583
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 205,
+   "name": "HL04",
+   "ll": [
+    33.13256,
+    35.39331
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 204,
+   "name": "HL05",
+   "ll": [
+    33.15376,
+    35.19645
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 157,
+   "name": "HL06",
+   "ll": [
+    33.30588,
+    35.54096
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 155,
+   "name": "HL07",
+   "ll": [
+    33.26218,
+    35.4185
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 154,
+   "name": "HL08",
+   "ll": [
+    33.20377,
+    35.35306
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 153,
+   "name": "HL09",
+   "ll": [
+    34.3652,
+    36.51211
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 152,
+   "name": "HL10",
+   "ll": [
+    34.26435,
+    36.48322
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 151,
+   "name": "HL11",
+   "ll": [
+    33.70988,
+    35.9667
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 148,
+   "name": "HL12",
+   "ll": [
+    33.17372,
+    35.27531
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 147,
+   "name": "HL13",
+   "ll": [
+    33.13822,
+    35.50454
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 129,
+   "name": "HMed00",
+   "ll": [
+    36.57617,
+    36.19892
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 128,
+   "name": "HMed01",
+   "ll": [
+    34.975,
+    33.848
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 127,
+   "name": "HMed02",
+   "ll": [
+    35.95595,
+    38.98926
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 126,
+   "name": "HMed03",
+   "ll": [
+    35.5167,
+    35.79124
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 125,
+   "name": "HMed04",
+   "ll": [
+    37.05294,
+    35.27885
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 124,
+   "name": "HMed05",
+   "ll": [
+    35.14432,
+    33.35388
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 123,
+   "name": "HMed06",
+   "ll": [
+    35.14653,
+    36.75338
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 122,
+   "name": "HMed07",
+   "ll": [
+    35.33328,
+    33.32435
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 121,
+   "name": "HMed08",
+   "ll": [
+    35.34396,
+    33.19481
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 120,
+   "name": "HMed09",
+   "ll": [
+    35.00429,
+    34.05913
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 119,
+   "name": "HMed10",
+   "ll": [
+    33.20739,
+    35.57117
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 130,
+   "name": "HMed11",
+   "ll": [
+    32.57059,
+    35.84615
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 176,
+   "name": "HMed12",
+   "ll": [
+    31.99319,
+    35.89002
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 175,
+   "name": "HMed13",
+   "ll": [
+    32.1818,
+    34.97877
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 174,
+   "name": "HMed14",
+   "ll": [
+    34.88378,
+    35.88697
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 173,
+   "name": "HMed15",
+   "ll": [
+    36.20624,
+    36.1524
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 172,
+   "name": "HMed16",
+   "ll": [
+    34.72074,
+    36.73297
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 171,
+   "name": "HMed17",
+   "ll": [
+    33.5236,
+    36.35487
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 170,
+   "name": "HMed18",
+   "ll": [
+    32.70816,
+    35.30208
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 169,
+   "name": "HMed19",
+   "ll": [
+    32.82105,
+    34.99064
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 168,
+   "name": "HMed20",
+   "ll": [
+    32.16534,
+    34.84536
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 167,
+   "name": "HMed21",
+   "ll": [
+    33.45598,
+    36.23523
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 166,
+   "name": "HMed22",
+   "ll": [
+    31.88165,
+    36.00978
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 165,
+   "name": "HMed23",
+   "ll": [
+    34.69211,
+    32.96027
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 164,
+   "name": "HMed24",
+   "ll": [
+    33.89346,
+    35.56733
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 163,
+   "name": "HMed25",
+   "ll": [
+    31.7194,
+    35.79781
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 162,
+   "name": "HMed26",
+   "ll": [
+    36.194,
+    37.09793
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 161,
+   "name": "HMed27",
+   "ll": [
+    35.96066,
+    38.04178
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 160,
+   "name": "HMed28",
+   "ll": [
+    34.55806,
+    38.27875
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 159,
+   "name": "HMed29",
+   "ll": [
+    35.3388,
+    40.12943
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 158,
+   "name": "HMed30",
+   "ll": [
+    37.05069,
+    37.38983
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 181,
+   "name": "HOil01",
+   "ll": [
+    34.60276,
+    37.90172
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 180,
+   "name": "HOil02",
+   "ll": [
+    35.3378,
+    39.76084
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 179,
+   "name": "HOil03",
+   "ll": [
+    35.1911,
+    39.90297
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 178,
+   "name": "HOil04",
+   "ll": [
+    35.19411,
+    40.08176
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 177,
+   "name": "HOil05",
+   "ll": [
+    35.32883,
+    40.10546
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 211,
+   "name": "HOil06",
+   "ll": [
+    32.11399,
+    36.1062
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 89,
+   "name": "HS02",
+   "ll": [
+    35.33855,
+    36.07431
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 187,
+   "name": "HS03",
+   "ll": [
+    34.66969,
+    38.29828
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 184,
+   "name": "HS04",
+   "ll": [
+    35.79104,
+    37.72627
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 92,
+   "name": "HS05",
+   "ll": [
+    35.78913,
+    37.72479
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 93,
+   "name": "HS06",
+   "ll": [
+    33.27904,
+    36.08532
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 185,
+   "name": "HS07",
+   "ll": [
+    34.65768,
+    38.28916
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 94,
+   "name": "HS08",
+   "ll": [
+    34.64483,
+    36.74364
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 95,
+   "name": "HS09",
+   "ll": [
+    36.06035,
+    37.34314
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 96,
+   "name": "HS10",
+   "ll": [
+    36.05069,
+    37.33231
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 97,
+   "name": "HS11",
+   "ll": [
+    33.38634,
+    36.27271
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 105,
+   "name": "HS12",
+   "ll": [
+    33.42951,
+    36.11874
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 104,
+   "name": "HS13",
+   "ll": [
+    33.74569,
+    36.80354
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 103,
+   "name": "HS14",
+   "ll": [
+    33.4554,
+    36.08709
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 102,
+   "name": "HS15",
+   "ll": [
+    33.3946,
+    36.35974
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 101,
+   "name": "HS16",
+   "ll": [
+    35.98784,
+    37.41427
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 100,
+   "name": "HS17",
+   "ll": [
+    34.62705,
+    38.24295
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 99,
+   "name": "HS18",
+   "ll": [
+    34.61094,
+    38.25299
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 98,
+   "name": "HS19",
+   "ll": [
+    33.41575,
+    36.28452
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 111,
+   "name": "HS20",
+   "ll": [
+    33.35347,
+    36.48482
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 110,
+   "name": "HS21",
+   "ll": [
+    33.41166,
+    36.19173
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 109,
+   "name": "HS22",
+   "ll": [
+    33.70795,
+    36.67286
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 108,
+   "name": "HS23",
+   "ll": [
+    33.18196,
+    36.57201
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 107,
+   "name": "HS24",
+   "ll": [
+    33.44479,
+    36.30988
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 106,
+   "name": "HS25",
+   "ll": [
+    33.45762,
+    36.13084
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 145,
+   "name": "HS26",
+   "ll": [
+    33.04685,
+    39.60834
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 156,
+   "name": "HS27",
+   "ll": [
+    33.42755,
+    35.93489
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 189,
+   "name": "HS28",
+   "ll": [
+    33.27497,
+    36.27019
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 190,
+   "name": "HS29",
+   "ll": [
+    33.25174,
+    36.27097
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 191,
+   "name": "HS30",
+   "ll": [
+    33.28116,
+    36.26418
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 210,
+   "name": "HS31",
+   "ll": [
+    33.73297,
+    36.50904
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 209,
+   "name": "HS32",
+   "ll": [
+    32.07586,
+    36.14459
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 118,
+   "name": "HS33",
+   "ll": [
+    33.03523,
+    35.13865
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 183,
+   "name": "HS34",
+   "ll": [
+    34.92754,
+    35.99203
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 150,
+   "name": "HS35",
+   "ll": [
+    33.80415,
+    36.14985
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 188,
+   "name": "HS36",
+   "ll": [
+    33.23472,
+    36.14878
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 215,
+   "name": "HS37",
+   "ll": [
+    33.55219,
+    36.44721
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 214,
+   "name": "HS38",
+   "ll": [
+    32.43826,
+    36.01917
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 213,
+   "name": "HS39",
+   "ll": [
+    32.58703,
+    35.39985
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 212,
+   "name": "HS40",
+   "ll": [
+    32.82522,
+    35.99623
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 149,
+   "name": "HS41",
+   "ll": [
+    32.75794,
+    35.89785
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 146,
+   "name": "HS42",
+   "ll": [
+    32.74611,
+    35.87959
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 144,
+   "name": "HStad01",
+   "ll": [
+    36.99906,
+    35.32956
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 143,
+   "name": "HStad02",
+   "ll": [
+    35.1461,
+    33.3141
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 142,
+   "name": "HStad03",
+   "ll": [
+    36.21602,
+    37.15671
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 141,
+   "name": "HStad04",
+   "ll": [
+    35.56051,
+    35.74441
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 140,
+   "name": "HStad05",
+   "ll": [
+    35.11677,
+    36.76186
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 139,
+   "name": "HStad06",
+   "ll": [
+    33.52823,
+    36.29825
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 117,
+   "name": "HT01",
+   "ll": [
+    36.84822,
+    34.72137
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 192,
+   "name": "HT02",
+   "ll": [
+    37.01972,
+    35.34361
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 16,
+   "name": "Incirlik",
+   "ll": [
+    37.00205,
+    35.42609
+   ],
+   "atc": {
+    "vhf": 122.1,
+    "uhf": 360.1,
+    "hf": 3.925,
+    "fm": 38.75
+   },
+   "tacan": "21X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.3,
+    111.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "05-23",
+     "sides": [
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": 109.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": 111.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Jirah",
+   "ll": [
+    36.09687,
+    37.93654
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 250.35,
+    "hf": 3.95,
+    "fm": 38.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 75,
+   "name": "Kahramanmaras",
+   "ll": [
+    37.53848,
+    36.9524
+   ],
+   "atc": {
+    "vhf": 118.75,
+    "uhf": 225,
+    "hf": 3.75,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "25-07",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 88,
+   "name": "Kedem",
+   "ll": [
+    31.26053,
+    34.64046
+   ],
+   "atc": {
+    "vhf": 119,
+    "uhf": 256,
+    "hf": 3.75,
+    "fm": 41.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "name": "Khalkhalah",
+   "ll": [
+    33.07837,
+    36.5411
+   ],
+   "atc": {
+    "vhf": 122.5,
+    "uhf": 250.4,
+    "hf": 3.975,
+    "fm": 38.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "07-25",
+     "sides": [
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "15-33",
+     "sides": [
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 59,
+   "name": "Kharab Ishk",
+   "ll": [
+    36.54687,
+    38.58749
+   ],
+   "atc": {
+    "vhf": 122.2,
+    "uhf": 252.75,
+    "hf": 4.175,
+    "fm": 41.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 65,
+   "name": "King Abdullah II",
+   "ll": [
+    32.00551,
+    36.22369
+   ],
+   "atc": {
+    "vhf": 118.4,
+    "uhf": 253,
+    "hf": 3.9,
+    "fm": 41.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 19,
+   "name": "King Hussein Air College",
+   "ll": [
+    32.35668,
+    36.25986
+   ],
+   "atc": {
+    "vhf": 118.3,
+    "uhf": 250.45,
+    "hf": 4,
+    "fm": 38.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 45,
+   "name": "Kingsfield",
+   "ll": [
+    35.01481,
+    33.71703
+   ],
+   "atc": {
+    "vhf": 121,
+    "uhf": 252.05,
+    "hf": 4.8,
+    "fm": 40.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 20,
+   "name": "Kiryat Shmona",
+   "ll": [
+    33.21581,
+    35.59583
+   ],
+   "atc": {
+    "vhf": 118.4,
+    "uhf": 250.55,
+    "hf": 4.05,
+    "fm": 39
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 218,
+   "name": "Konya",
+   "ll": [
+    37.97775,
+    32.56149
+   ],
+   "atc": {
+    "vhf": 132.4,
+    "uhf": 225,
+    "hf": 3.8,
+    "fm": 38.9
+   },
+   "tacan": "88X",
+   "vor": 111.2,
+   "ndb": [
+    390
+   ],
+   "ils": [
+    108.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "01L-19R",
+     "sides": [
+      {
+       "name": "01L",
+       "hdgTrue": 10,
+       "ils": 108.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "19R",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "01R-19L",
+     "sides": [
+      {
+       "name": "01R",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "19L",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "name": "Kuweires",
+   "ll": [
+    36.18749,
+    37.58149
+   ],
+   "atc": {
+    "vhf": 120.5,
+    "uhf": 251.35,
+    "hf": 4.45,
+    "fm": 39.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 48,
+   "name": "Lakatamia",
+   "ll": [
+    35.10461,
+    33.32166
+   ],
+   "atc": {
+    "vhf": 120.2,
+    "uhf": 252.2,
+    "hf": 4.875,
+    "fm": 40.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 47,
+   "name": "Larnaca",
+   "ll": [
+    34.87317,
+    33.62325
+   ],
+   "atc": {
+    "vhf": 121.2,
+    "uhf": 252.15,
+    "hf": 4.85,
+    "fm": 40.6
+   },
+   "tacan": null,
+   "vor": 112.8,
+   "ndb": [
+    432
+   ],
+   "ils": [
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "name": "Marj as Sultan North",
+   "ll": [
+    33.50028,
+    36.46715
+   ],
+   "atc": {
+    "vhf": 122.7,
+    "uhf": 250.85,
+    "hf": 4.2,
+    "fm": 39.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 8,
+   "name": "Marj as Sultan South",
+   "ll": [
+    33.48722,
+    36.47539
+   ],
+   "atc": {
+    "vhf": 122.9,
+    "uhf": 253.3,
+    "hf": 4.95,
+    "fm": 41.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 23,
+   "name": "Marj Ruhayyil",
+   "ll": [
+    33.28876,
+    36.45544
+   ],
+   "atc": {
+    "vhf": 120.8,
+    "uhf": 250.9,
+    "hf": 4.225,
+    "fm": 39.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06L-24R",
+     "sides": [
+      {
+       "name": "06L",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24R",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 67,
+   "name": "Marka",
+   "ll": [
+    31.97276,
+    35.99175
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 253.1,
+    "hf": 3.95,
+    "fm": 41.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 24,
+   "name": "Megiddo",
+   "ll": [
+    32.59711,
+    35.23008
+   ],
+   "atc": {
+    "vhf": 119.9,
+    "uhf": 250.95,
+    "hf": 4.25,
+    "fm": 39.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 25,
+   "name": "Mezzeh",
+   "ll": [
+    33.4778,
+    36.22422
+   ],
+   "atc": {
+    "vhf": 120.7,
+    "uhf": 251,
+    "hf": 4.275,
+    "fm": 39.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [
+    358
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 26,
+   "name": "Minakh",
+   "ll": [
+    36.52138,
+    37.04134
+   ],
+   "atc": {
+    "vhf": 120.6,
+    "uhf": 251.05,
+    "hf": 4.3,
+    "fm": 39.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 68,
+   "name": "Muwaffaq Salti",
+   "ll": [
+    31.81762,
+    36.77869
+   ],
+   "atc": {
+    "vhf": 120.5,
+    "uhf": 253.15,
+    "hf": 4.45,
+    "fm": 41.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    108.9,
+    109.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "31-13",
+     "sides": [
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": 108.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": 109.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 52,
+   "name": "Naqoura",
+   "ll": [
+    33.10791,
+    35.12729
+   ],
+   "atc": {
+    "vhf": 122,
+    "uhf": 252.45,
+    "hf": 3.8,
+    "fm": 40.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 62,
+   "name": "Nevatim",
+   "ll": [
+    31.20838,
+    35.0121
+   ],
+   "atc": {
+    "vhf": 132.4,
+    "uhf": 225,
+    "hf": 3.8,
+    "fm": 38.9
+   },
+   "tacan": null,
+   "vor": 111.5,
+   "ndb": [],
+   "ils": [
+    108.3,
+    111.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "25-07",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": 111.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "26R-08L",
+     "sides": [
+      {
+       "name": "26R",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08L",
+       "hdgTrue": 80,
+       "ils": 108.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "26L-08R",
+     "sides": [
+      {
+       "name": "26L",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08R",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 223,
+   "name": "Palmachim",
+   "ll": [
+    31.90281,
+    34.69344
+   ],
+   "atc": {
+    "vhf": 118.25,
+    "uhf": 250.8,
+    "hf": 4.175,
+    "fm": 39.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "03L-21R",
+     "sides": [
+      {
+       "name": "03L",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21R",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "03R-21L",
+     "sides": [
+      {
+       "name": "03R",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21L",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "name": "Palmyra",
+   "ll": [
+    34.5573,
+    38.31682
+   ],
+   "atc": {
+    "vhf": 121.9,
+    "uhf": 251.15,
+    "hf": 4.35,
+    "fm": 39.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [
+    363,
+    337
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 46,
+   "name": "Paphos",
+   "ll": [
+    34.71815,
+    32.48479
+   ],
+   "atc": {
+    "vhf": 119.9,
+    "uhf": 252.1,
+    "hf": 4.825,
+    "fm": 40.55
+   },
+   "tacan": "79X",
+   "vor": 117.9,
+   "ndb": [
+    328
+   ],
+   "ils": [
+    108.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": 108.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 51,
+   "name": "Pinarbashi",
+   "ll": [
+    35.27383,
+    33.26824
+   ],
+   "atc": {
+    "vhf": 121,
+    "uhf": 252.4,
+    "hf": 4.75,
+    "fm": 40.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 64,
+   "name": "Prince Hassan",
+   "ll": [
+    32.16073,
+    37.1494
+   ],
+   "atc": {
+    "vhf": 122.6,
+    "uhf": 252.95,
+    "hf": 4.3,
+    "fm": 41.4
+   },
+   "tacan": "106X",
+   "vor": 115.9,
+   "ndb": [],
+   "ils": [
+    111.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 29,
+   "name": "Qabr as Sitt",
+   "ll": [
+    33.45874,
+    36.35772
+   ],
+   "atc": {
+    "vhf": 122.6,
+    "uhf": 251.2,
+    "hf": 4.375,
+    "fm": 39.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "05-23",
+     "sides": [
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "name": "Ramat David",
+   "ll": [
+    32.66641,
+    35.18417
+   ],
+   "atc": {
+    "vhf": 118.6,
+    "uhf": 251.3,
+    "hf": 4.425,
+    "fm": 39.75
+   },
+   "tacan": "84X",
+   "vor": 113.7,
+   "ndb": [
+    368
+   ],
+   "ils": [
+    111.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": 111.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "name": "Rayak",
+   "ll": [
+    33.85112,
+    35.98732
+   ],
+   "atc": {
+    "vhf": 124.4,
+    "uhf": 251.4,
+    "hf": 4.475,
+    "fm": 39.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 33,
+   "name": "Rene Mouawad",
+   "ll": [
+    34.5893,
+    36.01145
+   ],
+   "atc": {
+    "vhf": 121,
+    "uhf": 251.45,
+    "hf": 4.5,
+    "fm": 39.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 34,
+   "name": "Rosh Pina",
+   "ll": [
+    32.98265,
+    35.57074
+   ],
+   "atc": {
+    "vhf": 118.45,
+    "uhf": 251.5,
+    "hf": 4.525,
+    "fm": 39.95
+   },
+   "tacan": null,
+   "vor": 115.3,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 57,
+   "name": "Ruwayshid",
+   "ll": [
+    32.40497,
+    39.13052
+   ],
+   "atc": {
+    "vhf": 122.1,
+    "uhf": 252.65,
+    "hf": 4.4,
+    "fm": 41.1
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 58,
+   "name": "Sanliurfa",
+   "ll": [
+    37.44807,
+    38.89838
+   ],
+   "atc": {
+    "vhf": 118.4,
+    "uhf": 252.7,
+    "hf": 4.15,
+    "fm": 41.15
+   },
+   "tacan": null,
+   "vor": 113.2,
+   "ndb": [
+    391
+   ],
+   "ils": [
+    111.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 224,
+   "name": "Sanliurfa Heliport",
+   "ll": [
+    37.18649,
+    38.7916
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 35,
+   "name": "Sayqal",
+   "ll": [
+    33.67984,
+    37.21711
+   ],
+   "atc": {
+    "vhf": 120.4,
+    "uhf": 251.55,
+    "hf": 4.55,
+    "fm": 40
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 36,
+   "name": "Shayrat",
+   "ll": [
+    34.4902,
+    36.90761
+   ],
+   "atc": {
+    "vhf": 120.2,
+    "uhf": 251.6,
+    "hf": 4.575,
+    "fm": 40.05
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 225,
+   "name": "T2",
+   "ll": [
+    34.38977,
+    40.15352
+   ],
+   "atc": {
+    "vhf": 123.5,
+    "uhf": 255,
+    "hf": 3.85,
+    "fm": 42
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "31-13",
+     "sides": [
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 226,
+   "name": "T3",
+   "ll": [
+    34.52896,
+    38.72944
+   ],
+   "atc": {
+    "vhf": 119.25,
+    "uhf": 251.9,
+    "hf": 4.725,
+    "fm": 40.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 37,
+   "name": "Tabqa",
+   "ll": [
+    35.75472,
+    38.56645
+   ],
+   "atc": {
+    "vhf": 118.5,
+    "uhf": 251.65,
+    "hf": 4.6,
+    "fm": 40.1
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 38,
+   "name": "Taftanaz",
+   "ll": [
+    35.97411,
+    36.78144
+   ],
+   "atc": {
+    "vhf": 122.8,
+    "uhf": 251.7,
+    "hf": 4.625,
+    "fm": 40.15
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 60,
+   "name": "Tal Siman",
+   "ll": [
+    36.26242,
+    38.92831
+   ],
+   "atc": {
+    "vhf": 121.9,
+    "uhf": 252.85,
+    "hf": 4.1,
+    "fm": 41.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 220,
+   "name": "Tel Nof",
+   "ll": [
+    31.83835,
+    34.83263
+   ],
+   "atc": {
+    "vhf": 128.1,
+    "uhf": 250.65,
+    "hf": 4.1,
+    "fm": 39.1
+   },
+   "tacan": "87X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.1
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "18-36",
+     "sides": [
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": 109.1,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 91,
+   "name": "Teyman",
+   "ll": [
+    31.28697,
+    34.7228
+   ],
+   "atc": {
+    "vhf": 123.5,
+    "uhf": 255,
+    "hf": 3.85,
+    "fm": 42
+   },
+   "tacan": null,
+   "vor": 114.3,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "32-14",
+     "sides": [
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Tha'lah",
+   "ll": [
+    32.704,
+    36.41378
+   ],
+   "atc": {
+    "vhf": 118,
+    "uhf": 252.8,
+    "hf": 3.925,
+    "fm": 41.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "05R-23L",
+     "sides": [
+      {
+       "name": "05R",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "23L",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 39,
+   "name": "Tiyas",
+   "ll": [
+    34.52263,
+    37.63012
+   ],
+   "atc": {
+    "vhf": 120.5,
+    "uhf": 251.75,
+    "hf": 4.65,
+    "fm": 40.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 40,
+   "name": "Wujah Al Hajar",
+   "ll": [
+    34.28134,
+    35.68011
+   ],
+   "atc": {
+    "vhf": 120.5,
+    "uhf": 251.85,
+    "hf": 4.7,
+    "fm": 40.3
+   },
+   "tacan": null,
+   "vor": 116.2,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 56,
+   "name": "Zarqa",
+   "ll": [
+    32.02576,
+    36.14373
+   ],
+   "atc": {
+    "vhf": 119.9,
+    "uhf": 252.1,
+    "hf": 4.825,
+    "fm": 40.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

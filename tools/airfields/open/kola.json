@@ -1,0 +1,1567 @@
+{
+ "map": "Kola",
+ "source": [
+  "pydcs",
+  "DCS Liberation"
+ ],
+ "airfields": [
+  {
+   "id": 33,
+   "name": "Afrikanda",
+   "ll": [
+    67.4573,
+    32.78413
+   ],
+   "atc": {
+    "vhf": 121.3,
+    "uhf": 311,
+    "hf": 4.775,
+    "fm": 39.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "28-10",
+     "sides": [
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "name": "Alakurtti",
+   "ll": [
+    66.97273,
+    30.34856
+   ],
+   "atc": {
+    "vhf": 118.35,
+    "uhf": 250.5,
+    "hf": 4.025,
+    "fm": 38.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "name": "Alta",
+   "ll": [
+    69.97726,
+    23.3659
+   ],
+   "atc": {
+    "vhf": 120.4,
+    "uhf": 250.75,
+    "hf": 4.15,
+    "fm": 39.2
+   },
+   "tacan": null,
+   "vor": 117.4,
+   "ndb": [],
+   "ils": [
+    108.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": 108.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "name": "Andoya",
+   "ll": [
+    69.29758,
+    16.13541
+   ],
+   "atc": {
+    "vhf": 118.2,
+    "uhf": 250.6,
+    "hf": 4.075,
+    "fm": 39.05
+   },
+   "tacan": "28X",
+   "vor": 112.2,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 36,
+   "name": "Arvidsjaur",
+   "ll": [
+    65.5915,
+    19.2778
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    111.5,
+    109.35
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": 109.35,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": 111.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1,
+   "name": "Banak",
+   "ll": [
+    70.06878,
+    24.97351
+   ],
+   "atc": {
+    "vhf": 118.05,
+    "uhf": 250.55,
+    "hf": 4.05,
+    "fm": 39
+   },
+   "tacan": "47X",
+   "vor": 114.4,
+   "ndb": [],
+   "ils": [
+    108.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "34-16",
+     "sides": [
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "name": "Bardufoss",
+   "ll": [
+    69.05535,
+    18.5435
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 250.65,
+    "hf": 4.1,
+    "fm": 39.1
+   },
+   "tacan": null,
+   "vor": 114.2,
+   "ndb": [],
+   "ils": [
+    108.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "28-10",
+     "sides": [
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": 108.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 34,
+   "name": "Boden Heli Base",
+   "ll": [
+    65.80933,
+    21.69452
+   ],
+   "atc": {
+    "vhf": 118.75,
+    "uhf": 252.25,
+    "hf": 4.475,
+    "fm": 40.15
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Bodo",
+   "ll": [
+    67.2692,
+    14.36536
+   ],
+   "atc": {
+    "vhf": 118.45,
+    "uhf": 251.15,
+    "hf": 4.375,
+    "fm": 39.65
+   },
+   "tacan": "45X",
+   "vor": 117.55,
+   "ndb": [],
+   "ils": [
+    110.3,
+    108.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "07-25",
+     "sides": [
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": 108.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "name": "Enontekio",
+   "ll": [
+    68.3625,
+    23.4241
+   ],
+   "atc": {
+    "vhf": 119.7,
+    "uhf": 250.85,
+    "hf": 4.2,
+    "fm": 39.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    111.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": 111.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "name": "Evenes",
+   "ll": [
+    68.49119,
+    16.67814
+   ],
+   "atc": {
+    "vhf": 118,
+    "uhf": 250.8,
+    "hf": 4.175,
+    "fm": 39.25
+   },
+   "tacan": "67X",
+   "vor": 117.35,
+   "ndb": [],
+   "ils": [
+    108.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "17-35",
+     "sides": [
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": 108.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 35,
+   "name": "Hemavan",
+   "ll": [
+    65.80546,
+    15.08359
+   ],
+   "atc": {
+    "vhf": 122.9,
+    "uhf": 251.5,
+    "hf": 4.625,
+    "fm": 39.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "name": "Hosio",
+   "ll": [
+    65.89611,
+    25.70385
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 18,
+   "name": "Ivalo",
+   "ll": [
+    68.60712,
+    27.40484
+   ],
+   "atc": {
+    "vhf": 118,
+    "uhf": 250.45,
+    "hf": 4,
+    "fm": 38.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    212
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Jokkmokk",
+   "ll": [
+    66.49635,
+    20.14701
+   ],
+   "atc": {
+    "vhf": 123.3,
+    "uhf": 250.15,
+    "hf": 3.825,
+    "fm": 38.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "name": "Kalevala",
+   "ll": [
+    65.20951,
+    31.13363
+   ],
+   "atc": {
+    "vhf": 119.3,
+    "uhf": 301,
+    "hf": 3.775,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "20-02",
+     "sides": [
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "02",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Kalixfors",
+   "ll": [
+    67.76496,
+    20.25101
+   ],
+   "atc": {
+    "vhf": 118.3,
+    "uhf": 301.1,
+    "hf": 3.875,
+    "fm": 38.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "17-35",
+     "sides": [
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "name": "Kallax",
+   "ll": [
+    65.54379,
+    22.12187
+   ],
+   "atc": {
+    "vhf": 128.2,
+    "uhf": 250.3,
+    "hf": 3.925,
+    "fm": 38.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.9,
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 3,
+   "name": "Kemi Tornio",
+   "ll": [
+    65.78148,
+    24.58228
+   ],
+   "atc": {
+    "vhf": 119.4,
+    "uhf": 251,
+    "hf": 4.275,
+    "fm": 39.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "18-36",
+     "sides": [
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": 110.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "name": "Kilpyavr",
+   "ll": [
+    69.09491,
+    32.40068
+   ],
+   "atc": {
+    "vhf": 119.1,
+    "uhf": 250.95,
+    "hf": 4.25,
+    "fm": 39.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Kirkenes",
+   "ll": [
+    69.72536,
+    29.89009
+   ],
+   "atc": {
+    "vhf": 120.35,
+    "uhf": 250.25,
+    "hf": 3.9,
+    "fm": 38.7
+   },
+   "tacan": null,
+   "vor": 112,
+   "ndb": [],
+   "ils": [
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Kiruna",
+   "ll": [
+    67.822,
+    20.33681
+   ],
+   "atc": {
+    "vhf": 130.15,
+    "uhf": 251.05,
+    "hf": 4.325,
+    "fm": 39.55
+   },
+   "tacan": null,
+   "vor": 115.2,
+   "ndb": [
+    360
+   ],
+   "ils": [
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "name": "Kittila",
+   "ll": [
+    67.70099,
+    24.84687
+   ],
+   "atc": {
+    "vhf": 118.95,
+    "uhf": 250.7,
+    "hf": 4.125,
+    "fm": 39.15
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    111.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "16-34",
+     "sides": [
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": 111.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "name": "Koshka Yavr",
+   "ll": [
+    69.25122,
+    31.19642
+   ],
+   "atc": {
+    "vhf": 123.8,
+    "uhf": 225.5,
+    "hf": 4.85,
+    "fm": 38.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "19-01",
+     "sides": [
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "name": "Kuusamo",
+   "ll": [
+    65.98737,
+    29.23996
+   ],
+   "atc": {
+    "vhf": 118.65,
+    "uhf": 250.35,
+    "hf": 3.95,
+    "fm": 38.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 29,
+   "name": "Luostari Pechenga",
+   "ll": [
+    69.40239,
+    30.99095
+   ],
+   "atc": {
+    "vhf": 119.35,
+    "uhf": 281.3,
+    "hf": 4.45,
+    "fm": 41.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "20-02",
+     "sides": [
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "02",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Monchegorsk",
+   "ll": [
+    67.98904,
+    33.0188
+   ],
+   "atc": {
+    "vhf": 118.25,
+    "uhf": 250.1,
+    "hf": 3.8,
+    "fm": 38.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "01-19",
+     "sides": [
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Murmansk International",
+   "ll": [
+    68.78165,
+    32.75147
+   ],
+   "atc": {
+    "vhf": 127.3,
+    "uhf": 250.2,
+    "hf": 3.85,
+    "fm": 38.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    108.5,
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": 110.3,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": 108.5,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "name": "Olenya",
+   "ll": [
+    68.15177,
+    33.46447
+   ],
+   "atc": {
+    "vhf": 131.4,
+    "uhf": 251.25,
+    "hf": 4.425,
+    "fm": 39.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "19-01",
+     "sides": [
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "name": "Poduzhemye",
+   "ll": [
+    64.91865,
+    34.26324
+   ],
+   "atc": {
+    "vhf": 120.1,
+    "uhf": 250.55,
+    "hf": 3.925,
+    "fm": 38.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "Rovaniemi",
+   "ll": [
+    66.56485,
+    25.83049
+   ],
+   "atc": {
+    "vhf": 118.7,
+    "uhf": 250.95,
+    "hf": 4.25,
+    "fm": 39.4
+   },
+   "tacan": null,
+   "vor": 117.7,
+   "ndb": [],
+   "ils": [
+    111.7
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": 111.7,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Severomorsk-1",
+   "ll": [
+    69.0305,
+    33.42317
+   ],
+   "atc": {
+    "vhf": 127.8,
+    "uhf": 251.2,
+    "hf": 4.4,
+    "fm": 39.7
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Severomorsk-3",
+   "ll": [
+    68.86706,
+    33.71832
+   ],
+   "atc": {
+    "vhf": 124.3,
+    "uhf": 251.1,
+    "hf": 4.35,
+    "fm": 39.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "35-17",
+     "sides": [
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "name": "Sodankyla",
+   "ll": [
+    67.39503,
+    26.61914
+   ],
+   "atc": {
+    "vhf": 123.4,
+    "uhf": 250.9,
+    "hf": 4.225,
+    "fm": 39.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "16-34",
+     "sides": [
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 37,
+   "name": "Tromso",
+   "ll": [
+    69.68151,
+    18.91773
+   ],
+   "atc": {
+    "vhf": 123.75,
+    "uhf": 312,
+    "hf": 4.875,
+    "fm": 40
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.9,
+    109.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "36-18",
+     "sides": [
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": 110.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": 109.9,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Vidsel",
+   "ll": [
+    65.87527,
+    20.14987
+   ],
+   "atc": {
+    "vhf": 119.2,
+    "uhf": 250.4,
+    "hf": 3.975,
+    "fm": 38.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.5
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Vuojarvi",
+   "ll": [
+    67.06913,
+    26.5398
+   ],
+   "atc": {
+    "vhf": 118.4,
+    "uhf": 257.1,
+    "hf": 4.3,
+    "fm": 39.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  }
+ ]
+}

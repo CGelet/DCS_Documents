@@ -2,6 +2,7 @@
   "aircraft": "F/A-18C Hornet",
   "short": "F/A-18C",
   "dcsModule": "FA-18C_hornet",
+  "kneeboardMaps": ["Caucasus", "Persian Gulf", "Syria", "Nevada"],
   "cautions": {
     "quietUntil": [["HYD_IND_LEFT", ">35000"], ["HYD_IND_RIGHT", ">35000"]],
     "lights": [

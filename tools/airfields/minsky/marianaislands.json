@@ -1,0 +1,17 @@
+{
+ "map": "Marianas",
+ "page": 23,
+ "magvar": "1940s–1980s: +1.5° · 2000s: +1° · 2020s: 0°",
+ "valid": "2016–2030",
+ "adjust": "Adjust the magnetic headings in other years: 1940–1959 −2° · 1960–2015 −1° · 2016–2030 0°",
+ "airfields": [
+  {"ab": 6, "name": "Andersen AFB", "icao": "PGUA", "ll": "N13°34'54/.902 E144°55'51/.863", "elev": [606, 185], "tacan": "54X", "atc": [126.2, 3.85, 250.1, 38.6], "rwy": [{"len": [10300], "sides": [{"rwy": "06L", "hdg": 66, "ils": 109.3}, {"rwy": "24R", "hdg": 246, "ils": 109.35}]}, {"len": [10900], "sides": [{"rwy": "06R", "hdg": 66, "active": true, "ils": 110.1}, {"rwy": "24L", "hdg": 246, "active": true, "ils": 110.15}]}]},
+  {"ab": 4, "name": "Antonio BWP", "icao": "PGUM", "ll": "N13°29'05/.086 E144°47'48/.809", "elev": [255, 86], "tacan": "105X", "vor": 115.8, "ndb": 385, "atc": [118.1, 3.825, 340.2, 38.55], "sub": "Antonio B. Won Pat", "aka": "Antonio B. Won Pat Intl", "rwy": [{"len": [10600], "sides": [{"rwy": "06L", "hdg": 65, "active": true, "ils": 110.3}, {"rwy": "24R", "hdg": 245, "active": true}]}, {"len": [8600], "sides": [{"rwy": "06R", "hdg": 65, "ils": 110.9}, {"rwy": "24L", "hdg": 245}]}]},
+  {"ab": 8, "name": "North West Field", "ll": "N13°37'30/.508 E144°51'29/.487", "elev": [522, 160], "atcNote": "NO ATC", "rwy": [{"len": [4500], "short": true, "note": "7600 INCLUDING THE PARKING AREA", "sides": [{"rwy": "06", "hdg": 63}, {"rwy": "24", "hdg": 243}]}]},
+  {"ab": 5, "name": "Olf Orote", "ll": "N13°26'17/.291 E144°38'31/.532", "elev": [94, 29], "atcNote": "NO ATC", "rwy": [{"len": [3500], "short": true, "sides": [{"rwy": "07", "hdg": 67}, {"rwy": "25", "hdg": 247}]}]},
+  {"ab": 7, "name": "Pagan Airstrip", "ll": "N18°07'23/.396 E145°45'46/.770", "elev": [49, 15], "atcNote": "NO ATC", "remark": "Hills: east.", "rwy": [{"len": [1800], "surface": "grass", "sides": [{"rwy": "11", "hdg": 112}, {"rwy": "29", "hdg": 292}]}]},
+  {"ab": 1, "name": "Rota", "icao": "PGRO", "ll": "N14°10'27/.462 E145°14'27/.465", "elev": [569, 173], "ndb": 332, "atc": [123.6, 3.75, 250.0, 38.4], "rwy": [{"len": [6600], "sides": [{"rwy": "09", "hdg": 92}, {"rwy": "27", "hdg": 272}]}]},
+  {"ab": 2, "name": "Saipan", "icao": "PGSN", "ll": "N15°07'08/.135 E145°43'44/.747", "elev": [213, 65], "ndb": 312, "atc": [125.7, 3.775, 256.9, 38.45], "rwy": [{"len": [6200], "sides": [{"rwy": "06", "hdg": 68}, {"rwy": "24", "hdg": 248}]}, {"len": [10600], "sides": [{"rwy": "07", "hdg": 68, "active": true, "ils": 109.9}, {"rwy": "25", "hdg": 248, "active": true}]}]},
+  {"ab": 3, "name": "Tinian", "icao": "PGWT", "ll": "N14°59'57/.951 E145°37'09/.150", "elev": [284, 87], "atc": [123.65, 3.8, 250.05, 38.5], "rwy": [{"len": [8200], "sides": [{"rwy": "08", "hdg": 79}, {"rwy": "26", "hdg": 259}]}]}
+ ]
+}

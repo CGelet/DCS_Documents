@@ -34,6 +34,39 @@
     return r;
   }
 
+  // One airfield as two (or more) lines: name / coordinates, elevation, navaids, radios, then a line per runway end
+  const f2 = n => n.toFixed(2);
+  function airfield(a) {
+    const box = el("div", "afk" + (a.closed ? " closed" : ""));
+    const navs = [a.tacan && ["tacan", a.tacan], a.vor && ["vor", f2(a.vor)], ...[].concat(a.ndb ?? []).map(n => ["ndb", n]), a.rsbn && ["rsbn", a.rsbn],
+      a.ndbOff && ["ndb off", "NDB"], a.navNote && ["note", a.navNote]].filter(Boolean);
+    const [, h1, d1, m1, dec1, h2, d2, m2, dec2] = a.ll.match(/([NS])(\d+)°(\d+)'\d+\/(\.\d+) ([EW])(\d+)°(\d+)'\d+\/(\.\d+)/);
+    const sides = a.rwy.flatMap(r => r.text ? [el("span", "side norwy", r.text.join(" · "))] : r.sides.map((s, i) => {
+      const line = el("span", "side");
+      const bits = [];
+      if (s.ils) bits.push(["ils", f2(s.ils)], ...(s.ilsNote ? [["note ils", s.ilsNote.replace("LOC CRS ", "CRS ")]] : []));
+      else if (s.ilsOff) bits.push(["ils off", "ILS"]);
+      else if (s.prmg) bits.push(["prmg", s.prmg]);
+      if (s.outer || s.inner) bits.push(s.outer ? ["ndb", s.outer] : ["muted", "–"], ...(s.inner ? [["ndb", s.inner]] : []));
+      if (s.note) bits.push(["note", s.note]);
+      if (r.note && i === r.sides.length - 1) bits.push(["note", r.note]);
+      bits.forEach(([c, t], k) => line.append(el("span", c, t), el("span", "sep", bits[k + 1]?.[0] === "note ils" ? " " : " › ")));
+      line.append(String(s.hdg).padStart(3, "0") + "° ", el("b", "rwy" + ((r.short ?? r.len[0] < 6000) ? " short" : "") + (r.badName ? " bad" : ""), (s.active ? "•" : "") + s.rwy));
+      return line;
+    }));
+    const cell = (cls, ...kids) => { const c = el("span", cls); c.append(...kids.filter(k => k != null && k !== "")); return c; };
+    const name = cell("name", el("b", "", a.name), a.icao ? el("span", "icao", " " + a.icao) : null, a.type ? el("span", "icao", " (heliport)") : null);
+    const atcText = a.closed || a.atcNote;
+    box.append(
+      cell("col", name, el("span", "ll", `${h1}${d1}°${m1}${dec1} ${h2}${d2}°${m2}${dec2}`)),
+      cell("col r", String(a.elev[0]), el("span", "muted", String(a.elev[1]))),
+      cell("col c", ...navs.map(([c, t]) => el("span", c, String(t)))),
+      atcText ? cell("col closedtxt", atcText) : cell("col", el("span", "", f2(a.atc[0])), el("span", "uhf", f2(a.atc[2]))),
+      cell("col r sides", ...sides));
+    if (a.remark) box.append(el("span", "remark", a.remark));
+    return box;
+  }
+
   function build(G) {
     const sections = [];
     // ?minimal=1 drops each checklist's realism-only "extras"
@@ -66,6 +99,21 @@
       }) })),
     });
 
+    // Airfields: one compact two-line block per airfield
+    // Default: the aircraft JSON's "kneeboardMaps" (all maps without it); ?maps=all for every map
+    const pick = q.get("maps") || (G.kneeboardMaps || []).join(",");
+    const want = pick && pick !== "all" ? pick.split(",").map(s => s.trim().toLowerCase()) : null;
+    for (const t of (G.airfields || []).filter(t => !want || want.includes(t.map.toLowerCase()))) {
+      const header = () => {
+        const h = el("div", "afk hdr");
+        h.append(el("span", "", "Airfield"), el("span", "r", "ft/m"), el("span", "c", "Nav"), el("span", "", "VHF/UHF"), el("span", "r", "ILS/PRMG › NDBs › hdg rwy"));
+        return h;
+      };
+      sections.push({ slug: "airfields-" + t.map.toLowerCase().replace(/[^a-z0-9]+/g, "-"), title: "Airfields · " + t.map, foot: "After Minsky's Aerodrome Data and Frequencies",
+        groups: [{ title: [t.magvar && "Magvar " + t.magvar.split(" · ").pop(), t.valid && "hdgs valid " + t.valid].filter(Boolean).join(" · ") || t.map,
+          header, rows: t.airfields.map(airfield) }] });
+    }
+
     for (const sec of sections) {
       const sheets = [];
       let body;
@@ -75,7 +123,7 @@
         const head = el("div", "head");
         head.append(el("span", "ac", G.short), el("span", "title", sec.title), el("span", "num"));
         body = el("div", "body");
-        sh.append(head, body, el("div", "foot", "Chuck's Guide · page numbers refer to the guide"));
+        sh.append(head, body, el("div", "foot", sec.foot || "Chuck's Guide · page numbers refer to the guide"));
         sheetsEl.append(sh);
         sheets.push(sh);
       };
@@ -85,22 +133,25 @@
         let bar = el("div", "bar", g.title), grp = el("div", "grp");
         // Split a group where it lands, unless fewer than 3 of its rows fit here: then start a new sheet
         body.append(bar, grp);
+        if (g.header) grp.append(g.header());
         grp.append(...g.rows.slice(0, 3));
         if (over() && body.children.length > 2) {
           bar.remove(); grp.remove();
           newSheet();
           body.append(bar, grp);
         }
-        grp.replaceChildren();
+        grp.replaceChildren(...(g.header ? [g.header()] : []));
         for (const r of g.rows) {
           grp.append(r);
           if (!over()) continue;
           r.remove();
-          if (!grp.children.length) { bar.remove(); grp.remove(); }
+          const started = grp.children.length > (g.header ? 1 : 0);
+          if (!started) { bar.remove(); grp.remove(); }
           newSheet();
-          bar = el("div", "bar", grp.children.length ? g.title + " (cont.)" : g.title);
+          bar = el("div", "bar", started ? g.title + " (cont.)" : g.title);
           grp = el("div", "grp");
           body.append(bar, grp);
+          if (g.header) grp.append(g.header());
           grp.append(r);
         }
       }

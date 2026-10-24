@@ -1,0 +1,4697 @@
+{
+ "map": "Normandy 2.0",
+ "source": [
+  "pydcs",
+  "DCS Liberation"
+ ],
+ "airfields": [
+  {
+   "id": 75,
+   "name": "Abbeville Drucat",
+   "ll": [
+    50.13813,
+    1.83789
+   ],
+   "atc": {
+    "vhf": 118.05,
+    "uhf": 253.5,
+    "hf": 4.55,
+    "fm": 41.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "20-02",
+     "sides": [
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "02",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "31-13",
+     "sides": [
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 85,
+   "name": "Alderney",
+   "ll": [
+    49.70676,
+    -2.21459
+   ],
+   "atc": {
+    "vhf": 122.05,
+    "uhf": 254.2,
+    "hf": 3.775,
+    "fm": 42.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "03-21",
+     "sides": [
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 59,
+   "name": "Amiens-Glisy",
+   "ll": [
+    49.87201,
+    2.39036
+   ],
+   "atc": {
+    "vhf": 120.8,
+    "uhf": 252.6,
+    "hf": 4.475,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "name": "Argentan",
+   "ll": [
+    48.76876,
+    -0.03044
+   ],
+   "atc": {
+    "vhf": 119.4,
+    "uhf": 251.2,
+    "hf": 4.35,
+    "fm": 39.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 65,
+   "name": "Avranches Le Val-Saint-Pere",
+   "ll": [
+    48.66815,
+    -1.38064
+   ],
+   "atc": {
+    "vhf": 121.15,
+    "uhf": 252.95,
+    "hf": 4.2,
+    "fm": 41.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "name": "Azeville",
+   "ll": [
+    49.48099,
+    -1.31762
+   ],
+   "atc": {
+    "vhf": 118.35,
+    "uhf": 250.25,
+    "hf": 3.875,
+    "fm": 38.7
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "07-25",
+     "sides": [
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 34,
+   "name": "Barville",
+   "ll": [
+    48.48014,
+    0.31398
+   ],
+   "atc": {
+    "vhf": 119.5,
+    "uhf": 251.3,
+    "hf": 4.4,
+    "fm": 39.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "name": "Bazenville",
+   "ll": [
+    49.30396,
+    -0.56473
+   ],
+   "atc": {
+    "vhf": 118.7,
+    "uhf": 250.55,
+    "hf": 4.025,
+    "fm": 39
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "05-23",
+     "sides": [
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 67,
+   "name": "Beaumont-le-Roger",
+   "ll": [
+    49.09638,
+    0.79693
+   ],
+   "atc": {
+    "vhf": 121.25,
+    "uhf": 253.05,
+    "hf": 4.25,
+    "fm": 41.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "32-14",
+     "sides": [
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 44,
+   "name": "Beauvais-Tille",
+   "ll": [
+    49.45416,
+    2.11324
+   ],
+   "atc": {
+    "vhf": 120.05,
+    "uhf": 251.85,
+    "hf": 4.675,
+    "fm": 40.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 90,
+   "name": "Bembridg",
+   "ll": [
+    50.67847,
+    -1.1108
+   ],
+   "atc": {
+    "vhf": 123,
+    "uhf": 360,
+    "hf": 4.35,
+    "fm": 42.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "name": "Beny-sur-Mer",
+   "ll": [
+    49.29802,
+    -0.42662
+   ],
+   "atc": {
+    "vhf": 118.8,
+    "uhf": 250.65,
+    "hf": 4.075,
+    "fm": 39.1
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "35-17",
+     "sides": [
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 69,
+   "name": "Bernay Saint Martin",
+   "ll": [
+    49.10443,
+    0.59844
+   ],
+   "atc": {
+    "vhf": 121.35,
+    "uhf": 253.15,
+    "hf": 4.325,
+    "fm": 41.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "18-36",
+     "sides": [
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Beuzeville",
+   "ll": [
+    49.42055,
+    -1.29855
+   ],
+   "atc": {
+    "vhf": 118.3,
+    "uhf": 250.2,
+    "hf": 3.85,
+    "fm": 38.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "05-23",
+     "sides": [
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 71,
+   "name": "Biggin Hill",
+   "ll": [
+    51.33001,
+    0.03165
+   ],
+   "atc": {
+    "vhf": 134.8,
+    "uhf": 253.3,
+    "hf": 4.4,
+    "fm": 41.7
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "28-10",
+     "sides": [
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "20-02",
+     "sides": [
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "02",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Biniville",
+   "ll": [
+    49.43672,
+    -1.46897
+   ],
+   "atc": {
+    "vhf": 118,
+    "uhf": 250,
+    "hf": 3.75,
+    "fm": 38.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "32-14",
+     "sides": [
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 68,
+   "name": "Broglie",
+   "ll": [
+    49.01563,
+    0.49886
+   ],
+   "atc": {
+    "vhf": 121.3,
+    "uhf": 253.1,
+    "hf": 4.3,
+    "fm": 41.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Brucheville",
+   "ll": [
+    49.36867,
+    -1.21577
+   ],
+   "atc": {
+    "vhf": 120.85,
+    "uhf": 252.65,
+    "hf": 4.725,
+    "fm": 41.05
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "24-06",
+     "sides": [
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Cardonville",
+   "ll": [
+    49.35101,
+    -1.051
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 250.05,
+    "hf": 3.775,
+    "fm": 38.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "15-33",
+     "sides": [
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "name": "Carpiquet",
+   "ll": [
+    49.17513,
+    -0.45446
+   ],
+   "atc": {
+    "vhf": 118.6,
+    "uhf": 250.45,
+    "hf": 3.975,
+    "fm": 38.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "name": "Chailey",
+   "ll": [
+    50.95252,
+    -0.0474
+   ],
+   "atc": {
+    "vhf": 119.05,
+    "uhf": 250.9,
+    "hf": 4.2,
+    "fm": 39.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "25-07",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "15-33",
+     "sides": [
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Chippelle",
+   "ll": [
+    49.24192,
+    -0.97165
+   ],
+   "atc": {
+    "vhf": 118.2,
+    "uhf": 250.15,
+    "hf": 3.825,
+    "fm": 38.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "24-06",
+     "sides": [
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 40,
+   "name": "Conches",
+   "ll": [
+    48.93481,
+    0.96131
+   ],
+   "atc": {
+    "vhf": 119.85,
+    "uhf": 251.65,
+    "hf": 4.575,
+    "fm": 40.1
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 45,
+   "name": "Cormeilles-en-Vexin",
+   "ll": [
+    49.09328,
+    2.03544
+   ],
+   "atc": {
+    "vhf": 120.1,
+    "uhf": 251.9,
+    "hf": 4.7,
+    "fm": 40.35
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 46,
+   "name": "Creil",
+   "ll": [
+    49.25276,
+    2.50593
+   ],
+   "atc": {
+    "vhf": 120.15,
+    "uhf": 251.95,
+    "hf": 4.725,
+    "fm": 40.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "24-06",
+     "sides": [
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "31-13",
+     "sides": [
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Cretteville",
+   "ll": [
+    49.33659,
+    -1.37936
+   ],
+   "atc": {
+    "vhf": 119.8,
+    "uhf": 251.6,
+    "hf": 4.55,
+    "fm": 40.05
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "31-13",
+     "sides": [
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Cricqueville-en-Bessin",
+   "ll": [
+    49.36457,
+    -1.00688
+   ],
+   "atc": {
+    "vhf": 121.7,
+    "uhf": 253.75,
+    "hf": 4.675,
+    "fm": 42.15
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "35-17",
+     "sides": [
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 54,
+   "name": "Deanland",
+   "ll": [
+    50.88435,
+    0.16135
+   ],
+   "atc": {
+    "vhf": 120.55,
+    "uhf": 252.35,
+    "hf": 4.925,
+    "fm": 40.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 62,
+   "name": "Deauville",
+   "ll": [
+    49.36427,
+    0.15725
+   ],
+   "atc": {
+    "vhf": 121,
+    "uhf": 252.8,
+    "hf": 4.65,
+    "fm": 41.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 73,
+   "name": "Detling",
+   "ll": [
+    51.30579,
+    0.60158
+   ],
+   "atc": {
+    "vhf": 118.45,
+    "uhf": 253.4,
+    "hf": 4.425,
+    "fm": 41.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Deux Jumeaux",
+   "ll": [
+    49.34733,
+    -0.98081
+   ],
+   "atc": {
+    "vhf": 118.15,
+    "uhf": 250.1,
+    "hf": 3.8,
+    "fm": 38.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 49,
+   "name": "Dinan-Trelivan",
+   "ll": [
+    48.44338,
+    -2.10312
+   ],
+   "atc": {
+    "vhf": 120.3,
+    "uhf": 252.1,
+    "hf": 4.8,
+    "fm": 40.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "07-25",
+     "sides": [
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 79,
+   "name": "Dunkirk-Mardyck",
+   "ll": [
+    51.03038,
+    2.25698
+   ],
+   "atc": {
+    "vhf": 132.45,
+    "uhf": 253.7,
+    "hf": 3.85,
+    "fm": 42.1
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 81,
+   "name": "Eastchurch",
+   "ll": [
+    51.39036,
+    0.84794
+   ],
+   "atc": {
+    "vhf": 119.25,
+    "uhf": 253.85,
+    "hf": 4.575,
+    "fm": 42.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "20-02",
+     "sides": [
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "02",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "10-28",
+     "sides": [
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 35,
+   "name": "Essay",
+   "ll": [
+    48.52054,
+    0.25769
+   ],
+   "atc": {
+    "vhf": 119.55,
+    "uhf": 251.35,
+    "hf": 4.425,
+    "fm": 39.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "name": "Evreux",
+   "ll": [
+    49.0238,
+    1.21326
+   ],
+   "atc": {
+    "vhf": 119,
+    "uhf": 250.85,
+    "hf": 4.175,
+    "fm": 39.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "16-34",
+     "sides": [
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 52,
+   "name": "Farnborough",
+   "ll": [
+    51.27872,
+    -0.77468
+   ],
+   "atc": {
+    "vhf": 120.45,
+    "uhf": 252.25,
+    "hf": 4.875,
+    "fm": 40.7
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "24-06",
+     "sides": [
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "17-35",
+     "sides": [
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 51,
+   "name": "Fecamp-Benouville",
+   "ll": [
+    49.7463,
+    0.3561
+   ],
+   "atc": {
+    "vhf": 120.4,
+    "uhf": 252.2,
+    "hf": 4.85,
+    "fm": 40.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "18-36",
+     "sides": [
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 64,
+   "name": "Flers",
+   "ll": [
+    48.74922,
+    -0.59562
+   ],
+   "atc": {
+    "vhf": 121.1,
+    "uhf": 252.9,
+    "hf": 4.6,
+    "fm": 41.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "name": "Ford",
+   "ll": [
+    50.8185,
+    -0.59117
+   ],
+   "atc": {
+    "vhf": 119.35,
+    "uhf": 251.15,
+    "hf": 4.325,
+    "fm": 39.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 53,
+   "name": "Friston",
+   "ll": [
+    50.76175,
+    0.17149
+   ],
+   "atc": {
+    "vhf": 120.5,
+    "uhf": 252.3,
+    "hf": 4.9,
+    "fm": 40.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 29,
+   "name": "Funtington",
+   "ll": [
+    50.8682,
+    -0.86908
+   ],
+   "atc": {
+    "vhf": 119.15,
+    "uhf": 251,
+    "hf": 4.25,
+    "fm": 39.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "33-15",
+     "sides": [
+      {
+       "name": "33",
+       "hdgTrue": 330,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 33,
+   "name": "Goulet",
+   "ll": [
+    48.74969,
+    -0.11146
+   ],
+   "atc": {
+    "vhf": 119.45,
+    "uhf": 251.25,
+    "hf": 4.375,
+    "fm": 39.7
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "03-21",
+     "sides": [
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 66,
+   "name": "Gravesend",
+   "ll": [
+    51.41806,
+    0.39675
+   ],
+   "atc": {
+    "vhf": 121.2,
+    "uhf": 253,
+    "hf": 4.775,
+    "fm": 41.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "24-06",
+     "sides": [
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "18-36",
+     "sides": [
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 83,
+   "name": "Guernsey",
+   "ll": [
+    49.43579,
+    -2.59596
+   ],
+   "atc": {
+    "vhf": 118.25,
+    "uhf": 254.1,
+    "hf": 5,
+    "fm": 42.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "29-11",
+     "sides": [
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 47,
+   "name": "Guyancourt",
+   "ll": [
+    48.75875,
+    2.07992
+   ],
+   "atc": {
+    "vhf": 120.2,
+    "uhf": 252,
+    "hf": 4.75,
+    "fm": 40.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "07-25",
+     "sides": [
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 36,
+   "name": "Hauterive",
+   "ll": [
+    48.49994,
+    0.20009
+   ],
+   "atc": {
+    "vhf": 119.6,
+    "uhf": 251.4,
+    "hf": 4.45,
+    "fm": 39.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 82,
+   "name": "Hawkinge",
+   "ll": [
+    51.11174,
+    1.15806
+   ],
+   "atc": {
+    "vhf": 121.8,
+    "uhf": 253.9,
+    "hf": 3.825,
+    "fm": 42.3
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "19-01",
+     "sides": [
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 86,
+   "name": "Headcorn",
+   "ll": [
+    51.18286,
+    0.6887
+   ],
+   "atc": {
+    "vhf": 122.1,
+    "uhf": 254.25,
+    "hf": 4.15,
+    "fm": 42.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "36-18",
+     "sides": [
+      {
+       "name": "36",
+       "hdgTrue": 360,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "18",
+       "hdgTrue": 180,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 78,
+   "name": "High Halden",
+   "ll": [
+    51.12464,
+    0.70564
+   ],
+   "atc": {
+    "vhf": 121.65,
+    "uhf": 253.65,
+    "hf": 4.375,
+    "fm": 42.05
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 89,
+   "name": "Holmsley South",
+   "ll": [
+    50.79007,
+    -1.70098
+   ],
+   "atc": {
+    "vhf": 122.6,
+    "uhf": 254.4,
+    "hf": 4.85,
+    "fm": 41.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "35-17",
+     "sides": [
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "25-05",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "29-11",
+     "sides": [
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 84,
+   "name": "Jersey",
+   "ll": [
+    49.20768,
+    -2.19969
+   ],
+   "atc": {
+    "vhf": 122,
+    "uhf": 254.15,
+    "hf": 3.8,
+    "fm": 42.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 43,
+   "name": "Kenley",
+   "ll": [
+    51.30418,
+    -0.09694
+   ],
+   "atc": {
+    "vhf": 120,
+    "uhf": 251.8,
+    "hf": 4.65,
+    "fm": 40.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "02-20",
+     "sides": [
+      {
+       "name": "02",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "name": "Lantheuil",
+   "ll": [
+    49.27146,
+    -0.5384
+   ],
+   "atc": {
+    "vhf": 118.95,
+    "uhf": 250.8,
+    "hf": 4.15,
+    "fm": 39.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 80,
+   "name": "Lashenden",
+   "ll": [
+    51.15629,
+    0.64435
+   ],
+   "atc": {
+    "vhf": 121.75,
+    "uhf": 253.8,
+    "hf": 4.35,
+    "fm": 42.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Le Molay",
+   "ll": [
+    49.26154,
+    -0.88166
+   ],
+   "atc": {
+    "vhf": 118.5,
+    "uhf": 250.35,
+    "hf": 3.925,
+    "fm": 38.8
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Lessay",
+   "ll": [
+    49.20217,
+    -1.50834
+   ],
+   "atc": {
+    "vhf": 121.85,
+    "uhf": 253.95,
+    "hf": 4.7,
+    "fm": 42.1
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "24-06",
+     "sides": [
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "12-30",
+     "sides": [
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "Lignerolles",
+   "ll": [
+    49.1751,
+    -0.78893
+   ],
+   "atc": {
+    "vhf": 119.2,
+    "uhf": 251.05,
+    "hf": 4.275,
+    "fm": 39.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "name": "Longues-sur-Mer",
+   "ll": [
+    49.34266,
+    -0.70616
+   ],
+   "atc": {
+    "vhf": 118.55,
+    "uhf": 250.4,
+    "hf": 3.95,
+    "fm": 38.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 48,
+   "name": "Lonrai",
+   "ll": [
+    48.46767,
+    0.03738
+   ],
+   "atc": {
+    "vhf": 120.25,
+    "uhf": 252.05,
+    "hf": 4.775,
+    "fm": 40.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 37,
+   "name": "Lymington",
+   "ll": [
+    50.76248,
+    -1.51431
+   ],
+   "atc": {
+    "vhf": 119.65,
+    "uhf": 251.45,
+    "hf": 4.475,
+    "fm": 39.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 74,
+   "name": "Lympne",
+   "ll": [
+    51.08292,
+    1.01937
+   ],
+   "atc": {
+    "vhf": 121.5,
+    "uhf": 253.45,
+    "hf": 4.5,
+    "fm": 41.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "02-20",
+     "sides": [
+      {
+       "name": "02",
+       "hdgTrue": 20,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 72,
+   "name": "Manston",
+   "ll": [
+    51.34241,
+    1.34618
+   ],
+   "atc": {
+    "vhf": 118.25,
+    "uhf": 253.35,
+    "hf": 4.45,
+    "fm": 41.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Maupertus",
+   "ll": [
+    49.6498,
+    -1.46696
+   ],
+   "atc": {
+    "vhf": 120.35,
+    "uhf": 252.15,
+    "hf": 4.825,
+    "fm": 40.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "28-10",
+     "sides": [
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Meautis",
+   "ll": [
+    49.28319,
+    -1.30024
+   ],
+   "atc": {
+    "vhf": 121.4,
+    "uhf": 253.2,
+    "hf": 4.75,
+    "fm": 41.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 77,
+   "name": "Merville Calonne",
+   "ll": [
+    50.6206,
+    2.65347
+   ],
+   "atc": {
+    "vhf": 121.6,
+    "uhf": 253.6,
+    "hf": 4.825,
+    "fm": 42
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "32-14",
+     "sides": [
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "25-07",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "name": "Needs Oar Point",
+   "ll": [
+    50.77166,
+    -1.43453
+   ],
+   "atc": {
+    "vhf": 119.1,
+    "uhf": 250.95,
+    "hf": 4.225,
+    "fm": 39.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "17-35",
+     "sides": [
+      {
+       "name": "17",
+       "hdgTrue": 170,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "35",
+       "hdgTrue": 350,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 88,
+   "name": "Northolt",
+   "ll": [
+    51.55279,
+    -0.41929
+   ],
+   "atc": {
+    "vhf": 122.5,
+    "uhf": 254.35,
+    "hf": 4.1,
+    "fm": 41.6
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "26-08",
+     "sides": [
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 39,
+   "name": "Odiham",
+   "ll": [
+    51.23442,
+    -0.94173
+   ],
+   "atc": {
+    "vhf": 119.75,
+    "uhf": 251.55,
+    "hf": 4.525,
+    "fm": 40
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "28-10",
+     "sides": [
+      {
+       "name": "28",
+       "hdgTrue": 280,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "10",
+       "hdgTrue": 100,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 57,
+   "name": "Orly",
+   "ll": [
+    48.73514,
+    2.39183
+   ],
+   "atc": {
+    "vhf": 120.7,
+    "uhf": 252.5,
+    "hf": 4.525,
+    "fm": 40.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "01-19",
+     "sides": [
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "07-25",
+     "sides": [
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "name": "Picauville",
+   "ll": [
+    49.39637,
+    -1.41116
+   ],
+   "atc": {
+    "vhf": 118.4,
+    "uhf": 250.3,
+    "hf": 3.9,
+    "fm": 38.75
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "11-29",
+     "sides": [
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 56,
+   "name": "Poix",
+   "ll": [
+    49.81886,
+    1.97727
+   ],
+   "atc": {
+    "vhf": 120.65,
+    "uhf": 252.45,
+    "hf": 4.8,
+    "fm": 40.9
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "04-22",
+     "sides": [
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 60,
+   "name": "Ronai",
+   "ll": [
+    48.82338,
+    -0.16121
+   ],
+   "atc": {
+    "vhf": 120.9,
+    "uhf": 252.7,
+    "hf": 4.875,
+    "fm": 41.1
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "25-07",
+     "sides": [
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 61,
+   "name": "Rouen-Boos",
+   "ll": [
+    49.38723,
+    1.17898
+   ],
+   "atc": {
+    "vhf": 120.95,
+    "uhf": 252.75,
+    "hf": 4.225,
+    "fm": 41.15
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "22-04",
+     "sides": [
+      {
+       "name": "22",
+       "hdgTrue": 220,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "04",
+       "hdgTrue": 40,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "name": "Rucqueville",
+   "ll": [
+    49.25143,
+    -0.58031
+   ],
+   "atc": {
+    "vhf": 118.85,
+    "uhf": 250.7,
+    "hf": 4.1,
+    "fm": 39.15
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 1,
+   "name": "Saint Pierre du Mont",
+   "ll": [
+    49.39051,
+    -0.95707
+   ],
+   "atc": {
+    "vhf": 118.65,
+    "uhf": 250.5,
+    "hf": 4,
+    "fm": 38.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 70,
+   "name": "Saint-Andre-de-lEure",
+   "ll": [
+    48.89128,
+    1.26834
+   ],
+   "atc": {
+    "vhf": 121.45,
+    "uhf": 253.25,
+    "hf": 4.925,
+    "fm": 41.65
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "23-05",
+     "sides": [
+      {
+       "name": "23",
+       "hdgTrue": 230,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "05",
+       "hdgTrue": 50,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "13-31",
+     "sides": [
+      {
+       "name": "13",
+       "hdgTrue": 130,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "31",
+       "hdgTrue": 310,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 63,
+   "name": "Saint-Aubin",
+   "ll": [
+    49.88501,
+    1.08043
+   ],
+   "atc": {
+    "vhf": 121.05,
+    "uhf": 252.85,
+    "hf": 3.75,
+    "fm": 41.25
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 76,
+   "name": "Saint-Omer Wizernes",
+   "ll": [
+    50.72885,
+    2.2323
+   ],
+   "atc": {
+    "vhf": 121.55,
+    "uhf": 253.55,
+    "hf": 3.9,
+    "fm": 41.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "21-03",
+     "sides": [
+      {
+       "name": "21",
+       "hdgTrue": 210,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "03",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "27-09",
+     "sides": [
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 87,
+   "name": "Saint-Pol-Bryas",
+   "ll": [
+    50.39666,
+    2.35069
+   ],
+   "atc": {
+    "vhf": 122.15,
+    "uhf": 254.3,
+    "hf": 4.025,
+    "fm": 41.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "20-3",
+     "sides": [
+      {
+       "name": "20",
+       "hdgTrue": 200,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "3",
+       "hdgTrue": 30,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "name": "Sainte-Croix-sur-Mer",
+   "ll": [
+    49.32028,
+    -0.51725
+   ],
+   "atc": {
+    "vhf": 118.75,
+    "uhf": 250.6,
+    "hf": 4.05,
+    "fm": 39.05
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "name": "Sainte-Laurent-sur-Mer",
+   "ll": [
+    49.36446,
+    -0.87349
+   ],
+   "atc": {
+    "vhf": 121.9,
+    "uhf": 254,
+    "hf": 4.9,
+    "fm": 42
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "29-11",
+     "sides": [
+      {
+       "name": "29",
+       "hdgTrue": 290,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "11",
+       "hdgTrue": 110,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "name": "Sommervieu",
+   "ll": [
+    49.30023,
+    -0.67095
+   ],
+   "atc": {
+    "vhf": 118.9,
+    "uhf": 250.75,
+    "hf": 4.125,
+    "fm": 39.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "09-27",
+     "sides": [
+      {
+       "name": "09",
+       "hdgTrue": 90,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "27",
+       "hdgTrue": 270,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 58,
+   "name": "Stoney Cross",
+   "ll": [
+    50.91479,
+    -1.65321
+   ],
+   "atc": {
+    "vhf": 120.75,
+    "uhf": 252.55,
+    "hf": 4.625,
+    "fm": 41
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "19-01",
+     "sides": [
+      {
+       "name": "19",
+       "hdgTrue": 190,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "01",
+       "hdgTrue": 10,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "name": "Tangmere",
+   "ll": [
+    50.84576,
+    -0.7019
+   ],
+   "atc": {
+    "vhf": 119.3,
+    "uhf": 251.1,
+    "hf": 4.3,
+    "fm": 39.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06-24",
+     "sides": [
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "34-16",
+     "sides": [
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "16",
+       "hdgTrue": 160,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 55,
+   "name": "Triqueville",
+   "ll": [
+    49.33621,
+    0.45828
+   ],
+   "atc": {
+    "vhf": 120.6,
+    "uhf": 252.4,
+    "hf": 4.95,
+    "fm": 40.85
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "34-15",
+     "sides": [
+      {
+       "name": "34",
+       "hdgTrue": 340,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "15",
+       "hdgTrue": 150,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 42,
+   "name": "Villacoublay",
+   "ll": [
+    48.76735,
+    2.20503
+   ],
+   "atc": {
+    "vhf": 119.95,
+    "uhf": 251.75,
+    "hf": 4.625,
+    "fm": 40.2
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "30-12",
+     "sides": [
+      {
+       "name": "30",
+       "hdgTrue": 300,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "12",
+       "hdgTrue": 120,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 38,
+   "name": "Vrigny",
+   "ll": [
+    48.67228,
+    -0.00216
+   ],
+   "atc": {
+    "vhf": 119.7,
+    "uhf": 251.5,
+    "hf": 4.5,
+    "fm": 39.95
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "14-32",
+     "sides": [
+      {
+       "name": "14",
+       "hdgTrue": 140,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "32",
+       "hdgTrue": 320,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 41,
+   "name": "West Malling",
+   "ll": [
+    51.27036,
+    0.4047
+   ],
+   "atc": {
+    "vhf": 119.9,
+    "uhf": 251.7,
+    "hf": 4.6,
+    "fm": 40.15
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "24-06",
+     "sides": [
+      {
+       "name": "24",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "06",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

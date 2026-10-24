@@ -384,7 +384,7 @@
   $("#scrim").onclick = closeNav;
 
   /* ---------- Tabs ---------- */
-  const TABS = ["guide", "checklists", "quickref", "weapons", "notes", "help"];
+  const TABS = ["guide", "checklists", "quickref", "weapons", "airfields", "notes", "help"];
   let activeTab = "guide";
   function showTab(t) {
     activeTab = t;
@@ -527,7 +527,11 @@
     if (hooks.key.some(f => f(e))) return;
     if (e.key === "/") { e.preventDefault(); searchEl.focus(); searchEl.select(); }
     else if (e.key === "Escape") { closeNav(); }
-    else if (e.key >= "1" && e.key <= String(TABS.length)) showTab(TABS[+e.key - 1]);
+    else if (e.key >= "1" && e.key <= "9") {
+      // Number keys follow the tabs shown (Weapons and Airfields hide themselves when there's no content)
+      const t = [...document.querySelectorAll("header .tabs button")][+e.key - 1]?.dataset.tab;
+      if (t) showTab(t);
+    }
     else if (activeTab !== "guide") return;
     else if (e.key === "m" || e.key === "M") toggleMode();
     else if (e.key === "t" || e.key === "T") toggleNav();
@@ -572,7 +576,7 @@
     if (!route(initialHash)) {
       current = store.get("page", 1);
       const t = store.get("tab", "guide");
-      showTab(TABS.includes(t) ? t : "guide");
+      showTab(TABS.includes(t) && document.querySelector(`header .tabs button[data-tab="${t}"]`) ? t : "guide");
       if (t !== "guide") goPage(current);
     }
   });

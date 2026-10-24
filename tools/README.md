@@ -35,6 +35,20 @@ one card per weapon (what it is, best for, watch out, key facts, quick steps, gu
 `▶ Walk through`, Chuck's video), a "Which weapon for…" target filter and a compare table.
 Every fact and step carries its source page; `build.mjs` checks they are in range.
 
+## Airfields tab
+
+```sh
+node airfields.mjs [map …]        # in-game data from pydcs + DCS Liberation -> airfields/open/<map>.json
+node airfields-check.mjs [file …] # compare with the transcribed sheets, list every difference
+```
+
+`airfields/minsky/<map>.json` holds each map's table transcribed from Minsky's *Aerodrome Data and
+Frequencies* (elevation, navaids, radios, runways, magnetic headings, ILS/PRMG and NDBs per runway,
+remarks). `airfields.mjs` fetches the in-game data for the same maps, `airfields-check.mjs` compares the
+two, and `build.mjs` puts both on the **Airfields** tab, where a ⚠ marks values the game data disagrees
+with. `kneeboard.mjs` adds the same tables to the kneeboard pages for the maps in the aircraft JSON's
+`kneeboardMaps` (`--maps "Caucasus,Syria"` or `--maps all` overrides it).
+
 ## Themes
 
 Settings → Theme: Light, Dark, Night (dim grey), Red (keeps night vision), and two kneeboard looks:
@@ -118,9 +132,10 @@ when testing, and `--replay <log>` plays back a `--watch` or session log instead
 - `viewer/template.html`, `viewer.css`, `viewer.js` – core viewer (pages, TOC, search, tabs).
 - `viewer/reading.js` – the reading features above, plugged in through `window.Viewer`.
 - `viewer/weapons.js` – the Weapons tab.
+- `viewer/aerodromes.js` – the Airfields tab (data in `airfields/`).
 - `viewer/live.js` – the optional DCS-BIOS live link (`bios-bridge.mjs` is its PC-side bridge).
 - `kneeboard/` – the kneeboard page template used by `kneeboard.mjs`.
 - `viewer/fonts/` – Carlito, a Calibri-compatible font for devices without Calibri.
 
-Keys: `/` search · `1`–`6` tabs · `?` help · `W` walkthrough · `M` single-page mode · `T` toggle contents ·
+Keys: `/` search · `1`–`7` tabs · `?` help · `W` walkthrough · `M` single-page mode · `T` toggle contents ·
 `G` go to page · arrows flip pages.

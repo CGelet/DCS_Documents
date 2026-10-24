@@ -1,5 +1,6 @@
-// Usage: node kneeboard.mjs <outDir> [--theme kb-light|kb-dark|light|dark|night|red]
-// Renders the checklists, quick-ref cards and weapon steps from <outDir>/data.js (build.mjs) as
+// Usage: node kneeboard.mjs <outDir> [--theme kb-light|kb-dark|light|dark|night|red] [--maps "Caucasus,Syria"]
+// Renders the checklists, quick-ref cards, weapon steps and airfield tables (the aircraft JSON's kneeboardMaps,
+// or --maps "A,B" / --maps all) from <outDir>/data.js (build.mjs) as
 // portrait PNGs, as two sets ready to copy to Saved Games\DCS\Kneeboard\:
 //   <outDir>/kneeboard/full/<dcsModule>/        everything
 //   <outDir>/kneeboard/essentials/<dcsModule>/  without each checklist's "extras" (checks, tests, realism-only steps)
@@ -11,10 +12,11 @@ import { chromium } from "playwright-core";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
-const outDir = args.find(a => !a.startsWith("--") && args[args.indexOf(a) - 1] !== "--theme");
+const outDir = args.find((a, i) => !a.startsWith("--") && !["--theme", "--maps"].includes(args[i - 1]));
+const maps = args.includes("--maps") ? args[args.indexOf("--maps") + 1] : null;
 const theme = args.includes("--theme") ? args[args.indexOf("--theme") + 1] : "kb-light";
 if (!outDir) {
-  console.error("Usage: node kneeboard.mjs <outDir> [--theme kb-light|kb-dark|light|dark|night|red]");
+  console.error("Usage: node kneeboard.mjs <outDir> [--theme kb-light|kb-dark|light|dark|night|red] [--maps \"Caucasus,Syria\"]");
   process.exit(1);
 }
 const dataJs = path.join(outDir, "data.js");
@@ -31,7 +33,7 @@ const page = await browser.newPage({ viewport: { width: 1600, height: 1100 }, de
 for (const [set, minimal] of [["full", false], ["essentials", true]]) {
   if (minimal && !hasExtras) continue;
   const url = pathToFileURL(path.join(here, "kneeboard", "template.html"));
-  url.search = new URLSearchParams({ data: pathToFileURL(path.resolve(dataJs)).href, theme, ...(minimal && { minimal: 1 }) }).toString();
+  url.search = new URLSearchParams({ data: pathToFileURL(path.resolve(dataJs)).href, theme, ...(minimal && { minimal: 1 }), ...(maps && { maps }) }).toString();
   await page.goto(url.href);
   await page.waitForFunction(() => window.KNEEBOARD_READY);
   const ready = await page.evaluate(() => window.KNEEBOARD_READY);

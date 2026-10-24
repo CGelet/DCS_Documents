@@ -42,6 +42,28 @@ for (const c of extra.checklists || []) for (const k of c.extras || []) {
 }
 if (badRefs.length) throw new Error(`Page references out of range: ${badRefs.join(", ")}`);
 
+// Airfields tab tables: airfield data transcribed from Minsky's kneeboards (airfields/minsky/<map>.json),
+// checked against the in-game data (airfields/open/<map>.json, from airfields.mjs). Differences are kept
+// on each airfield so the table can flag them.
+const afDir = path.join(here, "airfields");
+const key = s => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+const airfieldMaps = fs.existsSync(path.join(afDir, "minsky")) ? fs.readdirSync(path.join(afDir, "minsky")).filter(f => f.endsWith(".json")).map(f => {
+  const m = JSON.parse(fs.readFileSync(path.join(afDir, "minsky", f), "utf8"));
+  const openFile = path.join(afDir, "open", f);
+  const game = fs.existsSync(openFile) ? JSON.parse(fs.readFileSync(openFile, "utf8")).airfields : null;
+  const byKey = new Map((game || []).map(a => [key(a.name), a]));
+  for (const a of m.airfields) {
+    const g = byKey.get(key(a.name)) || [].concat(a.aka || []).map(n => byKey.get(key(n))).find(Boolean);
+    if (!g || a.closed) continue;
+    const d = [];
+    if ((a.tacan || null) !== (g.tacan || null)) d.push(["tacan", g.tacan]);
+    if ((a.vor ?? null) !== (g.vor ?? null)) d.push(["vor", g.vor]);
+    if (a.atc && g.atc) ["vhf", "hf", "uhf", "fm"].forEach((k, i) => { if (Math.abs(a.atc[i] - g.atc[k]) > 0.001) d.push([k, g.atc[k]]); });
+    if (d.length) a.game = Object.fromEntries(d);
+  }
+  return { ...m, checked: !!game };
+}).sort((a, b) => a.map.localeCompare(b.map)) : [];
+
 const ann = annotate(data.pages);
 const round = n => Math.round(n * 10) / 10;
 const failedFile = path.join(outDir, "svg-failed.json");
@@ -50,6 +72,7 @@ const guide = {
   aircraft: extra.aircraft || data.title,
   short: extra.short || data.title,
   dcsModule: extra.dcsModule || null,
+  kneeboardMaps: extra.kneeboardMaps || null,
   pageCount: data.pageCount,
   outline: data.outline,
   pages: data.pages.map((pg, i) => {
@@ -67,12 +90,13 @@ const guide = {
   cautions: extra.cautions || null,
   logbook: extra.logbook || null,
   weaponTargets: weapons.targets,
+  airfields: airfieldMaps,
 };
 
 // Viewer assets: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
 const assets = path.join(outDir, "assets");
 fs.mkdirSync(assets, { recursive: true });
-for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "live.js", "cautions.js", "logbook.js", "help.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
+for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "aerodromes.js", "live.js", "cautions.js", "logbook.js", "help.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
 fs.cpSync(path.join(here, "viewer", "fonts"), path.join(assets, "fonts"), { recursive: true });
 
 const html = fs.readFileSync(path.join(here, "viewer", "template.html"), "utf8")

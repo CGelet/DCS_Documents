@@ -522,3 +522,109 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
 .flights .landings li { padding: 3px 0; }
 .flights .meta { display: flex; gap: 10px; padding: 0 14px 10px; font-size: 12px; color: var(--muted); }
 .flights .meta button { border: 0; background: none; color: var(--muted); padding: 0; font-size: 12px; text-decoration: underline; margin-left: auto; }
+
+/* ---------- Airfields tab (aerodromes.js) ---------- */
+.adwrap { max-width: calc(var(--pw, 1200px) + 310px); }
+.adsearch { width: 100%; max-width: 420px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); color: var(--text); font-size: 15px; margin-bottom: 10px; }
+.adresults { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+
+/* Recreated airfield tables: colour coding after Minsky's sheets (TACAN italic, VOR magenta, NDB brown,
+   RSBN blue italic, ILS green, PRMG blue, short runways red), one set per theme family */
+:root, [data-theme="light"], [data-theme="kb-light"] {
+  --af-lat: #1d5f99; --af-lon: #8b3a9c; --af-vor: #c0158a; --af-ndb: #b0651a; --af-ils: #198f2a; --af-prmg: #1b78d0;
+  --af-uhf: #1d5f99; --af-short: #d9302a; --af-dot: rgba(0,0,0,.18);
+}
+[data-theme="dark"], [data-theme="kb-dark"] {
+  --af-lat: #6aaeea; --af-lon: #c98ad8; --af-vor: #f06ac0; --af-ndb: #e39a4f; --af-ils: #5fd16f; --af-prmg: #62b1ff;
+  --af-uhf: #6aaeea; --af-short: #ff6a5e; --af-dot: rgba(255,255,255,.14);
+}
+[data-theme="night"] {
+  --af-lat: #6f8fa8; --af-lon: #93809a; --af-vor: #a87792; --af-ndb: #a8875f; --af-ils: #79a07f; --af-prmg: #7b97b5;
+  --af-uhf: #6f8fa8; --af-short: #b0675f; --af-dot: rgba(255,255,255,.08);
+}
+/* Red: one hue only, so the codes are told apart by brightness and style */
+[data-theme="red"] {
+  --af-lat: #e0705f; --af-lon: #c96556; --af-vor: #ffb2a6; --af-ndb: #d97a68; --af-ils: #ffc8bf; --af-prmg: #ffa090;
+  --af-uhf: #e0705f; --af-short: #ff5a46; --af-dot: rgba(255,90,70,.15);
+}
+.afhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; padding: 8px 12px; margin-bottom: 0;
+  background: var(--kb-bar, var(--panel-2)); color: var(--kb-bar-ink, var(--text)); border-radius: 8px 8px 0 0; }
+.afhead b { font-size: 20px; margin-right: auto; }
+.afhead .magvar, .afhead .valid { font-size: 13px; opacity: .8; }
+.afhead .valid { font-weight: 700; opacity: 1; }
+.afscroll { overflow-x: auto; background: var(--panel); border: 1px solid var(--border); border-top: 0; border-radius: 0 0 8px 8px; }
+.aft { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.3; white-space: nowrap;
+  font-variant-numeric: tabular-nums; }
+.aft :is(.num, .nav, .atc, .sides, .lat, .lon) { font-family: ui-monospace, "Cascadia Mono", Consolas, "Roboto Mono", monospace; font-size: 13px; }
+.aft th { font-size: 11px; font-weight: 600; color: var(--muted); text-align: left; padding: 6px 8px; vertical-align: bottom; white-space: normal; }
+.aft td { padding: 1px 8px; }
+.aft tbody { border-bottom: 1px dotted var(--af-dot); }
+.aft tbody tr:first-child td { padding-top: 5px; }
+.aft tbody tr:last-child td { padding-bottom: 5px; }
+.aft tbody.hit { outline: 2px solid var(--accent); outline-offset: -2px; }
+.aft .ab { color: var(--muted); text-align: right; padding-right: 2px; }
+.aft .name b { font-size: 15px; }
+.aft .icao, .aft .sub, .aft .muted { color: var(--muted); }
+.aft .sub { font-style: italic; }
+.aft .heli { font-weight: 700; font-size: 12px; }
+.aft .lat { color: var(--af-lat); }
+.aft .lon { color: var(--af-lon); }
+.aft .num, .aft .len { text-align: right; }
+.aft .nav { background: var(--panel-2); text-align: center; }
+.aft .atc { border-left: 1px solid var(--border); }
+.aft .uhf { color: var(--af-uhf); }
+.aft .len { border-left: 1px dotted var(--border); }
+.aft .len.dirt { color: var(--af-ndb); }
+.aft .len.grass { color: var(--af-ils); }
+.aft .sides { text-align: right; }
+.aft .tacan, .aft .rsbn { font-style: italic; }
+.aft .vor { color: var(--af-vor); }
+.aft .ndb { color: var(--af-ndb); }
+.aft .rsbn, .aft .prmg { color: var(--af-prmg); }
+.aft .ils { color: var(--af-ils); }
+.aft .sep { color: var(--muted); }
+.aft .afnote { font-size: 11px; letter-spacing: .02em; }
+.aft .rwy { font-weight: 700; }
+.aft .rwy.short { color: var(--af-short); }
+.aft .rwy.bad { text-decoration: line-through; }
+.aft .afdiff { color: var(--af-short); cursor: help; margin-left: 3px; font-style: normal; }
+.aft tbody.closed .name b, .aft .closedtxt { color: var(--muted); }
+.aft .closedtxt { font-size: 11px; white-space: normal; max-width: 120px; text-align: center; }
+.aft .glyph { background: var(--panel-2); width: 40px; }
+.afglyph { position: relative; display: block; width: 28px; height: 28px; margin: auto; }
+.afglyph i { position: absolute; left: 50%; top: 50%; width: 4px; height: 26px; margin: -13px 0 0 -2px; border-radius: 2px;
+  background: var(--text); opacity: .7; transform: rotate(var(--hdg)); }
+.afglyph.closed i { background: none; border: 1px dashed var(--muted); }
+.afgrid { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 16px; align-items: start; }
+.afkey { position: sticky; top: 12px; max-height: calc(100vh - var(--hdr, 60px) - 24px); overflow-y: auto;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 12.5px; line-height: 1.35; }
+.afkey h3 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.afkey dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 3px 8px; align-items: baseline; }
+.afkey dt { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; white-space: nowrap; text-align: right; }
+.afkey dd { margin: 0; color: var(--muted); }
+.afkey .sec { grid-column: 1 / -1; margin-top: 6px; font-weight: 700; color: var(--text); font-size: 12px; }
+.afkey :is(.tacan, .rsbn) { font-style: italic; }
+.afkey .vor { color: var(--af-vor); } .afkey .ndb { color: var(--af-ndb); } .afkey .ils { color: var(--af-ils); }
+.afkey .rsbn, .afkey .prmg { color: var(--af-prmg); } .afkey .uhf, .afkey .lat { color: var(--af-lat); } .afkey .lon { color: var(--af-lon); }
+.afkey .rwy { font-weight: 700; } .afkey .rwy.short { color: var(--af-short); } .afkey .rwy.bad { text-decoration: line-through; }
+.afkey .afdiff { color: var(--af-short); }
+.afkey .dot { color: var(--accent); font-weight: 700; } .afkey .ils.off { text-decoration: line-through; opacity: .65; }
+/* Narrow screens: the key folds into a bar that stays at the bottom of the screen */
+@media (max-width: 1000px) {
+  .afgrid { display: block; }
+  .afkey { position: sticky; top: auto; bottom: 0; z-index: 5; margin-top: 12px; max-height: 45vh; box-shadow: var(--pop-shadow); }
+  .afkey:not([open]) { padding: 6px 12px; }
+}
+.afkey summary { cursor: pointer; list-style: none; }
+.afkey summary::-webkit-details-marker { display: none; }
+@media (min-width: 1001px) { .afkey summary { pointer-events: none; } }
+.aft .nav { vertical-align: top; padding-top: 5px; }
+.aft .nav > span { display: block; }
+.aft .nav .afnote { font-size: 10px; white-space: normal; line-height: 1.15; color: var(--muted); max-width: 80px; margin: 0 auto; }
+.aft .ils.off, .aft .ndb.off { text-decoration: line-through; opacity: .65; }
+.aft .sides.norwy { text-align: center; }
+.aft .sides.norwy .short { color: var(--af-short); font-weight: 700; }
+.aft .afnote.ils { font-size: 10.5px; }
+.aft .dot { font-weight: 700; color: var(--accent); }
+.aft tr.remark td { font-size: 12px; color: var(--muted); white-space: normal; padding-top: 0; padding-bottom: 6px; max-width: 360px; }
+.aft .atc.closedtxt { vertical-align: middle; }

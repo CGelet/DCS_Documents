@@ -15,7 +15,7 @@
       To move them to another browser or device, use <b>Export</b> and <b>Import</b> on the Notes tab.</p>
       <table class="keys">
         <tr><td><kbd>/</kbd></td><td>Search the guide</td></tr>
-        <tr><td><kbd>1</kbd>–<kbd>6</kbd></td><td>Switch tabs (Guide, Checklists, Quick Ref, Weapons, Notes, Help)</td></tr>
+        <tr><td><kbd>1</kbd>–<kbd>7</kbd></td><td>Switch tabs (Guide, Checklists, Quick Ref, Weapons, Airfields, Notes, Help)</td></tr>
         <tr><td><kbd>?</kbd></td><td>Open this help</td></tr>
         <tr><td><kbd>G</kbd></td><td>Go to a page number</td></tr>
         <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Previous / next page</td></tr>
@@ -42,6 +42,13 @@
         <li>Every item, quick-ref value and weapon step has a <span class="pg">p.82</span> link to the guide page it comes from.</li>
         <li>The Weapons tab has a card per weapon, a “Which weapon for…” filter and a compare table.</li>
       </ul>`],
+    ["airfields", "Airfields (frequencies, TACAN, ILS)", `
+      <p>The <b>Airfields</b> tab lists each airfield's tower radios (VHF, HF, UHF, FM), TACAN, VOR, NDB and RSBN, elevation, coordinates and
+      runways with their magnetic heading, ILS or PRMG and outer/inner NDBs. Pick a map, or type part of an airfield's name or ICAO code.</p>
+      <p>The tables are transcribed from <b>Aerodrome Data and Frequencies</b> by Dima Kozyrev (Minsky), and the radios, navaids and positions are
+      checked against the in-game data. A <b>⚠</b> marks a value the game disagrees with; hover it to see the game's value.
+      The kneeboard pages have the same tables for the maps you fly (set in the aircraft file's <code>kneeboardMaps</code>).</p>
+      <p>Maps so far: ${(G.airfields || []).map(t => esc(t.map)).join(", ")}.</p>`],
     ["themes", "Themes", `
       <p>⚙ → Theme changes the whole reader:</p>
       <ul>

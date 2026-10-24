@@ -42,3 +42,29 @@ body { display: block; overflow: visible; background: var(--bg); font: 21px/1.3 
 .row.qr .k { font-weight: 700; max-width: 45%; }
 .row.qr .v { font-weight: 400; }
 .row.mono .k { font-family: ui-monospace, Consolas, monospace; font-size: 19px; }
+
+/* Airfield tables: name/coords · elevation · navaids · VHF/UHF · one line per runway end */
+.afk { display: grid; grid-template-columns: minmax(0, 1fr) 46px 62px 64px 272px; gap: 0 7px; padding: 6px 2px; border-bottom: 1px dashed var(--border); font-size: 17px; line-height: 1.25; }
+.afk:last-child { border-bottom: 0; }
+.afk .col { display: flex; flex-direction: column; min-width: 0; font-family: ui-monospace, Consolas, monospace; font-size: 15px; }
+.afk .col.r { align-items: flex-end; } .afk .col.c { align-items: center; }
+.afk .name { font-family: "Segoe UI", system-ui, sans-serif; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.afk .icao, .afk .muted, .afk .sep { color: var(--muted); }
+.afk .icao { font-size: 14px; }
+.afk .ll { font-size: 13px; color: var(--af-lat); }
+.afk .tacan, .afk .rsbn { font-style: italic; }
+.afk .vor { color: var(--af-vor); } .afk .ndb { color: var(--af-ndb); } .afk .ils { color: var(--af-ils); }
+.afk .rsbn, .afk .prmg { color: var(--af-prmg); } .afk .uhf { color: var(--af-uhf); }
+.afk .note { font-size: 11px; font-family: "Segoe UI", system-ui, sans-serif; }
+.afk .side { white-space: nowrap; }
+.afk .rwy { display: inline-block; min-width: 2.6ch; text-align: left; }
+.afk .rwy.short { color: var(--af-short); } .afk .rwy.bad { text-decoration: line-through; }
+.afk.closed .name b { color: var(--muted); }
+.afk .closedtxt { font-size: 12px; color: var(--muted); font-family: "Segoe UI", system-ui, sans-serif; }
+.afk.hdr { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; padding: 4px 2px; border-bottom: 2px solid var(--border); }
+.afk.hdr .r { text-align: right; } .afk.hdr .c { text-align: center; }
+.afk .col.c .note { font-size: 10px; text-align: center; line-height: 1.1; color: var(--muted); font-family: "Segoe UI", system-ui, sans-serif; }
+.afk .ils.off { text-decoration: line-through; opacity: .7; }
+.afk .remark { grid-column: 1 / -1; font-size: 13px; color: var(--muted); padding-top: 2px; }
+.afk .ndb.off { text-decoration: line-through; opacity: .7; }
+.afk .side.norwy { color: var(--af-short); font-size: 13px; font-family: "Segoe UI", system-ui, sans-serif; }

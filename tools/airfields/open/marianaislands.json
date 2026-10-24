@@ -1,0 +1,304 @@
+{
+ "map": "Marianas",
+ "source": [
+  "pydcs",
+  "DCS Liberation"
+ ],
+ "airfields": [
+  {
+   "id": 6,
+   "name": "Andersen AFB",
+   "ll": [
+    13.5817,
+    144.93105
+   ],
+   "atc": {
+    "vhf": 126.2,
+    "uhf": 250.1,
+    "hf": 3.85,
+    "fm": 38.6
+   },
+   "tacan": "54X",
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.1,
+    109.3,
+    109.35,
+    110.15
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06L-24R",
+     "sides": [
+      {
+       "name": "06L",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24R",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "06R-24L",
+     "sides": [
+      {
+       "name": "06R",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24L",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Antonio B. Won Pat Intl",
+   "ll": [
+    13.48478,
+    144.79682
+   ],
+   "atc": {
+    "vhf": 118.1,
+    "uhf": 340.2,
+    "hf": 3.825,
+    "fm": 38.55
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    110.9,
+    110.3
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "06R-24L",
+     "sides": [
+      {
+       "name": "06R",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24L",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    },
+    {
+     "name": "06L-24R",
+     "sides": [
+      {
+       "name": "06L",
+       "hdgTrue": 60,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "24R",
+       "hdgTrue": 240,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "North West Field",
+   "ll": [
+    13.62533,
+    144.8584
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 5,
+   "name": "Olf Orote",
+   "ll": [
+    13.4382,
+    144.64224
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 7,
+   "name": "Pagan Airstrip",
+   "ll": [
+    18.12315,
+    145.76315
+   ],
+   "atc": null,
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 1,
+   "name": "Rota Intl",
+   "ll": [
+    14.17437,
+    145.24109
+   ],
+   "atc": {
+    "vhf": 123.6,
+    "uhf": 250,
+    "hf": 3.75,
+    "fm": 38.4
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [
+    332
+   ],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": []
+  },
+  {
+   "id": 2,
+   "name": "Saipan Intl",
+   "ll": [
+    15.11893,
+    145.72913
+   ],
+   "atc": {
+    "vhf": 125.7,
+    "uhf": 256.9,
+    "hf": 3.775,
+    "fm": 38.45
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [
+    109.9
+   ],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "07-25",
+     "sides": [
+      {
+       "name": "07",
+       "hdgTrue": 70,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "25",
+       "hdgTrue": 250,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Tinian Intl",
+   "ll": [
+    14.99919,
+    145.61918
+   ],
+   "atc": {
+    "vhf": 123.65,
+    "uhf": 250.05,
+    "hf": 3.8,
+    "fm": 38.5
+   },
+   "tacan": null,
+   "vor": null,
+   "ndb": [],
+   "ils": [],
+   "markers": [],
+   "rsbn": null,
+   "runways": [
+    {
+     "name": "08-26",
+     "sides": [
+      {
+       "name": "08",
+       "hdgTrue": 80,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      },
+      {
+       "name": "26",
+       "hdgTrue": 260,
+       "ils": null,
+       "prmg": null,
+       "outer": null,
+       "inner": null
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
