@@ -545,7 +545,9 @@
     saveSettings: () => store.set("settings", settings),
     get current() { return current; },
     get activeTab() { return activeTab; },
-    on(evt, fn) { if (evt === "decorate") hooks.decorate = fn; else hooks[evt].push(fn); },
+    on(evt, fn) { if (evt === "decorate") hooks.decorate = fn; else (hooks[evt] ||= []).push(fn); },
+    // For modules to talk to each other, e.g. live.js -> cautions.js: emit("bios", control, value)
+    emit(evt, ...args) { (hooks[evt] || []).forEach(f => f(...args)); },
   };
 
   /* ---------- Startup: after reading.js has registered its hooks and the stylesheet has applied ---------- */

@@ -114,6 +114,24 @@
           If one of those is stuck, ticking the step before it by hand lets it continue.</li>
         <li>Skipped realism-only steps (the ones the essentials kneeboard leaves out) never hold anything up.</li>
       </ul>
+      ${G.cautions ? `<h3>Caution explainer</h3>
+      <ul>
+        <li>While the link is live, the <b>⚠</b> button next to LIVE shows how many warning, caution and advisory lights are on.
+          Click it for what each one means, from Chuck's cockpit pages, with links to them. It turns yellow for a caution and red for a warning.</li>
+        <li>When a warning or caution comes on, a card pops up in the top right. It goes away when the light goes out, or click ✕.
+          Turn the pop-ups off with ⚙ → <b>Caution pop-ups</b>.</li>
+        <li>No pop-ups during start-up: several cautions light on purpose (APU ACC, BATT SW, the generators…), so they start once both engines are running.</li>
+        <li>Many Hornet cautions only appear on the DDI, which DCS-BIOS can't read. <b>MASTER CAUTION</b> is your cue to look there.</li>
+      </ul>` : ""}
+      ${G.logbook ? `<h3>Flight log</h3>
+      <ul>
+        <li>Each flight is recorded at the bottom of the <b>Notes</b> tab: takeoff time, flight time, max G, airspeed and altitude, fuel used,
+          and every touchdown with its airspeed, AoA indexer (slow / on speed / fast) and an estimated sink rate.</li>
+        <li>A flight starts when all wheels leave the ground. Touching down and flying again within 20 s counts as a touch-and-go (or bolter);
+          staying on the ground longer is a full stop and ends the flight.</li>
+        <li>It only records while this page is open with the live link on. Export / Import on the Notes tab include the flight log.</li>
+        <li>Airspeed, altitude and G come from DCS's export of your own aircraft; some multiplayer servers turn that off.</li>
+      </ul>` : ""}
       <h3>Troubleshooting</h3>
       <ul>
         <li><b>Dot stays hollow:</b> start the bridge. Its window should say <code>reader link on ws://127.0.0.1:5011</code>.</li>
