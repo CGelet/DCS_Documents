@@ -34,6 +34,7 @@
   );
   if (settings.theme === "night" && !settings.v2) settings.theme = "red"; // "night" used to be the red theme
   settings.v2 = true;
+  if (window.CHUCK_THEME) settings.theme = window.CHUCK_THEME; // the theme follows you between pages (nav.js)
   function applySettings() {
     root.dataset.theme = settings.theme;
     root.dataset.filter = settings.filter;

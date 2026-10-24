@@ -43,7 +43,7 @@ So far it covers the **F/A-18C Hornet**, from *DCS Guide F/A-18C Hornet* by Chuc
 ## Using it
 
 1. Download or clone this repo, then open **`output/index.html`** in a browser. That's the **Hangar**:
-   a card for each aircraft and the airfield tables for every map. It works offline and doesn't need
+   a card for each aircraft, the airfield tables for every map and the help. It works offline and doesn't need
    a server. Keep the whole `output` folder together, since the aircraft share files in it.
 2. Open the **Help** tab, or press `?`, for a full usage guide.
 3. **Kneeboard:** copy `output/FA-18C/kneeboard/essentials/FA-18C_hornet` (or `…/full/…`) into

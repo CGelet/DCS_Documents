@@ -4,11 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hangar – Chuck's Guides</title>
+<script src="assets/nav.js"></script>
 <link rel="stylesheet" href="assets/viewer.css">
 </head>
-<body class="hangar">
+<!-- The Hangar's pages (index.html, airfields.html, help.html), built from this one template by build.mjs -->
+<body class="hangar" data-page="hangar">
 <header>
-  <div class="brand">Chuck's Guides <small>Interactive reader</small></div>
+  <a class="brand" href="index.html" title="Hangar: all aircraft">Chuck's Guides <small>Interactive reader</small></a>
+  <nav class="tabs" aria-label="Hangar">
+    <a href="index.html" data-page="hangar">Hangar</a>
+    <a href="airfields.html" data-page="airfields" title="Airfield frequencies, TACAN, ILS and runways for every map">Airfields</a>
+    <a href="help.html" data-page="help" title="How to use this reader (?)">Help</a>
+  </nav>
   <div class="spacer"></div>
   <label class="themepick">Theme <select id="themeSel"><option value="light">Light</option><option value="dark">Dark</option><option value="night">Night</option><option value="red">Red</option><option value="kb-light">Kneeboard (paper)</option><option value="kb-dark">Kneeboard (dark)</option></select></label>
 </header>

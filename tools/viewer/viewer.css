@@ -96,6 +96,12 @@ button.brand:hover, button.brand[aria-expanded="true"] { background: var(--panel
 .tabs { display: flex; background: var(--panel-2); border: 1px solid var(--border); border-radius: 9px; padding: 2px; }
 .tabs button { border: 0; background: none; padding: 6px 12px; border-radius: 7px; height: 30px; white-space: nowrap; }
 .tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+/* The Hangar's pages use links for their tabs */
+.tabs a { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 7px; height: 30px; white-space: nowrap; color: var(--text); text-decoration: none; }
+.tabs a:hover { color: var(--accent); }
+.tabs a[aria-current="page"] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+a.brand { color: var(--text); text-decoration: none; padding: 0 4px; }
+a.brand:hover { color: var(--accent); }
 #search {
   flex: 1 1 200px; min-width: 140px; height: 36px; padding: 0 12px; border-radius: 8px;
   border: 1px solid var(--border); background: var(--panel-2);
@@ -650,10 +656,6 @@ body.no-steps:not(.walking) .ann :is(.zone, .ring) { display: none; }
 /* ---------- Hangar pages (index.html and airfields.html in the output folder) ---------- */
 body.hangar .spacer { flex: 1; }
 body.hangar header { min-height: 53px; }
-.crumbs { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-.crumbs a.brand { color: var(--text); text-decoration: none; }
-.crumbs a.brand:hover { color: var(--accent); }
-.crumbs span { color: var(--muted); }
 .themepick { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
 .themepick select { background: var(--panel-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px; color: var(--text); }
 .adabout { margin: -4px 0 12px; }

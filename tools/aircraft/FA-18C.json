@@ -3,6 +3,16 @@
   "short": "F/A-18C",
   "dcsModule": "FA-18C_hornet",
   "kneeboardMaps": ["Caucasus", "Persian Gulf", "Syria", "Nevada"],
+  "helpNotes": {
+      "live": [
+          "<b>Catching up in the Hornet:</b> with the right engine running, all of Pre-Start and APU &amp; Right Engine are done; with the left engine running, FCS Reset &amp; Left Engine too; with the INS in NAV or IFA, the alignment. Switches you can see (flaps, radar, lights…) tick from their position. Momentary steps that leave no trace, like T/O TRIM or the FCS BIT, stay manual.",
+          "<b>IFF and Link-16</b> tick from what the UFC shows: XP with mode 4A cued for IFF, ON on the D/L page for Link-16, and 127 for its frequency. They only tick while that UFC page is up, so if the live link wasn't on at the time, tick them by hand.",
+          "Items that wait their turn in the Hornet: “caution out”, the throttles, the left engine crank and the APU shutdown."
+      ],
+      "cautions": [
+          "Pop-ups start once both engines are running: APU ACC, BATT SW and the generators light on purpose during start-up. LOW ALT only pops up in the air, since it's also on whenever you're parked below the radar altimeter index."
+      ]
+  },
   "cautions": {
     "note": "Many Hornet cautions only show on the DDI, which DCS-BIOS can't read. MASTER CAUTION is your cue to look there.",
     "quietUntil": [["HYD_IND_LEFT", ">35000"], ["HYD_IND_RIGHT", ">35000"]],

@@ -5,6 +5,14 @@
   "title": "DCS F/A-18C Hornet Guide",
   "pages": 742,
   "cover": "svgimg/755a81f8137eefb1.jpg",
+  "module": "FA-18C_hornet",
+  "essentials": true,
+  "linked": [
+    [
+      "Cold Start",
+      49
+    ]
+  ],
   "firstChecklist": "startup",
   "has": {
     "checklists": 5,

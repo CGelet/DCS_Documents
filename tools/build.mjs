@@ -92,13 +92,14 @@ const guide = {
   weapons: weapons.weapons,
   cautions: extra.cautions || null,
   logbook: extra.logbook || null,
+  helpNotes: extra.helpNotes || {},
   weaponTargets: weapons.targets,
 };
 
 // Viewer assets, shared by every aircraft and the Hangar: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
 const assets = path.join(root, "assets");
 fs.mkdirSync(assets, { recursive: true });
-for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "aerodromes.js", "live.js", "cautions.js", "logbook.js", "help.js", "standalone.js", "hangar.js"])
+for (const f of ["nav.js", "viewer.css", "viewer.js", "reading.js", "weapons.js", "aerodromes.js", "live.js", "cautions.js", "logbook.js", "help.js", "standalone.js", "hangar.js"])
   fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
 fs.cpSync(path.join(here, "viewer", "fonts"), path.join(assets, "fonts"), { recursive: true });
 fs.rmSync(path.join(outDir, "assets"), { recursive: true, force: true }); // each aircraft used to carry its own copy
@@ -109,6 +110,8 @@ const coverImgs = [...new Set(fs.readFileSync(path.join(outDir, "svg", "p001.js"
 const cover = coverImgs.sort((a, b) => fs.statSync(path.join(outDir, b)).size - fs.statSync(path.join(outDir, a)).size)[0] || null;
 fs.writeFileSync(path.join(outDir, "hangar.json"), JSON.stringify({
   dir: path.basename(path.resolve(outDir)), aircraft: guide.aircraft, short: guide.short, title: guide.title, pages: guide.pageCount, cover,
+  module: guide.dcsModule, essentials: guide.checklists.some(c => (c.extras || []).length),
+  linked: guide.checklists.map(c => [c.title, c.groups.reduce((n, g) => n + g.items.filter(i => i[2]).length, 0)]).filter(([, n]) => n),
   firstChecklist: guide.checklists[0]?.id || null,
   has: {
     checklists: guide.checklists.length, quickref: guide.quickref.length, weapons: guide.weapons.length,
@@ -120,7 +123,14 @@ fs.writeFileSync(path.join(outDir, "hangar.json"), JSON.stringify({
 const hangar = fs.readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory() && fs.existsSync(path.join(root, d.name, "hangar.json")))
   .map(d => JSON.parse(fs.readFileSync(path.join(root, d.name, "hangar.json"), "utf8"))).sort((a, b) => a.aircraft.localeCompare(b.aircraft));
 fs.writeFileSync(path.join(root, "aircraft.js"), "window.HANGAR = " + JSON.stringify(hangar) + ";\n");
-for (const f of ["hangar.html", "airfields.html"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(root, f === "hangar.html" ? "index.html" : f));
+// The Hangar's pages: one template, each with its own panel and scripts
+const pageTpl = fs.readFileSync(path.join(here, "viewer", "page.html"), "utf8");
+for (const [file, page, title, main, scripts] of [
+  ["index.html", "hangar", "Hangar", `<div class="wrap hg" id="hangar"></div>`, ["hangar.js"]],
+  ["airfields.html", "airfields", "Airfields", `<section class="view active" id="view-airfields"><div class="wrap adwrap" id="airfields"></div></section>`, ["aerodromes.js"]],
+  ["help.html", "help", "Help", `<section class="view active" id="view-help"><div class="wrap help" id="help"></div></section>`, ["help.js"]],
+]) fs.writeFileSync(path.join(root, file), pageTpl.replace("{{PAGE}}", page).replace("{{TITLE}}", title).replace("{{MAIN}}", main)
+  .replace("{{SCRIPTS}}", scripts.map(s => `<script src="assets/${s}"></script>`).join("\n")));
 
 const html = fs.readFileSync(path.join(here, "viewer", "template.html"), "utf8")
   .replaceAll("{{TITLE}}", `${guide.short} – Chuck's Guide`)
@@ -130,7 +140,7 @@ fs.writeFileSync(path.join(outDir, "index.html"), html);
 
 const items = guide.checklists.reduce((n, c) => n + c.groups.reduce((m, g) => m + g.items.length, 0), 0);
 const stepPages = guide.pages.filter(p => p.st).length, linkedPages = guide.pages.filter(p => p.co).length;
-console.log(`Hangar: ${root}/index.html (${hangar.map(a => a.short).join(", ")}), airfields.html (${airfieldMaps.length} maps)`);
+console.log(`Hangar: ${root}/index.html (${hangar.map(a => a.short).join(", ")}), airfields.html (${airfieldMaps.length} maps), help.html`);
 console.log(`built ${outDir}/index.html: ${guide.pageCount} pages, ${guide.outline.length} TOC entries, ` +
   `${stepPages} pages with steps (${linkedPages} with linked callouts), ${guide.glossary.length} acronyms, ${guide.links.length} links, ` +
   `${guide.checklists.length} checklists (${items} items), ${guide.quickref.length} quick-ref cards, ${guide.weapons.length} weapons`);

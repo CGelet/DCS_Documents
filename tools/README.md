@@ -23,12 +23,15 @@ Every aircraft built into a folder of `output/` shares that folder's Hangar, whi
 - `index.html`: the Hangar, one card per aircraft (cover, what it includes, your reading progress) and the tools that
   don't depend on the aircraft.
 - `airfields.html`: the Airfields tables on their own. Each aircraft also keeps its Airfields tab, where the maps
-  on its kneeboard pages are marked **KB**.
+  on its kneeboard pages are marked **KB**; links between the two keep the map you're on.
+- `help.html`: the help for every aircraft. Each aircraft's Help tab is the same help plus its own details
+  (kneeboard folder, linked checklists, and the aircraft JSON's `helpNotes` and `cautions.note`).
 - `aircraft.js`: the aircraft list, made from each `<AC>/hangar.json` (written by the build).
 - `airfields.js` and `assets/`: the airfield tables and the viewer's scripts, styles and fonts, shared by every aircraft.
 
-In an aircraft, click its name at the top left to switch aircraft or go back to the Hangar. The theme and the
-airfield map you pick are shared; ticks, notes and reading progress stay with each aircraft. Tabs with nothing
+The three pages share a header with Hangar / Airfields / Help tabs. In an aircraft, ⌂ goes back to the Hangar and
+its name at the top left switches aircraft. The theme and the airfield map you pick are shared (links between pages
+also carry the theme as `?theme=`, for browsers that keep each file's saved data apart); ticks, notes and reading progress stay with each aircraft. Tabs with nothing
 to show for an aircraft (no checklists, weapons…) are left out, and aircraft-specific wording comes from the
 aircraft JSON (for example `cautions.note`).
 
@@ -146,7 +149,8 @@ when testing, and `--replay <log>` plays back a `--watch` or session log instead
 ## Layout
 
 - `viewer/template.html`, `viewer.css`, `viewer.js` – core viewer (pages, TOC, search, tabs, aircraft switcher).
-- `viewer/hangar.html`, `hangar.js`, `airfields.html`, `standalone.js` – the Hangar and its Airfields page.
+- `viewer/page.html`, `hangar.js`, `standalone.js` – the Hangar's pages (Hangar, Airfields, Help).
+- `viewer/nav.js` – loaded first on every page: applies the theme and carries it on links between pages.
 - `viewer/reading.js` – the reading features above, plugged in through `window.Viewer`.
 - `viewer/weapons.js` – the Weapons tab.
 - `viewer/aerodromes.js` – the Airfields tab and page (data in `airfields/`).

@@ -158,9 +158,11 @@
     box.replaceChildren(
       el("div", { className: "section-title" }, el(V.standalone ? "h1" : "h2", { textContent: "Airfields" })),
       V.standalone
-        ? el("p", { className: "note adabout", textContent: "Every DCS map, for any aircraft. Each aircraft's Airfields tab has the same tables." })
+        ? el("p", { className: "note adabout" }, "Every DCS map, for any aircraft. ",
+          ...((window.HANGAR || []).length ? ["Open this map in an aircraft's Airfields tab, with its kneeboard maps marked: ",
+            ...window.HANGAR.flatMap((a, i) => [i ? ", " : "", el("a", { href: `${encodeURI(a.dir)}/index.html#af=${slug(cur.name)}`, textContent: a.short })]), "."] : []))
         : el("p", { className: "note adabout" }, kb.size ? `Maps marked KB are on the ${G.short} kneeboard pages. ` : "",
-          "The same tables, without an aircraft, are on the ", el("a", { href: "../airfields.html", textContent: "Hangar's Airfields page" }), "."),
+          "The same tables, without an aircraft, are on the ", el("a", { href: `../airfields.html#af=${slug(cur.name)}`, textContent: "Hangar's Airfields page" }), "."),
       ...[search, results(), chips].filter(Boolean),
       ...table(cur.table, hit),
       el("p", { className: "note" }, "Transcribed from ", el("i", { textContent: "Aerodrome Data and Frequencies" }), " by Dima Kozyrev (Minsky). ",

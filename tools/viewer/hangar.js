@@ -47,13 +47,14 @@
       el("li", {}, "Run ", el("code", { textContent: "extract" }), ", ", el("code", { textContent: "svg" }), " and ", el("code", { textContent: "build" }), " from ", el("code", { textContent: "tools/" }), " (see tools/README.md)."),
       el("li", { textContent: "It shows up here. Checklists, weapons and the live link are optional." })));
 
-  const live = list.find(a => a.live[0]);
+  const live = list.some(a => a.live[0]);
   const tool = (href, title, text) => el("a", { className: "hg-tool", href }, el("b", { textContent: title }), el("span", { textContent: text }));
   const shared = el("section", { className: "hg-shared" },
     el("h2", { textContent: "For every aircraft" }),
     el("div", { className: "hg-tools" },
       tool("airfields.html", "Airfields", `${window.AIRFIELDS?.length || 0} maps: tower radios, TACAN, VOR, ILS and runways`),
-      live ? tool(`${encodeURI(live.dir)}/index.html#help=live`, "Live cockpit setup", "Install DCS-BIOS and run the bridge once for every aircraft") : null));
+      tool("help.html", "Help", "Using the reader, the in-game kneeboard pages and themes"),
+      live ? tool("help.html#help=live", "Live cockpit setup", "Install DCS-BIOS and run the bridge, once for every aircraft") : null));
 
   $("#hangar").replaceChildren(
     el("div", { className: "hg-head" }, el("h1", { textContent: "Hangar" }),
