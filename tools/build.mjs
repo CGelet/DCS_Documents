@@ -29,6 +29,7 @@ const refs = [
   ...(extra.checklists || []).flatMap(c => c.groups.flatMap(g => g.items.map(i => i[1]))),
   ...(extra.quickref || []).flatMap(c => c.rows.map(r => r[2])),
   ...weapons.weapons.flatMap(w => [...w.facts.map(f => f[2]), ...w.steps.map(s => s[1]), ...w.modes.flatMap(m => [m[1], m[2]])]),
+  ...(extra.cautions?.lights || []).flatMap(l => l.pages),
 ].filter(p => p != null);
 const badRefs = refs.filter(p => p < 1 || p > data.pageCount);
 // "extras" lists realism-only items ("group-item" keys) that kneeboard.mjs --minimal leaves out
@@ -63,13 +64,15 @@ const guide = {
   checklists: extra.checklists || [],
   quickref: extra.quickref || [],
   weapons: weapons.weapons,
+  cautions: extra.cautions || null,
+  logbook: extra.logbook || null,
   weaponTargets: weapons.targets,
 };
 
 // Viewer assets: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
 const assets = path.join(outDir, "assets");
 fs.mkdirSync(assets, { recursive: true });
-for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "live.js", "help.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
+for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "live.js", "cautions.js", "logbook.js", "help.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
 fs.cpSync(path.join(here, "viewer", "fonts"), path.join(assets, "fonts"), { recursive: true });
 
 const html = fs.readFileSync(path.join(here, "viewer", "template.html"), "utf8")

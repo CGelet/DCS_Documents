@@ -22,11 +22,14 @@ if (!acPath || !jsonDir) {
 }
 const ac = JSON.parse(fs.readFileSync(acPath, "utf8"));
 const ref = new Map();
-for (const cat of Object.values(JSON.parse(fs.readFileSync(path.join(jsonDir, ac.dcsModule + ".json"), "utf8"))))
-  for (const [id, c] of Object.entries(cat)) {
-    const o = (c.outputs || []).find(o => o.type === "integer") || (c.outputs || []).find(o => o.type === "string");
-    if (o) ref.set(id, o);
-  }
+for (const file of [ac.dcsModule + ".json", "CommonData.json"]) {
+  if (!fs.existsSync(path.join(jsonDir, file))) continue;
+  for (const cat of Object.values(JSON.parse(fs.readFileSync(path.join(jsonDir, file), "utf8"))))
+    for (const [id, c] of Object.entries(cat)) {
+      const o = (c.outputs || []).find(o => o.type === "integer") || (c.outputs || []).find(o => o.type === "string");
+      if (o) ref.set(id, o);
+    }
+}
 
 // A value that passes a test ("~n": moved n from the current value), and whether a value passes one
 const passing = (t, cur) => Array.isArray(t) ? t[0] : typeof t !== "string" ? t

@@ -71,19 +71,22 @@ const validModule = m => typeof m === "string" && /^[A-Za-z0-9][A-Za-z0-9_.-]{0,
 function reference(module) {
   if (!validModule(module)) return null;
   if (refs.has(module)) return refs.get(module);
-  const f = path.join(jsonDir, module + ".json");
   let map = null;
   try {
-    const ref = JSON.parse(fs.readFileSync(f, "utf8"));
     map = new Map();
-    for (const cat of Object.values(ref))
-      for (const [id, c] of Object.entries(cat)) {
-        const o = (c.outputs || []).find(o => o.type === "integer");
-        const t = !o && (c.outputs || []).find(o => o.type === "string");
-        // gauge: needles and other continuously moving values, only logged when a reader uses them
-        if (o) map.set(id, { address: o.address, mask: o.mask, shift: o.shift_by, labels: c.positions, gauge: c.control_type === "analog_gauge" || c.control_type === "metadata" });
-        else if (t) map.set(id, { address: t.address, len: t.max_length, text: true }); // display text, e.g. IFEI_BINGO
-      }
+    // The aircraft's controls, plus CommonData (G, airspeed, altitude...), which DCS-BIOS exports for every aircraft
+    const load = (file, common) => {
+      for (const cat of Object.values(JSON.parse(fs.readFileSync(path.join(jsonDir, file), "utf8"))))
+        for (const [id, c] of Object.entries(cat)) {
+          const o = (c.outputs || []).find(o => o.type === "integer");
+          const t = !o && (c.outputs || []).find(o => o.type === "string");
+          // gauge: needles and other continuously moving values, only logged when a reader uses them
+          if (o) map.set(id, { address: o.address, mask: o.mask, shift: o.shift_by, labels: c.positions, gauge: common || c.control_type === "analog_gauge" || c.control_type === "metadata" });
+          else if (t) map.set(id, { address: t.address, len: t.max_length, text: true }); // display text, e.g. IFEI_BINGO
+        }
+    };
+    load(module + ".json", false);
+    if (fs.existsSync(path.join(jsonDir, "CommonData.json"))) load("CommonData.json", true);
   } catch {
     map = null; // missing or unreadable reference
   }
@@ -116,7 +119,7 @@ function onByte(c) {
 // NAME_FRAMES frames, and nothing is sent to the reader until SETTLE_MS later.
 const NAME_FRAMES = 15, SETTLE_MS = +opt("--settle-ms", 5000);
 let aircraft = null, candidate = null, candidateFrames = 0, settleUntil = 0;
-const watchLast = new Map();
+const watchLast = new Map(), watchTime = new Map();
 function onFrame() {
   // MetadataStart: aircraft name, null-terminated, at address 0
   const z = mem.indexOf(0, 0);
@@ -158,9 +161,16 @@ function onFrame() {
       if ((r.text || r.gauge) && !ALL && !used.has(id)) continue;
       const v = read(r);
       const text = `  ${id} = ${v}${r.labels?.[v] ? ` (${r.labels[v]})` : ""}`;
+      // Gauges and text that change every frame in flight (G, airspeed, hydraulics...) are logged at
+      // most once a second; the reader still gets every change
       if (first) logLine(text);
-      else if (watchLast.get(id) !== v) { if (WATCH) console.log(text); logLine(text); }
+      else if (watchLast.get(id) !== v) {
+        if ((r.gauge || r.text) && Date.now() - (watchTime.get(id) || 0) < 1000) continue;
+        if (WATCH) console.log(text);
+        logLine(text);
+      }
       watchLast.set(id, v);
+      watchTime.set(id, Date.now());
     }
   }
 }

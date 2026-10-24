@@ -435,7 +435,7 @@
     const filter = el("input", { type: "search", placeholder: "Filter notes…", value: notesFilter });
     filter.style.cssText = "height:36px;padding:0 10px;border-radius:8px;border:1px solid var(--border);background:var(--panel-2);min-width:160px";
     filter.oninput = () => { notesFilter = filter.value; renderList(); filter.focus(); };
-    const exportBtn = Object.assign(el("button", { className: "iconbtn", textContent: "Export" }), { onclick: exportNotes, title: "Save notes, highlights, progress and checklists to a file" });
+    const exportBtn = Object.assign(el("button", { className: "iconbtn", textContent: "Export" }), { onclick: exportNotes, title: "Save notes, highlights, progress, checklists and the flight log to a file" });
     const importBtn = Object.assign(el("button", { className: "iconbtn", textContent: "Import" }), { onclick: importNotes, title: "Load a previously exported file (merges)" });
     const list = el("div");
     function renderList() {
@@ -476,13 +476,14 @@
       list,
       el("p", { className: "note", textContent: "Everything here is saved in this browser. Use Export / Import to move it to another device or browser." }),
     );
+    V.emit("notes", box); // e.g. logbook.js adds the flight log
   }
   V.on("tab", t => { if (t === "notes") renderNotes(); });
 
   function exportNotes() {
     const checklists = {};
     for (const c of G.checklists || []) checklists[c.id] = store.get("cl:" + c.id, []);
-    const data = { app: "chucks-guide-viewer", version: 1, aircraft: G.short, exported: new Date().toISOString(), highlights: hls, read: [...read].sort((a, b) => a - b), checklists };
+    const data = { app: "chucks-guide-viewer", version: 1, aircraft: G.short, exported: new Date().toISOString(), highlights: hls, read: [...read].sort((a, b) => a - b), checklists, flights: store.get("logbook", []) };
     const a = el("a", { href: URL.createObjectURL(new Blob([JSON.stringify(data, null, 1)], { type: "application/json" })), download: `${G.short.replace(/[^\w-]+/g, "-")}-notes.json` });
     document.body.append(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
@@ -499,6 +500,9 @@
         for (const h of data.highlights || []) if (!ids.has(h.id) && h.p >= 1 && h.p <= N) { hls.push(h); added++; }
         (data.read || []).forEach(p => p >= 1 && p <= N && read.add(p));
         for (const [id, keys] of Object.entries(data.checklists || {})) store.set("cl:" + id, [...new Set([...store.get("cl:" + id, []), ...keys])]);
+        const flights = store.get("logbook", []), fids = new Set(flights.map(f => f.id));
+        for (const f of data.flights || []) if (f?.id && !fids.has(f.id)) flights.push(f);
+        store.set("logbook", flights.sort((a, b) => a.start - b.start));
         store.set("read", [...read]);
         saveHl();
         pageEls.forEach((d, p) => d && renderHighlights(p));

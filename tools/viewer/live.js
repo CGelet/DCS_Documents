@@ -34,7 +34,11 @@
     };
   });
   const allConds = lists.flatMap(l => l.groups.flat().flatMap(i => [...(i.conds || []), ...(i.done || [])]));
-  const controls = [...new Set(allConds.map(c => c[0]))];
+  // Also the controls the caution explainer and the flight log use; they hear every change through V.on("bios")
+  const lb = G.logbook || {};
+  const extra = [...(G.cautions?.lights || []).map(l => l.light), ...(G.cautions?.quietUntil || []).map(c => c[0]),
+    ...(lb.wow || []), ...Object.values(lb.aoa || {}), lb.ias, lb.alt, lb.g, lb.fuel].filter(Boolean);
+  const controls = [...new Set([...allConds.map(c => c[0]), ...extra])];
   if (!G.dcsModule || !controls.length) { chk.closest("label").hidden = true; $("#liveHelp").hidden = true; return; }
 
   const values = {}, base = {}; // base: value of a "~n" control when its item came up
@@ -104,14 +108,17 @@
       if ("logging" in m) logging = m.logging;
       if ("aircraft" in m) {
         if (m.aircraft !== G.dcsModule) clear();
+        // Second argument: why it's not live. "none" means DCS reports no aircraft: the mission ended (or you crashed)
+        V.emit("aircraft", m.aircraft === G.dcsModule, m.aircraft ? "other" : "none");
         status(m.aircraft === G.dcsModule ? "live" : "bridge",
           m.aircraft === G.dcsModule ? "Live: reading your cockpit" : m.aircraft ? `DCS is flying ${m.aircraft}, not ${G.dcsModule}` : "Bridge running, waiting for DCS");
       }
       // Changes arrive in order so short button presses are not lost
-      for (const [c, v] of m.changes || []) { values[c] = v; evaluate(); }
+      for (const [c, v] of m.changes || []) { values[c] = v; evaluate(); V.emit("bios", c, v); }
     };
     ws.onclose = () => {
       ws = null;
+      V.emit("aircraft", false, "link");
       if (!settings.live) return;
       timer = setTimeout(connect, retry);
       retry = Math.min(retry * 2, 30000);
@@ -122,6 +129,7 @@
     if (ws) { ws.onclose = null; ws.close(); ws = null; }
     box.removeEventListener("change", onManual);
     clear();
+    V.emit("aircraft", false, "off");
     status("off", "");
   }
   function setLive(on) {

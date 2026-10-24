@@ -23,6 +23,10 @@
     <input id="pageInput" inputmode="numeric" aria-label="Page number"> <span id="pageTotal"></span>
   </div>
   <button class="iconbtn livedot" id="liveDot" hidden><i></i><span>LIVE</span></button>
+  <div class="caut">
+    <button class="iconbtn cautbtn" id="cautBtn" hidden>⚠ <span>0</span></button>
+    <div class="cautpop" id="cautPop"></div>
+  </div>
   <button class="iconbtn" id="modeBtn" title="Toggle single-page kneeboard mode (M)">▭</button>
   <div class="settings" id="settings">
     <button class="iconbtn" id="settingsBtn" aria-label="Settings" title="Settings">⚙</button>
@@ -34,6 +38,7 @@
       <label>Acronym tooltips <input type="checkbox" id="glossChk"></label>
       <label title="Tick checklist items from your cockpit switches. Needs tools/bios-bridge.mjs running.">Live cockpit (DCS-BIOS) <input type="checkbox" id="liveChk"></label>
       <a href="#help=live" id="liveHelp" class="hint">DCS-BIOS setup guide →</a>
+      <label hidden title="Pop up an explanation when a caution or warning light comes on (live cockpit link)">Caution pop-ups <input type="checkbox" id="cautChk"></label>
     </div>
   </div>
 </header>
@@ -62,12 +67,15 @@
 <div id="selbar" class="float"></div>
 <div id="notepop" class="float"></div>
 <div id="walkbar" class="float"></div>
+<div id="toasts"></div>
 
 <script src="data.js"></script>
 <script src="assets/viewer.js"></script>
 <script src="assets/reading.js"></script>
 <script src="assets/weapons.js"></script>
 <script src="assets/live.js"></script>
+<script src="assets/cautions.js"></script>
+<script src="assets/logbook.js"></script>
 <script src="assets/help.js"></script>
 </body>
 </html>

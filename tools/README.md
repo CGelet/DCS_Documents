@@ -92,6 +92,16 @@ Cold Start is linked so far. Its start-up values (battery, seat, APU, crank, thr
 running read from hydraulic pressure) are confirmed from a real session. The rest follow
 DCS-BIOS's position names: run the bridge with `--watch` to see each switch's value as you flip it.
 
+**Caution explainer:** the aircraft JSON's `"cautions"` lists the warning, caution and advisory lights
+(`light`, `name`, `level`, `text`, guide `pages`). While live, the ⚠ button in the header lists the lit
+ones, and new warnings and cautions pop up once `quietUntil` holds (both engines running), since
+several cautions light on purpose during start-up.
+
+**Flight log:** `"logbook"` names the sensors (weight on wheels, AoA indexer lights, CommonData
+airspeed/altitude/G, IFEI fuel). The reader records each flight (takeoff to full stop, with every
+touchdown) on the Notes tab. The bridge also loads DCS-BIOS's `CommonData.json` for this, and logs
+fast-changing values like these at most once a second.
+
 **Session logs:** run the bridge with `--log` (or set `"log": true` in `tools/bios-bridge.json`). Each
 run then writes `test_logs/MMDDYYYY_HHMM.txt` (`_2`, `_3`… if one already exists for that minute): a
 snapshot of every control when the aircraft loads, every change after that, and each item the reader
