@@ -14,6 +14,19 @@
   let cur = store.get("logbook:current", null), pending = null, aoa = { t: 0, state: null };
   let ground = null, airTimer = null, stopTimer = null, saveT = null, checked = false;
 
+  // Open copies of the reader share their storage, so only one of them records; the others just show the log.
+  // The recording tab renews a claim every 2 s; another tab takes over if it lapses (e.g. that tab was closed).
+  const TAB = Math.random().toString(36).slice(2);
+  let mine = false, claimTimer = null;
+  function claim() {
+    const o = store.get("logbook:owner", null);
+    const free = !o || o.tab === TAB || Date.now() - o.t > 5000;
+    if (free) store.set("logbook:owner", { tab: TAB, t: Date.now() });
+    if (free && !mine) { cur = store.get("logbook:current", null); pending = null; ground = null; checked = false; }
+    mine = free;
+  }
+  addEventListener("pagehide", () => { if (mine) store.set("logbook:owner", null); });
+
   const num = v => { const n = parseFloat(String(v ?? "").replace(/[^\d.-]/g, "")); return Number.isFinite(n) ? n : null; };
   const fuel = () => num(values[L.fuel]);
   const saveCur = () => { clearTimeout(saveT); saveT = setTimeout(() => store.set("logbook:current", cur), 1000); };
@@ -36,7 +49,9 @@
     cur.end = last?.type === "full stop" ? last.t : cur.updated;
     cur.fuelEnd = fuel() ?? cur.fuelEnd ?? null;
     if (note) cur.note = note;
-    store.set("logbook", [...store.get("logbook", []), cur]);
+    const flights = store.get("logbook", []);
+    if (!flights.some(f => f.id === cur.id || Math.abs(f.start - cur.start) < 10000)) flights.push(cur);
+    store.set("logbook", flights);
     store.set("logbook:current", null);
     cur = null;
     if (V.activeTab === "notes") V.showTab("notes");
@@ -61,6 +76,7 @@
   }
 
   V.on("bios", (c, v) => {
+    if (!mine) return;
     const t = Date.now();
     values[c] = v;
     if (c === L.alt && v != null) { alt.push([t, v]); while (alt.length && alt[0][0] < t - 5000) alt.shift(); }
@@ -84,13 +100,20 @@
     if (onGround) touchdown(t);
     else airTimer = setTimeout(() => { if (ground === false) takeoff(t); }, TAKEOFF_MS);
   });
-  V.on("aircraft", on => {
-    if (on) return;
-    // Link off or mission over: keep a flight in the air (it may continue after a reload); close one that has stopped
+  V.on("aircraft", (on, why) => {
+    if (on) { if (!claimTimer) { claim(); claimTimer = setInterval(claim, 2000); } return; }
+    clearInterval(claimTimer);
+    claimTimer = null;
+    if (!mine) return;
     clearTimeout(airTimer);
     if (pending && ground) { pending.type = "full stop"; finish(); }
+    // DCS reports no aircraft: the mission is over, so a flight still in the air ended there (a crash looks the same).
+    // If only the link went off, keep it: it continues when the link (or a reloaded page) reconnects.
+    else if (why === "none" && cur && ground !== true) finish("Mission ended in the air (crash, ejection or leaving the mission)");
     ground = null;
     checked = false;
+    mine = false;
+    store.set("logbook:owner", null);
   });
   // A flight that hasn't been updated for 30 minutes is over
   if (cur && Date.now() - cur.updated > 30 * 60000) finish("ended without a recorded landing");
@@ -125,13 +148,14 @@
 
   V.on("notes", box => {
     const flights = store.get("logbook", []).slice().reverse();
+    const live = cur || store.get("logbook:current", null); // another open tab may be the one recording
     const clear = flights.length ? Object.assign(el("button", { className: "iconbtn", textContent: "Clear" }), {
       onclick: () => { if (confirm(`Delete all ${flights.length} flights?`)) { store.set("logbook", []); V.showTab("notes"); } } }) : null;
     box.append(
       el("div", { className: "section-title" }, el("h2", { textContent: `Flight log (${flights.length})` }), clear),
       el("div", { className: "group flights" },
-        ...(cur ? [row(cur, true)] : []),
-        ...(flights.length || cur ? flights.map(f => row(f)) : [el("div", { className: "empty", textContent:
+        ...(live ? [row(live, true)] : []),
+        ...(flights.length || live ? flights.map(f => row(f)) : [el("div", { className: "empty", textContent:
           "Flights are recorded while the live cockpit link is on (Settings → Live cockpit): takeoff, landings, max G, airspeed, altitude and fuel used." })])),
       el("p", { className: "note", textContent: "Sink rate is estimated from altitude, so treat it as a rough guide. Airspeed, altitude and G need DCS's export of your own aircraft, which some multiplayer servers turn off." }),
     );

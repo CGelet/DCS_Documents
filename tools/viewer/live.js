@@ -108,7 +108,8 @@
       if ("logging" in m) logging = m.logging;
       if ("aircraft" in m) {
         if (m.aircraft !== G.dcsModule) clear();
-        V.emit("aircraft", m.aircraft === G.dcsModule);
+        // Second argument: why it's not live. "none" means DCS reports no aircraft: the mission ended (or you crashed)
+        V.emit("aircraft", m.aircraft === G.dcsModule, m.aircraft ? "other" : "none");
         status(m.aircraft === G.dcsModule ? "live" : "bridge",
           m.aircraft === G.dcsModule ? "Live: reading your cockpit" : m.aircraft ? `DCS is flying ${m.aircraft}, not ${G.dcsModule}` : "Bridge running, waiting for DCS");
       }
@@ -117,7 +118,7 @@
     };
     ws.onclose = () => {
       ws = null;
-      V.emit("aircraft", false);
+      V.emit("aircraft", false, "link");
       if (!settings.live) return;
       timer = setTimeout(connect, retry);
       retry = Math.min(retry * 2, 30000);
@@ -128,7 +129,7 @@
     if (ws) { ws.onclose = null; ws.close(); ws = null; }
     box.removeEventListener("change", onManual);
     clear();
-    V.emit("aircraft", false);
+    V.emit("aircraft", false, "off");
     status("off", "");
   }
   function setLive(on) {

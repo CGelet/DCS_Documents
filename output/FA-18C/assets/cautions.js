@@ -1,7 +1,8 @@
 // Caution explainer: while the live cockpit link is on, the ⚠ button in the header lists the warning,
 // caution and advisory lights that are lit, with what each means and the guide page that explains it.
 // A newly lit warning or caution also pops up, but only once the engines are running (G.cautions.quietUntil),
-// since several cautions light up on purpose during a cold start.
+// since several cautions light up on purpose during a cold start. Lights marked "airborneOnly" (LOW ALT, which
+// is on whenever you're below the radar altimeter index, e.g. parked) only pop up in the air.
 (() => {
   const V = window.Viewer;
   const C = V?.G.cautions;
@@ -15,6 +16,8 @@
   const values = {};
   let live = false, firstValue = 0; // when the cockpit snapshot started arriving
 
+  const wow = V.G.logbook?.wow || [];
+  const onGround = () => !wow.length || wow.some(w => values[w] !== 0);
   const quiet = () => !(C.quietUntil || []).every(([c, t]) => values[c] != null && (t[0] === ">" ? values[c] > +t.slice(1) : values[c] < +t.slice(1)));
 
   function card(l, onClose) {
@@ -54,7 +57,7 @@
       if (lit.has(c)) return;
       lit.set(c, Date.now());
       // No pop-ups for lights already on when the link connects, only for ones that come on later
-      if (settings.cautPop !== false && l.level !== "advisory" && !quiet() && Date.now() - firstValue > 2000) toast(l);
+      if (settings.cautPop !== false && l.level !== "advisory" && !quiet() && Date.now() - firstValue > 2000 && !(l.airborneOnly && onGround())) toast(l);
     } else {
       if (!lit.delete(c)) return;
       toasts.querySelector(`[data-light="${c}"]`)?.remove(); // the light went out

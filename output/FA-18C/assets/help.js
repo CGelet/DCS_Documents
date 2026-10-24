@@ -120,7 +120,8 @@
           Click it for what each one means, from Chuck's cockpit pages, with links to them. It turns yellow for a caution and red for a warning.</li>
         <li>When a warning or caution comes on, a card pops up in the top right. It goes away when the light goes out, or click ✕.
           Turn the pop-ups off with ⚙ → <b>Caution pop-ups</b>.</li>
-        <li>No pop-ups during start-up: several cautions light on purpose (APU ACC, BATT SW, the generators…), so they start once both engines are running.</li>
+        <li>No pop-ups during start-up: several cautions light on purpose (APU ACC, BATT SW, the generators…), so they start once both engines are running.
+          LOW ALT only pops up in the air, since it's also on whenever you're parked below the radar altimeter index.</li>
         <li>Many Hornet cautions only appear on the DDI, which DCS-BIOS can't read. <b>MASTER CAUTION</b> is your cue to look there.</li>
       </ul>` : ""}
       ${G.logbook ? `<h3>Flight log</h3>
@@ -129,7 +130,8 @@
           and every touchdown with its airspeed, AoA indexer (slow / on speed / fast) and an estimated sink rate.</li>
         <li>A flight starts when all wheels leave the ground. Touching down and flying again within 20 s counts as a touch-and-go (or bolter);
           staying on the ground longer is a full stop and ends the flight.</li>
-        <li>It only records while this page is open with the live link on. Export / Import on the Notes tab include the flight log.</li>
+        <li>If the mission ends while you're in the air (a crash, ejecting or leaving the mission), the flight closes there with a note.</li>
+        <li>It only records while this page is open with the live link on; with several copies open, one of them records. Export / Import on the Notes tab include the flight log.</li>
         <li>Airspeed, altitude and G come from DCS's export of your own aircraft; some multiplayer servers turn that off.</li>
       </ul>` : ""}
       <h3>Troubleshooting</h3>
