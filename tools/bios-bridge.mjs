@@ -75,7 +75,9 @@ function reference(module) {
     for (const cat of Object.values(ref))
       for (const [id, c] of Object.entries(cat)) {
         const o = (c.outputs || []).find(o => o.type === "integer");
+        const t = !o && (c.outputs || []).find(o => o.type === "string");
         if (o) map.set(id, { address: o.address, mask: o.mask, shift: o.shift_by, labels: c.positions });
+        else if (t) map.set(id, { address: t.address, len: t.max_length, text: true }); // display text, e.g. IFEI_BINGO
       }
   } catch {
     map = null; // missing or unreadable reference
@@ -126,7 +128,12 @@ function onFrame() {
   }
   const ref = aircraft && reference(aircraft);
   if (!ref || Date.now() < settleUntil) return;
-  const read = r => (mem.readUInt16LE(r.address) & r.mask) >> r.shift;
+  // Text outputs are sent as numbers when they hold one ("8000"), "" when blank
+  const read = r => {
+    if (!r.text) return (mem.readUInt16LE(r.address) & r.mask) >> r.shift;
+    const s = mem.toString("latin1", r.address, r.address + r.len).replace(/\0[\s\S]*$/, "").trim();
+    return s !== "" && Number.isFinite(+s) ? +s : s;
+  };
   for (const cl of clients) {
     if (cl.module !== aircraft) continue;
     for (const id of cl.controls) {
@@ -139,7 +146,10 @@ function onFrame() {
   if (WATCH || logStream) {
     const first = !watchLast.size;
     if (first) logLine(`initial values for ${aircraft}:`);
+    // Text outputs (IFEI fuel and the like) change constantly, so only the ones a reader uses are shown
+    const used = new Set([...clients].flatMap(cl => [...cl.controls]));
     for (const [id, r] of ref) {
+      if (r.text && !used.has(id)) continue;
       const v = read(r);
       const text = `  ${id} = ${v}${r.labels?.[v] ? ` (${r.labels[v]})` : ""}`;
       if (first) logLine(text);

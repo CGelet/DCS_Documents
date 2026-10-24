@@ -151,12 +151,13 @@
   function endWalk() {
     if (walk == null) return;
     const div = pageEls[seq[walk].p];
-    walk = null;
+    walk = walkPage = null;
     document.body.classList.remove("walking");
     document.querySelectorAll(".ann .dim").forEach(d => d.remove());
     setActive(div, null);
     walkbar.classList.remove("open");
   }
+  let walkPage = null; // page the walkthrough last centered
   function drawWalk(scroll) {
     const { p, n, box, run } = seq[walk];
     const div = pageEls[p], pg = G.pages[p - 1];
@@ -173,9 +174,18 @@
       `</mask></defs><rect width="100%" height="100%" fill="rgba(0,0,0,.58)" mask="url(#walkmask)"/></svg>`);
     div._n = undefined;
     setActive(div, n);
+    // Keep the whole page in view, so the step and the screenshots it points at are seen together:
+    // center the page when the walkthrough starts or moves to a new page (later steps on the same
+    // page don't move it unless it's out of view); a page taller than the window centers on the step
     if (scroll && !V.settings.single) {
-      const zone = div.querySelector(`.ann .zone[data-n="${n}"]`);
-      (zone || div).scrollIntoView({ block: "center", behavior: "smooth" });
+      const m = V.main.getBoundingClientRect(), r = div.getBoundingClientRect();
+      const fits = r.height <= m.height - walkbar.offsetHeight;
+      const newPage = walkPage !== p;
+      walkPage = p;
+      if (newPage || !fits || r.top < m.top || r.bottom > m.bottom - walkbar.offsetHeight) {
+        const zone = div.querySelector(`.ann .zone[data-n="${n}"]`);
+        (fits ? div : zone || div).scrollIntoView({ block: "center", behavior: "smooth" });
+      }
     }
     const [a, b] = runRange(run), path = V.sectionPath(p);
     const prev = el("button", { className: "iconbtn", textContent: "‹", title: "Previous step (←)", disabled: walk === a });

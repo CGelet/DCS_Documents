@@ -23,7 +23,7 @@ const ac = JSON.parse(fs.readFileSync(acPath, "utf8"));
 const ref = new Map();
 for (const cat of Object.values(JSON.parse(fs.readFileSync(path.join(jsonDir, ac.dcsModule + ".json"), "utf8"))))
   for (const [id, c] of Object.entries(cat)) {
-    const o = (c.outputs || []).find(o => o.type === "integer");
+    const o = (c.outputs || []).find(o => o.type === "integer") || (c.outputs || []).find(o => o.type === "string");
     if (o) ref.set(id, o);
   }
 
@@ -42,14 +42,18 @@ for (const cl of ac.checklists) cl.groups.forEach((g, gi) => g.items.forEach(([t
   for (const [c, t] of conds) tests.set(c, [...(tests.get(c) || []), t]);
 }));
 const mem = Buffer.alloc(65536);
-const read = id => { const o = ref.get(id); return (mem.readUInt16LE(o.address) & o.mask) >> o.shift_by; };
+const read = id => {
+  const o = ref.get(id);
+  return o.type === "string" ? +mem.toString("latin1", o.address, o.address + o.max_length).trim() || 0 : (mem.readUInt16LE(o.address) & o.mask) >> o.shift_by;
+};
 const write = (id, v) => {
   const o = ref.get(id);
   if (!o) throw new Error(`unknown control ${id}`);
+  if (o.type === "string") { mem.write(String(v).padStart(o.max_length).slice(-o.max_length), o.address, "latin1"); return; }
   mem.writeUInt16LE((mem.readUInt16LE(o.address) & ~o.mask) | ((v << o.shift_by) & o.mask), o.address);
 };
 for (const [c, ts] of tests) {
-  const max = ref.get(c).max_value;
+  const max = ref.get(c).max_value ?? 9999;
   const cands = [...Array(Math.min(max, 64) + 1).keys(), ...ts.filter(t => typeof t === "string").map(t => Math.min(max, +t.slice(1) + 1))];
   write(c, cands.find(v => ts.every(t => !passes(v, t))) ?? cands.find(v => !passes(v, ts[0])));
 }
