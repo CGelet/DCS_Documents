@@ -1,11 +1,14 @@
 // Airfields tab: tower radios, navaids, runways and coordinates per DCS map, in the layout of Minsky's
-// "Aerodrome Data and Frequencies" kneeboards. Data from G.airfields (tools/airfields/: transcribed from
-// his sheets, checked against the in-game data; a ⚠ marks where they disagree).
-// Pick a map, or search an airfield by name or ICAO code.
+// "Aerodrome Data and Frequencies" kneeboards. Data from window.AIRFIELDS (../airfields.js, built from tools/airfields/:
+// transcribed from his sheets, checked against the in-game data; a ⚠ marks where they disagree).
+// Pick a map, or search an airfield by name or ICAO code. The same panel is the Hangar's Airfields page
+// (airfields.html, where V.standalone is set); in an aircraft, the maps on its kneeboard pages are marked KB.
 (() => {
   const V = window.Viewer;
-  const { G, $, el, store } = V;
-  const T = G.airfields || [];
+  const { G, $, el } = V;
+  const T = window.AIRFIELDS || [];
+  const store = V.shared || V.store; // the map picked is the same everywhere
+  const kb = new Set((V.standalone ? [] : G.kneeboardMaps || []).map(m => m.toLowerCase()));
   const tabBtn = document.querySelector('.tabs button[data-tab="airfields"]');
   if (!T.length) { tabBtn?.remove(); return; }
 
@@ -147,12 +150,17 @@
     search.oninput = () => { query = search.value; box.querySelector(".adresults")?.remove(); const r = results(); if (r) search.after(r); };
     const chips = el("div", { className: "wfilters" }, ...maps.map(m => {
       const b = el("button", { className: "chip", textContent: m.name });
+      if (kb.has(m.name.toLowerCase())) { b.append(span("n", "KB")); b.title = `On the ${G.short} kneeboard pages`; }
       b.setAttribute("aria-selected", m === cur);
       b.onclick = () => { query = ""; show(m); };
       return b;
     }));
     box.replaceChildren(
-      el("div", { className: "section-title" }, el("h2", { textContent: "Airfields" })),
+      el("div", { className: "section-title" }, el(V.standalone ? "h1" : "h2", { textContent: "Airfields" })),
+      V.standalone
+        ? el("p", { className: "note adabout", textContent: "Every DCS map, for any aircraft. Each aircraft's Airfields tab has the same tables." })
+        : el("p", { className: "note adabout" }, kb.size ? `Maps marked KB are on the ${G.short} kneeboard pages. ` : "",
+          "The same tables, without an aircraft, are on the ", el("a", { href: "../airfields.html", textContent: "Hangar's Airfields page" }), "."),
       ...[search, results(), chips].filter(Boolean),
       ...table(cur.table, hit),
       el("p", { className: "note" }, "Transcribed from ", el("i", { textContent: "Aerodrome Data and Frequencies" }), " by Dima Kozyrev (Minsky). ",

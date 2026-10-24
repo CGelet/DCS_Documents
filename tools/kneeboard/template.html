@@ -10,15 +10,19 @@
 <div id="sheets"></div>
 <script>
 // Lays out checklists, quick-ref cards and weapon steps as portrait kneeboard sheets.
-// kneeboard.mjs opens this page with ?data=<data.js URL>&theme=<theme> and screenshots each .sheet.
+// kneeboard.mjs opens this page with ?data=<data.js URL>&airfields=<airfields.js URL>&theme=<theme> and screenshots each .sheet.
 (() => {
   const q = new URLSearchParams(location.search);
   document.documentElement.dataset.theme = q.get("theme") || "kb-light";
-  const s = document.createElement("script");
-  s.src = q.get("data");
-  s.onload = () => { build(window.GUIDE); window.KNEEBOARD_READY = true; };
-  s.onerror = () => { window.KNEEBOARD_READY = "could not load " + q.get("data"); };
-  document.head.append(s);
+  const load = src => new Promise((ok, fail) => {
+    const s = document.createElement("script");
+    s.src = src; s.onload = ok; s.onerror = () => fail("could not load " + src);
+    document.head.append(s);
+  });
+  // The airfield tables are shared by every aircraft (output/airfields.js), the rest is the aircraft's data.js
+  Promise.all([load(q.get("data")), q.get("airfields") && load(q.get("airfields"))])
+    .then(() => { build({ ...window.GUIDE, airfields: window.AIRFIELDS || [] }); window.KNEEBOARD_READY = true; })
+    .catch(e => { window.KNEEBOARD_READY = String(e); });
 
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   const sheetsEl = document.getElementById("sheets");

@@ -13,11 +13,13 @@
   const pad = p => String(p).padStart(3, "0");
 
   // localStorage can be unavailable (private mode, blocked site data): never let it break the page
-  const KEY = "chuck:" + G.short + ":";
-  const store = {
-    get(k, d) { try { const v = localStorage.getItem(KEY + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
-    set(k, v) { try { localStorage.setItem(KEY + k, JSON.stringify(v)); } catch {} },
-  };
+  const makeStore = prefix => ({
+    get(k, d) { try { const v = localStorage.getItem(prefix + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(prefix + k, JSON.stringify(v)); } catch {} },
+  });
+  const store = makeStore("chuck:" + G.short + ":");
+  // Shared by every aircraft and the Hangar pages: the theme, the airfield map picked
+  const shared = makeStore("chuck:");
 
   const hooks = { decorate: null, textLayer: [], current: [], tab: [], key: [], quickref: [], route: [], reset: [] };
   // The page tracker runs before startup; keep the URL untouched until the initial route is applied
@@ -27,7 +29,7 @@
 
   /* ---------- Settings ---------- */
   const settings = Object.assign(
-    { theme: "dark", filter: "none", width: "1200px", single: false, steps: true, gloss: true, live: false, navHidden: false },
+    { theme: shared.get("theme", "dark"), filter: "none", width: "1200px", single: false, steps: true, gloss: true, live: false, navHidden: false },
     store.get("settings", {}),
   );
   if (settings.theme === "night" && !settings.v2) settings.theme = "red"; // "night" used to be the red theme
@@ -49,6 +51,7 @@
     $("#modeBtn").textContent = settings.single ? "☰" : "▭";
     $("#modeBtn").title = settings.single ? "Switch to continuous scroll (M)" : "Switch to single-page kneeboard mode (M)";
     store.set("settings", settings);
+    shared.set("theme", settings.theme);
   }
   $("#settingsBtn").onclick = e => { e.stopPropagation(); $("#settings").classList.toggle("open"); };
   document.addEventListener("click", e => { if (!$("#settings").contains(e.target)) $("#settings").classList.remove("open"); });
@@ -383,6 +386,23 @@
   $("#navBtn").onclick = toggleNav;
   $("#scrim").onclick = closeNav;
 
+  /* ---------- Aircraft switcher: the other aircraft built next to this one (../aircraft.js), the Hangar and its Airfields page ---------- */
+  {
+    const menu = $("#acMenu"), btn = $("#brandBtn");
+    const link = (href, label, sub, here) => {
+      const a = el("a", { href }, el("span", { textContent: label }), sub ? el("small", { textContent: sub }) : null);
+      if (here) a.setAttribute("aria-current", "page");
+      return a;
+    };
+    const dir = decodeURIComponent(location.pathname.split("/").slice(-2, -1)[0] || "");
+    const others = window.HANGAR || [];
+    menu.append(...others.map(a => link(`../${a.dir}/index.html`, a.aircraft, a.pages + " pages", a.dir === dir)),
+      ...(others.length ? [el("hr")] : []),
+      link("../index.html", "Hangar", "All aircraft"), link("../airfields.html", "Airfields", "Every map, any aircraft"));
+    btn.onclick = e => { e.stopPropagation(); const open = menu.classList.toggle("open"); btn.setAttribute("aria-expanded", open); };
+    document.addEventListener("click", e => { if (!menu.contains(e.target)) { menu.classList.remove("open"); btn.setAttribute("aria-expanded", false); } });
+  }
+
   /* ---------- Tabs ---------- */
   const TABS = ["guide", "checklists", "quickref", "weapons", "airfields", "notes", "help"];
   let activeTab = "guide";
@@ -406,6 +426,9 @@
 
   /* ---------- Checklists ---------- */
   const cls = G.checklists || [];
+  // Tabs with nothing to show for this aircraft are left out (Weapons and Airfields remove themselves)
+  if (!cls.length) document.querySelector('.tabs button[data-tab="checklists"]').remove();
+  if (![G.quickref, G.glossary, G.links].some(a => a?.length)) document.querySelector('.tabs button[data-tab="quickref"]').remove();
   let activeCl = store.get("cl", cls[0]?.id);
   if (!cls.some(c => c.id === activeCl)) activeCl = cls[0]?.id;
   const hideDone = { v: store.get("hideDone", false) };
@@ -526,7 +549,7 @@
     if (e.target.matches("input, select, textarea") || e.ctrlKey || e.metaKey || e.altKey) return;
     if (hooks.key.some(f => f(e))) return;
     if (e.key === "/") { e.preventDefault(); searchEl.focus(); searchEl.select(); }
-    else if (e.key === "Escape") { closeNav(); }
+    else if (e.key === "Escape") { closeNav(); $("#acMenu").classList.remove("open"); }
     else if (e.key >= "1" && e.key <= "9") {
       // Number keys follow the tabs shown (Weapons and Airfields hide themselves when there's no content)
       const t = [...document.querySelectorAll("header .tabs button")][+e.key - 1]?.dataset.tab;
@@ -544,7 +567,7 @@
 
   /* ---------- API for reading.js ---------- */
   window.Viewer = {
-    G, N, $, el, esc, store, settings, main, pageEls, outline, parentOf, secOf, rangeOf, tocLis,
+    G, N, $, el, esc, store, shared, settings, main, pageEls, outline, parentOf, secOf, rangeOf, tocLis,
     sectionPath, buildTextLayer, fitLayer, loadSvg, goPage, showTab, pageLink, closeNav, tickItem,
     saveSettings: () => store.set("settings", settings),
     get current() { return current; },

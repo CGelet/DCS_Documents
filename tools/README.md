@@ -8,13 +8,29 @@ quick reference, single-page kneeboard mode and light/dark/night themes.
 npm install                                                     # once (installs mupdf)
 node extract.mjs "../CHUCKS_GUIDES/<guide>.pdf" ../output/<AC>  # text + outline -> data.json (~30 s)
 node svg.mjs     "../CHUCKS_GUIDES/<guide>.pdf" ../output/<AC>  # page SVGs -> svg/, svgimg/ (~30 s)
-node build.mjs   ../output/<AC> aircraft/<AC>.json              # index.html, data.js, assets/
+node build.mjs   ../output/<AC> aircraft/<AC>.json              # index.html, data.js, and the Hangar in ../output
 ```
 
-Open `output/<AC>/index.html` directly in a browser (no server needed) and keep the output
+Open `output/index.html` directly in a browser (no server needed) and keep the whole output
 folder together. The aircraft JSON is optional: without it you still get the full guide,
 search, TOC and all reading features. Use `node dump.mjs <pdf> <from> <to>` to read procedure
 pages when writing checklists; each item is `[text, sourcePage]`.
+
+## Hangar (several aircraft)
+
+Every aircraft built into a folder of `output/` shares that folder's Hangar, which `build.mjs` refreshes each time:
+
+- `index.html`: the Hangar, one card per aircraft (cover, what it includes, your reading progress) and the tools that
+  don't depend on the aircraft.
+- `airfields.html`: the Airfields tables on their own. Each aircraft also keeps its Airfields tab, where the maps
+  on its kneeboard pages are marked **KB**.
+- `aircraft.js`: the aircraft list, made from each `<AC>/hangar.json` (written by the build).
+- `airfields.js` and `assets/`: the airfield tables and the viewer's scripts, styles and fonts, shared by every aircraft.
+
+In an aircraft, click its name at the top left to switch aircraft or go back to the Hangar. The theme and the
+airfield map you pick are shared; ticks, notes and reading progress stay with each aircraft. Tabs with nothing
+to show for an aircraft (no checklists, weapons…) are left out, and aircraft-specific wording comes from the
+aircraft JSON (for example `cautions.note`).
 
 ## Reading features (detected automatically by `annotate.mjs`)
 
@@ -129,10 +145,11 @@ when testing, and `--replay <log>` plays back a `--watch` or session log instead
 
 ## Layout
 
-- `viewer/template.html`, `viewer.css`, `viewer.js` – core viewer (pages, TOC, search, tabs).
+- `viewer/template.html`, `viewer.css`, `viewer.js` – core viewer (pages, TOC, search, tabs, aircraft switcher).
+- `viewer/hangar.html`, `hangar.js`, `airfields.html`, `standalone.js` – the Hangar and its Airfields page.
 - `viewer/reading.js` – the reading features above, plugged in through `window.Viewer`.
 - `viewer/weapons.js` – the Weapons tab.
-- `viewer/aerodromes.js` – the Airfields tab (data in `airfields/`).
+- `viewer/aerodromes.js` – the Airfields tab and page (data in `airfields/`).
 - `viewer/live.js` – the optional DCS-BIOS live link (`bios-bridge.mjs` is its PC-side bridge).
 - `kneeboard/` – the kneeboard page template used by `kneeboard.mjs`.
 - `viewer/fonts/` – Carlito, a Calibri-compatible font for devices without Calibri.

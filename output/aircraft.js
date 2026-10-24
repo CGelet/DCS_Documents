@@ -1,0 +1,1 @@
+window.HANGAR = [{"dir":"FA-18C","aircraft":"F/A-18C Hornet","short":"F/A-18C","title":"DCS F/A-18C Hornet Guide","pages":742,"cover":"svgimg/755a81f8137eefb1.jpg","firstChecklist":"startup","has":{"checklists":5,"quickref":6,"weapons":19,"kneeboard":true,"cautions":32,"logbook":true},"live":[1,5]}];

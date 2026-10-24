@@ -1,6 +1,8 @@
 // Usage: node build.mjs <outDir> [aircraft.json]
 // Combines <outDir>/data.json (extract.mjs) and <outDir>/svg (svg.mjs) with the optional aircraft
-// checklist/quick-ref file, and writes <outDir>/index.html, data.js and assets/. Open index.html in a browser.
+// checklist/quick-ref file, and writes <outDir>/index.html, data.js and hangar.json. <outDir> sits in a
+// folder shared by every aircraft (output/), which gets the Hangar: index.html (one card per aircraft
+// built there, from aircraft.js), airfields.html, airfields.js and the viewer's assets/. Open output/index.html.
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -12,6 +14,7 @@ if (!outDir) {
   console.error("Usage: node build.mjs <outDir> [aircraft.json]");
   process.exit(1);
 }
+const root = path.dirname(path.resolve(outDir));
 
 const data = JSON.parse(fs.readFileSync(path.join(outDir, "data.json"), "utf8"));
 const extra = aircraftPath ? JSON.parse(fs.readFileSync(aircraftPath, "utf8")) : {};
@@ -90,14 +93,34 @@ const guide = {
   cautions: extra.cautions || null,
   logbook: extra.logbook || null,
   weaponTargets: weapons.targets,
-  airfields: airfieldMaps,
 };
 
-// Viewer assets: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
-const assets = path.join(outDir, "assets");
+// Viewer assets, shared by every aircraft and the Hangar: stylesheet, scripts and the bundled Carlito font (Calibri-compatible)
+const assets = path.join(root, "assets");
 fs.mkdirSync(assets, { recursive: true });
-for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "aerodromes.js", "live.js", "cautions.js", "logbook.js", "help.js"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
+for (const f of ["viewer.css", "viewer.js", "reading.js", "weapons.js", "aerodromes.js", "live.js", "cautions.js", "logbook.js", "help.js", "standalone.js", "hangar.js"])
+  fs.copyFileSync(path.join(here, "viewer", f), path.join(assets, f));
 fs.cpSync(path.join(here, "viewer", "fonts"), path.join(assets, "fonts"), { recursive: true });
+fs.rmSync(path.join(outDir, "assets"), { recursive: true, force: true }); // each aircraft used to carry its own copy
+fs.writeFileSync(path.join(root, "airfields.js"), "window.AIRFIELDS = " + JSON.stringify(airfieldMaps) + ";\n");
+
+// The aircraft's card on the Hangar. The cover is the largest picture on the guide's first page.
+const coverImgs = [...new Set(fs.readFileSync(path.join(outDir, "svg", "p001.js"), "utf8").match(/svgimg\/[\w.-]+/g) || [])];
+const cover = coverImgs.sort((a, b) => fs.statSync(path.join(outDir, b)).size - fs.statSync(path.join(outDir, a)).size)[0] || null;
+fs.writeFileSync(path.join(outDir, "hangar.json"), JSON.stringify({
+  dir: path.basename(path.resolve(outDir)), aircraft: guide.aircraft, short: guide.short, title: guide.title, pages: guide.pageCount, cover,
+  firstChecklist: guide.checklists[0]?.id || null,
+  has: {
+    checklists: guide.checklists.length, quickref: guide.quickref.length, weapons: guide.weapons.length,
+    kneeboard: !!guide.dcsModule && fs.existsSync(path.join(outDir, "kneeboard")), cautions: guide.cautions?.lights.length || 0, logbook: !!guide.logbook,
+  },
+  live: [guide.checklists.filter(c => c.groups.some(g => g.items.some(i => i[2]))).length, guide.checklists.length],
+}, null, 2) + "\n");
+// Every aircraft built in this folder, for the Hangar and each aircraft's switcher
+const hangar = fs.readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory() && fs.existsSync(path.join(root, d.name, "hangar.json")))
+  .map(d => JSON.parse(fs.readFileSync(path.join(root, d.name, "hangar.json"), "utf8"))).sort((a, b) => a.aircraft.localeCompare(b.aircraft));
+fs.writeFileSync(path.join(root, "aircraft.js"), "window.HANGAR = " + JSON.stringify(hangar) + ";\n");
+for (const f of ["hangar.html", "airfields.html"]) fs.copyFileSync(path.join(here, "viewer", f), path.join(root, f === "hangar.html" ? "index.html" : f));
 
 const html = fs.readFileSync(path.join(here, "viewer", "template.html"), "utf8")
   .replaceAll("{{TITLE}}", `${guide.short} – Chuck's Guide`)
@@ -107,6 +130,7 @@ fs.writeFileSync(path.join(outDir, "index.html"), html);
 
 const items = guide.checklists.reduce((n, c) => n + c.groups.reduce((m, g) => m + g.items.length, 0), 0);
 const stepPages = guide.pages.filter(p => p.st).length, linkedPages = guide.pages.filter(p => p.co).length;
+console.log(`Hangar: ${root}/index.html (${hangar.map(a => a.short).join(", ")}), airfields.html (${airfieldMaps.length} maps)`);
 console.log(`built ${outDir}/index.html: ${guide.pageCount} pages, ${guide.outline.length} TOC entries, ` +
   `${stepPages} pages with steps (${linkedPages} with linked callouts), ${guide.glossary.length} acronyms, ${guide.links.length} links, ` +
   `${guide.checklists.length} checklists (${items} items), ${guide.quickref.length} quick-ref cards, ${guide.weapons.length} weapons`);

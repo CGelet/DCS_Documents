@@ -1,6 +1,6 @@
 // Usage: node kneeboard.mjs <outDir> [--theme kb-light|kb-dark|light|dark|night|red] [--maps "Caucasus,Syria"]
 // Renders the checklists, quick-ref cards, weapon steps and airfield tables (the aircraft JSON's kneeboardMaps,
-// or --maps "A,B" / --maps all) from <outDir>/data.js (build.mjs) as
+// or --maps "A,B" / --maps all) from <outDir>/data.js and ../airfields.js (build.mjs) as
 // portrait PNGs, as two sets ready to copy to Saved Games\DCS\Kneeboard\:
 //   <outDir>/kneeboard/full/<dcsModule>/        everything
 //   <outDir>/kneeboard/essentials/<dcsModule>/  without each checklist's "extras" (checks, tests, realism-only steps)
@@ -24,6 +24,9 @@ const json = fs.readFileSync(dataJs, "utf8");
 const module = json.match(/"dcsModule":"([^"]+)"/)?.[1];
 if (!module) throw new Error(`No dcsModule in ${dataJs}: add "dcsModule" (e.g. "FA-18C_hornet") to the aircraft JSON and rebuild`);
 
+// The airfield tables are shared by every aircraft: build.mjs writes them next to the aircraft folders
+const airfieldsJs = path.resolve(outDir, "..", "airfields.js");
+if (!fs.existsSync(airfieldsJs)) throw new Error(`${airfieldsJs} is missing: run build.mjs first`);
 const hasExtras = /"extras":\["/.test(json);
 // The old single-set folder (kneeboard/<module>) is replaced by the full/ and essentials/ sets
 fs.rmSync(path.join(outDir, "kneeboard", module), { recursive: true, force: true });
@@ -33,7 +36,7 @@ const page = await browser.newPage({ viewport: { width: 1600, height: 1100 }, de
 for (const [set, minimal] of [["full", false], ["essentials", true]]) {
   if (minimal && !hasExtras) continue;
   const url = pathToFileURL(path.join(here, "kneeboard", "template.html"));
-  url.search = new URLSearchParams({ data: pathToFileURL(path.resolve(dataJs)).href, theme, ...(minimal && { minimal: 1 }), ...(maps && { maps }) }).toString();
+  url.search = new URLSearchParams({ data: pathToFileURL(path.resolve(dataJs)).href, airfields: pathToFileURL(airfieldsJs).href, theme, ...(minimal && { minimal: 1 }), ...(maps && { maps }) }).toString();
   await page.goto(url.href);
   await page.waitForFunction(() => window.KNEEBOARD_READY);
   const ready = await page.evaluate(() => window.KNEEBOARD_READY);

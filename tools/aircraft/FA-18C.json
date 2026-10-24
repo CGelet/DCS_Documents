@@ -4,6 +4,7 @@
   "dcsModule": "FA-18C_hornet",
   "kneeboardMaps": ["Caucasus", "Persian Gulf", "Syria", "Nevada"],
   "cautions": {
+    "note": "Many Hornet cautions only show on the DDI, which DCS-BIOS can't read. MASTER CAUTION is your cue to look there.",
     "quietUntil": [["HYD_IND_LEFT", ">35000"], ["HYD_IND_RIGHT", ">35000"]],
     "lights": [
       {"light": "FIRE_LEFT_LT", "name": "FIRE (left engine)", "level": "warning", "text": "Fire detected in the left engine. Press the FIRE light (closes the fuel feed and arms the extinguisher), then the Fire Extinguisher Discharge button.", "pages": [157, 32]},

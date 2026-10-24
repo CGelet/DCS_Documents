@@ -37,7 +37,7 @@
     if (pop.classList.contains("open"))
       pop.replaceChildren(el("div", { className: "ptitle", textContent: "Cockpit lights on now" }),
         ...(list.length ? list.map(l => card(l)) : [el("p", { className: "empty", textContent: "No warning, caution or advisory lights are on." })]),
-        el("p", { className: "note", textContent: "Many Hornet cautions only show on the DDI, which DCS-BIOS can't read; MASTER CAUTION tells you to look there." }));
+        G.cautions.note ? el("p", { className: "note", textContent: G.cautions.note }) : null);
   }
 
   function toast(l) {

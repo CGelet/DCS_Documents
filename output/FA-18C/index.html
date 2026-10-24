@@ -4,12 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>F/A-18C – Chuck's Guide</title>
-<link rel="stylesheet" href="assets/viewer.css">
+<link rel="stylesheet" href="../assets/viewer.css">
 </head>
 <body class="guide-tab">
 <header>
   <button class="iconbtn" id="navBtn" title="Contents (T)" aria-label="Toggle contents">☰</button>
-  <div class="brand">F/A-18C <small>Chuck's Guide</small></div>
+  <div class="acswitch">
+    <button class="brand" id="brandBtn" aria-haspopup="true" aria-expanded="false" title="Switch aircraft, or go to the Hangar">F/A-18C <small>Chuck's Guide</small></button>
+    <nav class="acmenu" id="acMenu" aria-label="Aircraft"></nav>
+  </div>
   <div class="tabs" role="tablist">
     <button role="tab" data-tab="guide" aria-selected="true">Guide</button>
     <button role="tab" data-tab="checklists" aria-selected="false">Checklists</button>
@@ -71,14 +74,17 @@
 <div id="walkbar" class="float"></div>
 <div id="toasts"></div>
 
+<!-- Shared with the other aircraft and the Hangar pages in the folder above -->
+<script src="../aircraft.js"></script>
+<script src="../airfields.js"></script>
 <script src="data.js"></script>
-<script src="assets/viewer.js"></script>
-<script src="assets/reading.js"></script>
-<script src="assets/weapons.js"></script>
-<script src="assets/aerodromes.js"></script>
-<script src="assets/live.js"></script>
-<script src="assets/cautions.js"></script>
-<script src="assets/logbook.js"></script>
-<script src="assets/help.js"></script>
+<script src="../assets/viewer.js"></script>
+<script src="../assets/reading.js"></script>
+<script src="../assets/weapons.js"></script>
+<script src="../assets/aerodromes.js"></script>
+<script src="../assets/live.js"></script>
+<script src="../assets/cautions.js"></script>
+<script src="../assets/logbook.js"></script>
+<script src="../assets/help.js"></script>
 </body>
 </html>

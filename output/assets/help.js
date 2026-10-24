@@ -10,8 +10,10 @@
 
   const SECTIONS = [
     ["start", "Getting started", `
-      <p>Everything works offline: open <code>index.html</code> straight from the folder and keep the folder together.
-      Your ticks, highlights, notes, reading progress and settings are saved in <b>this browser</b> only.
+      <p>Everything works offline: open <code>index.html</code> straight from the <code>output</code> folder and keep the whole folder together.
+      That page is the <b>Hangar</b>: one card per aircraft, plus the Airfields tables for every map. Click the aircraft's name at the top left
+      (<b>${esc(G.short)} ▾</b>) to switch aircraft or go back to the Hangar.</p>
+      <p>Your ticks, highlights, notes, reading progress and settings are saved in <b>this browser</b> only.
       To move them to another browser or device, use <b>Export</b> and <b>Import</b> on the Notes tab.</p>
       <table class="keys">
         <tr><td><kbd>/</kbd></td><td>Search the guide</td></tr>
@@ -48,7 +50,9 @@
       <p>The tables are transcribed from <b>Aerodrome Data and Frequencies</b> by Dima Kozyrev (Minsky), and the radios, navaids and positions are
       checked against the in-game data. A <b>⚠</b> marks a value the game disagrees with; hover it to see the game's value.
       The kneeboard pages have the same tables for the maps you fly (set in the aircraft file's <code>kneeboardMaps</code>).</p>
-      <p>Maps so far: ${(G.airfields || []).map(t => esc(t.map)).join(", ")}.</p>`],
+      <p>The same tables are on the Hangar's <a href="../airfields.html">Airfields page</a>, for any aircraft.
+      ${G.kneeboardMaps?.length ? `Maps marked <b>KB</b> are on the ${esc(G.short)} kneeboard pages.` : ""}</p>
+      <p>Maps so far: ${(window.AIRFIELDS || []).map(t => esc(t.map)).join(", ")}.</p>`],
     ["themes", "Themes", `
       <p>⚙ → Theme changes the whole reader:</p>
       <ul>
@@ -129,7 +133,7 @@
           Turn the pop-ups off with ⚙ → <b>Caution pop-ups</b>.</li>
         <li>No pop-ups during start-up: several cautions light on purpose (APU ACC, BATT SW, the generators…), so they start once both engines are running.
           LOW ALT only pops up in the air, since it's also on whenever you're parked below the radar altimeter index.</li>
-        <li>Many Hornet cautions only appear on the DDI, which DCS-BIOS can't read. <b>MASTER CAUTION</b> is your cue to look there.</li>
+        ${G.cautions.note ? `<li>${esc(G.cautions.note)}</li>` : ""}
       </ul>` : ""}
       ${G.logbook ? `<h3>Flight log</h3>
       <ul>

@@ -42,8 +42,9 @@ So far it covers the **F/A-18C Hornet**, from *DCS Guide F/A-18C Hornet* by Chuc
 
 ## Using it
 
-1. Download or clone this repo, then open **`output/FA-18C/index.html`** in a browser. It works
-   offline and doesn't need a server. Keep the `output/FA-18C` folder together.
+1. Download or clone this repo, then open **`output/index.html`** in a browser. That's the **Hangar**:
+   a card for each aircraft and the airfield tables for every map. It works offline and doesn't need
+   a server. Keep the whole `output` folder together, since the aircraft share files in it.
 2. Open the **Help** tab, or press `?`, for a full usage guide.
 3. **Kneeboard:** copy `output/FA-18C/kneeboard/essentials/FA-18C_hornet` (or `…/full/…`) into
    `Saved Games\DCS\Kneeboard\`. Use one set at a time.
@@ -56,7 +57,8 @@ Your ticks, highlights and notes are saved in your own browser only.
 
 | Path | What's in it |
 |---|---|
-| `output/FA-18C/` | The finished reader: `index.html`, page graphics, data and kneeboard images |
+| `output/` | The finished reader. `index.html` is the Hangar, `airfields.html` the airfield tables, `assets/` is shared by every aircraft |
+| `output/FA-18C/` | The F/A-18C reader: `index.html`, page graphics, data and kneeboard images |
 | `tools/` | The scripts that build it from the PDF. See [`tools/README.md`](tools/README.md) |
 | `tools/aircraft/` | Hand-written checklists, quick reference and weapons data for each aircraft |
 | `CHUCKS_GUIDES/` | Where the source PDFs go. They are not included: download them from Chuck's site |
