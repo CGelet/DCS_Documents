@@ -92,10 +92,13 @@ Cold Start is linked so far. Its start-up values (battery, seat, APU, crank, thr
 running read from hydraulic pressure) are confirmed from a real session. The rest follow
 DCS-BIOS's position names: run the bridge with `--watch` to see each switch's value as you flip it.
 
-**Session logs:** set `"log": true` in `tools/bios-bridge.json` (or run the bridge with `--log`). Each
-run then writes `test_logs/MMDDYYYY_HHMM.txt`: a snapshot of every control when the aircraft loads,
-every change after that, and each item the reader ticks with the reason (`BATTERY_SW = 2`, or
-`cockpit shows rightEngine`). `--log-dir <folder>` writes it elsewhere.
+**Session logs:** run the bridge with `--log` (or set `"log": true` in `tools/bios-bridge.json`). Each
+run then writes `test_logs/MMDDYYYY_HHMM.txt` (`_2`, `_3`… if one already exists for that minute): a
+snapshot of every control when the aircraft loads, every change after that, and each item the reader
+ticks with the reason (`BATTERY_SW = 2`, or `cockpit shows rightEngine`). Needles and gauges the
+reader doesn't use (compass, standby attitude, VSI, nozzles…) are left out; add `--all` to include
+them. The log names only its own file, never the folder, so it doesn't contain your user name.
+`--log-dir <folder>` writes it elsewhere.
 
 `node tools/bios-fake.mjs aircraft/<AC>.json --json-dir <folder> [--skip-extras]` stands in for DCS
 when testing, and `--replay <log>` plays back a `--watch` or session log instead.

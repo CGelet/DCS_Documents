@@ -16,7 +16,7 @@
       "groups": [
         { "title": "Pre-Start", "done": ["rightEngine"], "items": [
           ["Ejection seat – ARMED (lever down), harness lever – FWD", 82, ["EJECTION_SEAT_ARMED", 0]],
-          ["Parking brake – ENGAGED", 82, ["EMERGENCY_PARKING_BRAKE_ROTATE", 1]],
+          ["Parking brake – ENGAGED", 82, ["EMERGENCY_PARKING_BRAKE_ROTATE", 2]],
           ["MASTER ARM – SAFE", 82, ["MASTER_ARM_SW", 0]],
           ["Battery switch – ON (right click)", 82, ["BATTERY_SW", 2]],
           ["Hydraulic brake pressure – 3000 psi minimum", 82],
@@ -105,7 +105,7 @@
           ["FORMATION lights – BRT", 100, ["FORMATION_DIMMER", ">0"]],
           ["Exterior lights master (L) – as required", 100],
           ["LDG/TAXI light – ON", 100, ["LDG_TAXI_SW", 1]],
-          ["Parking brake – release (push in)", 100, ["EMERGENCY_PARKING_BRAKE_ROTATE", 2]],
+          ["Parking brake – release (push in)", 100, ["EMERGENCY_PARKING_BRAKE_ROTATE", 0]],
           ["Chocks – remove: canopy open, \\ → F8 → F4 → F2", 101]
         ]}
       ]

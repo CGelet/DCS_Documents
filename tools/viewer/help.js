@@ -119,8 +119,9 @@
           If not, DCS-BIOS isn't installed in the Saved Games folder DCS uses.</li>
         <li><b>An item ticks at the wrong moment, or never:</b> run <code>node tools/bios-bridge.mjs --watch</code> and flip that switch;
           it prints the control's name and value. Fix the item's mapping in the aircraft JSON (e.g. <code>["BATTERY_SW", 2]</code>) and rebuild.</li>
-        <li><b>Recording a session:</b> set <code>"log": true</code> in <code>tools/bios-bridge.json</code>. Each time the bridge starts it writes
-          <code>test_logs/MMDDYYYY_HHMM.txt</code> with every switch change and why each item ticked. Commit it to share it.</li>
+        <li><b>Recording a session:</b> run <code>node tools/bios-bridge.mjs --log</code>. Each run writes
+          <code>test_logs/MMDDYYYY_HHMM.txt</code> with every switch change and why each item ticked; gauges the reader doesn't use are left out
+          (add <code>--all</code> to keep them). Commit it to share it.</li>
         <li><b>Testing without DCS:</b> <code>node tools/bios-fake.mjs tools/aircraft/&lt;aircraft&gt;.json --json-dir &lt;folder&gt;</code>
           pretends to be DCS and flips every linked switch in order.</li>
         <li><b>Multiplayer:</b> DCS-BIOS only reads your own cockpit and works on most servers.</li>

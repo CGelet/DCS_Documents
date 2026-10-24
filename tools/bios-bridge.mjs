@@ -1,10 +1,11 @@
-// Usage: node bios-bridge.mjs [--json-dir <DCS-BIOS doc/json folder>] [--watch] [--log]
+// Usage: node bios-bridge.mjs [--json-dir <DCS-BIOS doc/json folder>] [--watch] [--log] [--all]
 // Runs on the PC that runs DCS. Reads cockpit state from DCS-BIOS (TCP 127.0.0.1:7778) and
 // sends the switch changes the reader asks for to ws://127.0.0.1:5011. No npm packages needed.
 // --watch prints every control change of the current aircraft, to check a checklist mapping.
 // --log, or "log": true in bios-bridge.json next to this script, also writes a session log to
 // test_logs/MMDDYYYY_HHMM.txt: every control change plus each item the reader ticks and why.
-// --log-dir <folder> writes it somewhere else.
+// --log-dir <folder> writes it somewhere else. Gauges and needles the reader doesn't use (compass,
+// standby attitude, VSI, nozzles...) are left out of --watch and the log unless --all is given.
 import net from "net";
 import http from "http";
 import crypto from "crypto";
@@ -15,7 +16,7 @@ import { fileURLToPath } from "url";
 
 const args = process.argv.slice(2);
 const opt = (name, d) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : d; };
-const WATCH = args.includes("--watch");
+const WATCH = args.includes("--watch"), ALL = args.includes("--all");
 const BIOS_HOST = opt("--host", "127.0.0.1"), BIOS_PORT = +opt("--port", 7778), WS_PORT = +opt("--ws", 5011);
 
 // Settings file: { "log": false, "logDir": "../test_logs" } (logDir is relative to this script)
@@ -29,8 +30,10 @@ let logStream = null, logFile = null, logBytes = 0;
 if (args.includes("--log") || config.log === true) {
   const dir = path.resolve(here, opt("--log-dir", config.logDir || "../test_logs")), d = new Date(), p2 = n => String(n).padStart(2, "0");
   fs.mkdirSync(dir, { recursive: true });
-  logFile = path.join(dir, `${p2(d.getMonth() + 1)}${p2(d.getDate())}${d.getFullYear()}_${p2(d.getHours())}${p2(d.getMinutes())}.txt`);
-  logStream = fs.createWriteStream(logFile, { flags: "a" });
+  // A second run in the same minute gets its own file (_2, _3...) instead of appending to the first
+  const base = `${p2(d.getMonth() + 1)}${p2(d.getDate())}${d.getFullYear()}_${p2(d.getHours())}${p2(d.getMinutes())}`;
+  for (let n = 1; !logFile || fs.existsSync(logFile); n++) logFile = path.join(dir, base + (n > 1 ? `_${n}` : "") + ".txt");
+  logStream = fs.createWriteStream(logFile, { flags: "wx" });
 }
 function logLine(s) {
   if (!logStream || logBytes > LOG_MAX) return;
@@ -76,7 +79,8 @@ function reference(module) {
       for (const [id, c] of Object.entries(cat)) {
         const o = (c.outputs || []).find(o => o.type === "integer");
         const t = !o && (c.outputs || []).find(o => o.type === "string");
-        if (o) map.set(id, { address: o.address, mask: o.mask, shift: o.shift_by, labels: c.positions });
+        // gauge: needles and other continuously moving values, only logged when a reader uses them
+        if (o) map.set(id, { address: o.address, mask: o.mask, shift: o.shift_by, labels: c.positions, gauge: c.control_type === "analog_gauge" || c.control_type === "metadata" });
         else if (t) map.set(id, { address: t.address, len: t.max_length, text: true }); // display text, e.g. IFEI_BINGO
       }
   } catch {
@@ -146,10 +150,11 @@ function onFrame() {
   if (WATCH || logStream) {
     const first = !watchLast.size;
     if (first) logLine(`initial values for ${aircraft}:`);
-    // Text outputs (IFEI fuel and the like) change constantly, so only the ones a reader uses are shown
+    // Text outputs (IFEI fuel and the like) and gauges change constantly, so only the ones a reader
+    // uses are shown, unless --all
     const used = new Set([...clients].flatMap(cl => [...cl.controls]));
     for (const [id, r] of ref) {
-      if (r.text && !used.has(id)) continue;
+      if ((r.text || (r.gauge && !ALL)) && !used.has(id)) continue;
       const v = read(r);
       const text = `  ${id} = ${v}${r.labels?.[v] ? ` (${r.labels[v]})` : ""}`;
       if (first) logLine(text);
@@ -260,6 +265,7 @@ setInterval(() => {
 server.listen(WS_PORT, "127.0.0.1", () => {
   console.log(`reader link on ws://127.0.0.1:${WS_PORT} (turn on Settings → Live cockpit in the reader)`);
   console.log(`control references: ${jsonDir}`);
-  if (logFile) say(`logging to ${logFile}`);
+  // Logs get shared, so the file itself only names the log, not the folder (which includes the user name)
+  if (logFile) { console.log(`logging to ${logFile}`); logLine(`log ${path.basename(logFile)}`); }
   connectBios();
 });
